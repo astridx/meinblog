@@ -143,7 +143,7 @@ to the registry. To get a value, we use
 $foo = $registry->foo;
 ```
 
-[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
  use Joomla\CMS\Application\ApplicationHelper;
@@ -170,13 +170,13 @@ $foo = $registry->foo;
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 The view combines the data on the parameters so that the display fits. In Joomla it is usual that the setting at the menu item overwrites everything. If there is no parameter here, the value that was saved for the element is used. Last but not least the value of the configuration is used. You query the active menu item via `$active = $app->getMenu()->getActive();`.
 
 Sometimes it is more intuitive to use the display at the element as priority. This is what I implemented here. `$state->get('params')` returns the value stored at the menu item. `$item->params` is the parameter that was stored at the element. The code below shows how you combine the two so that the value at the item is applied.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
 

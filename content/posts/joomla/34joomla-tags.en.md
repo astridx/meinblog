@@ -168,7 +168,7 @@ In the installation script, we make sure that our extension is recognised as a s
 
 In the model of the element, we insert the tags into the batch processing batch and ensure that the associated tags are loaded.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  use Joomla\CMS\Language\LanguageHelper;
@@ -206,7 +206,7 @@ In the model of the element, we insert the tags into the batch processing batch 
 
 We change the model of the overview list of our extension in the backend regarding the filters and the database query.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Associations;
@@ -271,7 +271,7 @@ We change the model of the overview list of our extension in the backend regardi
 
 In the view, we ensure that the keywords matching the language are loaded.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
 

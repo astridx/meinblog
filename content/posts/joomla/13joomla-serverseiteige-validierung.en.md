@@ -36,7 +36,7 @@ The main goal here is not to learn meaningful validation. Rather, I'm showing yo
 
 > Here in the example I only use the [regular expression](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck) to be checked in the class `LetterRule.php`. Of course it is possible to integrate complex checks using functions.
 
-[administrator/components/com_foos/ src/Rule/LetterRule.php](https://codeberg.org/astrid/j4examplecode/src/branch/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php)
+[administrator/components/com_foos/src/Rule/LetterRule.php](https://codeberg.org/astrid/j4examplecode/src/branch/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php

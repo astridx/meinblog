@@ -76,7 +76,7 @@ Joomla creates the form for you if you give it the requirements in an XML file. 
 
 We create more or less an empty class with `FooController`. Although it contains no logic of its own, we need it because it inherits from `FormController`. Joomla expects `FooController` as the controller of the extension in this place under this name.
 
-[administrator/components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/Controller/FooController.php)
+[administrator/components/com_foos/src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/Controller/FooController.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Controller/FooController.php
@@ -107,7 +107,7 @@ class FooController extends FormController
 
 ```
 
-When should you add something to the file `administrator/components/com_foos/ src/Controller/FooController.php`? 
+When should you add something to the file `administrator/components/com_foos/src/Controller/FooController.php`? 
 Did you rename your component and now you have the problem that your _Views_ are not found correctly by Joomla? For example, did you create a new _View_ called `Katze` and your list view is called `Katzen`. Now you are sometimes redirected by Joomla to the _View_ `Katzes`. Especially when you create a new record or cancel an editing. You wonder where the `S` in the end of `Katzes` comes from? You can find the solution in the file [libraries/src/MVC/Controller/ FormController.php](https://github.com/joomla/joomla-cms/blob/73ae0235c25a489bac64613ba3d4837aec406fda/libraries/src/MVC/Controller/FormController.php#L136)[^libraries/src/MVC/Controller/FormController.php]. In the constructor of this file, the `view_item` variable is automatically made plural. However, the English grammar is used. In the case of the English word cat, it fits. Cats is plural of cat. Your controller inherits these values because of `use Joomla\CMS\MVC\Controller\FormController` and `extends FormController`. This does not always fit. You have just experienced an example with the name `cat`. Set in your `FormController` the variables `view_item` and `view_list` yourself to use custom values. 
  
 
@@ -124,7 +124,7 @@ protected $view_list = 'katzen';
 
 Now we create the model to fetch the data for an element from the database. This we call `FooModel`. It inherits the main implementations from `AdminModel`. We add our own special requirements. With `$typeAlias` we set the typalias for the content type. This way Joomla knows for all inherited functions to which element it has to apply them exactly. For example, the alias in `loadFormData()` is used to convert the matching XML file into a form. Remember, you created the file in the current chapter. And for the correct mapping of the table, the alias is essential when you reuse Joomla functions. The typalias plays a big role in the background without you noticing it.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Model/FooModel.php
@@ -222,7 +222,7 @@ class FooModel extends AdminModel
 
 We implement the access to the database table. It is important to set `$this->typeAlias` and to specify the name of the table `#__foos_details`.
 
-[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Table/FooTable.php
@@ -292,9 +292,9 @@ class FooTable extends Table
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/View/Foo/HtmlView.php
 
-The file `administrator/components/com_foos/ src/View/Foo/HtmlView.php` organises the view of an element. Be careful not to mix this up this with the file `administrator/components/com_foos/ src/View/Foo s /HtmlView.php`, which displays all elements in an overview list. To edit an element, we need a toolbar just like in the list view. The display itself is done as usual via the method `display` of the class `BaseHtmlView`. Only our special features are given via `$this->form = $this->get('Form');` and `$this->item = $this->get('Item');`.
+The file `administrator/components/com_foos/src/View/Foo/HtmlView.php` organises the view of an element. Be careful not to mix this up this with the file `administrator/components/com_foos/src/View/Foo s /HtmlView.php`, which displays all elements in an overview list. To edit an element, we need a toolbar just like in the list view. The display itself is done as usual via the method `display` of the class `BaseHtmlView`. Only our special features are given via `$this->form = $this->get('Form');` and `$this->item = $this->get('Item');`.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
@@ -468,7 +468,7 @@ echo LayoutHelper::render('joomla.content.emptystate', $displayData);
 
 > `'icon' => 'icon-copy'` only works with icons that are included by name in the file `build/media_source/system/scss/_icomoon.scss`[^build/media_source/system/scss/_icomoon.scss]. I explained in the preface why this is like it is. Adjust the layout for the icon if you want to display a different symbol.
 
-The Empty State layout has been integrated into Joomla in [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[^github.com/joomla/joomla-cms/pull/33264]. The implementation of the Empty-State-Layout here in the tutorial takes the hint from [Issue 35712](https://github.com/joomla/joomla-cms/issues/35712) into account and inserts the code `if (count($errors = $this->get('Errors'))) { throw new GenericDataException(implode("\n", $errors), 500);}` before the code `if (!count($this->items) && $this->get('IsEmptyState')) { $this->setLayout('emptystate');}` in the file `administrator/components/com_foos/ src/View/Foos/HtmlView.php`. This is done in a later chapter.
+The Empty State layout has been integrated into Joomla in [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[^github.com/joomla/joomla-cms/pull/33264]. The implementation of the Empty-State-Layout here in the tutorial takes the hint from [Issue 35712](https://github.com/joomla/joomla-cms/issues/35712) into account and inserts the code `if (count($errors = $this->get('Errors'))) { throw new GenericDataException(implode("\n", $errors), 500);}` before the code `if (!count($this->items) && $this->get('IsEmptyState')) { $this->setLayout('emptystate');}` in the file `administrator/components/com_foos/src/View/Foos/HtmlView.php`. This is done in a later chapter.
 
 > Good design is already a challenge when there is data to display. It is even more difficult to implement an empty page in a user-friendly way. Have a look at [emptystat.es](https://emptystat.es/) if you want to get inspired about your Empty State implementation.
 
@@ -497,7 +497,7 @@ To ensure that the 'forms' directory is passed to Joomla during a new installati
 
 In the view that displays the overview list, we add the toolbar. Here we insert a button that creates a new element. We also query with `if (!count($this->items) && $this->get('IsEmptyState'))` whether there are items to display. If the view is empty, we display the user-friendly Empty State layout `$this->setLayout('emptystate');`.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
 

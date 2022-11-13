@@ -53,7 +53,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 
 Jetzt benötigt Joomla die Klasse `AdminController`. Deshalb erstellen wir die Klasse `FoosController`, welche von `AdminController` erbt. `FoosController` enthält momentan keine eigenen Implementierungen. Der Controller ruft lediglich Methoden der Elternklasse auf.
 
-[administrator/components/com_foos/ src/Controller/FoosController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Controller/FoosController.php)
+[administrator/components/com_foos/src/Controller/FoosController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
 ```php {numberLines: -2}
 <?php
@@ -203,7 +203,7 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
 
 Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`. Diese wird verwendet um in der Kategorie-Ansicht anzuzeigen, wie viele Elemente veröffentlich oder versteckt sind. Erinnerst du dich. Kategorien hatten wir im vorherigen Teil eingeführt. Da hat dieser Teil in der Kategorie-Ansicht nicht funktioniert. Jetzt wird korrekt gezählt. Überzeuge dich selbst davon, nachdem du die Komponente um diese Funktion in Joomla ergänzt hast.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  protected function getTableNameForSection(string $section = null)
@@ -223,7 +223,7 @@ Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`. Dies
 
 Das Model erweitern wir, damit die Informationen über den Status aus der Datenbank abgefragt werden, wenn die Listenansicht für das Backend erstellt wird.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  protected function getListQuery()
@@ -240,11 +240,11 @@ Das Model erweitern wir, damit die Informationen über den Status aus der Datenb
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/Table/FooTable.php
 
-In der Datei `administrator/components/com_foos/ src/Table/FooTable.php`, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. So stellen wir sicher, dass keine unmöglichen Daten gespeichert werden.
+In der Datei `administrator/components/com_foos/src/Table/FooTable.php`, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. So stellen wir sicher, dass keine unmöglichen Daten gespeichert werden.
 
 `store($updateNulls = true)` benötigen wir, weil die Elternklasse `Table` die Variable `$updateNulls` auf `false` setzt. Dies bewirkt, dass Formularfelder, die den Wert `null` führen, nicht in der Datenbank verändert werden. Meist ist dies korrekt. Der häufigste Fall ist wohl, dass ein Wert von Anfang an nicht gesetzt ist und im Formular beim Bearbeiten den Elements nicht geändert wurde. Weil ein leeres Datumfeld in der Datenbank mit `null` abgespeichert wird, ist es in unserem Fall erforderlich, dass wir das Speichern von `null`-Werten erzwingen. Dies geschieht, indem wir die Variable `$updateNulls` auf `true` setzten.
 
-[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
  public function generateAlias()

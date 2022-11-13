@@ -29,15 +29,15 @@ In diesem Kapitel wird lediglich das Bild `templates/facile/images/banner.jpg` h
 
 ### Geänderte Dateien
 
-##### templates/facile/ index.php
+##### templates/facile/index.php
 
-Die Datei `templates/facile/ index.php` ergänzen wir, so dass über Parameter ein Banner und Social Media Icons einfügbar sind.
+Die Datei `templates/facile/index.php` ergänzen wir, so dass über Parameter ein Banner und Social Media Icons einfügbar sind.
 
 > In HTML haben manche Zeichen, beispielsweise die spitzen Klammern `< >`, eine besondere Bedeutung. Sie werden daher als [HTML-Entities](https://de.wikipedia.org/wiki/Typografische_Zeichen_in_XML_und_HTML)[^de.wikipedia.org/wiki/typografische_zeichen_in_xml_und_html] geschrieben, um sie als Text darzustellen. Beispielsweise steht `&lt;` statt `<` und `&gt;` statt `>`. Bei der Verarbeitung von Zeichenketten kann es vorkommen, dass diese solche spezifischen Zeichen enthalten. Die müssen dann umgewandelt werden, damit sie als reiner Text weiter verarbeitet werden. Wir bieten im Backend unseres Templates eine Texteingabemöglichkeit über ein Formular. Wir möchten aber nicht, dass darüber HTML-Code eingeschleust wird. Dies ist ein Sicherheitsrisiko. Um das zu verhindern, nutzen wir die Funktion [htmlspecialchars()](https://www.php.net/manual/de/function.htmlspecialchars.php)[^php.net/manual/de/function.htmlspecialchars.php]. Dadurch wird sichergestellt, dass die Zeichen, die in HTML eine besondere Bedeutung haben, in reinen Text umgewandelt werden.<!-- \index{htmlspecialchars} -->
 
 Sieh dir den nachfolgenden Codeausschnitt an. Der HTML Code erklärt sich meiner Meinung selbst. Wir fügen HTML-Markup hinzu, welches lediglich angezeigt wird, wenn ein bestimmter Parameter gesetzt ist. Beispielsweise beim Footer über die Abfrage `$this->params->get('showFooter')`. Was angezeigt wird, hängt dann ebenfalls von den im Backend vom Benutzer ausgefüllten Werten für die Parameter ab.
 
-[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 ```php {diff}
          </nav>

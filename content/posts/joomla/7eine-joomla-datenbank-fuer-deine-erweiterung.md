@@ -76,7 +76,7 @@ Als nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir 
 
 Der nachfolgende Code zeigt dir das in unserem Falle noch recht übersichtliche Model.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6/src/administrator/components/com_foos/src/Model/FoosModel.php
@@ -231,7 +231,7 @@ Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu s
 
 In der View sammeln wir am Ende alle Elemente. Hierzu rufen wir die Methode `$this->get('Items')` des Models auf:
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
   */

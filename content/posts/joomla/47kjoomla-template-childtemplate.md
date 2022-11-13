@@ -33,7 +33,7 @@ Es gibt keine neuen Dateien in diesem Kapitel. Wir haben lediglich Dateien versc
 
 Der Pfad zu den _Template-Medien-Verzeichnissen_ war vor Joomla 4.1 `templates/TEMPLATENAME/`. Template-Medienordner sind beispielsweise die Ordner `css`, `images`, `fonts`, `webfonts`, `js`, `sass`, `less` oder `scss`. Ab Joomla 4.1 befinden sich diese Medien idealerweise im Verzeichnis `media/templates/site/TEMPLATENAME/`. Dies ist eine Voraussetzung, um ein Kind-Template sinnvoll zu verwenden.
 
-##### templates/facile/ assets
+##### templates/facile/assets
 
 Damit die Medien-Dateien überschrieben werden können, ist es erforderlich, diese ins Verzeichnis `medien` im Joomla Stammverzeichnis zu verschieben. Deshalb verlegen wir
 
@@ -65,13 +65,13 @@ Unsere CSS-Dateien liegen nun nicht mehr im Unterverzeichnis `assets`. Deshalb p
 
 > Das Gleiche gilt für die Datei `media/templates/site/facile/ css/main.dark.css` und wer SASS verwendet auch für die Datei `media/templates/site/facile/ sass/main.scss`
 
-##### templates/facile/ index.php
+##### templates/facile/index.php
 
-In der Datei `templates/facile/ index.php` korrigieren wir alle Stellen, an denen die Mediendateien geladen werden. Es ist nicht weiter notwendig, einen genauen Pfad anzugeben, weil wir die Standardverzeichnisse in Joomla verwenden. Wir legen die Dateien dort ab, wo Joomla nach ihnen sucht. Weil Joomla eine bestimmte Reihenfolge einhält, ist das Überschreiben mittels Kind-Template möglich. Auf diese Art und Weise wird alles, was das Kind-Template nicht selbst implementiert vom Eltern-Template genutzt.
+In der Datei `templates/facile/index.php` korrigieren wir alle Stellen, an denen die Mediendateien geladen werden. Es ist nicht weiter notwendig, einen genauen Pfad anzugeben, weil wir die Standardverzeichnisse in Joomla verwenden. Wir legen die Dateien dort ab, wo Joomla nach ihnen sucht. Weil Joomla eine bestimmte Reihenfolge einhält, ist das Überschreiben mittels Kind-Template möglich. Auf diese Art und Weise wird alles, was das Kind-Template nicht selbst implementiert vom Eltern-Template genutzt.
 
 Außerdem machen wir via `$wa->registerAndUseStyle('user', 'user.css', [], []);` die Verwendung einer `user.css` Datei möglich. Dies Vereinfacht das Überschreiben ohne an den schon vorhandenen Dateien Änderungen vornehmen zu müssen.
 
-[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/index.php)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/index.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLHelper;
@@ -119,9 +119,9 @@ Außerdem machen wir via `$wa->registerAndUseStyle('user', 'user.css', [], []);`
 
 > Wenn du dich neben dem Joomla Web Asset Manager mehr für die hier verwendeten Funktionen interessierst, ist die Datei `libraries/src/HTML/HTMLHelper.php` ein guter Ausgangspunkt für weitere Code-Recherchen.
 
-##### templates/facile/ language/en-GB/tpl_facile.ini
+##### templates/facile/language/en-GB/tpl_facile.ini
 
-[templates/facile/ language/en-GB/tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
+[templates/facile/language/en-GB/tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 Wir haben das Bannerbild in das Medienverzeichnis verschoben, damit dieses auch im Kind-Template eingesetzt wird, falls das Kind kein spezielleres Bild zur Verfügung stellt. Diese Änderung hat eine Änderung in den Sprachdateien zur Folge.
 
@@ -136,13 +136,13 @@ Wir haben das Bannerbild in das Medienverzeichnis verschoben, damit dieses auch 
  TPL_FACILE_BANNER_TAGLINE="Tagline text"
 ```
 
-##### templates/facile/ templateDetails.xml
+##### templates/facile/templateDetails.xml
 
-Die Speicherorte der Mediendateien wurden geändert. Damit dies bei der Installation des Templates korrekt erkannt wird, korrigieren wir die entsprechenden Einträge in der Datei `templates/facile/ templateDetails.xml`.
+Die Speicherorte der Mediendateien wurden geändert. Damit dies bei der Installation des Templates korrekt erkannt wird, korrigieren wir die entsprechenden Einträge in der Datei `templates/facile/templateDetails.xml`.
 
 > Das Ändern der Speicherorte im `src`-Verzeichnis der Entwicklungsumgebung ist nicht zwingend. Weil es mir wichtig ist, dass meine Dateien die Speicherorte in einer Joomla-Installation nachbilden, habe ich die Dateien im `src`-Verzeichnis ebenfalls umkopiert.
 
-[templates/facile/ templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/templateDetails.xml)
+[templates/facile/templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/templateDetails.xml)
 
 ```php {diff}
  	<license>GNU General Public License version 2 or later;</license>

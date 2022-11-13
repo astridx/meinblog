@@ -773,6 +773,8 @@ sudo systemctl start NetworkManager.service
 
 ```
 
+> It may be helpful to restart the network: `sudo nmcli networking off` and `sudo nmcli networking on`. 
+
 Voila! That is it.
 
 <img src="https://vg02.met.vgwort.de/na/74aa730a21cd40e08180bb49ba5e34fb" width="1" height="1" alt="">

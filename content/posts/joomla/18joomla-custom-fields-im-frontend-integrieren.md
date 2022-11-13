@@ -28,7 +28,7 @@ In diesem Kapitel kommen keine neuen Dateien hinzu.
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 Eigene Felder zeigen im Frontend Daten mithilfe von Ereignisse an. Die benutzerdefinierten Felder werden an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig werden die Daten vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Daten der Ereignisse `onContentAfterTitle`, `onContentBeforeDisplay` und `onContentAfterDisplay`. Dies erledigen wir in der `View`.
 
@@ -41,7 +41,7 @@ ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
 
 > Joomla setzt für die Ereignisbehandlung das [Beobachter-Entwurfsmuster](<https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)>)[^de.wikipedia.org/wiki/beobachter_(Entwurfsmuster)] ein. Hierbei handelt es sich um ein Software-Entwurfsmuster, bei dem ein Objekt eine Liste seiner Abhängigen unterhält. Diese Abhängigen werden Beobachter genannt. Das Objekt benachrichtigt diese automatisch über Zustandsänderungen, normalerweise durch den Aufruf einer ihrer Methoden.<!-- \index{Entwurfsmuster!Beobachter} -->
 
-[components/com_foos/ src/View/Foo/HtmlView.php ](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php ](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

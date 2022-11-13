@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-09
+date: 2022-11-12
 title: 'Template - Module Positions'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

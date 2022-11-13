@@ -28,7 +28,7 @@ No new files are added in this chapter.
 ### Modified files
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 Custom Fields display data in the frontend using events. The custom fields are displayed in three different places on the website. By default, the data is displayed before the content. This setting can be changed. Therefore we save the results of `onContentAfterTitle`, `onContentBeforeDisplay` and `onContentAfterDisplay`. We do this in the `View`.
 
@@ -41,7 +41,7 @@ are triggered and the result is stored in a variable.
 
 > Joomla uses the [observer design pattern](https://en.wikipedia.org/wiki/Observer_pattern)[^en.wikipedia.org/wiki/Observer_pattern] for event handling. This is a software design pattern where an object maintains a list of its dependents called observers and automatically notifies them of state changes, usually by calling one of their methods.<!-- \index{design pattern!observer} -->
 
-[components/com_foos/ src/View/Foo/HtmlView.php ](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php ](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

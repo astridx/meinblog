@@ -282,7 +282,7 @@ Damit bei einer Neuinstallation die Tabellenspalte angelegt wird, in der die Kat
 
 Zusätzlich sind in der Komponentenklasse Implementierungen erforderlich, um die Joomla eigenen Funktionen zu verwenden. Die Methode `countItems` ist notwendig, damit in der Kategorieansicht eine Übersicht über zugeordnete Items erscheint. Die Methode `getTableNameForSection` sorgt dafür, dass immer die richtige Datenbanktabelle abgefragt wird.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
@@ -330,7 +330,7 @@ Zusätzlich sind in der Komponentenklasse Implementierungen erforderlich, um die
 
 Im Model fügen wir bei der Datenbankabfrage die Tabelle hinzu, in der Joomla Kategorien speichert. So werden im Administrationsbereich bei Auswahl einer Kategorie nur die zu dieser gehörenden Elemente angezeigt.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
 

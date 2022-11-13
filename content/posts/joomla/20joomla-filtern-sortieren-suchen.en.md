@@ -205,7 +205,7 @@ There are a lot of changes in the model for the list. In the constructor we firs
 
 In the `getListQuery()` method we adjust the database query to respect the filters and sorting. This way the data is immediately in the form in which we display it.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\Model\ListModel;
@@ -327,7 +327,7 @@ In the `getListQuery()` method we adjust the database query to respect the filte
 
 The view loads the filter form `src/administrator/components/com_foos/ forms/foo.xml`, which is displayed in the upper area. Besides we add here the check if the active user is allowed to perform actions.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

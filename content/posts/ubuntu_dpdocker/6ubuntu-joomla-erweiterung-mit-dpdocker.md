@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2022-04-13
+date: 2022-11-10
 title: 'Eine eigene Joomla-Erweiterung mit DPDocker'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'

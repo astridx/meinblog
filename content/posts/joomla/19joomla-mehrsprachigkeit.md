@@ -289,13 +289,13 @@ class AssociationsHelper extends AssociationExtensionHelper
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Helper/AssociationHelper.php
+#### components/com\_foos/src/Helper/AssociationHelper.php
 
 Die Hilfsdatei `AssociationsHelper.php` ist die Schnittstelle zur Komponente Sprachverknüpfungen `com_associations`. In ihr konfigurieren wir die Angaben, die für unsere Komponente spezifisch sind. Ist dies erledigt, übernehmen die Joomla eigenen Routinen und wir erfinden das Rad nicht neu.
 
-> Achtung: Ich hatte es schon geschrieben: Die Klasse `AssociationsHelper.php` gibt es im Frontend und im Backend: `src/components/com_foos/ src/Helper/AssociationHelper.php` und `src/` `administrator` `/components/com_foos/ src/Helper/AssociationHelper.php`. Die Datei für das Backend hatten wir vorher schon angesehen.
+> Achtung: Ich hatte es schon geschrieben: Die Klasse `AssociationsHelper.php` gibt es im Frontend und im Backend: `src/components/com_foos/src/Helper/AssociationHelper.php` und `src/` `administrator` `/components/com_foos/src/Helper/AssociationHelper.php`. Die Datei für das Backend hatten wir vorher schon angesehen.
 
-[components/com_foos/ src/Helper/AssociationHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/Helper/AssociationHelper.php)
+[components/com_foos/src/Helper/AssociationHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/Helper/AssociationHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/components/com_foos/src/Helper/AssociationHelper.php
@@ -366,11 +366,11 @@ abstract class AssociationHelper extends CategoryAssociationHelper
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Helper/RouteHelper.php
+#### components/com\_foos/src/Helper/RouteHelper.php
 
 Wir erzeugen die Klasse `RouteHelper`, damit die Links korrekt zusammengesetzt werden, die wir in diesem Kapitel erstellen. Innerhalb des Links gibt es eine weitere Information als Parameter: die Sprache.<!-- \index{Routing} -->
 
-[components/com_foos/ src/Helper/RouteHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/components/com_foos/src/Helper/RouteHelper.php)
+[components/com_foos/src/Helper/RouteHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/components/com_foos/src/Helper/RouteHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch//t15a/src/components/com_foos/src/Helper/RouteHelper.php
@@ -587,7 +587,7 @@ In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationSer
 
 > [Traits](https://www.php.net/manual/de/language.oop5.traits.php) sind ein Mechanismus zur Wiederverwendung von Code, der in Programmiersprachen mit einfacher Vererbung wie PHP verwendet wird.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
 
@@ -618,7 +618,7 @@ In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationSer
 
 Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-Element mithilfe eines Popups auszuwählen. Jetzt verwenden wir es wieder, um eine Sprachverknüpfung zu selektieren. Damit nur die passenden Sprachen angezeigt werden, erweitern wir die URL um die Sprachinformation.
 
-[administrator/components/com_foos/ src/Field/Modal/FooField.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/ src/Field/Modal/FooField.php)
+[administrator/components/com_foos/src/Field/Modal/FooField.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php {diff}
  		// Setup variables for display.
@@ -644,9 +644,9 @@ Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-El
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/Model/FooModel.php
 
-Das Model `administrator/components/com_foos/ src/Model/FooModel.php`, mit dem Daten eines Elementes berechnet werden, passen wir bezüglich der Sprache an. Dabei spielen `getItem` und `preprocessForm` die wesentliche Rolle.
+Das Model `administrator/components/com_foos/src/Model/FooModel.php`, mit dem Daten eines Elementes berechnet werden, passen wir bezüglich der Sprache an. Dabei spielen `getItem` und `preprocessForm` die wesentliche Rolle.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -738,7 +738,7 @@ protected function loadFormData()
 
 Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig, den Status über `populateState` zu aktualisieren. Andernfalls ist nicht jederzeit die passende Sprache aktiv. Der Status beinhaltet die Information, welche Sprache aktiv ist.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -832,7 +832,7 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 
 Wir implementieren den Service `association` in `AdministratorService.php`. Über die ID gibt die Funktion das HTML-Markup zum Bearbeiten der Sprachverknüpfungen zurück.<!-- \index{Service!Administrator} -->
 
-[administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {diff}
 
@@ -906,7 +906,7 @@ Wir implementieren den Service `association` in `AdministratorService.php`. Übe
 
 Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht ist, setzen wir den Wert des Sprachauswahlfeldes und schützte es vor Schreibzugriff. Außerdem sind nur Kategorien dieser Sprache auswählbar.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$this->form  = $this->get('Form');
@@ -933,7 +933,7 @@ Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht 
 
 Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nicht um eine Modalansicht oder ein Popup handelt. Falls die Ansicht modal ist, verwirren Toolbar und Sidebar. In dem Fall filtern wir die Items automatisch nach der gerade aktiven Sprache.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;

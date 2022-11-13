@@ -28,7 +28,7 @@ Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu erm�
 
 Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearbeitung geöffnet wird, im Frontend anzuzeigen - vorausgesetzt, der Betrachter darf bearbeiten.
 
-[administrator/components/com_foos/ src/Service/HTML/Icon.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/administrator/components/com_foos/src/Service/HTML/Icon.php)<!-- \index{Service!Icon für Frontendbearbeitung} -->
+[administrator/components/com_foos/src/Service/HTML/Icon.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/administrator/components/com_foos/src/Service/HTML/Icon.php)<!-- \index{Service!Icon für Frontendbearbeitung} -->
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/administrator/components/com_foos/src/Service/HTML/Icon.php
@@ -375,13 +375,13 @@ Wir passen die XML Datei an, die Joomla verwendet, um das Formular aufzubauen.
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Controller/FooController.php
+#### components/com\_foos/src/Controller/FooController.php
 
-Die Datei `components/com_foos/ src/Controller/FooController.php` enhält die Logik für die Bearbeitung im Formular.
+Die Datei `components/com_foos/src/Controller/FooController.php` enhält die Logik für die Bearbeitung im Formular.
 
 > Beachte die Funktion `save`. Diese ist im `FormController` nicht üblich, weil Joomla alles für dich übernimmt. Da beim Erstellen eines Elementes die ID erst erstellt wird und deshalb nicht bekannt ist, leitet Joomla nach dem Erstellen zur Übersichtsseite weiter. Diese haben wir im Frontend noch nicht erstellt. Deshalb habe ich diese Funktion hier abgeändert.
 
-[components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/src/Controller/FooController.php)
+[components/com_foos/src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/src/Controller/FooController.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/src/Controller/FooController.php
@@ -606,11 +606,11 @@ class FooController extends FormController
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/FormModel.php
+#### components/com\_foos/src/Model/FormModel.php
 
-Die Datei `components/com_foos/ src/Model/FormModel.php` organisiert alle notwendigen Daten für die Bearbeitung im Formular.
+Die Datei `components/com_foos/src/Model/FormModel.php` organisiert alle notwendigen Daten für die Bearbeitung im Formular.
 
-[components/com_foos/ src/Model/FormModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/src/Model/FormModel.php)
+[components/com_foos/src/Model/FormModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/src/Model/FormModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/src/Model/FormModel.php
@@ -834,11 +834,11 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Form/HtmlView.php
+#### components/com\_foos/src/View/Form/HtmlView.php
 
-Die Datei `components/com_foos/ src/View/Form/HtmlView.php` holt alle notwendigen Daten und gibt diese an die Templatedatei `edit.php` weiter.
+Die Datei `components/com_foos/src/View/Form/HtmlView.php` holt alle notwendigen Daten und gibt diese an die Templatedatei `edit.php` weiter.
 
-[components/com_foos/ src/View/Form/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/src/View/Form/HtmlView.php)
+[components/com_foos/src/View/Form/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/src/View/Form/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/src/View/Form/HtmlView.php
@@ -1010,7 +1010,7 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-Im obigen Codebeispiel habe mich beim Prüfen der Berechtigungen an Code in Joomla orientiert. Ist jemand nicht berechtigt, wird ihm einen Nachricht angezeigt. Je nachdem in welchem Umfeld man die Erweiterung programmiert ist es benutzerfreundlicher sofort eine Anmeldemöglichkeit zu bieten. Wenn du in der Datei `components/com_foos/ src/View/Form/HtmlView.php` den nachfolgenden Codeauszug
+Im obigen Codebeispiel habe mich beim Prüfen der Berechtigungen an Code in Joomla orientiert. Ist jemand nicht berechtigt, wird ihm einen Nachricht angezeigt. Je nachdem in welchem Umfeld man die Erweiterung programmiert ist es benutzerfreundlicher sofort eine Anmeldemöglichkeit zu bieten. Wenn du in der Datei `components/com_foos/src/View/Form/HtmlView.php` den nachfolgenden Codeauszug
 
 ```php
 		if ($authorised !== true) {
@@ -1142,9 +1142,9 @@ Zu guter Letzt benötigen wir die Datei `components/com_foos/ tmpl/form/edit.xml
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
 
-In der Datei `administrator/components/com_foos/ src/Extension/FoosComponent.php` registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla bekannt.
+In der Datei `administrator/components/com_foos/src/Extension/FoosComponent.php` registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla bekannt.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  defined('JPATH_PLATFORM') or die;

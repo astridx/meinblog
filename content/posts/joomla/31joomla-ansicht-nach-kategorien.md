@@ -28,11 +28,11 @@ Für das Frontend gibt es in Joomla eingebaute Menüpunkttypen, die Kategorien v
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/CategoryModel.php
+#### components/com\_foos/src/Model/CategoryModel.php
 
 Die Klasse, mit der wir die Daten zur Anzeige der Kategorie-Ansicht vorbereiten, erweitert die Klasse `ListModel` in der Datei `/libraries/src/MVC/Model/ListModel.php`, genau wie die Klasse `FeaturedModel` in `components/com_foos/src/Model/FeaturedModel.php`. ListModel bietet unter anderem die Möglichkeit, die Anzeige mehrerer Elemente gleichzeitig auf einer Webseite zu handhaben, einschließlich der Unterstützung für Paginierung. Nachfolgend füge ich meinen vollständigen Code ein, der sich von `com_contact` ableitet.
 
-[components/com_foos/ src/Model/CategoryModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Model/CategoryModel.php)
+[components/com_foos/src/Model/CategoryModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Model/CategoryModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/Model/CategoryModel.php
@@ -490,11 +490,11 @@ class CategoryModel extends ListModel
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Service/Category.php
+#### components/com\_foos/src/Service/Category.php
 
 Im `Category`-Service für den Frontend Teil setzen wir die spezifischen Optionen für unsere Komponente.
 
-[components/com_foos/ src/Service/Category.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Service/Category.php)<!-- \index{Service!Kategorie} -->
+[components/com_foos/src/Service/Category.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Service/Category.php)<!-- \index{Service!Kategorie} -->
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/Service/Category.php
@@ -541,11 +541,11 @@ class Category extends Categories
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Category/HtmlView.php
+#### components/com\_foos/src/View/Category/HtmlView.php
 
-Die Category-Ansicht im Frontend handhaben wir über die Datei `components/com_foos/ src/View/Category/HtmlView.php`.
+Die Category-Ansicht im Frontend handhaben wir über die Datei `components/com_foos/src/View/Category/HtmlView.php`.
 
-[components/com_foos/ src/View/Category/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php)
+[components/com_foos/src/View/Category/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php

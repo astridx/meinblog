@@ -205,7 +205,7 @@ Im Model für die Liste gibt es eine Menge Änderungen. Im Konstruktor speichern
 
 In der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie die Filter und Sortierung beachtet. So sind die Daten sofort in der Form, in der wir sie anzeigen.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\Model\ListModel;
@@ -327,7 +327,7 @@ In der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie 
 
 Die View lädt das Filterformular `src/administrator/components/com_foos/forms/foo.xml`, welches im oberen Bereich angezeigt wird. Nebenbei ergänzen wir hier die Prüfung, ob der aktive Benutzer Aktionen ausführen darf.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

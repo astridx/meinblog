@@ -152,11 +152,11 @@ In the form of the element we add a field to select the layout.
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/FooModel.php
+#### components/com\_foos/src/Model/FooModel.php
 
 This is what happens during development. Basically we would not have to change the file `components/com_foos/src/Model/FooModel.php`. In this chapter I noticed that a `use` entry is missing. Therefore a change is made after all.
 
-[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
+[components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
 
 ```php {diff}
  use Joomla\CMS\Factory;
@@ -169,11 +169,11 @@ This is what happens during development. Basically we would not have to change t
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 In the case of a menu item, I think it is important that it - or the content and design - is always displayed consistently. That is why we query the active menu item. If, for example, elements are displayed via a category view, then a uniform layout is possible with the help of this information. If the content is displayed as a single element, a different layout can be used.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$temp->merge($itemparams);

@@ -62,7 +62,7 @@ Die Blog-Beispieldateien nutzen als Starseite die Ansicht `components/com_conten
 
 > Joomla verwendet Templates und Subtemplates wie `$this->loadTemplate('item')` oder Layouts wie `LayoutHelper::render('joomla.content.intro_image', $this->item);`, um den Code übersichtlich zu strukturieren. Das hatte ich bereits bei den Frontend-Ansichten der Kategorien im Tutorialteil zur Komponente erwähnt. Nachfolgend sehen wir uns diese Funktionen noch einmal praktisch an.<!-- \index{Subtemplates} -->
 
-[templates/facile/ html/com_content/featured/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/com_content/featured/default.php)
+[templates/facile/html/com_content/featured/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/com_content/featured/default.php)
 
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/com_content/featured/default.php
@@ -90,11 +90,11 @@ defined('_JEXEC') or die;
 
 ```
 
-Die Datei `/templates/facile/ html/com_content/featured/default.php` ist ein Override. Sie ruft mittels `echo $this->loadTemplate('item');` ein Subtemplate auf.
+Die Datei `/templates/facile/html/com_content/featured/default.php` ist ein Override. Sie ruft mittels `echo $this->loadTemplate('item');` ein Subtemplate auf.
 
-[templates/facile/ html/com_content/featured/default_item.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/com_content/featured/default_item.php)
+[templates/facile/html/com_content/featured/default_item.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/com_content/featured/default_item.php)
 
-Das Subtemplate `templates/facile/ html/com_content/featured/default_item.php` zeigt
+Das Subtemplate `templates/facile/html/com_content/featured/default_item.php` zeigt
 
 - mithilfe des Layouts `joomla.content.intro_image` ein Bild an,
 - erstellt dann eine verlinkte Überschrift und
@@ -126,17 +126,17 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 ```
 
-Joomla sucht zuerst im Template-Verzeichnis nach Dateien. Deshalb erstellen wir später ein eigenes Layout. Des speichern wir unter `templates/facile/ html/layouts/joomla/content/intro_image.php`. Unser eigenes Layout zeigt das Bild in der korrekten Größe an. Da es die Datei `layouts/joomla/content/intro_image.php` direkt im Joomla Stammverzeichnis gibt, würde diese andernfalls für die Anzeige verwendet. Wenn wir keine besonderen Erfordernisse hätten, könnten wir es uns einfach machen und auf dieses Joomla eigene Layout `layouts/joomla/content/intro_image.php` zurückgreifen.
+Joomla sucht zuerst im Template-Verzeichnis nach Dateien. Deshalb erstellen wir später ein eigenes Layout. Des speichern wir unter `templates/facile/html/layouts/joomla/content/intro_image.php`. Unser eigenes Layout zeigt das Bild in der korrekten Größe an. Da es die Datei `layouts/joomla/content/intro_image.php` direkt im Joomla Stammverzeichnis gibt, würde diese andernfalls für die Anzeige verwendet. Wenn wir keine besonderen Erfordernisse hätten, könnten wir es uns einfach machen und auf dieses Joomla eigene Layout `layouts/joomla/content/intro_image.php` zurückgreifen.
 
-> Falls die Datei `templates/facile/ html/layouts/joomla/content/intro_image.php` nicht existierte, würde als nächstes im Verzeichnis `layouts/ joomla/content/` gesucht und die dortige Datei `intro_image.php` zur Anzeige verwendet.
+> Falls die Datei `templates/facile/html/layouts/joomla/content/intro_image.php` nicht existierte, würde als nächstes im Verzeichnis `layouts/ joomla/content/` gesucht und die dortige Datei `intro_image.php` zur Anzeige verwendet.
 
-[templates/facile/ html/layouts/joomla/content/intro_image.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php)
+[templates/facile/html/layouts/joomla/content/intro_image.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php)
 
 Das Layouts `joomla.content.intro_image` wird an vielen Stellen in Joomla verwendet.
 
 > Ergänzend zum Override ganzer Views unterstützt Joomla das Überschreiben kleinerer Codesegemente, sogenannter Layouts. Layouts werden von Joomla an unterschiedlichen Stellen verwendet. Zum Beispiel um den Code zu erzeugen, der die Such- und Sortierfilter in Listenansichten erzeugt oder bei der Anzeige der Beitragsinformationen (wie Autor, Erstelldatum...) ober- oder unterhalb eines Beitrags.
 
-Da unser Template anders aufgebaut ist und abweichende CSS Elemente erwartet, ist die Darstellung des Bildes via `joomla.content.intro_image` nicht optimal. Deshalb überschreiben wir das Layout in unserem Template. Weil wir dies wiederverwenden möchten, erledigen wir es so, dass wir mit dem Aufruf `echo LayoutHelper::render('joomla.content.intro_image', $this->item);` an anderen Stellen ebenfalls auf unser Layout zugreifen können. Dazu erstellen wir die Datei `templates/facile/ html/layouts/joomla/content/intro_image.php`.
+Da unser Template anders aufgebaut ist und abweichende CSS Elemente erwartet, ist die Darstellung des Bildes via `joomla.content.intro_image` nicht optimal. Deshalb überschreiben wir das Layout in unserem Template. Weil wir dies wiederverwenden möchten, erledigen wir es so, dass wir mit dem Aufruf `echo LayoutHelper::render('joomla.content.intro_image', $this->item);` an anderen Stellen ebenfalls auf unser Layout zugreifen können. Dazu erstellen wir die Datei `templates/facile/html/layouts/joomla/content/intro_image.php`.
 
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php
@@ -159,7 +159,7 @@ $alt = empty($images->image_intro_alt) && empty($images->image_intro_alt_empty) 
 
 ```
 
-> Nochmal zum Vergleich: Die ursprüngliche Joomla-eigene Datei des Layouts `joomla.content.intro_image` liegt im Verzeichnis `layouts/ joomla/content/intro_image.php`. Die spezielle Datei für unser Template ist unter `templates/facile/ html/` + `layouts/joomla/content/intro_image.php` gespeichert.
+> Nochmal zum Vergleich: Die ursprüngliche Joomla-eigene Datei des Layouts `joomla.content.intro_image` liegt im Verzeichnis `layouts/ joomla/content/intro_image.php`. Die spezielle Datei für unser Template ist unter `templates/facile/html/` + `layouts/joomla/content/intro_image.php` gespeichert.
 
 ##### Override via Module Chrome `mod_articles_news`
 
@@ -167,7 +167,7 @@ Im oberen Bereich der Startseite zeigen die Joomla Blog Beispieldaten das Modul 
 
 > `templates/facile/html/mod_articles_news/_item.php` beinhaltet ebenfalls ein Layout. `joomla.content.readmore` enthält den Code, der einen Weiterlesen-Link erstellt. Eine Funktion, die in vielen Ansichten eingesetzt wird und deshalb ein gutes Beispiel für die Wiederverwendbarkeit ist.
 
-[templates/facile/ html/mod_articles_news/\_item.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/_item.php)
+[templates/facile/html/mod_articles_news/\_item.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/_item.php)
 
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/mod_articles_news/_item.php
@@ -194,7 +194,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 ```
 
-[templates/facile/ html/mod_articles_news/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/default.php)
+[templates/facile/html/mod_articles_news/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/default.php)
 
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/mod_articles_news/default.php
@@ -223,7 +223,7 @@ if (empty($list)) {
 
 Das Override zum Modul `mod_articles_news` soll im oberen Bereich mit einer großen Überschrift angezeigt werden. Auf einer Unterseite, soll es mit kleiner Überschrift in der Seitenleiste erscheinen. Wir könnten mit einem alternativen Override eine Lösung schaffen. Diese Variante ist Thema des nächsten Abschnitts. Mit einem alternativen Override würde viel Programmcode redundant geschrieben. Eigentlich ist nur die erste Zeile mit der Überschrift unterschiedlich. Und hier kommen Joomlas Modul Chromes ins Spiel. Wir erstellen eine Datei im Verzeichnis `templates/facile/html/layouts/chromes/` die nur den unterschiedlichen Code enthält und ansonsten das Modul genauso einbindet, wie es ist. Für letzteres sorgt `echo $module->content;`. Die Module Chrome Datei können wir beliebig nennen. Ich habe `hr.php` als Namen gewählt. In der `index.php` am Ende dieses Abschnittes siehst du, wie du dafür sorgst, dass die Datei `hr.php` im Kopfbereich der Seite integriert wird aber nicht in der Seitenleiste.
 
-[templates/facile/ html/layouts/chromes/hr.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/layouts/chromes/hr.php)
+[templates/facile/html/layouts/chromes/hr.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/layouts/chromes/hr.php)
 
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/layouts/chromes/hr.php
@@ -246,7 +246,7 @@ Es gibt Anforderungen, bei denen das Aussehen eines Modules an unterschiedlichen
 
 > Anmerkung: Die beiden Dateien unterscheiden sich geringfügig. In der Datei `bottom.php` muss das `<ul>`-Element die Klasse `menu` erhalten, damit keine Listenpunkte in der Frontendansicht angezeigt werden. Dies könnte ebenfalls über ein Modul Chrome gehandhabt werden.
 
-[templates/facile/ html/mod_menu/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/default.php)
+[templates/facile/html/mod_menu/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/default.php)
 
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/mod_menu/default.php
@@ -288,7 +288,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 
 ```
 
-[templates/facile/ html/mod_menu/bottom.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/bottom.php)
+[templates/facile/html/mod_menu/bottom.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/bottom.php)
 
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/mod_menu/bottom.php

@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-09
+date: 2022-11-12
 title: 'Template - Modul Positionen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-Das Template soll die Joomla Inhalte aus Komponenten, Modulen und Plugins an verschiedenen Positionen dynamisch anzeigen. Wie dieses Ziel in Joomla erreicht wird, ist Thema dieses Kapitels. Also: Wie werden Modul Positionen im Joomla Template integriert.<!-- \index{Template!Positionen} -->
+Das Template soll die Joomla Inhalte aus Komponenten, Modulen und Plugins dynamisch an verschiedenen Positionen anzeigen. Wie dieses Ziel in Joomla erreicht wird, ist Thema dieses Kapitels. Also: Wie werden Modul Positionen im Joomla Template integriert.<!-- \index{Template!Positionen} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t35...t36)[^codeberg.org/astrid/j4examplecode/compare/t35...t36] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -33,9 +33,9 @@ In diesem Abschnitt wurde lediglich Dateien geändert und keine neuen hinzugefü
 
 Bisher haben wir mehr oder weniger eine statische Website. In diesem Teil fügen wir mithilfe von Modulpositionen dynamisch Inhalte hinzu.
 
-##### templates/facile/ component.php
+##### templates/facile/component.php
 
-Ich hatte es im vorherigen Teil schon erwähnt: Die Datei `component.php` zeigt lediglich Hauptinhalt an. Das ist der Content vom Type `component` an. Die Navigation und die Inhalte in Seitenleisten werden ausgelassen. Zum Testen hatten wir diese Datei angelegt. Bisher enthielt sie lediglich den statischen Text `Component`. Nun erweitern wir sie um ihre tatsächliche Aufgabe. Ein minimaler Aufbau sieht wie folgt aus.
+Ich hatte es im vorherigen Teil schon erwähnt: Die Datei `component.php` zeigt lediglich Hauptinhalt an. Das ist der Content vom Type `component`. Die Navigation und die Inhalte in den Seitenleisten werden ausgelassen. Zum Testen hatten wir diese Datei angelegt. Bisher enthielt sie lediglich den statischen Text `Component`. Nun erweitern wir sie um ihre tatsächliche Aufgabe. Ein minimaler Aufbau sieht wie folgt aus.
 
 [templates/facile/component.php](https://codeberg.org/astrid/j4examplecode/src/branch/t36/src/templates/facile/component.php)
 

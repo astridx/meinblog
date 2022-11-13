@@ -32,11 +32,11 @@ An example of routing is the URL to the article "Welcome to Joomla" in the sampl
 ### New files
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Service/Router.php
+#### components/com\_foos/src/Service/Router.php
 
-The service `components/com_foos/ src/Service/Router.php` does the actual work and converts the URLs into search engine friendly versions.
+The service `components/com_foos/src/Service/Router.php` does the actual work and converts the URLs into search engine friendly versions.
 
-[components/com_foos/ src/Service/Router.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/components/com_foos/src/Service/Router.php)
+[components/com_foos/src/Service/Router.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/components/com_foos/src/Service/Router.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t27/src/components/com_foos/src/Service/Router.php
@@ -372,7 +372,7 @@ The lines `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Com
 
 We implement `RouterServiceInterface` and use `RouterServiceTrait` so that these files are available.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
 

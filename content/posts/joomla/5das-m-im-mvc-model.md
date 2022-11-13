@@ -30,13 +30,13 @@ Problematisch ist es, diese drei Elemente in einer Klasse zusammenzufassen. Vor 
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/FooModel.php
+#### components/com\_foos/src/Model/FooModel.php
 
 Beim Model ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du erweiterst die Joomla Klasse `BaseDatabaseModel`. Implementiere dann nur das, was du speziell einsetzt. In unserem Fall ist es die Ausgabe `$this->message = 'Hello Foo!';`, für die wir die Methode `getMsg()` erstellen.
 
 > Die Model-Klassen, die als Elternklasse von Joomla zur Verfügung stehen, findest du im Verzeichnis `libraries/src/MVC/Model/`. `BaseDatabaseModel` ist in der Datei `libraries/src/MVC/Model/BaseDatabaseModel.php` implementiert.
 
-[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t4/src/components/com_foos/src/Model/FooModel.php
@@ -89,11 +89,11 @@ class FooModel extends BaseDatabaseModel
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg');`. Das wirkt in diesem einfachen Beispiel umständlich. In komplexen Anwendungen hat sich diese Verfahrensweise bewährt. Die Datenberechnung geschieht im Model. Die Gestaltung der Daten übernimmt die View.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	public function display($tpl = null)

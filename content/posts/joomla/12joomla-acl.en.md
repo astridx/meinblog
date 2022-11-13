@@ -169,7 +169,7 @@ The SQL script for a new installation of the component is also extended with the
 
 If you are not familiar with SQL, the database query in the model will now seem complex. It is now necessary to combine data from two database tables. One table is `#__viewlevels` which manages the permissions of `com_user`. The other table is that of our example component which is named `#__foos_details`. Don't feel discouraged by this. Joomla supports you in creating the queries.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
 
@@ -200,7 +200,7 @@ If you are not familiar with SQL, the database query in the model will now seem 
 
 A button to create an element is only useful if this is allowed. Therefore we change the view - `$canDo` is added. The call `$canDo = ContentHelper::getActions('com_foos');` gets the actions you defined in the file `administrator/components/com_foos/ access.xml` at the beginning of this chapter.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
 

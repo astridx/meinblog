@@ -76,7 +76,7 @@ Next, we create a _Model_ for the administration area. Since we are extending th
 
 The following code shows you the model, which in our case is still quite clear.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6/src/administrator/components/com_foos/src/Model/FoosModel.php
@@ -231,7 +231,7 @@ Previously it was not necessary to set the `MVC factory` in `provider.php`, now 
 
 In the view we get all the items at the end. For this we call the method `$this->get('Items')` in the model:
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
   */

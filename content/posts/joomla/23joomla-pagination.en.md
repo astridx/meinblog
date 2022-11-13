@@ -33,7 +33,7 @@ No new files are added.
 We do not have any special requests. To display the default pagination, more or less two lines are enough. In the view you call
 `$this->pagination = $this->get('Pagination');` to set the variable `$this->pagination`.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t19/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t19/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  	protected $items;

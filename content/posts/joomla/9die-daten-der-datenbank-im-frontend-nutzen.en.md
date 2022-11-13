@@ -30,7 +30,7 @@ First, we create the form field through which it is possible to select or desele
 
 > It is possible to extend the field so that a Foo element is created via a button. I have left this out so far for the sake of simplicity. Sample code is provided by the component `com_contact` in the file `administrator/components/com_contact/ src/Field/Modal/ContactField.php`.
 
-[administrator/components/com_foos/ src/Field/Modal/FooField.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
+[administrator/components/com_foos/src/Field/Modal/FooField.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php
@@ -468,13 +468,13 @@ We have created a new JavaScript file. We place it in the `media\js` directory. 
 > Read in the preface why you choose the `media` directory ideally for assets like JavaScript files or stylesheets.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/FooModel.php
+#### components/com\_foos/src/Model/FooModel.php
 
 We no longer output static text. An item from the database is displayed. Therefore we rename the `getMsg` method to `getItem`. We adjust the variable names and create a database query.
 
 > Make sure you update the DocBlock here. This sounds nit-picky and unimportant at the beginning. In small extensions, it may still be minor. But later you may want to create documentation automatically based on this information. Then you will be happy if they are correct.<!-- \index{DocBlock} -->
 
-[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  class FooModel extends BaseDatabaseModel
@@ -547,11 +547,11 @@ We no longer output static text. An item from the database is displayed. Therefo
 > Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/accessing_the_database_using_jdatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 In the view we consequently replace `$this->msg = $this->get('Msg');` with `$this->item = $this->get('Item');`.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  class HtmlView extends BaseHtmlView

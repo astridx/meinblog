@@ -50,7 +50,7 @@ The helper file `AssociationsHelper.php` is the interface to the language associ
 
 In this helper file we provide the details that are specific to our component, so that Joomla's own routines can find their way around in our component.
 
-[administrator/components/com_foos/ src/Helper/AssociationsHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
+[administrator/components/com_foos/src/Helper/AssociationsHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php
@@ -290,13 +290,13 @@ class AssociationsHelper extends AssociationExtensionHelper
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Helper/AssociationHelper.php
+#### components/com\_foos/src/Helper/AssociationHelper.php
 
 The `AssociationsHelper.php` helper file is the interface to the `com_associations` language associations component. In it we configure the information that is specific to our component. Once this is done, Joomla's own routines take over and we don't reinvent the wheel.
 
-> Attention: I had already written it: The class `AssociationsHelper.php` exists in the frontend and in the backend: `src/components/com_foos/ src/Helper/AssociationHelper.php` and `src/` `administrator` `/components/com_foos/ src/Helper/AssociationHelper.php`. We had already looked at the file for the backend before.
+> Attention: I had already written it: The class `AssociationsHelper.php` exists in the frontend and in the backend: `src/components/com_foos/src/Helper/AssociationHelper.php` and `src/` `administrator` `/components/com_foos/src/Helper/AssociationHelper.php`. We had already looked at the file for the backend before.
 
-[components/com_foos/ src/Helper/AssociationHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/Helper/AssociationHelper.php)
+[components/com_foos/src/Helper/AssociationHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/Helper/AssociationHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/components/com_foos/src/Helper/AssociationHelper.php
@@ -367,11 +367,11 @@ abstract class AssociationHelper extends CategoryAssociationHelper
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Helper/RouteHelper.php
+#### components/com\_foos/src/Helper/RouteHelper.php
 
 We create the class `RouteHelper` to correctly compose the links we create in this chapter. Within the link there is one more piece of information as a parameter: the language.<!-- \index{routing} -->
 
-[components/com_foos/ src/Helper/RouteHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/components/com_foos/src/Helper/RouteHelper.php)
+[components/com_foos/src/Helper/RouteHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/components/com_foos/src/Helper/RouteHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/components/com_foos/src/Helper/RouteHelper.php
@@ -588,7 +588,7 @@ In FoosComponent we add `AssociationServiceInterface` and `AssociationServiceTra
 
 > [Traits](https://www.php.net/manual/de/language.oop5.traits.php) are a code reuse mechanism used in programming languages with simple inheritance like PHP.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
 
@@ -620,7 +620,7 @@ In FoosComponent we add `AssociationServiceInterface` and `AssociationServiceTra
 
 We previously used the modal to select a Foo item using a popup when creating a menu item. Now we use it again to select a language link. To make sure that only the matching languages are displayed, we extend the URL with the language information.
 
-[administrator/components/com_foos/ src/Field/Modal/FooField.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
+[administrator/components/com_foos/src/Field/Modal/FooField.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php {diff}
  		// Setup variables for display.
@@ -646,9 +646,9 @@ We previously used the modal to select a Foo item using a popup when creating a 
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/Model/FooModel.php
 
-We extend the model `administrator/components/com_foos/ src/Model/FooModel.php` used to build the data of an item in regard to the language. In this case `getItem` and `preprocessForm` play the essential role.
+We extend the model `administrator/components/com_foos/src/Model/FooModel.php` used to build the data of an item in regard to the language. In this case `getItem` and `preprocessForm` play the essential role.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -740,7 +740,7 @@ protected function loadFormData()
 
 In the model of the list, besides adding the language information, it is important to update the state via `populateState`. Otherwise the correct language will not be active at each time. The state includes the information which language is active.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -839,7 +839,7 @@ In the model of the list, besides adding the language information, it is importa
 
 We implement the `association` service in `AdministratorService.php`. Via the ID the function returns the HTML markup for editing the language links.<!-- \index{service!administrator} -->
 
-[administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {diff}
 
@@ -913,7 +913,7 @@ We implement the `association` service in `AdministratorService.php`. Via the ID
 
 If only one language is possible or changing it is not desired, we set the value of the language selection field and protected it from write access. Also, only categories of this language are selectable.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$this->form  = $this->get('Form');
@@ -940,7 +940,7 @@ If only one language is possible or changing it is not desired, we set the value
 
 The view of the list should contain the sidebar and the toolbar if it is not a modal view or a popup. If the view is modal, the toolbar and sidebar will confuse. In that case we filter the items automatically according to the currently active language.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;

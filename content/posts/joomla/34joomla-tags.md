@@ -166,7 +166,7 @@ Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als 
 
 Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein und sorgen dafür, dass die zugehörigen Tags geladen werden.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  use Joomla\CMS\Language\LanguageHelper;
@@ -204,7 +204,7 @@ Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein 
 
 Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweitern wir das Model der Übersichtsliste. Wir passen dieses bezüglich der Filter und der Datenbankabfrage an.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Associations;
@@ -270,7 +270,7 @@ Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweit
 
 Kurz vor Schluss kümmern wir uns um die Anzeige. In der View stellen wir sicher, dass die zur Sprache passenden Schlagworte geladen werden.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
 

@@ -32,11 +32,11 @@ Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Service/Router.php
+#### components/com\_foos/src/Service/Router.php
 
-Der Service `components/com_foos/ src/Service/Router.php` erledigt die eigentliche Arbeit und wandelt die URLs in suchmaschinenfreundliche Versionen.
+Der Service `components/com_foos/src/Service/Router.php` erledigt die eigentliche Arbeit und wandelt die URLs in suchmaschinenfreundliche Versionen.
 
-[components/com_foos/ src/Service/Router.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/components/com_foos/src/Service/Router.php)
+[components/com_foos/src/Service/Router.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/components/com_foos/src/Service/Router.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t27/src/components/com_foos/src/Service/Router.php
@@ -372,7 +372,7 @@ Die Zeilen `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Co
 
 Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien zur Verfügung stehen.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  use FooNamespace\Component\Foos\Administrator\Service\HTML\Icon;

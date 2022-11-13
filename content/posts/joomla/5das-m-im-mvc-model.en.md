@@ -30,13 +30,13 @@ It is problematic to combine these three elements in one class. Especially for l
 ### New files
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/FooModel.php
+#### components/com\_foos/src/Model/FooModel.php
 
 With the model it is also so that you do not reinvent the wheel. You extend the Joomla class `BaseDatabaseModel`. Then implement only what you specifically use. In our case it is the output `$this->message = 'Hello Foo!';` for which we create the method `getMsg()`.
 
 > The model classes that are available as parent class of Joomla can be found in the directory `libraries/src/MVC/Model/`. BaseDatabaseModel is implemented in the file `libraries/src/MVC/Model/BaseDatabaseModel.php`.
 
-[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t4/src/components/com_foos/src/Model/FooModel.php
@@ -89,11 +89,11 @@ class FooModel extends BaseDatabaseModel
 ### Modified files
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 We get the data of the model in the view with `$this->msg = $this->get('Msg');`. This seems complicated in this simple example. In complex applications, this procedure has proven itself. The data calculation is done in the model. The view handles the design of the data.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	public function display($tpl = null)

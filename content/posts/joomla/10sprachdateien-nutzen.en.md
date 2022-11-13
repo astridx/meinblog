@@ -61,6 +61,8 @@ COM_CONTACT_CONTACT_REQUIRED="<strong class=\"red\">*</strong> Required field"
 
 Sometimes the output of the language string depends on a variable. The function `Text::sprintf` ensures that you do not have to compose the text in a complicated way in the programme code. Instead of the variable in the language file, enter a character with the prefix `%`. For example, you can use `%s`.
 
+> Are you interested in the exact structure of the function `Text::sprintf`? You can find it in Joomla in the file `libraries/src/Language/Text.php`.
+
 ```
 ...
 COM_CONTACT_CHECKED_OUT_BY="Checked out by %s"
@@ -77,7 +79,7 @@ Text::sprintf('COM_CONTACT_CHECKED_OUT_BY', $checkoutUser->name)
 
 The value of `$checkoutUser->name` is inserted instead of the first variable in the language string. Here in the example instead of `%s`.
 
-> Unfortunately, you cannot specify which variable belongs to which language string. It is not possible to specify that `%s` should be replaced with `$checkoutUser->name`. The values are assigned in sequential order if there are multiple variables.
+> Is there more than one variable? You can specify which variable belongs to which language string. For example, use `%1$s, %2$s` as in `JLIB_DATABASE_ERROR_STORE_FAILED="%1$s: :store failed<br>%2$s"`. The values are assigned in the order indicated in the number after the "%" character.
 
 #### singular/singular
 

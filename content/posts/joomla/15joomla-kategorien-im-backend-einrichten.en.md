@@ -282,7 +282,7 @@ In order to create the table column in which the category of a Foo element is st
 
 Additionally, implementations are required in the component class to use Joomla's own functions. The method `countItems` is necessary so that an overview of assigned items appears in the category view. The method `getTableNameForSection` ensures that the correct database table is always queried.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
@@ -330,7 +330,7 @@ Additionally, implementations are required in the component class to use Joomla'
 
 In the model we add to the database query the table where Joomla stores categories. Thus, in the administration area, when a category is selected, only the elements belonging to it are displayed.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
 

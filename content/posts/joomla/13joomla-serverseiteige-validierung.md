@@ -36,7 +36,7 @@ In diesem Text ist es nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich 
 
 > Hier im Beispiel nutze ich lediglich den zu prüfenden [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck) der Klasse `LetterRule.php`. Natürlich ist es möglich, komplexere Prüfungen mithilfe von Funktionen zu integrieren.
 
-[administrator/components/com_foos/ src/Rule/LetterRule.php](https://codeberg.org/astrid/j4examplecode/src/branch/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php)
+[administrator/components/com_foos/src/Rule/LetterRule.php](https://codeberg.org/astrid/j4examplecode/src/branch/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php

@@ -26,11 +26,11 @@ Nachdem du über ein funktionierendes Backend für deine Komponente verfügst, i
 Der Administrationsbereich unserer Komponente ist im Ordner `com_foos` unter `/administrator/component` gespeichert. Jetzt arbeiten wir am Frontend. Die Daten der Frontend-Ansicht befinden sich im Ordner `com_foos` direkt unter `/components`.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Controller/DisplayController.php
+#### components/com\_foos/src/Controller/DisplayController.php
 
-Der DisplayController im Verzeichnis `components/com_foos/ src/Controller/` ist der Einstiegspunkt für den Model-View-Controller-Teil im Frontend der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen. Alles was ich im Kapitel zur _Ersten Ansicht im Backend_ geschrieben habe, trifft hier analog zu.
+Der DisplayController im Verzeichnis `components/com_foos/src/Controller/` ist der Einstiegspunkt für den Model-View-Controller-Teil im Frontend der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen. Alles was ich im Kapitel zur _Ersten Ansicht im Backend_ geschrieben habe, trifft hier analog zu.
 
-[components/com_foos/ src/Controller/DisplayController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/Controller/DisplayController.php)
+[components/com_foos/src/Controller/DisplayController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/Controller/DisplayController.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/src/Controller/DisplayController.php
@@ -96,13 +96,13 @@ class DisplayController extends BaseController
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 Im Moment ist die Ansicht unserer Komponente einfach gehalten. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!
 
 Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellten wir vorher im aktuellen Kapitel. Später kommt ein spezielles Modell hinzu, welches die Daten vorbereitet. Momentan nutzen wir das Model der Elternklassen, weil wir auf Joomla Standard aufbauen. Die Datei `HtmlView.php` ruft das vererbte Modell auf, um die Daten für die Ansicht vorzubereiten.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/src/View/Foo/HtmlView.php

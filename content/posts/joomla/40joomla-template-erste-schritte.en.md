@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-10
+date: 2022-11-12
 title: 'Template - First Steps'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -88,7 +88,7 @@ In my opinion, a good error page includes:
 
 To let you know how and where to implement your error page, I created the file `templates/facile/error.php`. This contains nothing more than the word `Error`. So it is possible to test the page. Let your imagination run free with the content and design of your own individual error page.
 
-[templates/facile/error.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
+[templates/facile/error.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/error.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/error.php
@@ -101,11 +101,11 @@ In the Joomla 4 standard template Cassiopeia the file `error.php` is also implem
 
 ![Joomla Error Datei im Standardtemplate Cassiopeia](/images/j4x40x9.png)
 
-##### templates/facile/ index.php
+##### templates/facile/index.php
 
 The file `index.php` is the heart. It ensures that everything works together. The following code snippet shows you a minimal structure.
 
-[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/index.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/index.php
@@ -146,11 +146,11 @@ What follows is the smallest possible structure of an HTML page. This page opens
 
 Enough explanation. This is how the website looks minimally. It does not yet load any content from Joomla My main point here was to show that the `index.php` of the active template is responsible for everything. In our case, this is the file `templates/facile/index.php`. So far, the responsibility is limited. Only the (German) greeting `Hallo Joomla` is displayed on the screen.
 
-##### templates/facile/ language/en-GB/en-GB.tpl_facile.ini
+##### templates/facile/language/en-GB/en-GB.tpl_facile.ini
 
-The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` ensures that the name is displayed in the backend in the correct language when managing the extensions.
+The language file `templates/facile/language/en-GB/en-GB.tpl_facile.ini` ensures that the name is displayed in the backend in the correct language when managing the extensions.
 
-[templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
+[templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.ini
@@ -159,11 +159,11 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ```
 
-##### templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini
+##### templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
 
-The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` translates the texts in the menu or during the installation into the correct language.
+The language file `templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini` translates the texts in the menu or during the installation into the correct language.
 
-[templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
+[templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.sys.ini
@@ -184,7 +184,7 @@ The following minimalist code will display a registration form. You could displa
 
 ![Joomla Template erstellen - Offline Seite Frontend](/images/j4x40x6.png)
 
-[templates/facile/ offline.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
+[templates/facile/offline.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/offline.php

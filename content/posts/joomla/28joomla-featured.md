@@ -42,11 +42,11 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_featured_catid` (`featured`,`catid`);
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/FeaturedModel.php
+#### components/com\_foos/src/Model/FeaturedModel.php
 
 Um die Daten, die `featured` sind zu verarbeiten, erstellen wir ein eigenes Model.
 
-[components/com_foos/ src/Model/FeaturedModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/src/Model/FeaturedModel.php)
+[components/com_foos/src/Model/FeaturedModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/src/Model/FeaturedModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/src/Model/FeaturedModel.php
@@ -243,13 +243,13 @@ class FeaturedModel extends ListModel
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Featured/HtmlView.php
+#### components/com\_foos/src/View/Featured/HtmlView.php
 
 `featured` bekommt eine eigene Datei zur Verwaltung der Anzeige im Frontend.
 
 > Du siehst hier das erste Mal das Wort Slug in der Zeile `$item->slug = $item->alias ? ($item->id . ':' . $item->alias) : $item->id;`. Ein Slug wird verwendet, um den Code zur Unterstützung von Suchmaschinenfreundlichen-URLs so kurz wie möglich zu halten. Er besteht aus der ID des Elements, einem Doppelpunkt und dem Alias.<!-- \index{Slug} --><!-- \index{Suchmaschinenfreundlich (SEF)!Slug} -->
 
-[components/com_foos/ src/View/Featured/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/src/View/Featured/HtmlView.php)
+[components/com_foos/src/View/Featured/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/src/View/Featured/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/src/View/Featured/HtmlView.php
@@ -681,7 +681,7 @@ Im Falle einer neuen Installation, wird über das Skript in der Datei `install.m
 
 Wir implementieren die Logik mit der wir die Eigenschaft `featured` setzen in der Funktion `featured()` im `FoosController`.
 
-[administrator/components/com_foos/ src/Controller/FoosController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/Controller/FoosController.php)
+[administrator/components/com_foos/src/Controller/FoosController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
 ```php {diff}
 \defined('_JEXEC') or die;
@@ -758,7 +758,7 @@ Wir implementieren die Logik mit der wir die Eigenschaft `featured` setzen in de
 
 Im Model eines Elementes implementieren wir die Methode, mit der die Belegung der Eigenschaft (Daten) `featured` gespeichert und verändert wird.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Associations;
@@ -826,7 +826,7 @@ Im Model eines Elementes implementieren wir die Methode, mit der die Belegung de
 
 Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Datenbankabfrage.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  				'published', 'a.published',
@@ -875,7 +875,7 @@ Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Dat
 
 Im `AdministratorService.php` machen wir es möglich, die Belegung der Eigenschaft auch in der Übersichtsliste zu verändern. Ein Klick auf das Stern-Symbol schaltet den Wert um.<!-- \index{Service!Administrator} -->
 
-[administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;
@@ -925,7 +925,7 @@ Im `AdministratorService.php` machen wir es möglich, die Belegung der Eigenscha
 
 Wir ergänzen die Werkzeugleiste. `featured` soll auch hier über eine Aktion bearbeitbar sein.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  			$childBar = $dropdown->getChildToolbar();

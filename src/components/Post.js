@@ -62,11 +62,11 @@ export const Post = ({ node, query, prefix, hideDate, yearOnly }) => {
         {getTitle(node.title, query)}
         <span className="new-badge">{isNew && 'New!'}</span>
       </span>
-      <div>
+      <span>
         {formattedDate && !hideDate && (
-          <time>{yearOnly ? formattedYear : formattedDate}</time>
+          <small>{yearOnly ? formattedYear : formattedDate}</small>
         )}
-      </div>
+      </span>
     </Link>
   )
 }

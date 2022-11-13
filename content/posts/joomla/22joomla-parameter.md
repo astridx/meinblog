@@ -145,7 +145,7 @@ zur Registry hinzu. Um einen Wert abzurufen, nutzen wir
 $foo = $registry->foo;
 ```
 
-[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
  use Joomla\CMS\Application\ApplicationHelper;
@@ -173,7 +173,7 @@ $foo = $registry->foo;
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 Die View kombiniert die Daten zu den Parametern so, dass die Anzeige passt.
 
@@ -181,7 +181,7 @@ Die View kombiniert die Daten zu den Parametern so, dass die Anzeige passt.
 
 Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden. Dies habe ich hier so umgesetzt. `$state->get('params')` gibt den Wert an, der beim Menüpunkt gespeichert wurde. `$item->params` ist der Parameter, der beim Element gespeichert wurde. Der nachfolgende Code zeigt dir, wie du die beiden so mischst, dass der Wert beim Item Vorrang hat.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;

@@ -33,15 +33,15 @@ In this chapter only one file has been changed.
 
 ### Modified files
 
-In the file `templates/facile/ index.php` we change the way JavaScript and CSS is included. We replaced the `<script>` tags in the footer and the `<link rel="stylesheet" .. />` in the header. Instead of them we use the _Joomla Web Asset Manager_. This makes it necessary to use the `<jdoc:include type="styles" />` and `<jdoc:include type="styles" />` tags. We give control here. Joomla does work for us in return. If we configure the assets correctly Joomla loads everything optimized and conflict free.
+In the file `templates/facile/index.php` we change the way JavaScript and CSS is included. We replaced the `<script>` tags in the footer and the `<link rel="stylesheet" .. />` in the header. Instead of them we use the _Joomla Web Asset Manager_. This makes it necessary to use the `<jdoc:include type="styles" />` and `<jdoc:include type="styles" />` tags. We give control here. Joomla does work for us in return. If we configure the assets correctly Joomla loads everything optimized and conflict free.
 
 > Because we use `<jdoc:include type="metas" />`, we no longer need the line `<title>title</title>`. Joomla now uses the _site name_ as title. This name is set during installation and can be edited at any time via _global configuration_.
 
-##### templates/facile/ index.php
+##### templates/facile/index.php
 
-The following code snippet shows you the changes in the file `templates/facile/ index.php`.
+The following code snippet shows you the changes in the file `templates/facile/index.php`.
 
-[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
 
 ```{diff}
  \defined('_JEXEC') or die;

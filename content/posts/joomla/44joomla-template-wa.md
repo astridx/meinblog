@@ -33,15 +33,15 @@ In diesem Kapitel wurde lediglich eine Datei geändert.
 
 ### Geänderte Dateien
 
-In der Datei `templates/facile/ index.php` ändern wir die Art, wie JavaScript und CSS eingebunden wird. Wir ersetzten die `<script>`-Tags im Fußbereich und das `<link rel="stylesheet" .. />` im Kopfbereich. Anstelle davon nutzen wir den _Joomla Web Asset Manager_. Dieser macht es erforderlich, die Tags `<jdoc:include type="styles" />` und `<jdoc:include type="styles" />` zu verwenden. Wir geben hier Kontrolle ab. Joomla übernimmt im Gegenzug Arbeit für uns. Wenn wir die Assets richtig konfigurieren, lädt Joomla alles optimiert und konfliktfrei.
+In der Datei `templates/facile/index.php` ändern wir die Art, wie JavaScript und CSS eingebunden wird. Wir ersetzten die `<script>`-Tags im Fußbereich und das `<link rel="stylesheet" .. />` im Kopfbereich. Anstelle davon nutzen wir den _Joomla Web Asset Manager_. Dieser macht es erforderlich, die Tags `<jdoc:include type="styles" />` und `<jdoc:include type="styles" />` zu verwenden. Wir geben hier Kontrolle ab. Joomla übernimmt im Gegenzug Arbeit für uns. Wenn wir die Assets richtig konfigurieren, lädt Joomla alles optimiert und konfliktfrei.
 
 > Weil wir `<jdoc:include type="metas" />` nutzen, benötigen wir die Zeile `<title>Titel</title>` nicht mehr. Joomla setzt als Titel nun den _Site Name_ ein. Dieser Name wird bei der Installation festgelegt und ist jederzeit über die _Globale Konfiguration_ editierbar.
 
-##### templates/facile/ index.php
+##### templates/facile/index.php
 
-Der nachfolgender Codeausschnitt zeigt dir die Änderungen in der Datei `templates/facile/ index.php`.
+Der nachfolgender Codeausschnitt zeigt dir die Änderungen in der Datei `templates/facile/index.php`.
 
-[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
 
 ```{diff}
 

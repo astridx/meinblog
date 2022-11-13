@@ -101,7 +101,7 @@ In the model, we adjust everything so that the two new columns are loaded correc
 
 > Note the change `array(...)` to `explode(', ',$this->getState(...)...)`. We now use the PHP function [`explode`](https://www.php.net/manual/de/function.explode.php) together with `getState` to create the array for the database query. This is safer and more error-tolerant.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  		// Select the required fields from the table.

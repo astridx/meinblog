@@ -116,7 +116,7 @@ use Joomla\CMS\Language\Text;
 
 Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betrachten, fügen wir nichts weiter als die Besonderheiten ein: Den Namen des Models, welches für die Datenverarbeitung genutzt wird und die Adresse zu der nach der Abarbeitung weitergeleitet wird. Am Ende rufen wir mit `return parent::batch($model);` die Implementierung von Joomla auf. Fertig! Für die Standardfunktionen ist das Rad bereits von Joomla erfunden.
 
-[administrator/components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Controller/FooController.php)
+[administrator/components/com_foos/src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Controller/FooController.php)
 
 ```php {diff}
 
@@ -151,7 +151,7 @@ Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betracht
 
 Im Model geben wir an, ob das Kopieren und Verschieben unterstützt wird. Im Falle von `false` wird der Befehl von der Stapelverarbeitung nicht bereitgestellt. Außerdem geben wir die Eigenschaften an, die mithilfe der Batch-Funktion bearbeitbar sind.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 protected $associationsContext = 'com_foos.item';
@@ -175,7 +175,7 @@ protected $associationsContext = 'com_foos.item';
 
 Damit die Stapelverarbeitung per Schaltfläche nutzbar ist, fügen wir einen Eintrag in der Werkzeugleiste ein.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  			{

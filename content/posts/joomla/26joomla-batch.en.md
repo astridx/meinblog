@@ -116,7 +116,7 @@ use Joomla\CMS\Language\Text;
 
 In the controller we implement the method `batch`. If we look at it closely, we add nothing more than the specifics: The name of the model used for data processing and the address to forward to after processing. At the end we call the implementation of Joomla with `return parent::batch($model);`. Done! For the standard functions, the wheel has already been invented by Joomla.
 
-[administrator/components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Controller/FooController.php)
+[administrator/components/com_foos/src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Controller/FooController.php)
 
 ```php {diff}
 
@@ -151,7 +151,7 @@ In the controller we implement the method `batch`. If we look at it closely, we 
 
 In the model we specify whether copying and moving is supported. In case of `false` the command is not provided by the batch processing. We also specify the properties that are editable using the batch function.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 protected $associationsContext = 'com_foos.item';
@@ -175,7 +175,7 @@ protected $associationsContext = 'com_foos.item';
 
 To make the batch processing usable via a button, we add an entry to the toolbar.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  			{

@@ -23,7 +23,7 @@ const projectsList = [
 export default function ProjectsIndex() {
   const [repos, setRepos] = useState([])
 
-  useEffect(() => {
+  /*useEffect(() => {
     async function getStars() {
       const repos = await fetch(
         'https://api.github.com/users/astridx/repos?per_page=100'
@@ -37,7 +37,7 @@ export default function ProjectsIndex() {
         setRepos(data)
       })
       .catch((err) => console.log(err))
-  }, [])
+  }, [])*/
 
   return (
     <>

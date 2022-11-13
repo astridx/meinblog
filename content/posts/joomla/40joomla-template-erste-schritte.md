@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-10
+date: 2022-11-12
 title: 'Template - Erste Schritte'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -48,7 +48,7 @@ Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kanns
 
 Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joomla Templates - von Grund auf.
 
-##### templates/facile/ component.php
+##### templates/facile/component.php
 
 Die `component.php` stellt die Logik für eine abgespeckte Version der Site bereit. Das bedeutet, dass lediglich die pure Ansicht der Komponente angezeigt wird.
 
@@ -73,7 +73,7 @@ Im Joomla 4 Standardtemplate Cassiopeia ist die Datei `component.php` ebenfalls 
 
 ![Joomla Komponentenbereich im Standardtemplate Cassiopeia](/images/j4x40x8.png)
 
-##### templates/facile/ error.php
+##### templates/facile/error.php
 
 Wenn Besucher der Website eine Seite aufrufen, die nicht existiert, erhalten sie eine Fehlermeldung. Die Fehlermeldung von Joomla ist allgemein gehalten. Viel besser ist es, eine eigene individuelle Fehlerseite zu erstellen.
 
@@ -88,7 +88,7 @@ Meiner Meinung nach beinhaltet eine gute Fehlerseite:
 
 Damit du weißt, wie und wo du deine Fehlerseite implementierst, habe ich die Datei `templates/facile/error.php` erstellt. Diese beinhaltet nichts weiter als das Wort `Error`. So ist es möglich, die Seite zu testen. Lasse deiner Phantasie bei den Inhalten und dem Design einer eigenen indiviudellen Fehlerseite freien Lauf.
 
-[templates/facile/error.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
+[templates/facile/error.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/error.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/error.php
@@ -101,11 +101,11 @@ Im Joomla 4 Standardtemplate Cassiopeia ist die Datei `error.php` ebenfalls impl
 
 ![Joomla Error.php im Standardtemplate Cassiopeia](/images/j4x40x9.png)
 
-##### templates/facile/ index.php
+##### templates/facile/index.php
 
 Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Das nachfolgende Codeschnipsel zeigt dir einen minimaler Aufbau.
 
-[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/index.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/index.php
@@ -146,11 +146,11 @@ Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite w
 
 Genug erklärt. So sieht die Website minimal aus. Sie lädt noch keine Inhalte aus Joomla Mir ging es hier in erste Linie darum zu zeigen, dass die `index.php` des aktiven Templates für alles verantwortlich ist. In unserem Fall ist dies die Datei `templates/facile/index.php`. Bisher hält sich die Verantwortung in Grenzen. Es wird lediglich die Begrüßung `Hallo Joomla` am Bildschirm ausgegeben.
 
-##### templates/facile/ language/en-GB/en-GB.tpl_facile.ini
+##### templates/facile/language/en-GB/en-GB.tpl_facile.ini
 
-Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` sorgt dafür, dass im Backend bei der Verwaltung der Erweiterungen der Name zur Sprache passend angezeigt wird.
+Die Sprachdatei `templates/facile/language/en-GB/en-GB.tpl_facile.ini` sorgt dafür, dass im Backend bei der Verwaltung der Erweiterungen der Name zur Sprache passend angezeigt wird.
 
-[templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
+[templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.ini
@@ -159,11 +159,11 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ```
 
-##### templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini
+##### templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
 
-Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` übersetzt die Texte im Menü oder während der Installation in die korrekte Sprache.
+Die Sprachdatei `templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini` übersetzt die Texte im Menü oder während der Installation in die korrekte Sprache.
 
-[templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
+[templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.sys.ini
@@ -184,7 +184,7 @@ Der nachfolgende minimalistisch Code sorgt dafür, dass ein Anmeldeformular ange
 
 ![Joomla Template erstellen - Offline Seite Frontend](/images/j4x40x6.png)
 
-[templates/facile/ offline.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/offline.php)
+[templates/facile/offline.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/offline.php

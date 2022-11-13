@@ -29,15 +29,15 @@ In this chapter only the image `templates/facile/images/banner.jpg` is added, wh
 
 ### Modified files
 
-##### templates/facile/ index.php
+##### templates/facile/index.php
 
-We add code to the file `templates/facile/ index.php` so that a banner and social media icons can be inserted via parameters.
+We add code to the file `templates/facile/index.php` so that a banner and social media icons can be inserted via parameters.
 
 > In HTML some characters, for example the _less than sign_ `<` or the _greater-than-sign_ `>`, have a special meaning. They are therefore written as [HTML entities](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)[^en.wikipedia.org/wiki/list_of_xml_and_html_character_entity_references] if they are to be displayed as text. For example, `&lt;` is written instead of `<` and `&gt;` is written instead of `>`. When processing strings, it may happen that they contain such specific characters. These must then be converted so that they can be further processed as plain text. We offer in the template a text input option via a form in the backend. However, we do not want HTML code to be injected via this. This is a security risk. To prevent this, we use the function [htmlspecialchars()](https://www.php.net/manual/en/function.htmlspecialchars.php)[^www.php.net/manual/en/function.htmlspecialchars.php]. This ensures that the characters that have a special meaning in HTML are converted to plain text.<!-- \index{htmlspecialchars} -->
 
 Take a look at the code snippet below. I think the HTML code is self-explanatory. We add HTML markup, which is only displayed if a certain parameter is set. For example, for the footer via the query `$this->params->get('showFooter')`. What is displayed then also depends on the values for the parameters filled in by the user in the backend.
 
-[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 ```php {diff}
          </nav>

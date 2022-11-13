@@ -54,7 +54,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 
 Now Joomla needs the class `AdminController`. Therefore, we create the class `FoosController`, which inherits from `AdminController`. At the moment, `FoosController` does not contain any implementations of its own. The controller only calls methods of the parent class.
 
-[administrator/components/com_foos/ src/Controller/FoosController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Controller/FoosController.php)
+[administrator/components/com_foos/src/Controller/FoosController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
 ```php {numberLines: -2}
 <?php
@@ -205,7 +205,7 @@ Three fields are added to the form. One, in which the status is set and two, thr
 
 The component class receives the new function 'getStateColumnForSection'. This is used to show in the category view how many items are published or hidden. Remember. We introduced categories in the previous part. Then this part did not work in the category view. Now it is counted correctly. See for yourself after you have added this function to the component in Joomla.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  protected function getTableNameForSection(string $section = null)
@@ -226,7 +226,7 @@ The component class receives the new function 'getStateColumnForSection'. This i
 
 We extend the model so that the information about the status is retrieved from the database when the list view is created for the backend.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  protected function getListQuery()
@@ -243,11 +243,11 @@ We extend the model so that the information about the status is retrieved from t
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/Table/FooTable.php
 
-In the file `administrator/components/com_foos/ src/Table/FooTable.php`, which manages the database table, we add checks. This way we make sure that no impossible data is stored.
+In the file `administrator/components/com_foos/src/Table/FooTable.php`, which manages the database table, we add checks. This way we make sure that no impossible data is stored.
 
 We need `store($updateNulls = true)` because the parent class `Table` sets the variable `$updateNulls` to `false`. This causes form fields that hold the value `null` not to be changed in the database. Most of the time this is correct. The most common case is probably that a value is not set from the beginning and has not been changed in the form when editing the element. Because an empty date field is stored in the database with `null`, it is necessary in our case to force the storage of `null` values. This is done by setting the variable `$updateNulls` to `true`.
 
-[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
  public function generateAlias()

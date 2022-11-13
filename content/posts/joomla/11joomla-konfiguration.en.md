@@ -81,7 +81,7 @@ The addition in the `foos.xml` file ensures that the `config.xml` file is copied
 
 The line `$toolbar->preferences('com_foos');` ensures that the button `Options' is inserted at the top of the administration area. This way, the configuration is easily accessible later in the backend.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  		ToolbarHelper::title(Text::_('COM_FOOS_MANAGER_FOOS'), 'address foo');
@@ -96,7 +96,7 @@ The line `$toolbar->preferences('com_foos');` ensures that the button `Options' 
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/FooModel.php
+#### components/com\_foos/src/Model/FooModel.php
 
 The `populateState` method ensures that the `State` object is correctly filled and available to all code. We add the new parameter here for the site part.
 
@@ -104,7 +104,7 @@ The `populateState` method ensures that the `State` object is correctly filled a
 
 > You may wonder which `populateState()` method is called when nothing is implemented in our own extension. Quite simple: `FooModel` (`components/com_foos/src/Model/FooModel.php`) extends `BaseDatabaseModel` (`libraries/src/MVC/Model/BaseDatabaseModel.php`), which in turn extends `BaseModel` (`libraries/src/MVC/Model/BaseModel.php`). The latter implements `StateBehaviorTrait` (`libraries/src/MVC/Model/StateBehaviorTrait.php`) in which you find the method `protected function populateState() {}`. This method is empty and does nothing. But: It is callable. It is extremely helpful to follow up on such questions. This is how you get to know Joomla.
 
-[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  		return $this->_item[$pk];

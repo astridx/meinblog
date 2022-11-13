@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-04
+date: 2022-11-12
 title: 'Template - Favicon'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -29,7 +29,7 @@ In this section we create a recognisable image. In the first step, we choose an 
 
 ### New files
 
-The favicon generator creates 9 files which we copy into our template directory. I put all of them in the directory `templates/facile/ favicon_package`. These are exactly the files
+The favicon generator creates 9 files which we copy into our template directory. I put all of them in the directory `templates/facile/favicon_package`. These are exactly the files
 
 1.  android-chrome-192x192.png
 2.  android-chrome-512x512.png
@@ -43,11 +43,13 @@ The favicon generator creates 9 files which we copy into our template directory.
 
 ### Modified files
 
-##### templates/facile/ index.php
+##### templates/facile/index.php
 
-In order for the files to be found, new lines in the file `templates/facile/ index.php` are required. The variable `$templatePath` helps me to create the relativ path.
+In order for the files to be found, new lines in the file `templates/facile/index.php` are required. The variable `$templatePath` helps me to create the relativ path.
 
-[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/b5c3e2d5113b6e5441f4a4dc079171daacf66bcb/src/templates/facile/index.php)
+> We introduced the variable `$templatePath` in the last chapter. It is assigned `$templatePath = 'templates/' . $this->template;` and thus points to the directory of the current template in the Joomla directory tree. The entry `<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $templatePath . '/favicon_package'; ?>/favicon-16x16.png">` thus becomes `<link rel="icon" type="image/png" sizes="16x16" href="/PathToJoomla/templates/facile/favicon_package/favicon-16x16.png">` in the HTML source code.
+
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t41/src/templates/facile/index.php)
 
 ```php {diff}
      <meta name="viewport" content="width=device-width, initial-scale=1.0">

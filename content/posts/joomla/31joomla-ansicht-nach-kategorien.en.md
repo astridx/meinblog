@@ -28,11 +28,11 @@ For the frontend, there are built-in menu item types in Joomla that use categori
 ### New files
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/CategoryModel.php
+#### components/com\_foos/src/Model/CategoryModel.php
 
 The class we use to prepare the data for displaying the category view extends the `ListModel` class in the `/libraries/src/MVC/Model/ListModel.php` file, as does the `FeaturedModel` class in `components/com_foos/src/Model/FeaturedModel.php`. ListModel provides, among other things, the ability to handle the display of multiple items simultaneously on a web page, including support for pagination. Below I include my full code, which is derived from `com_contact`.
 
-[components/com_foos/ src/Model/CategoryModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Model/CategoryModel.php)
+[components/com_foos/src/Model/CategoryModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Model/CategoryModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/Model/CategoryModel.php
@@ -490,11 +490,11 @@ class CategoryModel extends ListModel
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Service/Category.php
+#### components/com\_foos/src/Service/Category.php
 
 In the `Category` service for the frontend part we set the specific options for our component.
 
-[components/com_foos/ src/Service/Category.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Service/category.php)<!-- \index{service!category} -->
+[components/com_foos/src/Service/Category.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Service/category.php)<!-- \index{service!category} -->
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/Service/Category.php
@@ -541,11 +541,11 @@ class Category extends Categories
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Category/HtmlView.php
+#### components/com\_foos/src/View/Category/HtmlView.php
 
-We handle the category view in the frontend via the file `components/com_foos/ src/View/Category/HtmlView.php`.
+We handle the category view in the frontend via the file `components/com_foos/src/View/Category/HtmlView.php`.
 
-[components/com_foos/ src/View/Category/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php)
+[components/com_foos/src/View/Category/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php

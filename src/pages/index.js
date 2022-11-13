@@ -10,7 +10,6 @@ import config from '../utils/config'
 import looking from '../assets/me.jpg'
 
 export default function WebsiteIndex({ data }) {
-  const [followers, setFollowers] = useState(null)
   const latest = data.latest.edges
   const highlights = data.highlights.edges
   const simplifiedLatest = useMemo(() => getSimplifiedPosts(latest), [latest])
@@ -19,19 +18,6 @@ export default function WebsiteIndex({ data }) {
       getSimplifiedPosts(highlights, { shortTitle: true, thumbnails: true }),
     [highlights]
   )
-
-  useEffect(() => {
-    async function getGithubAPI() {
-      const response = await fetch('https://api.github.com/users/astridx')
-      const data = await response.json()
-
-      return data
-    }
-
-    getGithubAPI().then((data) => {
-      setFollowers(data.followers)
-    })
-  }, [])
 
   return (
     <>

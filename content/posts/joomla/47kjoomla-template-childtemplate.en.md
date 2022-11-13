@@ -33,7 +33,7 @@ There are no new files in this chapter. We have only moved or changed files.
 
 The path to the _template media folders_ was `templates/TEMPLATENAME/` before Joomla 4.1. Template media folders are for example the folders `css`, `images`, `fonts`, `webfonts`, `js`, `sass`, `less` or `scss`. Starting with Joomla 4.1, these media are ideally located in the `media/templates/site/TEMPLATENAME/` directory. This is a prerequisite to use a child template in a useful way.
 
-##### templates/facile/ assets
+##### templates/facile/assets
 
 In order to overwrite the media files, it is necessary to move them to the `media` directory in the Joomla root directory. Therefore we move
 
@@ -65,13 +65,13 @@ Our CSS files are now no longer located in the `assets` subdirectory. Therefore,
 
 > The same applies to the file `media/templates/site/facile/ css/main.dark.css` and who uses SASS also for the file `media/templates/site/facile/ sass/main.scss`.
 
-##### templates/facile/ index.php
+##### templates/facile/index.php
 
-In the file `templates/facile/ index.php` we correct all places where the media files are loaded. There is no further need to specify an exact path, because we use the default directories in Joomla. We put the files where Joomla looks for them. Because Joomla keeps a certain order, overwriting is possible using child template. In this way, everything that the child template does not implement itself is used from the parent template.
+In the file `templates/facile/index.php` we correct all places where the media files are loaded. There is no further need to specify an exact path, because we use the default directories in Joomla. We put the files where Joomla looks for them. Because Joomla keeps a certain order, overwriting is possible using child template. In this way, everything that the child template does not implement itself is used from the parent template.
 
 We also make it possible to use a `user.css` file via `$wa->registerAndUseStyle('user', 'user.css', [], []);`. This simplifies overwriting without having to make changes to the already existing files.
 
-[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/index.php)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/index.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLHelper;
@@ -119,9 +119,9 @@ We also make it possible to use a `user.css` file via `$wa->registerAndUseStyle(
 
 > If you are more interested in the features used here, besides the Joomla Web Asset Manager, the file `libraries/src/HTML/HTMLHelper.php` is a good starting point for further code research.
 
-##### templates/facile/ language/en-GB/tpl_facile.ini
+##### templates/facile/language/en-GB/tpl_facile.ini
 
-[templates/facile/ language/en-GB/tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
+[templates/facile/language/en-GB/tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 We have moved the banner image to the media directory so that it is also used in the child template if the child does not provide a more specific image. This change results in a change in the language files.
 
@@ -136,13 +136,13 @@ We have moved the banner image to the media directory so that it is also used in
  TPL_FACILE_BANNER_TAGLINE="Tagline text"
 ```
 
-##### templates/facile/ templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/templateDetails.xml)
+##### templates/facile/templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/templateDetails.xml)
 
-The locations of the media files have been changed. To ensure that this is recognized correctly when the template is installed, we correct the corresponding entries in the `templates/facile/ templateDetails.xml` file.
+The locations of the media files have been changed. To ensure that this is recognized correctly when the template is installed, we correct the corresponding entries in the `templates/facile/templateDetails.xml` file.
 
 > Changing the locations in the `src` directory of the development environment is not mandatory. Because it is important to me that my files simulate the locations in a Joomla installation, I have also recopied the files in the `src` directory.
 
-[templates/facile/ templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/templateDetails.xml)
+[templates/facile/templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/templateDetails.xml)
 
 ```php {diff}
  	<license>GNU General Public License version 2 or later;</license>

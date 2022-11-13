@@ -152,11 +152,11 @@ Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/FooModel.php
+#### components/com\_foos/src/Model/FooModel.php
 
 So etwas passiert beim Entwickeln. Im Grunde genommen müssten wir die Datei `components/com_foos/src/Model/FooModel.php` nicht ändern. In diesem Kapitel ist mir aufgefallen, dass ein `use`-Eintrag fehlt. Deshalb erfolgt doch eine Änderung.
 
-[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  use Joomla\CMS\Factory;
@@ -169,11 +169,11 @@ So etwas passiert beim Entwickeln. Im Grunde genommen müssten wir die Datei `co
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/View/Foo/HtmlView.php
+#### components/com\_foos/src/View/Foo/HtmlView.php
 
 Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt und das Design- immer einheitlich angezeigt werden. Deshalb fragen wir den aktiven Menüpunkt ab. Werden beispielsweise Elemente über eine Kategorie-Ansicht angezeigt, dann ist mithilfe dieser Information ein einheitliches Layout möglich. Wird der Content als einzelnes Element angezeigt kann auf ein anderes Layout zurückgegriffen werden.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$temp->merge($itemparams);

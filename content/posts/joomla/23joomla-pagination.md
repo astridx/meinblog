@@ -33,7 +33,7 @@ Es kommt keine neue Dateien hinzu.
 Wir haben keine speziellen Wünsche. Um die Standard Paginierung anzuzeigen, reichen mehr oder weniger zwei Zeilen. In der View rufst du
 `$this->pagination = $this->get('Pagination');` auf, um die Variable `$this->pagination` zu setzen.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t19/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t19/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  	protected $items;

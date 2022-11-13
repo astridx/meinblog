@@ -28,11 +28,11 @@ In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich Date
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ src/Model/ FooModel.php
+#### components/com\_foos/src/Model/ FooModel.php
 
 Im Model änderst du die Methode, in welcher der Text für die Ausgabe berechnet wird. Lösche den folgenden Eintrag:
 
-[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/src/Model/FooModel.php)
 
 ```php
 ...
@@ -56,7 +56,7 @@ Füge die nachfolgenden Zeilen an der Stelle hinzu:
 
 Die vollständige Datei sieht in der Diff-Ansicht wie folgt aus:
 
-[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 \defined('_JEXEC') or die;

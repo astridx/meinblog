@@ -25,7 +25,7 @@ In this part we will take a look at the Joomla 4 API and how to access Joomla 4 
 
 #### Component
 
-##### api/components/com_foos/ src/Controller/FooController.php
+##### api/components/com_foos/src/Controller/FooController.php
 
 Create the controller `FooController` which inherits from `ApiController`. Everything necessary is implemented in the class `ApiController`. If you have no other requirements, then it is made up. Just overwrite the following fields for your component:
 
