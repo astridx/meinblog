@@ -108,7 +108,7 @@ To make Joomla apply the rule in the `LetterRule.php` file to the text field for
 
 What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` and `validate="Letter"`. The parameter `addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"` ensures that the form searches for rules in the namespace `FooNamespace\Component\Foos\Administrator\Rule` and `validate="Letter"` indicates that the rule `Letter`, i.e. according to Joomla standard the class `LetterRule`, is applied.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11a/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11a/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  <?xml version="1.0" encoding="utf-8"?>

@@ -224,7 +224,7 @@ class Icon
 
 Wir passen die XML Datei an, die Joomla verwendet, um das Formular aufzubauen.
 
-[components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/forms/foo.xml)
+[components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/forms/foo.xml -->
@@ -1036,9 +1036,9 @@ einfügst, erfolgt bei einer fehlgeschlagenen Berechtigungsprüfung unmittelbar 
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/form/edit.php
 
-`components/com_foos/ tmpl/form/edit.php` sorgt als Template dafür, dass das Formular schon im Frontend angezeigt wird.
+`components/com_foos/tmpl/form/edit.php` sorgt als Template dafür, dass das Formular schon im Frontend angezeigt wird.
 
-[components/com_foos/ tmpl/form/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/tmpl/form/edit.php)
+[components/com_foos/tmpl/form/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/tmpl/form/edit.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/tmpl/form/edit.php
@@ -1114,9 +1114,9 @@ $this->useCoreUI = true;
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/form/edit.xml
 
-Zu guter Letzt benötigen wir die Datei `components/com_foos/ tmpl/form/edit.xml`, um den Menüpunkt zu erstellen.
+Zu guter Letzt benötigen wir die Datei `components/com_foos/tmpl/form/edit.xml`, um den Menüpunkt zu erstellen.
 
-[components/com_foos/ tmpl/form/edit.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/tmpl/form/edit.xml)
+[components/com_foos/tmpl/form/edit.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/tmpl/form/edit.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/tmpl/form/edit.xml -->
@@ -1177,7 +1177,7 @@ In der Datei `administrator/components/com_foos/src/Extension/FoosComponent.php`
 
 Wir erweitern das Template für die Ansicht: Wenn man das Element bearbeiten darf `if ($canEdit)`, dann sieht man das Icon zum Öffnen des Formulares.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
   */

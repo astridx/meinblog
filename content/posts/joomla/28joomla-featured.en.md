@@ -30,7 +30,7 @@ Some items are special and for them there is a special attribute in Joomla: `fea
 
 You already know this. We store the property `featured` in the database, so we extend the database table by one column. We do this in the file `24.0.0.sql`.
 
-[administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/24.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql -->
@@ -445,7 +445,7 @@ class HtmlView extends BaseHtmlView
 
 The display in the frontend is done as before via a template, which we implement in the file `default.php`.
 
-[components/com_foos/ tmpl/featured/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default.php)
+[components/com_foos/tmpl/featured/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/featured/default.php
@@ -489,9 +489,9 @@ The display in the frontend is done as before via a template, which we implement
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/featured/default.xml
 
-We need the file `components/com_foos/ tmpl/featured/default.xml` to enable the display of `featured` elements via a menu item in the frontend.
+We need the file `components/com_foos/tmpl/featured/default.xml` to enable the display of `featured` elements via a menu item in the frontend.
 
-[components/com_foos/ tmpl/featured/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default.xml)
+[components/com_foos/tmpl/featured/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/featured/default.xml -->
@@ -559,7 +559,7 @@ In the file `default.php` we use the statement `<?php echo $this->loadTemplate('
 > `default.php`
 > is executed.
 
-[components/com_foos/ tmpl/featured/default_items.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default_items.php)
+[components/com_foos/tmpl/featured/default_items.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default_items.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/featured/default_items.php
@@ -637,7 +637,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 We extend the form with which an element is created or changed by the field for setting the property `featured`.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f)
 
 ```xml {diff}
  			<option value="*">JALL</option>
@@ -665,7 +665,7 @@ We extend the form with which an element is created or changed by the field for 
 
 In the case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the property `featured`.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
@@ -951,7 +951,7 @@ We add to the toolbar. `featured` should also be editable here via an action.
 
 In the form for creating or editing an element, we insert the command that creates a field using the XML file.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  						<?php echo $this->getForm()->renderField('publish_down'); ?>
@@ -966,9 +966,9 @@ In the form for creating or editing an element, we insert the command that creat
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ tmpl/foos/default.php
 
-In the overview of all elements in the backend in the file `administrator/components/com_foos/ tmpl/foos/default.php` we add a column in which the state is displayed with a filled or empty star and can be changed by clicking. The file `HTMLHelper` does the master work for us.
+In the overview of all elements in the backend in the file `administrator/components/com_foos/tmpl/foos/default.php` we add a column in which the state is displayed with a filled or empty star and can be changed by clicking. The file `HTMLHelper` does the master work for us.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  								<th scope="col" style="width:1%" class="text-center d-none d-md-table-cell">

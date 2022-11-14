@@ -271,7 +271,7 @@ Der Name der Funktion muss an beiden Stellen gleich sein!
 
 Die Auswahl öffnen wir über das FooField in einem Modal-Fenster. Als Adresse haben wir im Feld `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'` eingefügt. Der nachfolgende Code zeigt dir das Template für dieses Modal-Fenster.
 
-[administrator/components/com_foos/ tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php)
+[administrator/components/com_foos/tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php
@@ -449,7 +449,7 @@ Es folgt der JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpunktes 
 
 Wir haben eine neue JavaScript-Datei erstellt. Wir legen sie im Verzeichnis `media\js` ab. Damit sie bei der Installation der Komponente kopiert wird, fügen wir den Ordner `js` in den Abschnitt `media` des Installationsmanifests ein.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		<folder>src</folder>
@@ -584,7 +584,7 @@ In der View tauschen wir folgerichtig `$this->msg = $this->get('Msg');` gegen `$
 
 Die Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Element `item` und dessen Eigenschaft `name` zu. Auf diese Art können wir in Zukunft weitere Eigenschaften flexibel und unkompliziert ergänzen.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -601,7 +601,7 @@ Die Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Eleme
 
 Wir erstellen einen Eintrag in der Datei `default.xml` für das neue Formularfeld. So ermöglichen wir beim Menüpunkt die Auswahl eines Foo-Elementes. Erwähnenswert sind die Einträge `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` und `type="modal_foo"`:
 
-[components/com_foos/ tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {diff}
  	</layout>

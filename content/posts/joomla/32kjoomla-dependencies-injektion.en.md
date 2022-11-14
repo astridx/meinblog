@@ -106,9 +106,9 @@ We print the directions as text using the `displayDirection` method of the `Dire
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
-The template `default.php` in the directory `components/com_foos/ tmpl/foo/` is responsible for the actual output.
+The template `default.php` in the directory `components/com_foos/tmpl/foo/` is responsible for the actual output.
 
 [components/com_foos/tmpl/ foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a1/src/components/com_foos/tmpl/foo/default.php)
 

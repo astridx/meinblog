@@ -28,7 +28,7 @@ Joomla offers a number of functions that enable administrators to process severa
 
 The following file creates the middle part of the form that is displayed to trigger batch processing.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
+[administrator/components/com_foos/tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
@@ -80,9 +80,9 @@ $noUser    = true;
 
 The following file creates the footer of the form that is displayed to trigger batch processing. The 'JCANCEL' button clears all values in the form fields using `document.getElementById('ELEMENT_ID').value=''`. I have included all possible fields here, although we don't use them all yet. For example, `batch-user-id` and `batch-tag-id` are not yet used in our form. The button `JGLOBAL_BATCH_PROCESS` starts the batch processing.
 
-> It is important that you create the batch form as described above in the file `administrator/components/com_foos/ tmpl/foos/default_batch_body.php`. `LayoutHelper` in combination with the appropriate layout ensures that all variables and IDs are set so that the standard functions run correctly.
+> It is important that you create the batch form as described above in the file `administrator/components/com_foos/tmpl/foos/default_batch_body.php`. `LayoutHelper` in combination with the appropriate layout ensures that all variables and IDs are set so that the standard functions run correctly.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
+[administrator/components/com_foos/tmpl/foos/default_batch_footer.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
@@ -218,7 +218,7 @@ To make the batch processing usable via a button, we add an entry to the toolbar
 
 We create the template that is used to create the form to trigger batch processing with the help of `HTMLHelper`.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
 		<?php echo $this->pagination->getListFooter(); ?>

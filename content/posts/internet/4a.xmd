@@ -1,0 +1,21 @@
+---
+description: 'desc'
+syndication:
+shortTitle: 'short'
+date: 2022-07-07
+title: 'Informationen im Internet - Die Landkarte des Internets'
+template: post
+thumbnail: '../../thumbnails/worldinternet.png'
+slug: informationsuebertragung-im-netz-landkarte
+langKey: de
+categories:
+  - Internet
+tags:
+  - Paket
+  - Daten
+  - Datenübertragung
+  - Schichtenmodell
+  - Datenübertragung
+---
+
+

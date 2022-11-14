@@ -30,7 +30,7 @@ Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest. Jed
 
 > Eine hilfreiche Lektüre ist das [Tutorial zur Zugriffssteuerungsliste (ACL)](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial/de)[^docs.joomla.org/j3.x:access_control_list_tutorial/de].
 
-[administrator/components/com_foos/ access.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/access.xml)
+[administrator/components/com_foos/access.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/access.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t10/src/administrator/components/com_foos/access.xml -->
@@ -55,7 +55,7 @@ Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest. Jed
 
 Die Berechtigungen speichert Joomla in der Datenbank. Bezüglich der Datenbank sind bei einem Joomla Update lediglich Änderungen relevant. Diese tragen wir in die Datei `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql` ein, in unserem Fall ist dies konkret die Datei `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. Diese Datei wird ausschließlich bei einer Aktualisierung aufgerufen. Bei einer neuen Installation wird die Datenbank über die Hauptdatei `administrator/components/com_foos/sql/install.mysql.utf8.sql` sofort korrekt eingerichtet.
 
-[administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/10.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t10/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql -->
@@ -72,7 +72,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 
 Die Berechtigungen für die gesamte Komponente stellen wir in der Konfiguration ein. Hierfür integrieren wir ein spezielles Formularfeld. Joomla bietet hierfür den Typ `rules`.
 
-[administrator/components/com_foos/ config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/config.xml)
 
 ```xml {diff}
  			<option value="1">JYES</option>
@@ -101,7 +101,7 @@ Die Berechtigungen für die gesamte Komponente stellen wir in der Konfiguration 
 
 Damit bei der Installation alles glatt läuft, ergänzen wir die hier neu hinzukommenden Dateien. Hierbei handelt es sich um das Verzeichnis `sql/updates/mysql` und die Datei `access.xml`.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
@@ -130,7 +130,7 @@ Damit bei der Installation alles glatt läuft, ergänzen wir die hier neu hinzuk
 
 Das Formular zum Erstellen eines neuen Foo-Items erweitern wir um die Möglichkeit, Berechtigungen für ein einzelnes Element zu setzten. Wir ergänzen das Feld `name="access"`.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			size="45"
@@ -152,7 +152,7 @@ Das Formular zum Erstellen eines neuen Foo-Items erweitern wir um die Möglichke
 
 Das SQL-Skript für eine neue Installation der Komponente wird ebenfalls um die notwendigen Felder erweitert. So stellen wir sicher, dass die Datenbank bei einer neuen Installation ebenfalls vollständig eingerichtet wird.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ('Nina'),
@@ -198,7 +198,7 @@ Wenn du mit SQL bisher nicht vertraut bist, dann wird die Datenbankabfrage im Mo
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
-Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erlaubt ist. Deshalb ändern wir die View ab - `$canDo` kommt hinzu. Die Anweisung `$canDo = ContentHelper::getActions('com_foos');` fragt die Aktionen ab, die du zu Beginn dieses Kapitels in der Datei `administrator/components/com_foos/ access.xml` festegelegt hast.
+Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erlaubt ist. Deshalb ändern wir die View ab - `$canDo` kommt hinzu. Die Anweisung `$canDo = ContentHelper::getActions('com_foos');` fragt die Aktionen ab, die du zu Beginn dieses Kapitels in der Datei `administrator/components/com_foos/access.xml` festegelegt hast.
 
 [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
@@ -242,7 +242,7 @@ Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erl
 
 Der Eintrag `<?php echo $this->getForm()->renderField(access);` ist notwendig, damit das Feld im Formular aufgenommen wird, welches wir in der XML Datei schon konfiguriert haben. So ist es möglich, die Berechtigungen pro Element zu verändern.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">
@@ -259,7 +259,7 @@ Der Eintrag `<?php echo $this->getForm()->renderField(access);` ist notwendig, d
 
 Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in der Übersichtliste auf.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  								<th scope="col" style="width:1%" class="text-center d-none d-md-table-cell">

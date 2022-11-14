@@ -3,7 +3,7 @@ description: 'desc'
 syndication:
 shortTitle: 'short'
 date: 2022-07-15
-title: 'Kontrolle - Teil 1'
+title: 'Kontrolle - Die Rolle von Menschen und Maschinen'
 template: post
 thumbnail: '../../thumbnails/worldinternet.png'
 slug: kontrolle-regler-und-bestimmer

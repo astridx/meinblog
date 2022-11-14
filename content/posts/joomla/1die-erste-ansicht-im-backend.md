@@ -136,7 +136,7 @@ Du benötigst dieses, wenn du den _Download Key Manager_ verwendest. Im Allgemei
 
 Zuletzt schließen wir das `</extension>`-Tag. Hier der vollständige Code:
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/foos.xml -->
@@ -190,7 +190,7 @@ Mit der Installationsskriptdatei<!-- \index{Installationsskript} --> rufst du Co
 
 Erstelle die Datei `script.php` mit folgendem Inhalt:
 
-[administrator/components/com_foos/ script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/script.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/script.php
@@ -382,7 +382,7 @@ Weitere Informationen zur Implementierung findest du auf [Github](https://github
 
 Du siehst oft das Wort `Factory` im Joomla-Code. Das liegt daran, dass Joomla das [Factory-Design-Muster](https://de.wikipedia.org/wiki/Fabrikmethode)[^de.wikipedia.org/wiki/fabrikmethode] verwendet. Die Factory-Methode ist ein Muster, bei dem die Schnittstelle zur Erstellung eines Objekts eine abstrakte Methode einer vererbenden Klasse ist. Die konkrete Umsetzung der Erstellung neuer Objekte findet jedoch nicht in der Oberlasse statt, sondern in davon abgeleiteten Unterklassen. Letztere implementieren die besagte abstrakte Methode. Um Erweiterungen für Joomla zu programmieren ist es nicht zwingend, dass du die Design-Pattern kennst. Ein Blick über den Tellerrand kann aber lohnenswert sein. In der Softwaretechnik ist ein [Entwurfsmuster](https://de.wikipedia.org/wiki/Entwurfsmuster)[^de.wikipedia.org/wiki/entwurfsmuster] eine allgemeine, wieder-verwendbare Lösung für ein häufig auftretendes Problem. Jemand anderes hatte das gleiche Problem und hat eine Lösung gefunden. Wir müssen nicht das gleiche Problem lösen, sondern können darauf aufbauen.<!-- \index{Entwurfsmuster!Fabrikmethode} --><!-- \index{Entwurfsmuster} -->
 
-[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/services/provider.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/services/provider.php
@@ -613,7 +613,7 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 
 Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Dateien für die Administration benötigt. Die Datei `AdministratorService.php` wird später verwendet, um Funktionen wie die Mehrsprachigkeit oder Haupteinträge/Featured hinzuzufügen. Im Moment brauchen wir diese Funktionen nicht. Aber wir bereiten hier schon alles vor.
 
-[administrator/components/com_foos/ service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
@@ -700,7 +700,7 @@ class HtmlView extends BaseHtmlView
 
 Die Datei `default.php` ist das Template zum Rendern der Ansicht. Man erkennt diese weiterhin am Verzeichnisnamen `tmpl`. In ihr befindet sich der Text, den wir anzeigen. Im Moment betreiben wir den ganze Aufwand für die Ausgabe des Textes "Hello Foos".
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/tmpl/foos/default.php

@@ -28,7 +28,7 @@ Im vorhergehenden Teil hatten wir eine Datenbank für die Joomla-Komponenten ein
 
 Joomla erstellt das Formular für dich, wenn du ihm die Rahmenbedingungen in einer XML-Datei vorgibst. Nachfolgend siehst du dies für unser Beispiel.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/forms/foo.xml -->
@@ -383,7 +383,7 @@ In der Datei `edit.php` ist die Ansicht implementiert, die zum Bearbeiten aufger
 
 > Falls du Webassets nicht korrekt einbindest, wird dir in der Konsole deines Browsers folgender Fehler angezeigt, wenn du das Formular speicherst: `joomla document.formvalidator is undefined`. Joomla validiert die Formulare nämlich standardmäßig und erwartet, dass die Datei `media/system/js/core.js` geladen ist.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php
@@ -426,11 +426,11 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 > Interessierst dich der Inhalt der Dateien `Core.js`[^build/media_source/system/js/core.es6.js] oder `Keepalive.js`[^build/media_source/system/js/keepalive.es6.js]? Sieh sie dir in dem Falle in Joomla direkt an. Sie befinden sich in der Entwicklungsversion im Verzeichnis `build/media_source/system/js/` und werden mithilfe von Skripten, [Node.js](https://nodejs.org/en/)[^nodejs.org] und [Composer](https://getcomposer.org/)[^getcomposer.org/] für die Installation aufbereitet im Verzeichnis `media/system/js` abgelegt. Weitere Informationen hierzu findest du in der [Joomla Dokumentation](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment/de)[^docs.joomla.org/j4.x:setting_up_your_local_environment/de].
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/emptystate.php<!-- \index{Empty State} -->
+#### administrator/components/com_foos/tmpl/foos/emptystate.php<!-- \index{Empty State} -->
 
-Mit der Datei `administrator/components/com_foos/ tmpl/foos/emptystate.php` erstellen wir ein spezielles Layout für den Fall, dass die Komponente kein Element enthält und somit leer ist.
+Mit der Datei `administrator/components/com_foos/tmpl/foos/emptystate.php` erstellen wir ein spezielles Layout für den Fall, dass die Komponente kein Element enthält und somit leer ist.
 
-[administrator/components/com_foos/ tmpl/foos/emptystate.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
+[administrator/components/com_foos/tmpl/foos/emptystate.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php
@@ -478,7 +478,7 @@ Das Empty-State-Layout wurde in Joomla im [PR 33264](https://github.com/joomla/j
 
 Damit während einer neuen Installation das Verzeichnis `forms` an Joomla übergeben wird, tragen wird diese im Installationsmanifest ein.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		</submenu>
@@ -541,7 +541,7 @@ In der Ansicht, die die Übersichtsliste anzeigt, ergänzen wir die Toolbar. Hie
 
 Im Template der Übersichtsliste ersetzen wir den einfachen Text mit einem Formular. Das Formular enthält ein Formularfeld für jede Spalte in der Datenbanktabelle und ermöglicht es, Daten anzulegen beziehungsweise zu ändern.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
   * @license     GNU General Public License version 2 or later; see LICENSE.txt

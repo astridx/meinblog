@@ -30,7 +30,7 @@ Manche Items sind etwas Besonderes und für sie gibt es in Joomla ein spezielles
 
 Du kennst das schon. Wir speichern die Eigenschaft `featured` in der Datenbank, deshalb erweitern wir die Datenbanktabelle um eine Spalte. Dies erledigen wir in der Datei `24.0.0.sql`.
 
-[administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/24.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql)
 
 ```xml {numberLines: -2}
 <-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql -->
@@ -445,7 +445,7 @@ class HtmlView extends BaseHtmlView
 
 Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in der Datei `default.php` implementieren.
 
-[components/com_foos/ tmpl/featured/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default.php)
+[components/com_foos/tmpl/featured/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/featured/default.php
@@ -489,9 +489,9 @@ Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in de
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/featured/default.xml
 
-Die Datei `components/com_foos/ tmpl/featured/default.xml` benötigen wir, damit im Frontend die Anzeige der `featured` Elemente über einen Menüpunkt möglich ist.
+Die Datei `components/com_foos/tmpl/featured/default.xml` benötigen wir, damit im Frontend die Anzeige der `featured` Elemente über einen Menüpunkt möglich ist.
 
-[components/com_foos/ tmpl/featured/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default.xml)
+[components/com_foos/tmpl/featured/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/featured/default.xml -->
@@ -559,7 +559,7 @@ In der Datei `default.php` nutzen wir die Anweisung `<?php echo $this->loadTempl
 > `default.php`
 > ausgeführt wird.
 
-[components/com_foos/ tmpl/featured/default_items.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default_items.php)
+[components/com_foos/tmpl/featured/default_items.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/components/com_foos/tmpl/featured/default_items.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/featured/default_items.php
@@ -637,7 +637,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 Wir erweitern das Formular, mit dem ein Element angelegt oder geändert wird, um das Feld zur Festlegung der Eigenschaft `featured`.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f)
 
 ```xml {diff}
  			<option value="*">JALL</option>
@@ -665,7 +665,7 @@ Wir erweitern das Formular, mit dem ein Element angelegt oder geändert wird, um
 
 Im Falle einer neuen Installation, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Eigenschaft `featured` hinzu.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
@@ -949,9 +949,9 @@ Wir ergänzen die Werkzeugleiste. `featured` soll auch hier über eine Aktion be
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ tmpl/foo/edit.php
 
-Im Formular `administrator/components/com_foos/ tmpl/foo/edit.php` zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, der mithilfe der XML-Datei ein Feld erstellt.
+Im Formular `administrator/components/com_foos/tmpl/foo/edit.php` zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, der mithilfe der XML-Datei ein Feld erstellt.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  						<?php echo $this->getForm()->renderField('publish_down'); ?>
@@ -966,9 +966,9 @@ Im Formular `administrator/components/com_foos/ tmpl/foo/edit.php` zum Anlegen o
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ tmpl/foos/default.php
 
-In der Übersicht aller Elemente im Backend in der Datei `administrator/components/com_foos/ tmpl/foos/default.php` fügen wir eine Spalte ein, in der der Zustand mit einem ausgefüllten oder leeren Stern angezeigt wird und per Klick geändert werden kann. Die Datei `HTMLHelper` übernimmt die meister Arbeit für uns.
+In der Übersicht aller Elemente im Backend in der Datei `administrator/components/com_foos/tmpl/foos/default.php` fügen wir eine Spalte ein, in der der Zustand mit einem ausgefüllten oder leeren Stern angezeigt wird und per Klick geändert werden kann. Die Datei `HTMLHelper` übernimmt die meister Arbeit für uns.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t24/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  								<th scope="col" style="width:1%" class="text-center d-none d-md-table-cell">

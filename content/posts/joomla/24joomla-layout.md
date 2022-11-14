@@ -28,7 +28,7 @@ Wir nutzen bereits Layouts. Das Empty-State-Layout (`administrator/components/co
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/withhead.php
 
-[components/com_foos/ tmpl/foo/withhead.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.php)
+[components/com_foos/tmpl/foo/withhead.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.php)
 
 ```php {numberLines: -2}
 <?php
@@ -57,7 +57,7 @@ echo $this->item->event->afterDisplayContent;
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/withhead.xml
 
-[components/com_foos/ tmpl/foo/withhead.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.xml)
+[components/com_foos/tmpl/foo/withhead.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/foo/withhead.xml -->
@@ -93,7 +93,7 @@ echo $this->item->event->afterDisplayContent;
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/withheadandfoot.php
 
-[components/com_foos/ tmpl/foo/withheadandfoot.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withheadandfoot.php)
+[components/com_foos/tmpl/foo/withheadandfoot.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/foo/withheadandfoot.php
@@ -129,7 +129,7 @@ echo $this->item->event->afterDisplayContent;
 
 Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  				<option value="0">JHIDE</option>

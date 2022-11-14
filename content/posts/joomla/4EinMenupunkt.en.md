@@ -30,7 +30,7 @@ The menu item in the frontend works differently than the one in the administrati
 
 Create the file `default.xml` under `components/com_foos/tmpl/foo` and add the following code:
 
-[components/com_foos/ tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t3/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t3/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t3/src/components/com_foos/tmpl/foo/default.xml -->

@@ -28,7 +28,7 @@ Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Kompon
 
 Als erstes erstellen wir das Formular über das die Filter gesetzt werden.
 
-[administrator/components/com_foos/ forms/filter_foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/forms/filter_foos.xml)
+[administrator/components/com_foos/forms/filter_foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/forms/filter_foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t16/src/administrator/components/com_foos/forms/filter_foos.xml -->
@@ -147,7 +147,7 @@ Als erstes erstellen wir das Formular über das die Filter gesetzt werden.
 
 Im Falle eines Updates deiner Komponente, fügt die Datei `16.0.0.sql` eine Spalte zur Speicherung der Reihenfolge hinzu.
 
-[administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/16.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
 
 ```xml {numberLines: -2}
 -- https://codeberg.org/astrid/j4examplecode/raw/branch/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
@@ -163,7 +163,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 
 Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird, ergänzen wir mit einem Feld zur Festlegung der Reihenfolge.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			label="JFIELD_ACCESS_LABEL"
@@ -186,7 +186,7 @@ Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird, ergä
 
 Im Falle einer neuen Installation, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Reihenfolge hinzu.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
 
@@ -424,7 +424,7 @@ $wa->useScript('table.columns');
 
 eine an- und abwahl der Spaltenansichten ermöglicht, ist via PR 36591[^github.com/joomla/joomla-cms/pull/36591] in Joomla eingeführt worden.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Multilanguage;
@@ -550,7 +550,7 @@ Icons zeigen uns an, ob und in welche Richtung eine Spalte sortiert ist. Damit d
 
 > Die [Klasse `visually-hidden`](https://getbootstrap.com/docs/5.0/getting-started/accessibility/#visually-hidden-content) verbirgt ein Element für alle Geräte außer Bildschirmleseprogrammen.
 
-[administrator/components/com_foos/ tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/modal.php)
+[administrator/components/com_foos/tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {diff}
  			<table class="table table-sm">

@@ -30,7 +30,7 @@ We add the `config.xml` file. This implements the configuration parameters. In t
 
 We use a selection field of type `type="list"`. We minimise the translation work by using the global language strings `JNO` and `JYES`. All texts that Joomla translates in the file `language/en-GB/joomla.ini` can be used globally.
 
-[administrator/components/com_foos/ config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/administrator/components/com_foos/config.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t9/src/administrator/components/com_foos/config.xml -->
@@ -63,7 +63,7 @@ We use a selection field of type `type="list"`. We minimise the translation work
 
 The addition in the `foos.xml` file ensures that the `config.xml` file is copied during installation and Joomla can thus access it later.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  		</submenu>
@@ -126,7 +126,7 @@ The `populateState` method ensures that the `State` object is correctly filled a
 
 Finally, we replace `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. We only show the label if in the status the parameter is set to `true` or `1`.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;

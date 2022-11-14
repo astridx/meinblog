@@ -113,7 +113,7 @@ We get the data of the model in the view with `$this->msg = $this->get('Msg');`.
 
 We output the data via the template. Here, everything will be packed into HTML tags later.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

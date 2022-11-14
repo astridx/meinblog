@@ -139,7 +139,7 @@ Bei der Workflow-Verwaltung gibt es unterschiedliche Übergänge, die per Plugin
 
 ### Indiewebify Joomla
 
-Ich habe Beispiel-Plugins erstellt, die zusammen eine simple Realisierung des IndieWeb ermöglichen.
+Ich habe Beispiel-Plugins erstellt, die zusammen eine simple Realisierung zur Mitgliedschaft im IndieWeb ermöglichen. Die Einrichtung auf einer Website habe ich unter [blog.astrid-guenther.de/cassiopeia-joomla-indieweb](https://blog.astrid-guenther.de/cassiopeia-joomla-indieweb/) beschreiben. Hier geht es um die Programmierung.
 
 Was bedeutet *Indiewebify* und was ist das *IndieWeb*? 
 
@@ -187,7 +187,619 @@ _Backfeed_ beschreibt den Prozess, bei dem die Interaktionen deiner POSSE-Kopien
 
 > Die Abarbeitung der 5 Punkte macht eine Joomla Website zu einem IndieWeb-Bürger der Stufe 2. Die nachfolgend beschriebenen Plugins sind eine simple Umsetzung. Web Sign-In kann über das System Plugin verwendet werden, es gibt mittels Content Plugin Inhalte mit Mikroformaten und es werden Webmentions an andere IndieWeb-Sites gesendet und von ihnen empfangen. Syndikation ist ein problematisches Thema. Der Prozess ist etwas verworren, und ich bin mir nicht sicher, ob ich es richtig umsetze. Man muss zuerst einen eigenen Beitrag veröffentlichen, dann den Link teilen und zuletzt diesen geteilten Links zum eigenen Beitrag hinzufügen. Hier unterstützt das Editors-xtd Plugin.
 
+### [Fields (Felder)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Fields_Group/en)<!-- \index{Plugin!Fields (Felder)} -->
+
+> Das Custom Field soll beim Einfügen eines [Reply-to](https://indieweb.org/in-reply-to)[^indieweb.org/in-reply-to] Elements unterstützen.
+
+Ein, für ein Custom Field selbst geschriebenes, Formularfeld wird standardmäßig über die Funktion `onCustomFieldsGetTypes()` im Unterverzeichnsi `/fields` gesucht. Dies ist in der Datei `administrator/components/com_fields/src/Plugin/FieldsPlugin.php#L96` so implementiert. Ich mache es mir einfach und erweitere das `UrlField`. Im Custom Field mit dem Namen `indieweb` wird ein Feld vom Typ `indieweb` erwartet. Falls man dies nicht implementiert, wird ein einfaches Textfeld als Rückfallposition verwendet.
+
+[plugins/fields/indieweb/fields/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/fields/indieweb/fields/indieweb.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/fields/indieweb/fields/indieweb.php
+
+<?php
+
+\defined('JPATH_PLATFORM') or die;
+
+
+class JFormFieldIndieweb extends Joomla\CMS\Form\Field\UrlField
+{
+	protected $type = 'indieweb';
+}
+
+```
+
+
+Die Datei `plugins/fields/indieweb/indieweb.php` ist die eigentliche Plugindatei. Sie erweitert `administrator/components/com_fields/src/Plugin/FieldsPlugin.php`. Da die Elternklasse alle wesentlichen Eigenschaften implementiert, reicht es aus, nur die eigenen Besonderheiten zu ergänzen oder zu überschreiben. In meinem Fall ist dies eine serverseitige Validierung.
+
+> Eine clientseitge Validierung würdest du mittels `$fieldNode->setAttribute('class', 'validate-indieweb');` setzen. Wie im Teil clientseitige Validierung schon erklärt, müsstest du das JavaScript hinzufügen.
+
+
+[plugins/fields/indieweb/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/fields/indieweb/indieweb.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/fields/indieweb/indieweb.php
+
+<?php
+
+use Joomla\CMS\Form\Form;
+
+\defined('_JEXEC') or die;
+
+class PlgFieldsIndieweb extends \Joomla\Component\Fields\Administrator\Plugin\FieldsPlugin
+{
+	public function onCustomFieldsPrepareDom($field, DOMElement $parent, Form $form)
+	{
+		$fieldNode = parent::onCustomFieldsPrepareDom($field, $parent, $form);
+
+		if (!$fieldNode) {
+			return $fieldNode;
+		}
+
+		$fieldNode->setAttribute('validate', 'indieweb');
+
+		return $fieldNode;
+	}
+}
+
+```
+
+
+
+
+Das XML-Manifest wird für die Installation verwendet. Die Parameter werden später noch einmal für ein einzelnes Feld implementiert. Hier im Installationsmanifest stehen sie, damit man sie global im Plugin-Manager setzen kann. 
+
+[plugins/fields/indieweb/indieweb.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/fields/indieweb/indieweb.xml)
+
+```xml {numberLines: -2}
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/fields/indieweb/indieweb.xml -->
+
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="plugin" group="fields" method="upgrade">
+	<name>plg_fields_indieweb</name>
+	<creationDate>[DATE]</creationDate>
+	<author>[AUTHOR]</author>
+	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
+	<authorUrl>[AUTHOR_URL]</authorUrl>
+	<copyright>[COPYRIGHT]</copyright>
+	<license>GNU General Public License version 2 or later;</license>
+	<version>__BUMP_VERSION__</version>
+	<description>PLG_FIELDS_INDIEWEB_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="indieweb">indieweb.php</filename>
+		<folder>params</folder>
+		<folder>language</folder>
+		<folder>fields</folder>
+		<folder>tmpl</folder>
+		<folder>fields</folder>
+		<folder>rules</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="schemes"
+					type="list"
+					label="PLG_FIELDS_INDIEWEB_PARAMS_SCHEMES_LABEL"
+					multiple="true"
+					layout="joomla.form.field.list-fancy-select"
+					validate="options"
+					>
+					<option value="http">HTTP</option>
+					<option value="https">HTTPS</option>
+				</field>
+
+				<field
+					name="relative"
+					type="radio"
+					label="PLG_FIELDS_INDIEWEB_PARAMS_RELATIVE_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
+
+```
+
+Als nächste sind die Sprachdateien für die Übersetzung der Vollständigkeit halber abgedruckt.
+
+
+[plugins/fields/indieweb/language/en-GB/plg_fields_indieweb.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/fields/indieweb/language/en-GB/plg_fields_indieweb.ini)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/fields/indieweb/language/en-GB/plg_fields_indieweb.ini
+
+PLG_FIELDS_INDIEWB="Fields - INDIEWEB"
+PLG_FIELDS_INDIEWEB_LABEL="INDIEWEB (%s)"
+PLG_FIELDS_INDIEWEB_PARAMS_RELATIVE_LABEL="Relative URLs"
+PLG_FIELDS_INDIEWEB_PARAMS_SCHEMES_LABEL="Schemes"
+PLG_FIELDS_INDIEWEB_PARAMS_SHOW_URL="Show URL"
+PLG_FIELDS_INDIEWEB_XML_DESCRIPTION="This plugin lets you create new fields of type 'URL' in any extensions where custom fields are supported."
+JVISIT_REPLY_TO_WEBSITE="In reply to website: "
+JVISIT_REPLY_TO_LINK="In reply to internal link: "
+```
+
+[plugins/fields/indieweb/language/en-GB/plg_fields_indieweb.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/fields/indieweb/language/en-GB/plg_fields_indieweb.sys.ini)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/fields/indieweb/language/en-GB/plg_fields_indieweb.sys.ini
+
+PLG_FIELDS_INDIEWEB="Fields - INDIEWEB"
+PLG_FIELDS_INDIEWEB_XML_DESCRIPTION="This plugin lets you create new fields of type 'URL' in any extensions where custom fields are supported."
+
+```
+
+Die Datei `plugins/fields/indieweb/params/indieweb.xml` enthält die Parameter, die im Feld selbst beim Anlegen gesetzt werden und lediglich für diese Feld gelten.
+
+
+[plugins/fields/indieweb/params/indieweb.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/fields/indieweb/params/indieweb.xml)
+
+```xml {numberLines: -2}
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/fields/indieweb/params/indieweb.xml -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="fieldparams">
+		<fieldset name="fieldparams">
+			<field
+				name="schemes"
+				type="list"
+				label="PLG_FIELDS_INDIEWEB_PARAMS_SCHEMES_LABEL"
+				multiple="true"
+				layout="joomla.form.field.list-fancy-select"
+				validate="options"
+				>
+				<option value="http">HTTP</option>
+				<option value="https">HTTPS</option>
+			</field>
+
+			<field
+				name="relative"
+				type="list"
+				label="PLG_FIELDS_INDIEWEB_PARAMS_RELATIVE_LABEL"
+				filter="integer"
+				validate="options"
+				>
+				<option value="">COM_FIELDS_FIELD_USE_GLOBAL</option>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field
+				name="show_url"
+				type="radio"
+				label="PLG_FIELDS_INDIEWEB_PARAMS_SHOW_URL"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				filter="integer"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+		</fieldset>
+	</fields>
+</form>
+
+```
+
+Die Regel wird für die Validierung gehört in das Verzeichnis `rules`. Dies ist in der Datei `administrator/components/com_fields/src/Plugin/FieldsPlugin.php#L96` so implementiert. Auch hier habe ich es mir einfach gemacht und bei der Validierung des Url-Feldes abgeschaut. In erster Linie geht es mir darum, zu zeigen, an welcher Stelle die Dateien gesucht werden. 
+
+[plugins/fields/indieweb/rules/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/fields/indieweb/rules/indieweb.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/fields/indieweb/rules/indieweb.php
+
+<?php
+
+use Joomla\CMS\Form\Form;
+use Joomla\CMS\Form\FormRule;
+use Joomla\CMS\Language\Text;
+use Joomla\Registry\Registry;
+use Joomla\String\StringHelper;
+use Joomla\Uri\UriHelper;
+
+\defined('JPATH_PLATFORM') or die;
+
+class JFormRuleIndieweb extends FormRule
+{
+	public function test(\SimpleXMLElement $element, $value, $group = null, Registry $input = null, Form $form = null)
+	{
+		// If the field is empty and not required, the field is valid.
+		$required = ((string) $element['required'] === 'true' || (string) $element['required'] === 'required');
+
+		if (!$required && empty($value)) {
+			return true;
+		}
+
+		$urlParts = UriHelper::parse_url($value);
+
+		// See https://www.w3.org/Addressing/URL/url-spec.txt
+		// Use the full list or optionally specify a list of permitted schemes.
+		if ($element['schemes'] == '') {
+			$scheme = ['http', 'https'];
+		} else {
+			$scheme = explode(',', $element['schemes']);
+		}
+
+		/*
+		 * Note that parse_url() does not always parse accurately without a scheme,
+		 * but at least the path should be set always. Note also that parse_url()
+		 * returns False for seriously malformed URLs instead of an associative array.
+		 * @link https://www.php.net/manual/en/function.parse-url.php
+		 */
+		if ($urlParts === false || !\array_key_exists('scheme', $urlParts)) {
+			/*
+			 * The function parse_url() returned false (seriously malformed URL) or no scheme
+			 * was found and the relative option is not set: in both cases the field is not valid.
+			 */
+			if ($urlParts === false || !$element['relative']) {
+				$element->addAttribute('message', Text::sprintf('JLIB_FORM_VALIDATE_FIELD_URL_SCHEMA_MISSING', $value, implode(', ', $scheme)));
+
+				return false;
+			}
+
+			// The best we can do for the rest is make sure that the path exists and is valid UTF-8.
+			if (!\array_key_exists('path', $urlParts) || !StringHelper::valid((string) $urlParts['path'])) {
+				return false;
+			}
+
+			// The internal URL seems to be good.
+			return true;
+		}
+
+		// Scheme found, check all parts found.
+		$urlScheme = (string) $urlParts['scheme'];
+		$urlScheme = strtolower($urlScheme);
+
+		if (\in_array($urlScheme, $scheme) == false) {
+			return false;
+		}
+
+		// For some schemes here must be two slashes.
+		$scheme = ['http', 'https'];
+
+		if (\in_array($urlScheme, $scheme) && substr($value, \strlen($urlScheme), 3) !== '://') {
+			return false;
+		}
+
+		// The best we can do for the rest is make sure that the strings are valid UTF-8
+		// and the port is an integer.
+		if (\array_key_exists('host', $urlParts) && !StringHelper::valid((string) $urlParts['host'])) {
+			return false;
+		}
+
+		if (\array_key_exists('port', $urlParts) && !\is_int((int) $urlParts['port'])) {
+			return false;
+		}
+
+		if (\array_key_exists('path', $urlParts) && !StringHelper::valid((string) $urlParts['path'])) {
+			return false;
+		}
+
+		return true;
+	}
+}
+
+```
+
+Die Datei `plugins/fields/indieweb/tmpl/indieweb.php` ist das Template für die Ausgabe im Frontend.
+
+[plugins/fields/indieweb/tmpl/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/fields/indieweb/tmpl/indieweb.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/fields/indieweb/tmpl/indieweb.php
+
+<?php
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
+
+$value = $field->value;
+
+if ($value == '') {
+	return;
+}
+
+$attributes = '';
+
+$attributes = ' target="_self"';
+
+if (!Uri::isInternal($value)) {
+	$text = Text::_('JVISIT_REPLY_TO_WEBSITE');
+} else {
+	$text = Text::_('JVISIT_REPLY_TO_LINK');
+}
+
+if ($fieldParams->get('show_url', 0)) {
+	$text = $text . htmlspecialchars($value);
+}
+
+echo sprintf(
+	'<div class="u-in-reply-to h-cite"><a class="u-url" href="%s"%s>%s</a></div>',
+	htmlspecialchars($value),
+	$attributes,
+	$text
+);
+
+```
+
+
+
+
+
+
+### [Task](https://docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin)<!-- \index{Plugin!Task} -->
+
+> Das Task-Plugin ist dazu da, [Webmention](http://webmention.org/) in regelmäßigen abständen von der Website [webmention.io](http://webmention.io/) abzuholen.
+
+Wir beginnen mit dem Manifest für die Installation. Beachte, dass wir hier `Namespace` verwenden.
+
+[plugins/task/indieweb/indieweb.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/task/indieweb/indieweb.xml)
+
+```xml {numberLines: -2}
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/task/indieweb/indieweb.xml -->
+
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="plugin" group="task" method="upgrade">
+	<name>plg_task_indie_web</name>
+	<author>Astrid Günther</author>
+	<creationDate>[DATE]</creationDate>
+	<author>[AUTHOR]</author>
+	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
+	<authorUrl>[AUTHOR_URL]</authorUrl>
+	<copyright>[COPYRIGHT]</copyright>
+	<license>GNU General Public License version 2 or later;</license>
+	<version>__BUMP_VERSION__</version>
+	<description>PLG_TASK_INDIE_WEB_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\Task\IndieWeb</namespace>
+	<files>
+		<folder plugin="indieweb">services</folder>
+		<file>indieweb.xml</file>
+		<file>webmentions.json</file>
+		<folder>language</folder>
+		<folder>src</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			</fieldset>
+			<fieldset name="WEBMENTION_IO">
+				<field
+					name="token"
+					type="text"
+					label="PLG_TASK_INDIEWEB_WEBMENTION_IO_TOKEN_LABEL"
+					description="PLG_TASK_INDIEWEB_WEBMENTION_IO_TOKEN_DESC"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
+
+```
+
+Die beiden Sprachdateien habe ich nachfolgend der Vollständigkeit halber beigefügt.
+
+[plugins/task/indieweb/language/en-GB/plg_task_indieweb.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/task/indieweb/language/en-GB/plg_task_indieweb.ini)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/task/indieweb/language/en-GB/plg_task_indieweb.ini
+
+PLG_TASK_INDIE_WEB="Task - Indieweb"
+PLG_TASK_INDIE_WEB_DESC="Fetches webmentions on each run."
+PLG_TASK_INDIE_WEB_ERROR_WEBMENTIONS_PHP_NOTUNWRITABLE="Could not make configuration.php un-writable."
+PLG_TASK_INDIE_WEB_ERROR_WEBMENTIONS_PHP_NOTWRITABLE="Could not make configuration.php writable."
+PLG_TASK_INDIE_WEB_ERROR_WRITE_FAILED="Could not write to the configuration file!"
+PLG_TASK_INDIE_WEB_ROUTINE_END_LOG_MESSAGE="ToggleOffline return code is: %1$d. Processing Time: %2$.2f seconds."
+PLG_TASK_INDIE_WEB_TASK_LOG_INDIE_WEB="Webmentions in File %1$s."
+PLG_TASK_INDIE_WEB_TITLE="Fetches webmentions"
+PLG_TASK_INDIE_WEB_XML_DESCRIPTION="Offers task routines to fetch webmentions."
+
+```
+
+
+[plugins/task/indieweb/language/en-GB/plg_task_indieweb.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/task/indieweb/language/en-GB/plg_task_indieweb.sys.ini)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/task/indieweb/language/en-GB/plg_task_indieweb.sys.ini
+
+PLG_TASK_INDIE_WEB="Task - Indieweb"
+PLG_TASK_INDIE_WEB_XML_DESCRIPTION="Offers task routines to change the site's offline status."
+
+; Web Sign In
+COM_PLUGINS_WEBMENTION_IO_FIELDSET_LABEL="Webmention.io"
+PLG_TASK_INDIEWEB_WEBMENTION_IO_LABEL="Webmention.io"
+PLG_TASK_INDIEWEB_WEBMENTION_IO_TOKEN_LABEL="Token"
+PLG_TASK_INDIEWEB_WEBMENTION_IO_TOKEN_DESC="<p>Webmention.io.</p>"
+
+```
+
+In der Datei `plugins/task/indieweb/services/provider.php` wird der Service der Extension registriert. Dieser ist in der Datei `plugins/task/indieweb/src/Extension/IndieWeb.php` implementiert. Auf diese wird über den Namespace `Joomla\Plugin\Task\IndieWeb\Extension\IndieWeb;` zugegriffen.
+
+[plugins/task/indieweb/services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/task/indieweb/services/provider.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/task/indieweb/services/provider.php
+
+<?php
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Extension\PluginInterface;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\DI\Container;
+use Joomla\DI\ServiceProviderInterface;
+use Joomla\Event\DispatcherInterface;
+use Joomla\Plugin\Task\IndieWeb\Extension\IndieWeb;
+use Joomla\Utilities\ArrayHelper;
+
+return new class implements ServiceProviderInterface
+{
+	public function register(Container $container)
+	{
+		$container->set(
+			PluginInterface::class,
+			function (Container $container) {
+				$plugin = new IndieWeb(
+					$container->get(DispatcherInterface::class),
+					(array) PluginHelper::getPlugin('task', 'indieweb'),
+					ArrayHelper::fromObject(new JConfig()),
+					JPATH_BASE . '/plugins/task/indieweb/webmentions.json'
+				);
+				$plugin->setApplication(Factory::getApplication());
+
+				return $plugin;
+			}
+		);
+	}
+};
+
+```
+
+Die Datei `plugins/task/indieweb/src/Extension/IndieWeb.php` erledigt die eigentliche Arbeit. Die Tasks, die in der Konstanten `TASKS_MAP` aufgelistet sind, werden im Joomla Backend angezeigt.
+
+[plugins/task/indieweb/src/Extension/IndieWeb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/task/indieweb/src/Extension/IndieWeb.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/task/indieweb/src/Extension/IndieWeb.php
+
+<?php
+
+namespace Joomla\Plugin\Task\IndieWeb\Extension;
+
+use Exception;
+use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\Component\Scheduler\Administrator\Event\ExecuteTaskEvent;
+use Joomla\Component\Scheduler\Administrator\Task\Status;
+use Joomla\Component\Scheduler\Administrator\Traits\TaskPluginTrait;
+use Joomla\Event\DispatcherInterface;
+use Joomla\Event\SubscriberInterface;
+use Joomla\Filesystem\File;
+use Joomla\Filesystem\Path;
+use Joomla\Registry\Registry;
+
+\defined('_JEXEC') or die;
+
+final class IndieWeb extends CMSPlugin implements SubscriberInterface
+{
+	use TaskPluginTrait;
+
+	protected const TASKS_MAP = [
+		'plg_task_fetch_webmentions'             => [
+			'langConstPrefix' => 'PLG_TASK_INDIE_WEB',
+		],
+	];
+
+	protected $autoloadLanguage = true;
+
+	public static function getSubscribedEvents(): array
+	{
+		return [
+			'onTaskOptionsList' => 'advertiseRoutines',
+			'onExecuteTask' => 'alterIndiewebStatus',
+		];
+	}
+
+	private $webmentionFile;
+
+	public function __construct(DispatcherInterface $dispatcher, array $config, array $jConfig, string $webmentionFile)
+	{
+		parent::__construct($dispatcher, $config);
+
+		$this->webmentionFile = $webmentionFile;
+	}
+
+	public function alterIndiewebStatus(ExecuteTaskEvent $event): void
+	{
+		if (!array_key_exists($event->getRoutineId(), self::TASKS_MAP)) {
+			return;
+		}
+
+		$this->startRoutine($event);
+
+		$exit= $this->writewebmentionFile($this->webmentionFile);
+		$this->logTask(sprintf($this->getApplication()->getLanguage()->_('PLG_TASK_INDIE_WEB_TASK_LOG_INDIE_WEB'), $this->webmentionFile));
+
+		$this->endRoutine($event, $exit);
+	}
+
+	private function writewebmentionFile(string $config): int
+	{
+		$file = $this->webmentionFile;
+
+		if (file_exists($file) && Path::isOwner($file) && !Path::setPermissions($file)) {
+			$this->logTask($this->getApplication()->getLanguage()->_('PLG_TASK_INDIE_WEB_ERROR_WEBMENTIONS_PHP_NOTWRITABLE'), 'notice');
+		}
+
+		try {
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_URL, 'https://webmention.io/api/mentions.jf2?token=' . $this->params->get('token'));
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+			$response = curl_exec($curl);
+
+			if ($response === false) {
+				$curlError = curl_error($curl);
+				curl_close($curl);
+				throw new ApiException('cURL Error: ' . $curlError);
+			}
+
+			$httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+			if ($httpCode >= 400) {
+				curl_close($curl);
+				$responseParsed = json_decode($response);
+				throw new ApiException('HTTP Error ' . $httpCode .
+					' (' . $responseParsed->error->type . '): ' . $responseParsed->error->message);
+			}
+
+			curl_close($curl);
+
+			File::write($file, $response);
+		} catch (Exception $e) {
+			$this->logTask($this->getApplication()->getLanguage()->_('PLG_TASK_INDIE_WEB_ERROR_WRITE_FAILED'), 'error');
+
+			return Status::KNOCKOUT;
+		}
+
+		// Invalidates the cached file
+		if (function_exists('opcache_invalidate')) {
+			opcache_invalidate($file);
+		}
+
+		// Attempt to make the file un-writeable.
+		if (Path::isOwner($file) && !Path::setPermissions($file, '0444')) {
+			$this->logTask($this->getApplication()->getLanguage()->_('PLG_TASK_INDIE_WEB_ERROR_WEBMENTIONS_PHP_NOTUNWRITABLE'), 'notice');
+		}
+
+		return Status::OK;
+	}
+}
+
+```
+
+Die Datei `plugins/task/indieweb/webmentions.json` gehört nicht zum eigentlichen Programmcode. Sie wird heruntergeladen, wenn der Task ausgeführt wird. Ich habe sie hier als Beispiel eigefügt.
+
+[plugins/task/indieweb/webmentions.json](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/task/indieweb/webmentions.json)
+
+```js {numberLines: -2}
+/* https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/task/indieweb/webmentions.json */
+```
+
 #### [System](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_System_Group/en)<!-- \index{Plugin!System} -->
+
+> Für das Einfügen von Elementen im `<head>` des HTML-Markup greifen wir auf ein System-Plugin zu. 
+
+Dieses Ereignis `onAfterDispatch` wird ausgelöst, nachdem das Framework geladen und die Initialisierungsmethode der Anwendung aufgerufen wurde. Hier ist es möglich, Elemente ins Dokument einzufügen.
 
 [plugins/system/indieweb/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/system/indieweb/indieweb.php)
 
@@ -196,31 +808,27 @@ _Backfeed_ beschreibt den Prozess, bei dem die Interaktionen deiner POSSE-Kopien
 
 <?php
 
-/**
- * @phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
- */
-
 use Joomla\CMS\Plugin\CMSPlugin;
 
-// phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;
-// phpcs:enable PSR1.Files.SideEffects
 
 class PlgSystemIndieweb extends CMSPlugin
 {
-    protected $app;
+	protected $app;
 
-    public function onAfterDispatch()
-    {
-        $doc = $this->app->getDocument();
-        $doc->addCustomTag('<link rel="authorization_endpoint" href="' . $this->params->get('authorization_endpoint', 'https://indieauth.com/auth') . '" >');
-        $doc->addCustomTag('<link rel="token_endpoint" href="' . $this->params->get('token_endpoint', 'https://tokens.indieauth.com/token') . '" >');
-        $doc->addCustomTag('<link rel="webmention" href="' . $this->params->get('webmention', 'https://webmention.io/example.org/webmention') . '" >');
-        $doc->addCustomTag('<link rel="pingback" href="' . $this->params->get('pingback', 'https://webmention.io/example.org/xmlrpc') . '" >');
-    }
+	public function onAfterDispatch()
+	{
+		$doc = $this->app->getDocument();
+		$doc->addCustomTag('<link rel="authorization_endpoint" href="' . $this->params->get('authorization_endpoint', 'https://indieauth.com/auth') . '" >');
+		$doc->addCustomTag('<link rel="token_endpoint" href="' . $this->params->get('token_endpoint', 'https://tokens.indieauth.com/token') . '" >');
+		$doc->addCustomTag('<link rel="webmention" href="' . $this->params->get('webmention', 'https://webmention.io/example.org/webmention') . '" >');
+		$doc->addCustomTag('<link rel="pingback" href="' . $this->params->get('pingback', 'https://webmention.io/example.org/xmlrpc') . '" >');
+	}
 }
 
 ```
+
+Das Installationsmanifest enthält keine Besonderheiten.
 
 [plugins/system/indieweb/indieweb.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/system/indieweb/indieweb.xml)
 
@@ -239,7 +847,8 @@ class PlgSystemIndieweb extends CMSPlugin
 	<version>__BUMP_VERSION__</version>
 	<description>PLG_SYSTEM_INDIEWEB_XML_DESCRIPTION</description>
 	<files>
-		<filename plugin="indieweb">indieweb.php</filename>
+		<file>indieweb.xml</file>
+		<file plugin="indieweb">indieweb.php</file>
 		<folder>language</folder>
 	</files>
 	<config>
@@ -288,6 +897,8 @@ class PlgSystemIndieweb extends CMSPlugin
 
 ```
 
+Die beiden Sprachdateien sind der Vollständigkeit halber nachfolgend eingefügt.
+
 [plugins/system/indieweb/language/en-GB/plg_system_indieweb.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/raw/plugins/system/indieweb/language/en-GB/plg_system_indieweb.ini)
 
 ```php {numberLines: -2}
@@ -318,6 +929,8 @@ PLG_SYSTEM_INDIEWEB_PINGBACK_DESC="<b><dfn>Pingback</dfn></b> is a legacy <a hre
 
 #### [Inhalt (Content)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Content_Group/en)<!-- \index{Plugin!Inhalt (Content)} -->
 
+> Das Content Plugin fügt Elemente zum HTML-Markup hinzu, die die minminalen sytaktischen Regeln des IndieWeb erfüllen. Die Elemente sind teilweise mit der CSS-Klasse `hidden` belegt. So haben sie keinen Einfluss auf des Design.
+
 [plugins/content/indieweb/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/content/indieweb/indieweb.php)
 
 ```php {numberLines: -2}
@@ -325,11 +938,7 @@ PLG_SYSTEM_INDIEWEB_PINGBACK_DESC="<b><dfn>Pingback</dfn></b> is a legacy <a hre
 
 <?php
 
-/**
- * @phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
- */
-
- use Joomla\CMS\Factory;
+use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Multilanguage;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Router\Route;
@@ -337,94 +946,69 @@ use Joomla\Component\Contact\Site\Helper\RouteHelper;
 use Joomla\Database\ParameterType;
 use Joomla\Registry\Registry;
 
-// phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;
-// phpcs:enable PSR1.Files.SideEffects
 
 class PlgContentIndieweb extends CMSPlugin
 {
-    /**
-     * @var    \Joomla\Database\DatabaseDriver
-     *
-     * @since  3.3
-     */
-    protected $db;
+	protected $db;
 
-    /**
-     * Plugin that retrieves indieweb information for indieweb
-     *
-     * @param   string   $context  The context of the content being passed to the plugin.
-     * @param   mixed    &$row     An object with a "text" property
-     * @param   mixed    $params   Additional parameters. See {@see PlgContentContent()}.
-     * @param   integer  $page     Optional page number. Unused. Defaults to zero.
-     *
-     * @return  void
-     */
-    public function onContentPrepare($context, &$row, $params, $page = 0)
-    {
-        // Don't run this plugin when the content is being indexed
-        if ($context === 'com_finder.indexer') {
-            return;
-        }
+	public function onContentPrepare($context, &$row, $params, $page = 0)
+	{
+		if ($context === 'com_finder.indexer') {
+			return;
+		}
 
-        $allowed_contexts = array('com_content.article');
+		$allowed_contexts = ['com_content.article', 'com_agadvents.agadvent'];
 
-        if (!in_array($context, $allowed_contexts)) {
-            return;
-        }
+		if (!in_array($context, $allowed_contexts)) {
+			return;
+		}
 
-        // Return if we don't have valid params or don't link the author
-        if (!($params instanceof Registry)) {
-            return;
-        }
+		if (!($params instanceof Registry)) {
+			return;
+		}
 
-        // Return if an alias is used
-        if ((int) $this->params->get('link_to_alias', 0) === 0 && $row->created_by_alias != '') {
-            return;
-        }
+		if (!isset($row->id) || !(int) $row->id) {
+			return;
+		}
 
-        // Return if we don't have a valid article id
-        if (!isset($row->id) || !(int) $row->id) {
-            return;
-        }
+		if ($context === 'com_content.article') {
+			$indieweb = $this->getIndiewebData($row->created_by);
+			$row->contactid = $indieweb->contactid;
+			$row->webpage = $indieweb->webpage;
+			$row->email = $indieweb->email_to;
+			$row->authorname = $indieweb->name;
+		}
 
-        $indieweb = $this->getIndiewebData($row->created_by);
+		// Todo Save created_by with agadvent
+		if ($context === 'com_agadvents.agadvent') {
+			$row->webpage = "";
+			$row->email = "";
+			$row->authorname = "Advent";
+			$row->title = $row->name;
+			$row->introtext = '';
+			$row->text = $row->fulltext;
+		}
 
-        if ($indieweb === null) {
-            return;
-        }
+		$url = $this->params->get('url', 'url');
 
-        $row->contactid = $indieweb->contactid;
-        $row->webpage = $indieweb->webpage;
-        $row->email = $indieweb->email_to;
-        $row->authorname = $indieweb->name;
-        $url = $this->params->get('url', 'url');
+		$row->indieweb_link = '';
 
-        if ($row->contactid && $url === 'url') {
-            $row->indieweb_link = Route::_(RouteHelper::getContactRoute($indieweb->contactid . ':' . $indieweb->alias, $indieweb->catid));
-        } elseif ($row->webpage && $url === 'webpage') {
-            $row->indieweb_link = $row->webpage;
-        } elseif ($row->email && $url === 'email') {
-            $row->indieweb_link = 'mailto:' . $row->email;
-        } else {
-            $row->indieweb_link = '';
-        }
+		// Web Sign In
+		$row->text = $row->text . '<div class="hidden"><ul>';
+		$row->text = $row->text . '<li><a rel="me" href="mailto:' . $row->email . '">' . $row->email . '</a></li>';
 
-        // Web Sign In
-        $row->text = $row->text . '<div class="hidden"><ul>';
-        $row->text = $row->text . '<li><a rel="me" href="mailto:' . $row->email . '">' . $row->email . '</a></li>';
-
-        foreach ($this->params->get('websignin') as $websigninitem) {
-            $row->text = $row->text . '<li><a rel="me" href="' . $websigninitem->websignin_url . '">' . $websigninitem->websignin_url . '</a></li>';
-        }
-        $row->text = $row->text . '</ul></div>';
+		foreach ($this->params->get('websignin') as $websigninitem) {
+			$row->text = $row->text . '<li><a rel="me" href="' . $websigninitem->websignin_url . '">' . $websigninitem->websignin_url . '</a></li>';
+		}
+		$row->text = $row->text . '</ul></div>';
 
 
-        // Content
-        $row->text = $row->text . '<article class="hidden h-entry">
+		// Content
+		$row->text = $row->text . '<article class="hidden h-entry">
         <h1 class="p-name">' . $row->title . '</h1>
         <p>Published by 
-        <a class="p-author h-card" href="' . $row->webpage . '">' . $row->authorname . '</a> on 
+        <p class="p-author h-card"><a class="u-url u-uid" href="' . $row->webpage . '">' . $row->authorname . '</a></p> on 
 
         <time class="dt-published" datetime="' . $row->publish_up . '">' . $row->publish_up . '</time>
         </p>
@@ -433,136 +1017,114 @@ class PlgContentIndieweb extends CMSPlugin
         </article>';
 
 
-        // Webmention
-        $curl = curl_init();
-        //curl_setopt($curl, CURLOPT_URL, 'https://webmention.io/api/mentions.html?token=UC7S3VeGryEzkBflVYrvqg');
-        curl_setopt($curl, CURLOPT_URL, 'https://webmention.io/api/mentions.jf2?token=vCshWYDynM12T0U49xQLIg');
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		$webmention_file = JPATH_BASE . '/plugins/task/indieweb/webmentions.json';
+		$webmentions = file_get_contents($webmention_file);
+		$webmentions = json_decode($webmentions);
 
-        $response = curl_exec($curl);
+		$webmentions_urls = "";
+		if ($webmentions !== null) {
+			foreach ($webmentions->children as $i => $webmention) {
+				if (str_contains($webmention->{'wm-target'}, $row->alias)) {
+					$webmentions_urls = $webmentions_urls . '<a href="' . $webmention->{'wm-source'} . '">' . $webmention->{'wm-source'} . '</a></br>';
+				}
+			}
+		}
 
-        if ($response === false) {
-            $curlError = curl_error($curl);
-            curl_close($curl);
-            throw new ApiException('cURL Error: ' . $curlError);
-        }
-
-        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-        if ($httpCode >= 400) {
-            curl_close($curl);
-            $responseParsed = json_decode($response);
-            throw new ApiException('HTTP Error ' . $httpCode .
-                ' (' . $responseParsed->error->type . '): ' . $responseParsed->error->message);
-        }
-
-        curl_close($curl);
-
-        $webmentions = json_decode($response);
-
-        $webmentions_urls = "";
-        if ($webmentions !== null) {
-            foreach ($webmentions->children as $i => $webmention) {
-                if (str_contains($webmention->url, $row->slug)) {
-                    $webmentions_urls = $webmentions_urls . $webmention->url . '</br>';
-                }
-            }
-        }
-
-        $row->text = $row->text . '<div><b>Webmentions</b><br>' . $webmentions_urls . '</div>';
+		$row->text = $row->text . '<div><b>Webmentions</b><br>' . $webmentions_urls . '</div>';
 
 
-        // Syndication
-        $syndication_urls = '<div><b>Syndication</b><ol>';
+		// Syndication
+		$syndication_urls = '<div><b>Syndication</b><ol>';
 
-        $regex = '/{loadsyndication\s(.*?)}/i';
-        $matcheslist = array();
-        preg_match_all($regex, $row->text, $matches, PREG_SET_ORDER);
-        if ($matches) {
-            foreach ($matches as $match) {
-                $matcheslist = explode(',', $match[1]);
-            }
-        }
+		$regex = '/{loadsyndication\s(.*?)}/i';
+		$matcheslist = [];
+		preg_match_all($regex, $row->text, $matches, PREG_SET_ORDER);
+		if ($matches) {
+			foreach ($matches as $match) {
+				$matcheslist = explode(',', $match[1]);
+			}
+		}
 
-        foreach ($matcheslist as $i => $matche) {
-            $syndication_urls = $syndication_urls . '<li>' . $matche . '</li>';
-        }
+		foreach ($matcheslist as $i => $matche) {
+			$syndication_urls = $syndication_urls . '<li><a class="u-syndication" rel="syndication" href="' . $matche . '">' . $matche . '</a></li>';
+		}
 
-        $syndication_urls = $syndication_urls . '</ol></div>';
-        $row->text = $row->text . $syndication_urls;
-        $row->text = preg_replace($regex, '', $row->text);
-    }
+		$syndication_urls = $syndication_urls . '</ol></div>';
+		$row->text = $row->text . $syndication_urls;
+		$row->text = preg_replace($regex, '', $row->text);
 
-    /**
-     * Retrieve Indieweb
-     *
-     * @param   int  $userId  Id of the user who created the article
-     *
-     * @return  stdClass|null  Object containing indieweb details or null if not found
-     */
-    protected function getIndiewebData($userId)
-    {
-        static $indiewebs = array();
+		// Todo text and fulltext ?
+		if ($context === 'com_agadvents.agadvent') {
+			$row->fulltext = $row->text;
+		}
+	}
 
-        // Note: don't use isset() because value could be null.
-        if (array_key_exists($userId, $indiewebs)) {
-            return $indiewebs[$userId];
-        }
+	protected function getIndiewebData($userId)
+	{
+		static $indiewebs = [];
 
-        $db = $this->db;
-        $query  = $db->getQuery(true);
-        $userId = (int) $userId;
+		// Note: don't use isset() because value could be null.
+		if (array_key_exists($userId, $indiewebs)) {
+			return $indiewebs[$userId];
+		}
 
-        $query->select($db->quoteName('contact.id', 'contactid'))
-            ->select(
-                $db->quoteName(
-                    [
-                        'contact.alias',
-                        'contact.catid',
-                        'contact.webpage',
-                        'contact.email_to',
-                        'contact.name',
-                    ]
-                )
-            )
-            ->from($db->quoteName('#__contact_details', 'contact'))
-            ->where(
-                [
-                    $db->quoteName('contact.published') . ' = 1',
-                    $db->quoteName('contact.user_id') . ' = :createdby',
-                ]
-            )
-            ->bind(':createdby', $userId, ParameterType::INTEGER);
+		$db = $this->db;
+		$query  = $db->getQuery(true);
+		$userId = (int) $userId;
 
-        if (Multilanguage::isEnabled() === true) {
-            $query->where(
-                '(' . $db->quoteName('contact.language') . ' IN ('
-                . implode(',', $query->bindArray([Factory::getLanguage()->getTag(), '*'], ParameterType::STRING))
-                . ') OR ' . $db->quoteName('contact.language') . ' IS NULL)'
-            );
-        }
+		$query->select($db->quoteName('contact.id', 'contactid'))
+			->select(
+				$db->quoteName(
+					[
+						'contact.alias',
+						'contact.catid',
+						'contact.webpage',
+						'contact.email_to',
+						'contact.name',
+					]
+				)
+			)
+			->from($db->quoteName('#__contact_details', 'contact'))
+			->where(
+				[
+					$db->quoteName('contact.published') . ' = 1',
+					$db->quoteName('contact.user_id') . ' = :createdby',
+				]
+			)
+			->bind(':createdby', $userId, ParameterType::INTEGER);
 
-        $query->order($db->quoteName('contact.id') . ' DESC')
-            ->setLimit(1);
+		if (Multilanguage::isEnabled() === true) {
+			$query->where(
+				'(' . $db->quoteName('contact.language') . ' IN ('
+				. implode(',', $query->bindArray([Factory::getLanguage()->getTag(), '*'], ParameterType::STRING))
+				. ') OR ' . $db->quoteName('contact.language') . ' IS NULL)'
+			);
+		}
 
-        $db->setQuery($query);
+		$query->order($db->quoteName('contact.id') . ' DESC')
+			->setLimit(1);
 
-        $indiewebs[$userId] = $db->loadObject();
+		$db->setQuery($query);
 
-        return $indiewebs[$userId];
-    }
+		$indiewebs[$userId] = $db->loadObject();
+
+		return $indiewebs[$userId];
+	}
 }
 
 ```
 
+Auch das Content Plugin benötigt ein Installations-Manifest.
+
 [plugins/content/indieweb/indieweb.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/content/indieweb/indieweb.xml)
 
-```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.xml
+```xml {numberLines: -2}
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="plugin" group="system" method="upgrade">
+<extension type="plugin" group="content" method="upgrade">
 	<name>plg_content_indieweb</name>
+	<author>Astrid Günther</author>
 	<creationDate>[DATE]</creationDate>
 	<author>[AUTHOR]</author>
 	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
@@ -572,7 +1134,8 @@ class PlgContentIndieweb extends CMSPlugin
 	<version>__BUMP_VERSION__</version>
 	<description>PLG_CONTENT_INDIEWEB_XML_DESCRIPTION</description>
 	<files>
-		<filename plugin="indieweb">indieweb.php</filename>
+		<file>indieweb.xml</file>
+		<file plugin="indieweb">indieweb.php</file>
 		<folder>language</folder>
 	</files>
 	<config>
@@ -609,6 +1172,8 @@ class PlgContentIndieweb extends CMSPlugin
 
 ```
 
+Nachfolgend die beiden notwendigen Sprachdateien.
+
 [plugins/content/indieweb/language/en-GB/plg_content_indieweb.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.ini)
 
 ```php {numberLines: -2}
@@ -627,28 +1192,54 @@ PLG_CONTENT_INDIEWEB_XML_DESCRIPTION="Adds visible and invisible information abo
 PLG_CONTENT_INDIEWEB="Content - Indieweb"
 PLG_CONTENT_INDIEWEB_XML_DESCRIPTION="Adds visible and invisible information about the content, the author of the content, webmentions and syndication links for the indieweb. Requirement: The user who wrote the post must be connected to a contact."
 
-; Own Domain
-
-; Web Sign In
 COM_PLUGINS_WEBSIGNIN_FIELDSET_LABEL="Web Sign In"
 PLG_CONTENT_INDIEWEB_WEBSIGNIN_LABEL="Web Sign In URLs"
 PLG_CONTENT_INDIEWEB_WEBSIGNIN_URL_LABEL="URL"
 PLG_CONTENT_INDIEWEB_WEBSIGNIN_DESC="<p>In order to be able to sign in using your domain name, connect it to your existing identities. You probably already have many disconnected profiles on the web. </p><p>Linking between them and your domain name with the rel=me microformat ensures that it’s easy to see that you on Google/Twitter/Github/Flickr/Facebook/email are all the same person as your domain name (https://indieweb.org/How_to_set_up_web_sign-in_on_your_own_domain).</p><p>The outer container contains the class hidden, so that the information is inserted hidden on the website in a template that styles the class with display:none.</p>"
+
 ```
 
 #### [Schaltfläche (Button)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Button_Group/en)<!-- \index{Plugin!Schaltfläche (Button)} -->
 
+> Im Content Plugin werden die Syndikation Links über ein bestimmtes Muster im Content erkannt und umgeformt. Um die Eingabe dieses Musters im Editor zu erleichtern, implementieren wir diese Editor-Schaltfläche.
+
+Die Datei `media/plg_editors-xtd_indieweb/joomla.asset.json` registriet den notwendigen JavaScript Code im WebAsset-Manager.
+
 [media/plg_editors-xtd_indieweb/joomla.asset.json](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json)
 
-```json {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json
+```js {numberLines: -2}
+/* https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json */
 
-
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "plg_editors-xtd_indieweb",
+  "version": "4.0.0",
+  "description": "Joomla CMS",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "plg_editors-xtd_indieweb.admin-article-indieweb",
+      "type": "script",
+      "uri": "plg_editors-xtd_indieweb/admin-article-indieweb.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "3caf2bd836dad54185a2fbb3c9a625b7576d677c"
+    }
+ ]
+}
 ```
+
+Die JavaScript Datei `media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js` implementiert Code, der per Klick an der Einfügemarke im Editor einen bestimmten Text einfügt. In unserem Fall lautet der Text `{loadsyndication testurl,testurl2,testurl3}'`. 
+
 [media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js)
 
 ```js {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js
+/* https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js */
 
 (() => {
 
@@ -678,6 +1269,8 @@ PLG_CONTENT_INDIEWEB_WEBSIGNIN_DESC="<p>In order to be able to sign in using you
 
 ```
 
+Die Datei `plugins/editors-xtd/indieweb/indieweb.php` fügt die Schaltfäche im Editor zum Event `onDisplay` ein.
+
 [plugins/editors-xtd/indieweb/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.php)
 
 ```php {numberLines: -2}
@@ -685,52 +1278,47 @@ PLG_CONTENT_INDIEWEB_WEBSIGNIN_DESC="<p>In order to be able to sign in using you
 
 <?php
 
-/**
- * @phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
- */
-
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Object\CMSObject;
 use Joomla\CMS\Plugin\CMSPlugin;
 
-// phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;
-// phpcs:enable PSR1.Files.SideEffects
 
 class PlgButtonIndieweb extends CMSPlugin
 {
-    protected $autoloadLanguage = true;
+	protected $autoloadLanguage = true;
 
-    protected $app;
+	protected $app;
 
-    public function onDisplay($name)
-    {
-        $doc = $this->app->getDocument();
-        $doc->getWebAssetManager()
-            ->registerAndUseScript('plg_editors-xtd_indieweb.admin-article-indieweb', 'plg_editors-xtd_indieweb/admin-article-indieweb.min.js', [], ['defer' => true], ['core']);
+	public function onDisplay($name)
+	{
+		$doc = $this->app->getDocument();
+		$doc->getWebAssetManager()
+			->registerAndUseScript('plg_editors-xtd_indieweb.admin-article-indieweb', 'plg_editors-xtd_indieweb/admin-article-indieweb.min.js', [], ['defer' => true], ['core']);
 
-        // Pass some data to javascript
-        $doc->addScriptOptions(
-            'xtd-indieweb',
-            array(
-                'exists' => Text::_('PLG_INDIEWEB_ALREADY_EXISTS', true),
-            )
-        );
+		// Pass some data to javascript
+		$doc->addScriptOptions(
+			'xtd-indieweb',
+			[
+				'exists' => Text::_('PLG_EDITORS-XTD_INDIEWEB_ALREADY_EXISTS', true),
+			]
+		);
 
-        $button = new CMSObject();
-        $button->modal   = false;
-        $button->onclick = 'insertIndieweb(\'' . $name . '\');return false;';
-        $button->text    = Text::_('PLG_INDIEWEB_BUTTON_INDIEWEB');
-        $button->name    = $this->_type . '_' . $this->_name;
-        $button->icon    = 'arrow-down';
-        $button->iconSVG = '<svg viewBox="0 0 32 32" width="24" height="24"><path d="M32 12l-6-6-10 10-10-10-6 6 16 16z"></path></svg>';
-        $button->link    = '#';
+		$button = new CMSObject();
+		$button->modal   = false;
+		$button->onclick = 'insertIndieweb(\'' . $name . '\');return false;';
+		$button->text    = Text::_('PLG_EDITORS-XTD_INDIEWEB_BUTTON_INDIEWEB');
+		$button->name    = $this->_type . '_' . $this->_name;
+		$button->icon    = 'arrow-down';
+		$button->iconSVG = '<svg viewBox="0 0 32 32" width="24" height="24"><path d="M32 12l-6-6-10 10-10-10-6 6 16 16z"></path></svg>';
+		$button->link    = '#';
 
-        return $button;
-    }
+		return $button;
+	}
 }
 
 ```
+Im Installationsmanifest werden lediglich die zur Installation notwendigen Informationen und Dateien aufgelistet. 
 
 [plugins/editors-xtd/indieweb/indieweb.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.xml)
 
@@ -740,6 +1328,7 @@ class PlgButtonIndieweb extends CMSPlugin
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="editors-xtd" method="upgrade">
 	<name>plg_editors-xtd_indieweb</name>
+	<author>Astrid Günther</author>
 	<creationDate>[DATE]</creationDate>
 	<author>[AUTHOR]</author>
 	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
@@ -747,14 +1336,17 @@ class PlgButtonIndieweb extends CMSPlugin
 	<copyright>[COPYRIGHT]</copyright>
 	<license>GNU General Public License version 2 or later;</license>
 	<version>__BUMP_VERSION__</version>
-	<description>PLG_INDIEWEB_XML_DESCRIPTION</description>
+	<description>PLG_EDITORS-XTD_INDIEWEB_XML_DESCRIPTION</description>
 	<files>
-		<filename plugin="indieweb">indieweb.php</filename>
+		<file>indieweb.xml</file>
+		<file plugin="indieweb">indieweb.php</file>
 		<folder>language</folder>
 	</files>
 </extension>
 
 ```
+
+Zwei Sprachdateien vervollständigen die Implementierung.
 
 [plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.ini)
 
@@ -762,9 +1354,9 @@ class PlgButtonIndieweb extends CMSPlugin
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.ini
 
 PLG_EDITORS-XTD_INDIEWEB="Button - IndieWeb Syndication"
-PLG_INDIEWEB_ALREADY_EXISTS="There is already a IndieWeb Syndication link that has been inserted. Only one link is permitted."
-PLG_INDIEWEB_BUTTON_INDIEWEB="IndieWeb Syndications"
-PLG_INDIEWEB_XML_DESCRIPTION="Enables a button which allows you to insert the <em>IndieWeb Syndication</em> link into an Article. See Content Plugin Indieweb"
+PLG_EDITORS-XTD_INDIEWEB_XML_DESCRIPTION="Enables a button which allows you to insert the <em>IndieWeb Syndication &hellip;</em> link into an Article.  See Content Plugin Indieweb"
+PLG_EDITORS-XTD_INDIEWEB_ALREADY_EXISTS="There is already a IndieWeb Syndication link that has been inserted. Only one link is permitted."
+PLG_EDITORS-XTD_INDIEWEB_BUTTON_INDIEWEB="IndieWeb Syndications"
 
 ```
 
@@ -774,7 +1366,7 @@ PLG_INDIEWEB_XML_DESCRIPTION="Enables a button which allows you to insert the <e
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.sys.ini
 
 PLG_EDITORS-XTD_INDIEWEB="Button - IndieWeb Syndication"
-PLG_INDIEWEB_XML_DESCRIPTION="Enables a button which allows you to insert the <em>IndieWeb Syndication &hellip;</em> link into an Article.  See Content Plugin Indieweb"
+PLG_EDITORS-XTD_INDIEWEB_XML_DESCRIPTION="Enables a button which allows you to insert the <em>IndieWeb Syndication &hellip;</em> link into an Article.  See Content Plugin Indieweb"
 
 ```
 

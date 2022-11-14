@@ -157,7 +157,7 @@ Die Joomla-Protokollierung bietet die Möglichkeit, Meldungen in einer Datei und
 
 Die Datei `components/com\_foos/ tmpl/foo/default.php` beinhaltet den Text, welchen wir anzeigen. Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier ebenfalls zu.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/tmpl/foo/default.php
@@ -183,7 +183,7 @@ Hello Foos
 
 `administrator/components/ com\_foos/ foos.xml` ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird. Aus diesem Grund ergänzen wir die beiden neu hinzugekommenen Dateien. So weiß Joomla bei einer Installation oder einer Aktualisierung, dass es die Verzeichnisse `src` und `tmpl` gibt und wohin es sie kopieren soll. Kopier-Ziel ist aufgrund von `folder="components/com_foos"` das Verzeichnis `components/com_foos`.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  	<description>COM_FOOS_XML_DESCRIPTION</description>

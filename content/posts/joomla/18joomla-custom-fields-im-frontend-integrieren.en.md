@@ -91,7 +91,7 @@ although we have not yet explicitly implemented `&$item->params` in the Foo exte
 
 IIn the template we display our custom fields. In our case, this is not complex, so we write all the stored texts one after the other. In a more complex file, the events are inserted at the correct place.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  }
@@ -110,7 +110,7 @@ Custom fields can be positioned as desired in custom overrides.
 
 ### Calling a field in an override
 
-Basically, all custom fields that belong to the current item are available in the template `components/com_foos/ tmpl/foo/default.php`. The call is made via a property of the variable `$this->item` with the name `jcfields`. The variable `$this->item->jcfields` is an array which contains for example the following data per field:
+Basically, all custom fields that belong to the current item are available in the template `components/com_foos/tmpl/foo/default.php`. The call is made via a property of the variable `$this->item` with the name `jcfields`. The variable `$this->item->jcfields` is an array which contains for example the following data per field:
 
 ```
 stdClass Object
@@ -156,7 +156,7 @@ stdClass Object
 
 ### Render the field individually
 
-To render the field in the template `components/com_foos/ tmpl/foo/default.php` you can use `FieldsHelper::render()`.
+To render the field in the template `components/com_foos/tmpl/foo/default.php` you can use `FieldsHelper::render()`.
 
 > You can find the class `FieldsHelper` in the file `administrator/components/com_fields/src/Helper/FieldsHelper.php`, if you want to have a closer look at the method itself.
 
@@ -179,7 +179,7 @@ To render the field in the template `components/com_foos/ tmpl/foo/default.php` 
 
 ### Load fields individually
 
-To add individual fields to the content, first select specific names for the custom fields. This way it is possible to directly address the field in the override code of the file `components/com_foos/ tmpl/foo/default.php` using the field name. In the Joomla backend set the automatic display for the field to `No`. This way you prevent it from being automatically displayed at one of the default positions. Add the following code at the beginning of the template file `components/com_foos/ tmpl/foo/default.php` or its override to use direct access by name to fields in the overrides.
+To add individual fields to the content, first select specific names for the custom fields. This way it is possible to directly address the field in the override code of the file `components/com_foos/tmpl/foo/default.php` using the field name. In the Joomla backend set the automatic display for the field to `No`. This way you prevent it from being automatically displayed at one of the default positions. Add the following code at the beginning of the template file `components/com_foos/tmpl/foo/default.php` or its override to use direct access by name to fields in the overrides.
 
 ```php
 <?php 

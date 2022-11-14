@@ -106,9 +106,9 @@ Die Anfahrtsbeschreibung geben wir über die Methode `displayDirection` der Klas
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
-Für die eigentliche Ausgabe ist das Template `default.php` im Verzeichnis `components/com_foos/ tmpl/foo/` zuständig.
+Für die eigentliche Ausgabe ist das Template `default.php` im Verzeichnis `components/com_foos/tmpl/foo/` zuständig.
 
 [components/com_foos/tmpl/ foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a1/src/components/com_foos/tmpl/foo/default.php)
 

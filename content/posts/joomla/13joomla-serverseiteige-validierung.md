@@ -108,7 +108,7 @@ Damit Joomla die Regel in der Datei `LetterRule.php` auf das Textfeld zur Eingab
 
 Geändert hat sich `<fieldset addruleprefix="FooNamespace\Component\Foos\ Administrator\Rule">` und `validate="Letter"`. Der Parameter `addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"` sorgt dafür, dass das Formular im Namespace `FooNamespace\Component\Foos\Administrator\Rule` nach Regeln sucht und `validate="Letter"` zeigt an, dass die Regel `Letter`, also nach Joomla Standard die Klasse `LetterRule`, angewendet wird.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11a/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11a/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  <?xml version="1.0" encoding="utf-8"?>

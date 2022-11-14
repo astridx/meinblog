@@ -32,7 +32,7 @@ We have not created a new file in this part, we have only changed files.
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/access.xml
 
-In the file `administrator/components/com_foos/ access.xml` we prepare everything to give permissions to the user-defined fields. So it is possible that only specific users are allowed to change or view a field.
+In the file `administrator/components/com_foos/access.xml` we prepare everything to give permissions to the user-defined fields. So it is possible that only specific users are allowed to change or view a field.
 
 [administrator/components/com_foos/access.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/access.xml)
 
@@ -116,7 +116,7 @@ A tip for the type `radio` with the layout `joomla.form.field.radio.switcher`. D
 
 In the navigation menu on the left in the Joomla administration area we add two links. The first new link leads to the view where custom fields are created for the component. The other one leads to the view where field groups are created.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		<submenu>
@@ -166,7 +166,7 @@ To make editing the custom fields work the same way as in Joomla's own extension
 
 > A comparison between previously most used `bootstrap.tab` and `uitab` is provided by [Pull Request PR 21805](https://github.com/joomla/joomla-cms/pull/21805)[^github.com/joomla/joomla-cms/pull/21805].<!-- \index{bootstrap.tab} --><!-- \index{uitab} -->
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  use Joomla\CMS\Factory;

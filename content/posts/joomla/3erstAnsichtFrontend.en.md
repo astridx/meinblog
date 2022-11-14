@@ -157,7 +157,7 @@ Joomla logging offers the possibility to log messages in a file and on the scree
 
 The file `components/com\_foos/ tmpl/foo/default.php` contains the text we display. Everything I wrote in the chapter about the _first view in the backend_ also applies here.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/tmpl/foo/default.php
@@ -181,9 +181,9 @@ Hello Foos
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ foos.xml
 
-Administrator/components/com_foos/ foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories `src` and `tmpl` exist and where to copy them to. The copy destination is the directory `components/com_foos` because of `folder="components/com_foos"`.
+Administrator/components/com_foos/foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories `src` and `tmpl` exist and where to copy them to. The copy destination is the directory `components/com_foos` because of `folder="components/com_foos"`.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  	<description>COM_FOOS_XML_DESCRIPTION</description>

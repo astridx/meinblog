@@ -141,17 +141,19 @@ Normalerweise ist eine Antwort eine [note](https://indieweb.org/note) wie jede a
 
 ##### Meine Vorgehensweise
 
-Ich füge folgenden Codeschnipsel zum Beitrag hinzu, wobei ich den Permalink mit einem korrekten ersetzte. 
+Ich füge folgenden Codeschnipsel zum Beitrag per Custom Field Plugin hinzu, wobei ich den Permalink mit einem korrekten ersetzte. 
 
 ```html
-<div class="u-in-reply-to h-cite">
-<a class="u-url" href="permalink"></a>
+<div class="u-in-reply-to h-cite">In Reply to 
+<a class="u-url" href="permalink"> this article.</a>
 </div>
 ```
 
+Wichtig ist hierbei, dass das Custom Field im Beitragstext eingefügt wird und nicht die automatische Anzeige vor oder nach dem Inhalt gewählt wird. Nur so wird das Element im versteckten Bereich innerhalb der CSS-Klasse `h-entry` angezeigt. Dies eine [Voraussetzunge](https://indieweb.org/in-reply-to)[^indieweb.org/in-reply-to]!
+
 #### Erhalte Webmentions
 
-Nachdem du nun in der Lage bist, Antworten zu posten, die als Kommentare auf den Websites anderer erscheinen, besteht der nächste Schritt darin, dass du selbst Kommentare empfangen kannst. Es gibt mehrere Möglichkeiten, dies zu tun. Ich mache es mir einfach und implementiere den Dienst [webmention.io](http://webmention.io/. Jetzt fehlte nur noch eine Möglichkeit, die Webmentions anzuzeigen. Für den Anfang füge ich die Url unter dem Inhalt ein.
+Nachdem du nun in der Lage bist, Antworten zu posten, die als Kommentare auf den Websites anderer erscheinen, besteht der nächste Schritt darin, dass du selbst Kommentare empfangen kannst. Es gibt mehrere Möglichkeiten, dies zu tun. Ich mache es mir einfach und implementiere den Dienst [webmention.io](http://webmention.io/). Jetzt fehlte nur noch eine Möglichkeit, die Webmentions anzuzeigen. Für den Anfang füge ich die Url unter dem Inhalt ein.
 
 
 ##### Meine Vorgehensweise

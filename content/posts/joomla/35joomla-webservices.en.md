@@ -214,7 +214,7 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 ### Component
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ foos.xml
+#### administrator/components/com_foos/foos.xml
 
 In the installation file it is important to include the folder `api`. Otherwise the files in the subfolder `api` will not be copied to the correct directory during an installation.
 

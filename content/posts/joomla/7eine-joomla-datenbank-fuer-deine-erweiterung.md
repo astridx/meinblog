@@ -32,7 +32,7 @@ Neben der `id`, über welche wir das Element eindeutig auffindbar machen und dem
 
 Via `CREATE TABLE IF NOT EXISTS ...` legen wir die Datenbanktabelle an, falls diese nicht schon exisiert. Mit `INSERT INTO ...` speichern wir Beispielinhalte in der Datenbanktabelle. In einer realen Erweiterung würde ich Beispieldaten nicht über die SQL-Datei bei der Installation hinzufügen. In Joomla 4 bietet sich ein Plugin des Typs `sampledata` an. Zur Inspiration findest du Plugins in Joomla im Verzeichnis `plugins/sampledata`.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t6/src/administrator/components/com_foos/sql/install.mysql.utf8.sql -->
@@ -57,7 +57,7 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 
 Damit Joomla im Falle einer Deinstallation keine unnötigen Daten enthält, erstellen wir eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet. Diese wird beim Deinstallieren automatisch ausgeführt.
 
-[administrator/components/com_foos/ sql/uninstall.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
+[administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t6/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql -->
@@ -148,7 +148,7 @@ class FoosModel extends ListModel
 
 Der mit Pluszeichen markierte Eintrag im Installationsmanifest bewirkt, dass die SQL-Statements in den genannten Dateien zum passenden Zeitpunkt aufgerufen werden, nämlich während einer Installation oder während einer Deinstallation.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  	<description>COM_FOOS_XML_DESCRIPTION</description>
@@ -206,7 +206,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 
 Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu setzten, jetzt ist es erforderlich. Andernfalls siehst du die folgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{Service!Provider} -->
 
-[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory;
@@ -258,7 +258,7 @@ In der View sammeln wir am Ende alle Elemente. Hierzu rufen wir die Methode `$th
 
 Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife, die alle Elemente durchläuft.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
   */

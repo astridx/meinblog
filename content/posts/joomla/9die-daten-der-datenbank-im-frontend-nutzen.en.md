@@ -271,7 +271,7 @@ The name of the function must be the same in both places!
 
 We open the selection in a modal window via the FooField. As address we have inserted in the field `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'`. The following code shows you the template for this modal window.
 
-[administrator/components/com_foos/ tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php)
+[administrator/components/com_foos/tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php
@@ -449,7 +449,7 @@ The following is the JavaScript code that causes a foo element to be selectable 
 
 We have created a new JavaScript file. We place it in the `media\js` directory. So that it is copied when the component is installed, we add the `js` folder in the section `media` of the installation manifest.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		<folder>src</folder>
@@ -584,7 +584,7 @@ In the view we consequently replace `$this->msg = $this->get('Msg');` with `$thi
 
 We will customize the display of the name in the template. Here we access the `item` element and its `name` property. In this way we can flexibly and easily add new properties in the future.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -601,7 +601,7 @@ We will customize the display of the name in the template. Here we access the `i
 
 We create an entry in the `default.xml` file for the new form field. This way we enable the selection of a Foo element at the menu item. Worth mentioning are the entries `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` and `type="modal_foo"`:
 
-[components/com_foos/ tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {diff}
  	</layout>

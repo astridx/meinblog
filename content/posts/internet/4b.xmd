@@ -1,0 +1,21 @@
+---
+description: 'desc'
+syndication:
+shortTitle: 'short'
+date: 2022-07-07
+title: 'Informationen im Internet - Protokolle für die Übertragung'
+template: post
+thumbnail: '../../thumbnails/worldinternet.png'
+slug: informationsuebertragung-im-netz-protokolle-fuer-die-uebertragung
+langKey: de
+categories:
+  - Internet
+tags:
+  - Paket
+  - Daten
+  - Datenübertragung
+  - Schichtenmodell
+  - Datenübertragung
+---
+
+

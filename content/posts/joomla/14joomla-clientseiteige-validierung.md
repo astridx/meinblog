@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 Im Installationsmanifest fügen wir `<filename>joomla.asset.json</filename>` ein, damit Joomla weiß, das die Datei `joomla.asset.json` zur Erweiterung gehört und diese ins `media/com_foos` Verzeichnis kopiert. Die Datei legen wir später in diesem Teil an.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  		<folder>tmpl</folder>
@@ -95,7 +95,7 @@ Im Installationsmanifest fügen wir `<filename>joomla.asset.json</filename>` ein
 
 Der Eintrag `->useScript('com_foos.admin-foos-letter');` sorgt dafür, dass die JavaScript-Datei `media/com_foos/js/admin-foos-letter.js`, welche für das Prüfen zuständig ist, über den [Webasset-Manager](https://docs.joomla.org/J4.x:Web_Assets/de) anwendbar ist. Dazu werden wird sie später in diesem Kapitel über die Datei `joomla.asset.json` registrieren.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
 

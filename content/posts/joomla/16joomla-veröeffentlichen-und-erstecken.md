@@ -32,9 +32,9 @@ Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente h
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/updates/mysql/13.0.0.sql
 
-Im Falle eines Updates, wird die Datenbank mithilfe der Datei `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql` auf den neuesten Stand für Version 13 gebracht. Konkret werden Spalten für das Speichern der Daten zur Veröffentlichung eingefügt.
+Im Falle eines Updates, wird die Datenbank mithilfe der Datei `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql` auf den neuesten Stand für Version 13 gebracht. Konkret werden Spalten für das Speichern der Daten zur Veröffentlichung eingefügt.
 
-[administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/13.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
 ```xml {numberLines: -2}
 <!--  https://codeberg.org/astrid/j4examplecode/raw/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
@@ -126,7 +126,7 @@ class FoosController extends AdminController
 
 Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird und zwei, über die eine terminierte Veröffentlichung mithilfe eines Kalenders erreicht wird.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			hint="JFIELD_ALIAS_PLACEHOLDER"
@@ -175,9 +175,9 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
 
-`administrator/components/com_foos/ sql/install.mysql.utf8.sql` wird im Falle einer neuen Installation verwendet, um die Datenbank anzulegen. Deshalb ergänzen wir hier die notwendigen Informationen. In der Datei `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql` hatten wir diese schon ergänzt. Diese Datei wird lediglich bei einer Aktualisierung angewendet.
+`administrator/components/com_foos/sql/install.mysql.utf8.sql` wird im Falle einer neuen Installation verwendet, um die Datenbank anzulegen. Deshalb ergänzen wir hier die notwendigen Informationen. In der Datei `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql` hatten wir diese schon ergänzt. Diese Datei wird lediglich bei einer Aktualisierung angewendet.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEF
@@ -293,7 +293,7 @@ In der Datei `administrator/components/com_foos/src/Table/FooTable.php`, die die
 
 Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Felder gerendert werden.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  	<?php echo $this->getForm()->renderField('alias'); ?>
@@ -314,7 +314,7 @@ Zum Schluss ergänzen wir die Übersichtsliste im Backend. Wir erstellen eine Sp
 
 > Wunderst du dich über die Verteilung der Tags `<td>` und `<th>`. Das erscheint auf den ersten Blick ein Fehler zu sein. Es ist aber korrekt. Weitere Informationen findest du im Github-Issue 24546 [^github.com/joomla/joomla-cms/pull/24546].
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  					<table class="table" id="fooList">

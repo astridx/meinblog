@@ -26,9 +26,9 @@ Umfangreiche Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zus
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ presets/foos.xml
 
-In der Datei `administrator/components/com_foos/ presets/foos.xml` legen wir fest, was standardmäßig auf dem Dashboard angezeigt wird.
+In der Datei `administrator/components/com_foos/presets/foos.xml` legen wir fest, was standardmäßig auf dem Dashboard angezeigt wird.
 
-[administrator/components/com_foos/ presets/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/presets/foos.xml)
+[administrator/components/com_foos/presets/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/presets/foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t28/src/administrator/components/com_foos/presets/foos.xml -->
@@ -74,7 +74,7 @@ In der Datei `administrator/components/com_foos/ presets/foos.xml` legen wir fes
 
 Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrationstemplate weiß, das und wie es das Dashboard verlinkt.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
      </media>
@@ -123,7 +123,7 @@ Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrations
 
 Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-eigene Funktion auf die unsere Dashboard im CMS bekannt macht.
 
-[administrator/components/com_foos/ script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/script.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;

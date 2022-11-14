@@ -1,0 +1,20 @@
+---
+description: 'desc'
+syndication:
+shortTitle: 'short'
+date: 2022-07-07
+title: 'Anonym im Internet'
+template: post
+thumbnail: '../../thumbnails/worldinternet.png'
+slug: anonym-im-netz
+langKey: de
+categories:
+  - Internet
+tags:
+  - Paket
+  - Daten
+  - Datenübertragung
+  - Schichtenmodell
+  - Datenübertragung
+---
+

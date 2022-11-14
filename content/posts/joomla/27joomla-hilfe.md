@@ -131,9 +131,9 @@ Das gleiche was ich unter `administrator/components/com_foos/src/View/Foos/HtmlV
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ tmpl/foo/edit.php
 
-In der Templatedatei `administrator/components/com_foos/ tmpl/foo/edit.php` laden wir das erforderliche JavaScript.
+In der Templatedatei `administrator/components/com_foos/tmpl/foo/edit.php` laden wir das erforderliche JavaScript.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t23/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t23/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  $wa = $this->document->getWebAssetManager();

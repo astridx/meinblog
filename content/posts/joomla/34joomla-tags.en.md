@@ -34,7 +34,7 @@ No new files.
 
 The form through which the search tools are managed receives an entry for the keywords.
 
-[administrator/components/com_foos/ forms/filter_foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/filter_foos.xml)
+[administrator/components/com_foos/forms/filter_foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/filter_foos.xml)
 
 ```xml {diff}
  			<option value="*">JALL</option>
@@ -61,7 +61,7 @@ The form through which the search tools are managed receives an entry for the ke
 
 In the XML form, we add the form field that contains the information about the tag. Since we use Joomla Standard, we can use many ready-made functions out-of-the-box.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			label="JFIELD_ORDERING_LABEL"
@@ -86,7 +86,7 @@ In the XML form, we add the form field that contains the information about the t
 
 In the installation script, we make sure that our extension is recognised as a separate content type in Joomla.
 
-[administrator/components/com_foos/ script.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/script.php)
 
 ```php {diff}
  	{
@@ -291,7 +291,7 @@ In the view, we ensure that the keywords matching the language are loaded.
 
 So that the batch processing can also be used for the tags, we insert a form field. With the help of this field it is possible to select a keyword that will be assigned to all selected items.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/t29/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
+[administrator/components/com_foos/tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/t29/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
 ```php {diff}
  				</div>

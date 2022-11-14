@@ -32,7 +32,7 @@ Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Daten
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/updates/mysql/15.0.0.sql
 
-[administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/15.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql -->
@@ -497,7 +497,7 @@ abstract class RouteHelper
 
 Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Dies ist das Feld `name="language"`. Damit Joomla dieses Feld findet, fügen wir den Pfad in der Form `addfieldprefix= "FooNamespace\Component\Foos\Administrator\Field"` als Parameter im `<fieldset>` ein.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
   <?xml version="1.0" encoding="utf-8"?>
@@ -532,7 +532,7 @@ Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Di
 
 Im Provider registrieren wir unseren `AssociationsHelper` als Service der `AssociationExtensionInterface`[^libraries/src/association/associationextensioninterface.php] implementiert. So stellen wir sicher, dass alle notwendigen Funktionen in unsere Komponente vererbt werden und so vorhanden sind.
 
-[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use Joomla\DI\Container;
@@ -565,7 +565,7 @@ Im Provider registrieren wir unseren `AssociationsHelper` als Service der `Assoc
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte in der Datenbanktabelle hinzu. Bei Neuinstallationen ist das Skript `install.mysql.utf8.sql` dasjenige, welches aufgerufen wird.
 
@@ -969,11 +969,11 @@ Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nich
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ tmpl/foo/edit.php
 
-In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur Angabe der Sprache ein. Dazu verwenden wir das Layout `administrator/components/com_foos/ tmpl/foo/edit_associations.php`, das wir zuvor in diesem Teil erstellten.
+In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur Angabe der Sprache ein. Dazu verwenden wir das Layout `administrator/components/com_foos/tmpl/foo/edit_associations.php`, das wir zuvor in diesem Teil erstellten.
 
 > Warum das Layout `edit_associations.php` in der Datei `edit.php` mit dem Namen `associations` aufgerufen wird, denkst du dir vielleicht bereits. In dem Teil über die Layouts gehe ich darauf näher ein.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
 
@@ -1030,7 +1030,7 @@ In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur A
 
 In der Übersicht zur Komponenten im Administrationsbereich ergänzen wir Spalten, um die Sprachinformationen anzuzeigen. Diese Spalten zeigen wir lediglich an, wenn es erforderlich ist. Dies ist der Fall, wenn Sprachverknüpfungen und Mehrsprachigkeit aktiviert sind. Um dies herauszufinden nutzen wir die Joomla eigene Funktionen `Associations::isEnabled()` und `Multilanguage::isEnabled()`.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLHelper;

@@ -28,9 +28,9 @@ Almost every website divides its content into categories. Joomla offers this use
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/updates/mysql/12.0.0.sql
 
-We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database. To do this, we create the file `administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql` and enter the necessary SQL statement in it. We choose the name because we are currently working on version 12 of our extension.
+We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database. To do this, we create the file `administrator/components/com_foos/sql/updates/mysql/12.0.0.sql` and enter the necessary SQL statement in it. We choose the name because we are currently working on version 12 of our extension.
 
-[administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/12.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql -->
@@ -73,7 +73,7 @@ The entries in the file `access.xml` marked below with a plus sign are necessary
 
 The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a menu item to be added in the administration area menu for editing the category.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
 
@@ -92,7 +92,7 @@ The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a m
 
 We add a selection field with matching categories to the form used to create a Foo item. We use the Joomla own field `categoryedit` for this. Note the line `extension="com_foos"`. This ensures that only categories belonging to the component `com_foos` are displayed.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  			hint="JFIELD_ALIAS_PLACEHOLDER"
@@ -119,7 +119,7 @@ We add a selection field with matching categories to the form used to create a F
 
 To ensure that a category already exists at the beginning, we add the script that is called during the installation. Using the `install` method, we create a category with the title `Uncategorised` for the component during a new installation. We store these directly in the database. To be able to specify a user as the creator of the category, we request the ID of the administrator in the `getAdminId()` method.
 
-[administrator/components/com_foos/ script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/script.php)
 
 ```php {diff}
 
@@ -240,7 +240,7 @@ To ensure that a category already exists at the beginning, we add the script tha
 
 In the service provider we register the interface `CategoryFactoryInterface`. It is not necessary to create `CategoryFactory Interface` by yourself. We use the Joomla own functions.
 
-[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
 
@@ -266,7 +266,7 @@ In the service provider we register the interface `CategoryFactoryInterface`. It
 
 In order to create the table column in which the category of a Foo element is stored during a new installation, we add the necessary SQL command in the SQL file that is called during the installation.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```php {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
@@ -361,9 +361,9 @@ In the model we add to the database query the table where Joomla stores categori
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ tmpl/foo/edit.php
 
-We add the category field to the form for editing an element. It is rendered using the information in the XML form `administrator/components/com_foos/ forms/foo.xml`, which we worked on earlier in this chapter.
+We add the category field to the form for editing an element. It is rendered using the information in the XML form `administrator/components/com_foos/forms/foo.xml`, which we worked on earlier in this chapter.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  	<?php echo $this->getForm()->renderField('name'); ?>
@@ -381,7 +381,7 @@ We add the category field to the form for editing an element. It is rendered usi
 
 In the overview table of the view in the backend, we add a column for displaying the category.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
 

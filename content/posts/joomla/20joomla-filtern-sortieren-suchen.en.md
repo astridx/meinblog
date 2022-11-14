@@ -28,7 +28,7 @@ Filtering, sorting and searching - now we organize the Joomla 4 component! Jooml
 
 First, we create the form through which the filters will be set.
 
-[administrator/components/com_foos/ forms/filter_foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/forms/filter_foos.xml)
+[administrator/components/com_foos/forms/filter_foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/forms/filter_foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t16/src/administrator/components/com_foos/forms/filter_foos.xml -->
@@ -147,7 +147,7 @@ First, we create the form through which the filters will be set.
 
 In case of an update of your component, the file `16.0.0.sql` adds a column to store the sequence.
 
-[administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/16.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
 
 ```xml {numberLines: -2}
 -- https://codeberg.org/astrid/j4examplecode/raw/branch/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
@@ -163,7 +163,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 
 The form used to create or modify an element is extended with a field for specifying the order.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			label="JFIELD_ACCESS_LABEL"
@@ -186,7 +186,7 @@ The form used to create or modify an element is extended with a field for specif
 
 In case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the order.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
 
@@ -325,7 +325,7 @@ In the `getListQuery()` method we adjust the database query to respect the filte
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
-The view loads the filter form `src/administrator/components/com_foos/ forms/foo.xml`, which is displayed in the upper area. Besides we add here the check if the active user is allowed to perform actions.
+The view loads the filter form `src/administrator/components/com_foos/forms/foo.xml`, which is displayed in the upper area. Besides we add here the check if the active user is allowed to perform actions.
 
 [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
@@ -425,7 +425,7 @@ $wa->useScript('table.columns');
 
 was introduced to Joomla 4.2 via PR 36591[^github.com/joomla/joomla-cms/pull/36591].
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Multilanguage;
@@ -551,7 +551,7 @@ Icons show us if a column is sorted and in which direction. To make the sorting 
 
 > The [class `visually-hidden`](https://getbootstrap.com/docs/5.0/getting-started/accessibility/#visually-hidden-content) hides an element for all devices except screen readers.
 
-[administrator/components/com_foos/ tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/modal.php)
+[administrator/components/com_foos/tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {diff}
  			<table class="table table-sm">

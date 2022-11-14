@@ -60,7 +60,7 @@ Wir haben keine speziellen Wünsche. Um die Standard Paginierung anzuzeigen, rei
 
 Im Template nutzen wir die Methode `getListFooter` der Variable `$this->pagination`. Das war alles!
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t19/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t19/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  						</tbody>

@@ -32,9 +32,9 @@ Wir haben in diesem Teil keine neue Datei erstellt, sondern lediglich Dateien ge
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ access.xml
 
-In der Datei `administrator/components/com_foos/ access.xml` bereiten wir alles dafür vor, die benutzerdefinierten Felder mit Berechtigungen zu versehen. So ist es möglich, dass das Ändern oder das Ansehen eines Feldes nur bestimmten Benutzern erlaubt ist.
+In der Datei `administrator/components/com_foos/access.xml` bereiten wir alles dafür vor, die benutzerdefinierten Felder mit Berechtigungen zu versehen. So ist es möglich, dass das Ändern oder das Ansehen eines Feldes nur bestimmten Benutzern erlaubt ist.
 
-[administrator/components/com_foos/ access.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/access.xml)
+[administrator/components/com_foos/access.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/access.xml)
 
 ```xml {diff}
  		<action name="core.edit.state" title="JACTION_EDITSTATE" />
@@ -116,7 +116,7 @@ Ein Tipp zum Type `radio` mit dem Layout `joomla.form.field.radio.switcher`. Mö
 
 Im Navigationsmenü links im Joomla Administrationsbereichs fügen wir zwei Links ein. Der erste neue Link führt zu der Ansicht, in der die eigene Felder für die Komponente erstellt werden. Der andere führt zu der Ansicht, über die Feld-Gruppen angelegt werden.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		<submenu>
@@ -166,7 +166,7 @@ Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla ei
 
 > Einen Vergleich zwischen dem bisher meist genutzten `bootstrap.tab` und `uitab` bietet [Pull Request PR 21805](https://github.com/joomla/joomla-cms/pull/21805)[^github.com/joomla/joomla-cms/pull/21805].<!-- \index{bootstrap.tab} --><!-- \index{UiTab} -->
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  use Joomla\CMS\Factory;

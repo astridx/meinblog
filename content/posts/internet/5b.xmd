@@ -1,0 +1,20 @@
+---
+description: 'desc'
+syndication:
+shortTitle: 'short'
+date: 2022-07-07
+title: 'Menschen und Informationen im Internet - Hypertext Übertragungsprotokoll'
+template: post
+thumbnail: '../../thumbnails/worldinternet.png'
+slug: menschen-und-informationen-im-netz-http
+langKey: de
+categories:
+  - Internet
+tags:
+  - Paket
+  - Daten
+  - Datenübertragung
+  - Schichtenmodell
+  - Datenübertragung
+---
+

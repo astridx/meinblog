@@ -28,7 +28,7 @@ In the previous part we set up a database for the Joomla components. In this par
 
 Joomla creates the form for you if you give it the requirements in an XML file. Below you can see this for our example.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/forms/foo.xml -->
@@ -384,7 +384,7 @@ In the file `edit.php` is the view implemented, which is called for editing. It 
 
 > If you do not include webassets correctly, you will get the following error in the console of your browser when you save the form: `joomla document.formvalidator is undefined`. Joomla validates the forms by default and expects the file `media/system/js/core.js` to be loaded.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php
@@ -427,11 +427,11 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 > Are you interested in the content of the files `Core.js`[^build/media_source/system/js/core.es6.js] or `Keepalive.js`[^build/media_source/system/js/keepalive.es6.js]? In this case, look at them directly in Joomla. In the development version, they are located in the directory `build/media_source/system/js/` and are prepared for installation with the help of scripts, [Node.js](https://nodejs.org/en/)[^nodejs.org] and [Composer](https://getcomposer.org/)[^getcomposer.org/] in the directory `media/system/js`. For further information, please refer to the [Joomla Documentation](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment)[^docs.joomla.org/j4.x:setting_up_your_local_environment].
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/emptystate.php<!-- \index{Empty State} -->
+#### administrator/components/com_foos/tmpl/foos/emptystate.php<!-- \index{Empty State} -->
 
-With the file `administrator/components/com_foos/ tmpl/foos/emptystate.php` we create a special layout for the case that the component contains no element and is therefore empty.
+With the file `administrator/components/com_foos/tmpl/foos/emptystate.php` we create a special layout for the case that the component contains no element and is therefore empty.
 
-[administrator/components/com_foos/ tmpl/foos/emptystate.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
+[administrator/components/com_foos/tmpl/foos/emptystate.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php
@@ -479,7 +479,7 @@ The Empty State layout has been integrated into Joomla in [PR 33264](https://git
 
 To ensure that the 'forms' directory is passed to Joomla during a new installation, enter it in the installation manifest.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		</submenu>
@@ -542,7 +542,7 @@ In the view that displays the overview list, we add the toolbar. Here we insert 
 
 In the template of the overview list, we replace the simple text with a form. The form contains a form field for each column in the database table and makes it possible to create or change data.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
   * @license     GNU General Public License version 2 or later; see LICENSE.txt

@@ -28,7 +28,7 @@ Joomla bietet eine Reihe von Funktionen, mit denen es Administratoren möglich i
 
 Die nachfolgende Datei erstellt den mittleren Teil des Formulars, welches zum Anstoßen der Stapelverarbeitung angezeigt wird.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
+[administrator/components/com_foos/tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
@@ -80,9 +80,9 @@ $noUser    = true;
 
 Den Fußbereich des Formulars, welches zum Anstoßen der Stapelverarbeitung angezeigt wird, erzeugt die nachfolgende Datei. Die Schaltfläche `JCANCEL` löscht alle Werte in den Formularfeldern mittles `document.getElementById('ELEMENT_ID').value=''`. Ich habe hier alle möglichen Felder aufgenommen, obwohl wir noch nicht alle nutzen. `batch-user-id` und `batch-tag-id` sind beispielsweise bisher nicht in unserem Formular belegt. Die Schaltfläche `JGLOBAL_BATCH_PROCESS` startet die Stapelverarbeitung.
 
-> Wichtig ist, dass du das Formular für die Stapelverarbeitung so anlegst, wie oben bei der Datei `administrator/components/com_foos/ tmpl/foos/default_batch_body.php` beschrieben. `LayoutHelper` in Kombination mit dem passenden Layout sorgt dafür, dass alle Variablen und IDs so gesetzt sind, dass die Standardfunktionen korrekt ablaufen.
+> Wichtig ist, dass du das Formular für die Stapelverarbeitung so anlegst, wie oben bei der Datei `administrator/components/com_foos/tmpl/foos/default_batch_body.php` beschrieben. `LayoutHelper` in Kombination mit dem passenden Layout sorgt dafür, dass alle Variablen und IDs so gesetzt sind, dass die Standardfunktionen korrekt ablaufen.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
+[administrator/components/com_foos/tmpl/foos/default_batch_footer.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
@@ -218,7 +218,7 @@ Damit die Stapelverarbeitung per Schaltfläche nutzbar ist, fügen wir einen Ein
 
 Das Template, mit dem das Formular zum Anstoßen der Stapelverarbeitung angelegt wird, erstellen wir unter Zuhilfenahme von `HTMLHelper`.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
 		<?php echo $this->pagination->getListFooter(); ?>

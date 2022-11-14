@@ -30,7 +30,7 @@ Mithilfe der Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auft
 
 Wie alle Eigenschaften eines Foo-Elementes, wird der Checkout-Zustand in der Datenbank gespeichert. Wir legen zwei Spalten an. Nachfolgend siehst du das Skript, welches bei einer Joomla-Aktualisierung aufgerufen wird.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
@@ -50,7 +50,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
 
 Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir verstecken sie mit dem Attribut `hidden`, da sie hier nicht vom Benutzer geändert werden. Joomla setzt die Werte automatisch im Hintergrund.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			size="1"
@@ -79,7 +79,7 @@ Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir ver
 
 Die Datenbankänderungen, die wir oben für die Aktualisierung in der separaten SQL-Datei eingetragen haben, ergänzen wir im SQL-Skript, welches bei einer neuen Installation aufgerufen wird.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
@@ -150,7 +150,7 @@ Im Model passen wir alles so an, dass die beiden neuen Spalten korrekt geladen w
 
 In die Listenansicht fügen wir keine separate Spalte ein. Beim Namen wird ein Symbol angezeigt, wenn das Element gesperrt ist. Für die Anzeige von diesem wähle ich die Funktion, die Joomla in eigenen Erweiterungen einsetzt: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. Die übernimmt gleichzeitig die Prüfung, ob der Beitrag freigegeben ist oder nicht.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  									<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>

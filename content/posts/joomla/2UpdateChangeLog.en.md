@@ -40,9 +40,9 @@ In the current section, two files are added that are stored outside the website.
 
 #### foo_update.xml (Update Server)<!-- \index{Update Server} -->
 
-You have told your component in the file [administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/src/administrator/components/com_foos/foos.xml) where to find out about updates. That is in the file `foo_update.xml`.
+You have told your component in the file [administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/src/administrator/components/com_foos/foos.xml) where to find out about updates. That is in the file `foo_update.xml`.
 
-Create the file [foo_update.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/foo_update.xml). The file can be named anything as long as it matches the name you specified in the installation XML [administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/src/administrator/components/com_foos/foos.xml).
+Create the file [foo_update.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/foo_update.xml). The file can be named anything as long as it matches the name you specified in the installation XML [administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/src/administrator/components/com_foos/foos.xml).
 
 The tag `updates` surrounds all update elements. Create another update section each time you release a new version.
 
@@ -169,7 +169,7 @@ Information on the changelog can be found on Github [in PR github.com/joomla/joo
 
 Only the version number has been adjusted. This change is necessary in every new chapter, because a new function is always added. I do not mention this explicitly in the following.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  	<authorUrl>[AUTHOR_URL]</authorUrl>

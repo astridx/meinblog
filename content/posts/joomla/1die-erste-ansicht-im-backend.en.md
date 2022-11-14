@@ -136,7 +136,7 @@ You need this if you use the _Download Key Manager_. In general, this is only th
 
 Finally, we close the `</extension>` tag. Here is the complete code:
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/foos.xml -->
@@ -190,7 +190,7 @@ With the installation script<!-- \index{installation script} --> file you call c
 
 Create the file `script.php` with the following content:
 
-[administrator/components/com_foos/ script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/script.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/script.php
@@ -382,7 +382,7 @@ More information about the implementation can be found on [Github](https://githu
 
 You often see the word 'factory' in Joomla. This is because Joomla uses the [factory design pattern](https://en.wikipedia.org/wiki/Factory_method_pattern)[^en.wikipedia.org/wiki/factory_method_pattern]. The factory method is a pattern where the interface to create an object is an abstract method of an inheriting class. However, the concrete implementation of the creation of new objects does not take place in the superclass, but in subclasses derived from it. The latter implement the said abstract method. To program extensions for Joomla it is not mandatory that you know the design patterns. However, it can be worthwhile to think outside the box. In software engineering, a [design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)[^en.wikipedia.org/wiki/software_design_pattern] is a general, reusable solution to a common problem. Someone else had the same problem and found a solution. We don't have to solve the same problem, but can build on it.<!-- \index{design pattern!factory method} --><!-- \index{design pattern} -->
 
-[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/services/provider.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/services/provider.php
@@ -613,7 +613,7 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 
 Although we are developing the code for a minimal component, some administrator files are needed. The file `AdministratorService.php` will be used later to add functions like multilingualism or main entries/featured. At the moment we do not need these functions. But we are already preparing everything here.
 
-[administrator/components/com_foos/ service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
@@ -700,7 +700,7 @@ class HtmlView extends BaseHtmlView
 
 The file `default.php` is the template for rendering the view. You can further identify them by the directory name `tmpl`. In it is the text that we display. At the moment we are putting all the effort into the output of the text "Hello Foos".
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/tmpl/foos/default.php

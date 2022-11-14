@@ -665,7 +665,7 @@ class HtmlView extends CategoryView
 
 Das wir für die Kategorie-Ansicht ebenfalls ein Template erstellen, ist nicht neu. Wie üblich legen wir die Datei `default.php` im Verzeichnis `components/com_foos/tmpl/category` an. Wir nutzen `joomla.content.category_default`. Diese Layoutdatei findest du unter `layouts/joomla/content/category_default.php`.
 
-[components/com_foos/ tmpl/category/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default.php)
+[components/com_foos/tmpl/category/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/tmpl/category/default.php
@@ -698,7 +698,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 In order to be able to create a menu item for navigation in the frontend in a user-friendly way, we create the file `components/com_foos/tmpl/category/default.xml`. We have done this here in the text before several times. For example for an element or for the view of the featured entries.
 
-[components/com_foos/ tmpl/category/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default.xml)
+[components/com_foos/tmpl/category/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://github.com/astridx/boilerplate/raw/t26/src/components/com_foos/tmpl/category/default.xml -->
@@ -771,7 +771,7 @@ In order to be able to create a menu item for navigation in the frontend in a us
 
 Damit der Code der Kategorie-Ansicht übersichtlich ist, arbeiten wir mit Layouts. Im Template `components/com_foos/tmpl/category/default.php` verwenden wir das Layout `joomla.content.category_default`. Dieses wiederum setzt das Layout `items` voraus, welches wir in der Datei `components/com_foos/tmpl/category/default_items.php` implementieren. Auf den ersten Blick erscheint dies umständlich. In der Praxis hat es sich bewährt.
 
-[components/com_foos/ tmpl/category/default_items.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default_items.php)
+[components/com_foos/tmpl/category/default_items.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default_items.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/tmpl/category/default_items.php

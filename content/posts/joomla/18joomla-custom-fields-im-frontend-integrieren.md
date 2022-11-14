@@ -91,7 +91,7 @@ Wunderst du dich, dass wir bei den Ereignis-Methoden
 
 Im Template geben wir die eigenen Felder aus. In unserem Fall ist dieses nicht umfangreich, deshalb schreiben wir alle gespeicherten Texte hintereinander. In einer komplexeren Datei werden die Events an der passenden Stelle eingefügt.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  }
@@ -110,7 +110,7 @@ Benutzerdefinierte Felder können in eigenen Overrides beliebig positioniert wer
 
 ### Aufruf eines Feldes in einem Override
 
-Grundsätzlich stehen alle benutzerdefinierten Felder die dem aktuellen Element zugehören im Template `components/com_foos/ tmpl/foo/default.php` zur Verfügung. Der Aufruf erfolgt über eine Eigenschaft der Variable `$this->item` mit dem Namen `jcfields`. Die Variable `$this->item->jcfields` ist ein Array, welcher beispielsweise die folgenden Daten pro Feld enthält:
+Grundsätzlich stehen alle benutzerdefinierten Felder die dem aktuellen Element zugehören im Template `components/com_foos/tmpl/foo/default.php` zur Verfügung. Der Aufruf erfolgt über eine Eigenschaft der Variable `$this->item` mit dem Namen `jcfields`. Die Variable `$this->item->jcfields` ist ein Array, welcher beispielsweise die folgenden Daten pro Feld enthält:
 
 ```
 stdClass Object
@@ -156,7 +156,7 @@ stdClass Object
 
 ### Das Feld individuell rendern
 
-Um das Feld im Template `components/com_foos/ tmpl/foo/default.php` zu rendern, kann `FieldsHelper::render()` verwendet werden.
+Um das Feld im Template `components/com_foos/tmpl/foo/default.php` zu rendern, kann `FieldsHelper::render()` verwendet werden.
 
 > Die Klasse `FieldsHelper` findest du in der Datei `administrator/components/com_fields/src/Helper/FieldsHelper.php`, falls du dir die Methode selbst genauer ansehen möchtest.
 
@@ -179,7 +179,7 @@ Um das Feld im Template `components/com_foos/ tmpl/foo/default.php` zu rendern, 
 
 ### Felder individuell laden
 
-Um einzelne Felder zum Inhalt hinzuzufügen, wähle zunächst spezifische Namen für die benutzerdefinierten Felder aus. So ist es möglich mithilfe des Feldname das Feld im Override-Code zur Datei `components/com_foos/ tmpl/foo/default.php` direkt anzusprechen. Setze im Joomla Backend die automatische Anzeige für das Feld auf `Nein`. So verhinderst du, dass es automatisch an einer der Standardpositionen angezeigt wird. Füge den folgenden Code am Anfang der Template-Datei `components/com_foos/ tmpl/foo/default.php` oder deren Override ein, um den direkten Zugriff via Namen auf Felder in den Overrides zu verwenden. 
+Um einzelne Felder zum Inhalt hinzuzufügen, wähle zunächst spezifische Namen für die benutzerdefinierten Felder aus. So ist es möglich mithilfe des Feldname das Feld im Override-Code zur Datei `components/com_foos/tmpl/foo/default.php` direkt anzusprechen. Setze im Joomla Backend die automatische Anzeige für das Feld auf `Nein`. So verhinderst du, dass es automatisch an einer der Standardpositionen angezeigt wird. Füge den folgenden Code am Anfang der Template-Datei `components/com_foos/tmpl/foo/default.php` oder deren Override ein, um den direkten Zugriff via Namen auf Felder in den Overrides zu verwenden. 
 
 ```php
 <?php 

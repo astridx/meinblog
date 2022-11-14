@@ -60,7 +60,7 @@ We do not have any special requests. To display the default pagination, more or 
 
 In the template we use the `getListFooter` method of the variable `$this->pagination`. That was all!
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t19/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t19/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  						</tbody>

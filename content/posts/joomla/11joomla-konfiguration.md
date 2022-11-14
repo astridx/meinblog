@@ -63,7 +63,7 @@ Wir verwenden ein Auswahlfeld vom Typ `type="list"`. Die Übersetzungsarbeit min
 
 Die Ergänzung in der Datei `foos.xml` stellt sicher, dass die Datei `config.xml` bei der Installation kopiert wird und Joomla so später auf sie zugreifen kann.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  		</submenu>
@@ -126,7 +126,7 @@ Die `populateState`-Methode stellt sicher, dass das `State`-Objekt korrekt befü
 
 Zum Schluss ersetzen wir `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. Wir zeigen das Label nur an, wenn im Status der Parameter auf `true` oder `1` gesetzt ist.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;

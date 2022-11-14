@@ -114,7 +114,7 @@ So far, so good. We are still missing the possibility to configure the value for
 
 In your extension you offer the possibility to save a value at the menu item by extending the XML file with an input element. The following code shows you how to add a text input field.
 
-[components/com_foos/ tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {diff}
  			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>

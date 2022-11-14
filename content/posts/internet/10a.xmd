@@ -1,0 +1,20 @@
+---
+description: 'desc'
+syndication:
+shortTitle: 'short'
+date: 2022-07-07
+title: 'Entwicklung, Koordination und Verwaltung des Internets'
+template: post
+thumbnail: '../../thumbnails/worldinternet.png'
+slug: entwicklung-koordination-und-verwaltung-des-internets
+langKey: de
+categories:
+  - Internet
+tags:
+  - Paket
+  - Daten
+  - Datenübertragung
+  - Schichtenmodell
+  - Datenübertragung
+---
+

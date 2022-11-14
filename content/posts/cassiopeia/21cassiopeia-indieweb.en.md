@@ -145,17 +145,19 @@ If you want, you can also go a step further and show a copy of the post you are 
 
 ##### My way of doing
 
-I add the following code snippet to the post via Content Plugin, replacing the permalink with a correct one. 
+I add the following code snippet to the post via Custom Field Plugin, replacing the permalink with a correct one. 
 
 ```html
-<div class="u-in-reply-to h-cite">
-<a class="u-url" href="permalink"></a>
+<div class="u-in-reply-to h-cite">In Reply to 
+<a class="u-url" href="permalink"> this article.</a>
 </div>
 ```
 
+It is important here that the custom field is inserted in the article text and not the automatic display before or after the content is selected. This is the only way to display the element in the hidden area within the CSS class `h-entry`. This a [requirement](https://indieweb.org/in-reply-to)[^indieweb.org/in-reply-to]!
+
 #### Get webmentions on your site
 
-Now that you are able to post replies that appear as comments on others' sites, the next step is to be able to receive comments yourself. There are several ways to do this. I make it easy for myself and implement the [webmention.io](http://webmention.io/ service. Now all that was missing was a way to display the webmentions. For a start, I add the url below the content.
+Now that you are able to post replies that appear as comments on others' sites, the next step is to be able to receive comments yourself. There are several ways to do this. I make it easy for myself and implement the [webmention.io](http://webmention.io/) service. Now all that was missing was a way to display the webmentions. For a start, I add the url below the content.
 
 ##### My way of doing
 

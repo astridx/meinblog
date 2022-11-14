@@ -335,7 +335,7 @@ class Router extends RouterView
 
 Im Service Provider registrieren wir den Service.
 
-[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;

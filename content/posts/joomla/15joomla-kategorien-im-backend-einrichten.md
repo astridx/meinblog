@@ -28,9 +28,9 @@ Fast jede Website unterteilt ihre Inhalte in Kategorien. Joomla bietet dieses n�
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/updates/mysql/12.0.0.sql
 
-Wir speichern die Daten, die zur Einordnung eines Elementes in eine Kategorie notwendig sind, in der Datenbank. Im Falle einer Aktualisierung ist es deshalb wichtig, die Datenbank um eine Spalte zu erweitern. Hierzu legen wir die Datei `administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql` an und tragen in sie das notwendige SQL-Statement ein. Den Namen wählen wir, weil wir gerade an Version 12 unserer Erweiterung arbeiten.
+Wir speichern die Daten, die zur Einordnung eines Elementes in eine Kategorie notwendig sind, in der Datenbank. Im Falle einer Aktualisierung ist es deshalb wichtig, die Datenbank um eine Spalte zu erweitern. Hierzu legen wir die Datei `administrator/components/com_foos/sql/updates/mysql/12.0.0.sql` an und tragen in sie das notwendige SQL-Statement ein. Den Namen wählen wir, weil wir gerade an Version 12 unserer Erweiterung arbeiten.
 
-[administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/12.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql -->
@@ -73,7 +73,7 @@ Die nachfolgend mit einem Pluszeichen markierten Einträge in der Datei `access.
 
 Der Eintrag `<menu link="option=com_ categories&amp;extension=com_foos"` bewirkt, dass im Menu des Administrationsbereichs ein Menüpunkt zur Bearbeitung der Kategorie hinzugefügt wird.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
 
@@ -92,7 +92,7 @@ Der Eintrag `<menu link="option=com_ categories&amp;extension=com_foos"` bewirkt
 
 Das Formular, mit dem ein Foo-Item angelegt wird, ergänzen wir um ein Auswahlfeld mit passenden Kategorien. Wir nutzen hierzu das Joomla eigene Feld `categoryedit`. Beachte die Zeile `extension="com_foos"`. Diese bewirkt, dass ausschließlich Kategorien angezeigt werden, die zur Komponente `com_foos` gehören.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  			hint="JFIELD_ALIAS_PLACEHOLDER"
@@ -240,7 +240,7 @@ Damit zu Beginn schon eine Kategorie vorhanden ist, ergänzen wir das Skript, we
 
 Im Service Provider registrieren wir die Schnittstelle `CategoryFactoryInterface`. Es ist nicht notwendig, `CategoryFactory Interface` selbst zu erstellen. Wir nutzen die Joomla eigene Funktionen.
 
-[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
 
@@ -266,7 +266,7 @@ Im Service Provider registrieren wir die Schnittstelle `CategoryFactoryInterface
 
 Damit bei einer Neuinstallation die Tabellenspalte angelegt wird, in der die Kategorie eines Foo-Elements gespeichert wird, fügen wir in der SQL-Datei die bei der Installation aufgerufen wird, den erforderlichen SQL-Befehl hinzu.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```php {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
@@ -361,9 +361,9 @@ Im Model fügen wir bei der Datenbankabfrage die Tabelle hinzu, in der Joomla Ka
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ tmpl/foo/edit.php
 
-Das Formular zum Editieren eines Elements ergänzen wir um das Kategorie-Feld. Es wird mithilfe der Angaben im XML-Formular `administrator/components/com_foos/ forms/foo.xml` gerendert, welches wir vorher hier im Kapitel bearbeitet haben.
+Das Formular zum Editieren eines Elements ergänzen wir um das Kategorie-Feld. Es wird mithilfe der Angaben im XML-Formular `administrator/components/com_foos/forms/foo.xml` gerendert, welches wir vorher hier im Kapitel bearbeitet haben.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  	<?php echo $this->getForm()->renderField('name'); ?>
@@ -381,7 +381,7 @@ Das Formular zum Editieren eines Elements ergänzen wir um das Kategorie-Feld. E
 
 In der Übersichtstabelle der Ansicht im Backend fügen wir eine Spalte für die Anzeige der Kategorie hinzu.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t12/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
 

@@ -33,9 +33,9 @@ If you worked with Joomla, you know it from other components: Items have a statu
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/updates/mysql/13.0.0.sql
 
-In case of an update, the database is updated to the latest version for version 13 using the file `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql`. Specifically, columns are added for saving the data for publication.
+In case of an update, the database is updated to the latest version for version 13 using the file `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql`. Specifically, columns are added for saving the data for publication.
 
-[administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/13.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
 ```xml {numberLines: -2}
 <!--  https://codeberg.org/astrid/j4examplecode/raw/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
@@ -127,7 +127,7 @@ class FoosController extends AdminController
 
 Three fields are added to the form. One, in which the status is set and two, through which a scheduled publication is achieved with the help of a calendar.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
 
@@ -177,9 +177,9 @@ Three fields are added to the form. One, in which the status is set and two, thr
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
 
-`administrator/components/com_foos/ sql/install.mysql.utf8.sql` is used in the case of a new installation to create the database. Therefore, we add the necessary information here. We had already added this in the file `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql`. This file is only used during an update.
+`administrator/components/com_foos/sql/install.mysql.utf8.sql` is used in the case of a new installation to create the database. Therefore, we add the necessary information here. We had already added this in the file `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql`. This file is only used during an update.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEF
@@ -297,7 +297,7 @@ We need `store($updateNulls = true)` because the parent class `Table` sets the v
 
 In the form for editing an element, we make sure that the new fields are rendered.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  	<?php echo $this->getForm()->renderField('alias'); ?>
@@ -318,7 +318,7 @@ Finally, we add to the overview list in the backend. We create a column for disp
 
 > Are you wondering about the the tags `<td>` and `<th>`. This seems to be a mistake at first sight. But it is correct. You can find more information in the Github-Issue 24546 [^github.com/joomla/joomla-cms/pull/24546].
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  					<table class="table" id="fooList">

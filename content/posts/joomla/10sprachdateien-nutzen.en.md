@@ -112,11 +112,11 @@ Create six files to support the German language in addition to English. Each fil
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ language/de-DE/com_foos.ini
 
-We add the German language version for the administration area with the files 'administrator/components/com_foos/ language/en-DE/com_foos.ini' and 'administrator/components/com_foos/ language/en-DE/com_foos.sys.ini'.
+We add the German language version for the administration area with the files 'administrator/components/com_foos/language/en-DE/com_foos.ini' and 'administrator/components/com_foos/language/en-DE/com_foos.sys.ini'.
 
 > Don't be confused if you see a lot of texts in the sample data. These are not all used at the moment. I'm already inserting the text for the future chapters here.
 
-[administrator/components/com_foos/ language/de-DE/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.ini)
+[administrator/components/com_foos/language/de-DE/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.ini)
 
 ```xml {numberLines: -2}
 <!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.ini -->
@@ -135,7 +135,7 @@ COM_FOOS_CATEGORIES="Kategorien"
 
 As mentioned before, you need two language files for the backend: one ending with `.ini` and one ending with `sys.ini`. The [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) is primarily used during installation and for displaying the menu items and the `ini` for everything else.
 
-[administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
+[administrator/components/com_foos/language/de-DE/com_foos.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
 <!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini -->
@@ -156,7 +156,7 @@ COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Alles hier passiert nach der Installatio
 
 I had already written it: The English versions of the language files should always be available as a fallback.
 
-[administrator/components/com_foos/ language/en-GB/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini)
+[administrator/components/com_foos/language/en-GB/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini)
 
 ```xml {numberLines: -2}
 <!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini -->
@@ -171,9 +171,9 @@ COM_FOOS_CATEGORIES="Categories"
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ language/en-GB/com_foos.sys.ini
 
-We also add the file `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` as a fallback for all non-German or English Joomla installations.
+We also add the file `administrator/components/com_foos/language/en-GB/com_foos.sys.ini` as a fallback for all non-German or English Joomla installations.
 
-[administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
+[administrator/components/com_foos/language/en-GB/com_foos.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
 <!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini -->
@@ -192,9 +192,9 @@ COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Anything here happens after the installa
 <!-- prettier-ignore -->
 #### components/com\_foos/ language/de-DE/com_foos.ini
 
-In the frontend there is only the `.ini` - so no `sys.ini`. The file `components/com_foos/ language/en-DE/com_foos.ini` implements the German language.
+In the frontend there is only the `.ini` - so no `sys.ini`. The file `components/com_foos/language/en-DE/com_foos.ini` implements the German language.
 
-[components/com_foos/ language/de-DE/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/components/com_foos/language/de-DE/com_foos.ini)
+[components/com_foos/language/de-DE/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/components/com_foos/language/de-DE/com_foos.ini)
 
 ```xml {numberLines: -2}
 <!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/components/com_foos/language/de-DE/com_foos.ini -->
@@ -206,9 +206,9 @@ COM_FOOS_NAME="Vorame: "
 <!-- prettier-ignore -->
 #### components/com\_foos/ language/en-GB/com_foos.ini
 
-We add the English version to the file `components/com_foos/ language/en-GB/com_foos.ini` so that it is used as a fallback in all languages other as German.
+We add the English version to the file `components/com_foos/language/en-GB/com_foos.ini` so that it is used as a fallback in all languages other as German.
 
-[components/com_foos/ language/en-GB/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/components/com_foos/language/en-GB/com_foos.ini)
+[components/com_foos/language/en-GB/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/components/com_foos/language/en-GB/com_foos.ini)
 
 ```xml {numberLines: -2}
 <!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/components/com_foos/language/en-GB/com_foos.ini -->
@@ -226,7 +226,7 @@ COM_FOOS_NAME="Surname: "
 
 To make sure that the language files are copied to Joomla Core when the extension is installed, we add the `<folder>language</folder>` entry for the frontend and the backend to the manifest.
 
-[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
 
@@ -249,7 +249,7 @@ To make sure that the language files are copied to Joomla Core when the extensio
 
 ##### Where are the language files ideally stored?
 
-Joomla's own components store the files for the administration area in the folder `/administrator/language/en-GB/` and those for the site in the folder `/language/en-GB/`. This is the first place Joomla looks for the language files. For this reason, it was common for extension developers to put their files here. Sometimes it is more straightforward to put them in your own component folder. In our example, this is the folder `administrator/components/com_foos/ language/en-GB/` for the backend and `components/com_foos/ language/en-GB/` for the frontend. This is the place where Joomla looks for the language file if it doesn't find anything suitable in the Joomla Core directories `/administrator/language/en-GB /` and `/ language/en-GB` respectively.
+Joomla's own components store the files for the administration area in the folder `/administrator/language/en-GB/` and those for the site in the folder `/language/en-GB/`. This is the first place Joomla looks for the language files. For this reason, it was common for extension developers to put their files here. Sometimes it is more straightforward to put them in your own component folder. In our example, this is the folder `administrator/components/com_foos/language/en-GB/` for the backend and `components/com_foos/language/en-GB/` for the frontend. This is the place where Joomla looks for the language file if it doesn't find anything suitable in the Joomla Core directories `/administrator/language/en-GB /` and `/ language/en-GB` respectively.
 
 You want to store your language files in the same directory as the Joomla core extensions? To place your files together with Joomla's own language files, you add the `<language>` tag to the installation file. Here is an example from `com_contact`
 
@@ -300,7 +300,7 @@ where you need to adjust the value of the `folder` parameter to your structure:
 
 One last step is still missing. The own use of the language strings. So far we have printed the name without a label in the frontend via `echo $this->item->name;`. Now we add a label that takes different languages into account. The following code causes the string that is entered in the corresponding language file to be printed in the frontend. This is done by the command `Text::_('COM_FOOS_NAME')`. If there is a Spanish language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Nombre"` and the Spanish language is active in the frontend, then `Nombre` is printed. If the German language is set and there is a German language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Name"`, the word `Name` is displayed. If the Spanish language is active without a Spanish language file, the English language file is used.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

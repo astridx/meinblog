@@ -30,7 +30,7 @@ Der Menüpunkt im Frontend funktioniert anders, als der im Administrationsbereic
 
 Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge den folgenden Code hinzu:
 
-[components/com_foos/ tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t3/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t3/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t3/src/components/com_foos/tmpl/foo/default.xml -->

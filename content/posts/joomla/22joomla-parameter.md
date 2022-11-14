@@ -45,9 +45,9 @@ Der Code mit dem die Belegung eines Parameters berechnet wird, war lange Zeit un
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/updates/mysql/18.0.0.sql
 
-Damit bei einer Aktualisierung der Komponente die Spalte `params` in der Datenbank erstellt wird, in welcher die Parameter gespeichert werden, benötigen wir die SQL-Datei `administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql`.
+Damit bei einer Aktualisierung der Komponente die Spalte `params` in der Datenbank erstellt wird, in welcher die Parameter gespeichert werden, benötigen wir die SQL-Datei `administrator/components/com_foos/sql/updates/mysql/18.0.0.sql`.
 
-[administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
 ```xml {numberLines: -2}
 /* https://codeberg.org/astrid/j4examplecode/raw/branch/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
@@ -60,7 +60,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/config.xml
 
-In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu setzen. Wir fügen ein Feld `show_name` zur Konfiguration hinzu. Anschließend schaffen wir die Möglichkeit, diesen für ein einzelnes Element `administrator/components/com_foos/ forms/foo.xml` oder einen Menüpunkt `components/com_foos/tmpl/foo/default.xml` zu überschreiben.
+In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu setzen. Wir fügen ein Feld `show_name` zur Konfiguration hinzu. Anschließend schaffen wir die Möglichkeit, diesen für ein einzelnes Element `administrator/components/com_foos/forms/foo.xml` oder einen Menüpunkt `components/com_foos/tmpl/foo/default.xml` zu überschreiben.
 
 [administrator/components/com_foos/config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/config.xml)
 
@@ -89,7 +89,7 @@ In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu se
 
 In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params` hinzu. So ist `show_name` ebenfalls für ein einzelnes Element konfigurierbar.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			content_type="com_foos.foo"
@@ -116,9 +116,9 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
 
-Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die SQL-Datei `administrator/components/com_foos/ sql/install.mysql.utf8.sql`.
+Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die SQL-Datei `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
@@ -229,9 +229,9 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/default.php
 
-Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `components/com_foos/ tmpl/foo/default.php`. Wenn es den Parameter gibt und er so gesetzt ist, dass der Name angezeigt werden soll `if ($this->item->params->get('show_name'))`, dann wird der Name angezeigt. Das Label `$this->params->get('show_foo_name_label')` wird ebenfalls nur dann angezeigt:
+Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `components/com_foos/tmpl/foo/default.php`. Wenn es den Parameter gibt und er so gesetzt ist, dass der Name angezeigt werden soll `if ($this->item->params->get('show_name'))`, dann wird der Name angezeigt. Das Label `$this->params->get('show_foo_name_label')` wird ebenfalls nur dann angezeigt:
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;

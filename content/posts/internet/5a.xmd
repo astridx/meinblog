@@ -1,0 +1,20 @@
+---
+description: 'desc'
+syndication:
+shortTitle: 'short'
+date: 2022-07-07
+title: 'Menschen und Informationen im Internet - Domain Name System'
+template: post
+thumbnail: '../../thumbnails/worldinternet.png'
+slug: menschen-und-informationen-im-netz-dns
+langKey: de
+categories:
+  - Internet
+tags:
+  - Paket
+  - Daten
+  - Datenübertragung
+  - Schichtenmodell
+  - Datenübertragung
+---
+
