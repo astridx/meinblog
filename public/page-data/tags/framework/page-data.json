@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/tags/framework/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":2,"edges":[{"node":{"id":"f351a70e-3da1-58ec-9da2-bef1b19bf84b","fields":{"slug":"/erste-schritte-mit-mapbox-gl-in-react/"},"frontmatter":{"date":"September 16, 2020","title":"Erste Schritte mit Mapbox GL in React","tags":["JavaScript","SPA","Bibliothek","Framework","React","MapBox"],"categories":["Code"]}}},{"node":{"id":"ef72ae3b-a431-599d-b2ed-83f07e8bf6ef","fields":{"slug":"/erste-schritte-mit-react/"},"frontmatter":{"date":"June 28, 2020","title":"Erste Schritte mit React","tags":["JavaScript","SPA","Bibliothek","Framework","React"],"categories":["Code"]}}}]}},"pageContext":{"tag":"Framework"}},
+    "staticQueryHashes": ["352937542"]}

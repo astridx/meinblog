@@ -1,0 +1,24 @@
+---
+description: 'desc'
+set: ''
+booklink: ''
+syndication:
+shortTitle: 'short'
+date: 2022-07-07
+title: 'Die verschiedenen Schichten des Internet'
+template: post
+thumbnail: '../../thumbnails/worldinternet.png'
+slug: schichten-im-netz
+langKey: de
+categories:
+  - Internet
+tags:
+  - Paket
+  - Daten
+  - Datenübertragung
+  - Schichtenmodell
+  - Datenübertragung
+---
+
+<img src="https://vg04.met.vgwort.de/na/d9e60c9fb8a34bf9947ede76b83eeaf6" width="1" height="1" alt="">
+<img src="https://vg09.met.vgwort.de/na/2884f37db09549c9b428166f7366af47" width="1" height="1" alt="">

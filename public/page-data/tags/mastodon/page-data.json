@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/tags/mastodon/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":2,"edges":[{"node":{"id":"aeecf902-004f-5d80-bd94-32955d741842","fields":{"slug":"/en/soziale-netze/"},"frontmatter":{"date":"July 05, 2022","title":"Central and decentralised social networks","tags":["mastodon","social"],"categories":["Internet"]}}},{"node":{"id":"04a1ca2e-e9da-5047-88df-54ec94a6d7ab","fields":{"slug":"/soziale-netze/"},"frontmatter":{"date":"July 05, 2022","title":"Zentrale und dezentrale soziale Netze","tags":["mastodon","soziale Netze","Fediverse","zentral","dezentral"],"categories":["Internet"]}}}]}},"pageContext":{"tag":"mastodon"}},
+    "staticQueryHashes": ["352937542"]}

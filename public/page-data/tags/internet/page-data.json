@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/tags/internet/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"8f74838b-73fe-5cf1-a360-a2ce73ed4284","fields":{"slug":"/en/internet-tutorial/"},"frontmatter":{"date":"July 02, 2022","title":"Shape the Internet","tags":["Internet"],"categories":["Set (English)"]}}}]}},"pageContext":{"tag":"Internet"}},
+    "staticQueryHashes": ["352937542"]}

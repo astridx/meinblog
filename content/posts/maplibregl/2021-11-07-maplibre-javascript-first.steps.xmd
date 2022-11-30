@@ -1,0 +1,134 @@
+---
+description: 'desc'
+set: ''
+booklink: ''
+syndication:
+shortTitle: 'short'
+date: 2021-10-30
+title: 'MapLibre macht digitale Karten mit WebGL zum Kinderspiel'
+template: post
+thumbnail: '../../thumbnails/maplibre.png'
+slug: maplibre-beginner-tutorial
+langKey: de
+categories:
+  - MaplibreGL
+tags:
+  - MaplibreGL
+  - geografische Daten
+  - Geoinformationssystem
+  - JavaScript-Bibliothek
+  - Vektor-Tiles
+  - Karten
+  - Layer
+  - Layer-Switcher
+---
+
+## MapLibre macht digitale Karten mit modernen Technologie zum Kinderspiel
+
+
+MapLibre bietet dir zahlreiche Funktionen für die Erstellung von modernen digitalen Karten, Dabei benötigst du kein Zugriffstoken oder bist in der Wahl des Karten-Dienstes eingeschränkt. Ich zeige dir, wie du die JavaScript Bibliothek auf deiner Webseite einbaust.
+
+
+## MapLibre.js: Modern und interaktiv
+nicht schlank, das ist leaflet
+
+[![MapLibre. (Screenshot: MapLibre)](https://ewdvtw8.imgix.net/news/wp-content/uploads/2014/02/MapLibre-screenshot-595x456.png?auto=format%2Ccompress&fit=crop&h=456&ixlib=php-3.3.1&q=75&w=595)](https://t3n.de/news/MapLibre-interaktive-mobile-friendly-maps-528540/MapLibre-screenshot/)
+
+MapLibre ist eine schlanke Bilbiothek. (Screenshot: MapLibre)
+
+MapLibre ist eine Open-Source-JavaScript-Bibliothek, mit der du Karten auch für Mobilgeräte optimiert realisieren kannst. Die nur 33 Kilobyte große Bibliothek von Vladimir Agafonkin bietet dir alles, was du für die Gestaltung von interaktiven Karten brauchst.
+
+Das Ziel von MapLibre sind Einfachheit, Performance und Usability, unter anderem haben die Entwickler durch HTMl5 und CSS3 alle Desktop-Auflösungen und mobilen Plattformen berücksichtigt, ohne dabei ältere Plattformen außen vor zu lassen. Mit Hilfe von Plugins lässt sich MapLibre unkompliziert erweitert und bietet mit einer gut dokumentierten [API](https://t3n.de/tag/api/ "Weitere News zu API") einen einfachen Einstieg.
+
+## MapLibre.js: Karten so einfach wie nie
+
+
+Um euch die ersten Schritte mit MapLibre zu demonstrieren, werden wir eine Vollbild-Karte erstellen: Um sie darstellen zu können, benötigst du zunächst einen Container. Mit ein wenig CSS bringen wir das Container-Element auf die entsprechende Größe.
+
+
+```
+<div id=„map"></div>
+```
+
+```
+body {
+padding: 0;
+margin: 0;
+}
+html, body, #map {
+height: 100%;
+}
+```
+
+Damit mobile Browser die Pinch-&-Zoom-Funktionalität nicht zum Vergrößern der gesamten Seite, sondern nur zum Zoomen in unserer Karte verwenden, solltest du diese Geste verbieten. Das machst du, indem du das Zoomen im Viewport mit dem folgenden meta-Element unterbindest:
+
+### Nix verpassen: Abonniere den t3n Newsletter!
+
+Jetzt anmelden
+
+[Hinweis zum Newsletter & Datenschutz](https://t3n.de/datenschutz/ "Hinweis zum Newsletter & Datenschutz")
+
+```
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+```
+
+Danach kannst du das MapLibre-Skript einbinden und initialisieren.
+
+```
+<link rel="stylesheet" href="http://cdn.MapLibrejs.com/MapLibre-0.7.2/MapLibre.css" />
+<script src="http://cdn.MapLibrejs.com/MapLibre-0.7.2/MapLibre.js"></script>
+```
+
+Da MapLibre von sich aus keine Kartendaten bereitstellt, muss auf einen so genannten „Tile-Dienst" zurückgegriffen werden. Das JavaScript-MapLibre empfiehlt Cloudmate, ist aber auch mit Alternativdiensten wie Open Streetmap und Open Mapquest nutzbar. Während für Cloudmate und Open Mapquest API-Schlüssel benötigt werden, kann Open Streetmap auch ohne API-Schlüssel benutzt werden.
+
+```
+var map = L.map('map');
+L.tileLayer('http://{s}.tile.cloudmade.com/API-key/997/256/{z}/{x}/{y}.png', {
+attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+maxZoom: 18
+}).addTo(map);
+```
+
+Um jetzt die Karte aufzurufen, kannst du die Geolocation-API deines Browsers nutzen. Mit dem folgenden Code fragst du die Position des Nutzers ab und zeigst die entsprechende Karte an. Mit maxZoom stellst du die Zoomstärke der Karte ein.
+
+```
+map.locate({setView: true, maxZoom: 16});
+```
+
+![MapLibre Beispiel Karte](https://ewdvtw8.imgix.net/news/wp-content/uploads/2014/02/MapLibre-js-beispiel-karte-595x371.png?auto=format%2Ccompress&fit=crop&h=371&ixlib=php-3.3.1&q=75&w=595)
+
+Mit MapLibre.js erstellst du schnell und unkompliziert Karten für deine Website, die auch auf mobilen Geräten benutzt werden können. (Screenshot: t3n)
+
+## Fehlerhandhabung bei Geolocation API und Alternativen
+
+
+Mit den Events locationfound und locationerror kannst du die Daten, die vom Browser zurückgegeben werden, verwerten. Konnte die Position nicht ermittelt werden, kannst du mit dem folgenden Code eine Fehlermeldung ausgeben:
+
+```
+function onLocationError(e) {
+alert(e.message);
+}
+map.on('locationerror', onLocationError);
+```
+
+Ist eine Positionsermittlung erfolgreich, könnte es sinnvoll sein, einen Pin auf der jeweiligen Position in der Karte zu setzen, was du mit den nachfolgenden Codezeilen realisieren kannst:
+
+```
+function onLocationFound(e) {
+var radius = e.accuracy / 2;
+L.marker(e.latlng).addTo(map)
+.bindPopup("Du bist innerhalb von " + radius + " Metern von diesem Punkt entfernt").openPopup();
+L.circle(e.latlng, radius).addTo(map);
+}
+map.on('locationfound', onLocationFound);
+```
+
+Natürlich kannst du auch ohne Geolocation Funktionen arbeiten und den Kartenausschnitt selbst bestimmen.
+
+```
+map.setView([51.505, -0.09], 13);
+```
+
+MapLibreJS bietet zahlreiche weitere Möglichkeiten, um individuelle und interaktive Karten zu erstellen, ist Open Source und steht mit zahlreichen Erweiterungen für dich bereit. Derzeit unterstützt die Bibliothek Chrome, Firefox, Safari ab Version 5, Opera ab Version 12 und Internet Explorer 7 bis 11. Auf mobilen Endgeräten kann MapLibre unter Safari, Android Browser (2.2+, 3.1+, 4+), Chrome für Android 4 und iOS, Firefox für Android sowie Internet Explorer 10 und 11 auf Windows-Mobile-Geräten operieren. Und solltest du WordPress nutzen: Es gibt MapLibre auch als Plugin für das beliebte CMS.
+
+Ob die Bibliothek was für eines deiner Projekte ist, erfährst du auf der [offiziellen Webseite von MapLibre](http://MapLibrejs.com/ "Die externe Seite im neuen Tab/Fenster öffnen").

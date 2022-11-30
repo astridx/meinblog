@@ -1,0 +1,31 @@
+---
+description: 'desc'
+set: ''
+booklink: ''
+syndication: 
+  - https://fimidi.com/web/@astrid/108603095089729884
+shortTitle: 'short'
+date: 2022-07-05
+title: 'Zentrale und dezentrale soziale Netze'
+template: post
+thumbnail: '../../thumbnails/worldinternet.png'
+slug: soziale-netze-joomla
+langKey: de
+categories:
+  - Internet
+tags:
+  - mastodon
+  - soziale Netze
+  - Fediverse
+  - zentral
+  - dezentral
+---
+
+
+Ich weiß nicht mehr genau, wann ich das erste Mal von Fediverse gehört habe. Ich meine, es war dieser Beitrag (https://blog.novatrend.ch/2021/06/21/mastodon-pixelfed-unter-ios-die-charmante-alternative-zu-twitter-instagram/). Ich fand den Ansatz spannend. Aber ich bin nicht hängen geblieben. Als Anfang des Jahres 2022 die große Aufregung um Elon Musk und Twitter begann, war ich überrascht, dass in der Joomla-Community viele die Begriffe noch nie gehört hatten. Schliesslich handelt es sich hier vorwiegend um technikaffine Menschen. Auch werden die neuen sozialen Möglichkeiten noch heute als, dass neue Twitter bezeichnt. Dabei steckt viel, viel mehr dahinter. Ich gebe zu, dass ich alle Begriffe schon mal gehört habe, aber ich kann sie nicht wirklich definieren. Das wollte ich ändern und vielleicht interessiert es den einen oder anderen Joomlaner ja auch.
+
+## Das Fediversum
+
+
+Das Fediverse (ein Portmanteau aus "Federation" und "Universum") ist ein Ensemble von föderierten (d. h. miteinander verbundenen) Servern, die für Web-Publishing (d. h. soziale Netzwerke, Microblogging, Blogging oder Websites) und File-Hosting verwendet werden, die aber unabhängig voneinander gehostet werden und miteinander kommunizieren können. Auf verschiedenen Servern (Instanzen) können die Nutzer so genannte Identitäten anlegen. Diese Identitäten sind in der Lage, über die Grenzen der Instanzen hinweg zu kommunizieren, da die auf den Servern laufende Software ein oder mehrere Kommunikationsprotokolle unterstützt, die einem offenen Standard folgen. Als Identität im fediverse können die Nutzer Texte und andere Medien veröffentlichen oder den Beiträgen anderer Identitäten folgen.
+

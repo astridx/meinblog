@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/tags/dp-docker/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":2,"edges":[{"node":{"id":"adee6d5b-4cc2-5723-9b65-ee3f78b9af82","fields":{"slug":"/joomla-erweiterung-mit-dpdocker/"},"frontmatter":{"date":"November 10, 2022","title":"Eine eigene Joomla-Erweiterung mit DPDocker","tags":["Linux","Ubuntu","DPDocker","Joomla"],"categories":["Betriebssystem"]}}},{"node":{"id":"a940d190-4e4a-55a1-aac2-eed3b8909aaa","fields":{"slug":"/ubuntu-dpdocker/"},"frontmatter":{"date":"November 10, 2022","title":"DPDocker einrichten","tags":["Linux","Ubuntu","DPDocker","Joomla"],"categories":["Betriebssystem"]}}}]}},"pageContext":{"tag":"DPDocker"}},
+    "staticQueryHashes": ["352937542"]}

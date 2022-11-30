@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/tags/map-libre-gl/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"cee065ba-cb5b-5001-a5f0-746a54758665","fields":{"slug":"/maplibregl-js-themen/"},"frontmatter":{"date":"May 01, 2021","title":"Maplibre GL JS","tags":["MapLibreGL","geografische Daten","Geoinformationssystem","JavaScript-Bibliothek","Vektor-Tiles","Karten"],"categories":["Set (Deutsch)"]}}}]}},"pageContext":{"tag":"MapLibreGL"}},
+    "staticQueryHashes": ["352937542"]}

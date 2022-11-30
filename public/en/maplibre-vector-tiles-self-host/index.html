@@ -1,0 +1,625 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.9bf99681cd954f83432e.css" data-identity="gatsby-global-css">pre[class*=language-].line-numbers{padding-left:3.8em}pre[class*=language-].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{border-right:1px solid #999;left:-3.8em;top:0;-webkit-user-select:none;-ms-user-select:none;user-select:none;width:3em}.line-numbers-rows>span{counter-increment:linenumber;display:block}.line-numbers-rows>span:before{color:#999;content:counter(linenumber);display:block;padding-right:.8em;text-align:right}:root{--primary:#16868f;--secondary:#16868f;--link-color:#fff;--border-color:#111;--heading-font-color:var(--primary);--background-color:#252525;--sidebar-color:#2b2b2b;--navbar-color:#181818;--navbar-color-hover:#272727;--sidebar-color-hover:#383838;--sidebar-color-focus:#444;--category-background-color:#161616;--category-background-color-hover:#1f1f1f;--light-border-color:#444;--toolbar-background-color:#181818;--toolbar-color:#eee;--font-color:#b3b9c5;--medium-font-color:#aaa;--dark-font-color:#8f949d;--bright-font-color:#eee;--input-background:#393939;--blockquote-background-color:rgba(0,0,0,.4);--blockquote-color:var(--dark-font-color);--black:#111;--inline-code-background-color:hsla(0,0%,100%,.08);--inline-code-color:#b3b9c5;--dark-opacity:rgba(0,0,0,.2);--dark-opacity-hover:rgba(0,0,0,.3);--reverse:#111;--scrollbar:var(--border-color);--scrollbar-track:var(--light-border-color);--yellow:#16868f;--button-color:#6b76f3;--page-width:1000px;--font-family:"Source Serif Pro",-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue","Roboto",Roboto,Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--heading-font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Roboto",Roboto,Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--code-font-family:Menlo,"DM Mono","Roboto Mono",Courier New,monospace}*,:after,:before{box-sizing:border-box}a:focus-visible,button:focus-visible{outline:3px solid var(--primary)}body{-webkit-font-smoothing:antialiased;background:var(--navbar-color);color:var(--font-color);font-family:var(--font-family);font-size:1rem;line-height:1.6;margin:0}blockquote,ol,p,table,ul{color:var(--font-color);font-size:1.2rem;margin:0 0 2rem}button{appearance:none;-moz-appearance:none;-webkit-appearance:none;background:transparent;border:none;border-radius:8px;cursor:pointer;font-family:var(--heading-font-family)}ol li,ul li{margin-bottom:.5rem}ol li p,ul li p{margin:0}ol li ol,ul li ul{margin:.3rem}h1,h2,h3,h4,h5{color:var(--heading-font-color);font-family:var(--heading-font-family);font-weight:600;line-height:1.2;margin:0 0 1.5rem;scroll-margin-top:80px}h3,h4,h5{color:var(--secondary);font-weight:500}a{text-decoration:none}a,a.button{font-family:var(--heading-font-family)}a.button{border:1px solid var(--button-color)!important;border-radius:8px;color:var(--reverse);display:block;font-size:1.1rem;font-weight:600;line-height:1.2;padding:.75rem 1.25rem;text-align:center}a.button,a.button:hover{background:var(--button-color)}a.button:hover{-webkit-filter:brightness(1.2);filter:brightness(1.2)}a.button:active{-webkit-transform:scale(.95);transform:scale(.95)}a.button.icon-button{align-items:center;display:flex}a.button.icon-button img{margin-right:.5rem;max-height:22px}table{border-collapse:separate;border-radius:8px;border-spacing:0;display:block;font-family:var(--heading-font-family);font-size:.95rem;max-width:100%;overflow-x:auto;width:100%}table :not(pre)>code[class*=language-]{font-size:.95rem!important}tbody,thead{white-space:nowrap}th{border-bottom:2px solid var(--light-border-color)}tfoot th{border-top:1px solid var(--light-border-color)}td{border-bottom:1px solid var(--light-border-color)}td,th{-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;padding:.75rem!important;text-align:left;word-break:break-word}tbody tr:nth-child(odd){background-color:var(--dark-opacity)}tbody tr:last-child td:first-of-type{border-bottom-left-radius:8px}tbody tr:last-child td:last-of-type{border-bottom-right-radius:8px}@media screen and (min-width:800px){table{border:1px solid var(--light-border-color);display:table}tbody,thead{white-space:normal}}.sidebar{background:var(--sidebar-color);border-right:1px solid var(--light-border-color);height:100vh;left:0;overflow-x:hidden;overflow-y:hidden;position:fixed;top:0;width:320px;z-index:9}.sidebar:hover{overflow-y:auto}.sidebar .categories{margin-top:60px}.sidebar .title{align-items:center;background:var(--toolbar-background-color);color:var(--font-color);display:flex;font-size:.85rem;font-weight:600;height:35px;justify-content:space-between;padding:0 .5rem 0 2.5rem;position:fixed;text-transform:uppercase;top:0;width:320px;z-index:8}.sidebar button.collapse-categories{height:35px;padding:0 .75rem}.sidebar button.collapse-categories:hover{background:var(--dark-opacity)}.sidebar button.collapse-categories div{border:1px solid var(--font-color);line-height:0;padding:1px 3px}.sidebar button.collapse-categories svg rect{fill:var(--font-color)}.sidebar button.category{align-items:center;background:var(--category-background-color);border:none;border-radius:0;color:var(--bright-font-color);cursor:pointer;display:grid;font-size:.8rem;font-weight:700;grid-template-columns:1.5rem auto;margin-bottom:1px;padding:.75rem 1rem;position:-webkit-sticky;position:sticky;text-align:left;text-transform:uppercase;top:60px;width:100%;z-index:7}.sidebar button.category:hover{background:var(--category-background-color-hover);color:var(--bright-font-color)}.sidebar button.category:focus-visible{background:var(--primary);border-bottom:none;color:var(--reverse)!important;outline:none}.sidebar button.category:focus{color:var(--bright-font-color);outline:none}.sidebar button.category svg{margin-right:.5rem}.sidebar button.category svg path,.sidebar button.category:focus svg path{stroke:var(--bright-font-color)}.sidebar button.category:focus-visible svg path{stroke:var(--reverse)}.sidebar nav{width:320px}.sidebar nav.collapsed{display:none}.sidebar a{align-items:center;border-left:3px solid transparent;color:var(--medium-font-color);display:grid;font-family:var(--heading-font-family);font-size:.85rem;grid-template-columns:2rem auto;line-height:1.2;padding:.4rem 1rem}.sidebar a svg path{-webkit-filter:var(--icon-filter);filter:var(--icon-filter)}.sidebar a:hover{background:var(--sidebar-color-hover);color:var(--bright-font-color)}.sidebar a.active,.sidebar a:focus{background:var(--sidebar-color-focus);border-left:3px solid var(--primary);color:var(--bright-font-color);outline:none}.sidebar a.active svg path{fill:var(--primary)}.container{margin-left:auto;margin-right:auto;max-width:var(--page-width);padding:2rem}.container.large{max-width:1350px}.container.small,.small{max-width:550px}.navigation{background:var(--navbar-color);border-bottom:1px solid var(--light-border-color);height:60px;left:0;position:fixed;top:0;width:100%;z-index:9}.navigation-inner{font-family:var(--heading-font-family);height:100%;margin:0 auto;max-width:var(--page-width);padding:.5rem 1.5rem}.navigation button,.navigation-inner{align-items:center;display:flex;justify-content:space-between}.navigation button{background:transparent;border:none;color:var(--font-color);cursor:pointer;font-weight:500;gap:.5rem;line-height:0;padding:.5rem;position:relative}.navigation button:hover{background:var(--navbar-color-hover);color:var(--bright-font-color)}.navigation button:focus{outline:none}.navigation button:focus-visible{outline:3px solid var(--primary)}.navigation button span{font-size:.9rem}.navigation button svg rect{fill:var(--font-color)}.navigation nav{gap:.6rem;height:100%}.navigation nav,.navigation nav a{align-items:center;display:flex;justify-content:center}.navigation nav a{border-radius:8px;color:var(--font-color);font-size:.9rem;font-weight:500;gap:.4rem;line-height:1.1;padding:.5rem}.navigation nav a.active{color:var(--bright-font-color)}.navigation nav a.brand{font-size:1rem;font-weight:600}.navigation nav a.brand span{white-space:nowrap}.navigation nav a:hover{background:var(--navbar-color-hover);color:var(--bright-font-color)}.navigation nav img{max-height:20px;max-width:25px}.theme-switcher{margin-left:.5rem}.theme-switcher img{max-width:20px}.toolbar-section{align-items:center;display:flex;flex:0 0 155px;justify-content:flex-end}.navigation nav .brand-section{flex:0 0 155px;justify-content:flex-start}.hero{padding:1rem 0}.hero .flex-content{align-items:center}.hero header{padding:2rem 0 0;text-align:left}.hero h1{color:var(--bright-font-color);font-size:3rem;margin-bottom:1.5rem}.hero p.subtitle{color:var(--dark-font-color);font-family:var(--heading-font-family);font-size:1.3rem}.hero .hero-buttons{display:flex;gap:1.5rem}.hero-buttons a.hero-button{align-items:center;border:none;color:var(--dark-font-color);display:flex;font-size:.9rem;gap:.4rem;justify-content:space-between}.hero-buttons a.hero-button:hover{background:transparent;border:none;color:var(--font-color)}.hero-buttons a.hero-button img{display:block;max-height:18px}.bright{color:var(--bright-font-color)}article{padding-bottom:3rem}article header{padding-top:2rem;text-align:center}article h1{color:var(--bright-font-color);font-size:2.5rem;font-weight:700;margin-bottom:.75rem}article h2,article h3,article h4,article h5{margin:0 0 1.25rem}article h4{border-bottom:1px solid var(--light-border-color);margin-bottom:.75rem}article .description{color:var(--dark-font-color);font-family:var(--heading-font-family);font-size:1.45rem;margin-bottom:0}.post-image{margin-bottom:1rem}.post-details{color:var(--dark-font-color);font-family:var(--heading-font-family);font-size:.9rem;margin:.5rem 0}.post-details a{border-bottom:none}.tags{align-items:center;display:flex;flex-wrap:wrap;font-family:var(--heading-font-family);gap:.5rem;justify-content:center;margin:1.5rem 0}.tags a{border:1px solid var(--light-border-color);border-radius:8px;color:var(--bright-font-color);display:inline-block;font-size:.9rem;font-weight:600;line-height:normal;padding:.4rem .6rem;vertical-align:middle}.tags a,.tags a:hover{background:var(--reverse)}.tags a:hover{border:1px solid var(--primary);color:var(--primary)}article a{border-top:2px solid transparent;color:var(--link-color);font-weight:600}article a,article a:hover{border-bottom:2px solid var(--primary)}article a:hover{background:var(--primary);border-top:2px solid var(--primary);color:var(--reverse)}article li a,article li a:hover{border-bottom:none;border-top:none}article img{display:block;max-width:100%}article h2{font-size:1.9rem;padding-bottom:.25rem}article h2 code{border-bottom:1px solid var(--border-color);font-size:2.2rem!important}article h3{font-size:1.75rem}article h3 code{font-size:1.6rem!important}article h4{font-size:1.15rem;padding-bottom:.25rem;text-transform:uppercase}article h4 code{font-size:1.25rem!important}article h5{font-size:1rem;text-transform:uppercase}h2:not(:first-child),h3:not(:first-child),h4:not(:first-child){margin-top:3rem}blockquote{background:var(--blockquote-background-color);border:1px solid var(--light-border-color);border-left:4px solid var(--primary);border-radius:8px;font-family:var(--heading-font-family);padding:1.5rem}blockquote p{color:var(--blockquote-color)}blockquote ul{margin-top:1rem}blockquote p:last-of-type,blockquote ul:last-of-type{margin-bottom:0}.comments{padding-bottom:2rem}.comments h3{font-size:1.75rem}.blog-page h2{border-bottom:1px solid var(--light-border-color);margin-top:2.5rem}a.post{grid-gap:1rem;align-items:center;border:1px solid transparent;display:grid;grid-template-columns:auto 60px;margin-left:-1rem;margin-right:-1rem;padding:.4rem 1rem}a.post.new,a.post:hover{background:var(--dark-opacity);border:1px solid transparent;border-radius:8px;font-family:var(--heading-font-family)}a.post.new{background:transparent;border:1px solid transparent}a.post.new:hover{background:var(--dark-opacity)}a.post.new time{color:var(--secondary)!important}a.post.new h3{color:var(--bright-font-color)}a.post.new .new-badge{color:var(--yellow);margin-left:.75rem}a.post h3{color:var(--font-color);-webkit-filter:brightness(1);filter:brightness(1);font-size:1.1rem;font-weight:500;margin:0}a.post:hover h3{color:var(--bright-font-color)}a.post time,a.post:hover time{color:var(--dark-font-color)}a.post time{display:block;font-family:var(--code-font-family);font-size:.8rem;font-weight:400;text-align:center}.projects{display:flex;flex-direction:column}@media screen and (min-width:600px){.projects{grid-gap:2rem;display:grid;grid-template-columns:repeat(auto-fill,300px);justify-content:center}}.project{background:var(--dark-opacity);border:1px solid var(--border-color);border-radius:8px;color:var(--dark-font-color);display:flex;flex-direction:column;padding:1.5rem}.project h2{border-bottom:none;font-size:1.5rem;margin-bottom:0;text-align:center}.project img{height:auto;margin-top:.5rem;max-height:100px;max-width:100%;-o-object-fit:contain;object-fit:contain}.project .description{color:var(--font-color);font-family:var(--heading-font-family);font-size:1.2rem;line-height:1.3;margin-bottom:1rem;text-align:center}.project .links{display:flex;gap:.5rem}.project .stars{align-items:center;display:flex;gap:.75rem;justify-content:center;margin-top:auto}.project .stars img{margin-top:0;max-width:20px}a.anchor.before{border:none}a.anchor.before:hover{background:transparent}a.anchor.before svg{fill:#fff}a.image-link,a.image-link:hover{border-bottom:none;border-top:none}a.image-link:hover{background:none}.primary-color{color:var(--primary)}.primary-underline{border-bottom:3px solid var(--primary)}.deemphasized{color:var(--dark-font-color)}.gatsby-resp-image-wrapper{margin-left:0!important}a.gatsby-resp-image-link{background:transparent!important;border-bottom:none!important;border-top:none!important}.highlighted{background:var(--primary);color:var(--reverse)}.not-found-image{margin:0 auto}.flex{display:flex}.flex-align-center{align-items:center}.flex-justify-between{justify-content:space-between}.flex-content{gap:1.5rem}.flex-content,.main-header{display:flex;justify-content:space-between}.main-header{align-items:center;border-bottom:1px solid var(--light-border-color)}.main-header a{font-size:1rem}.main-image{border:1px solid var(--light-border-color);border-radius:8px;height:auto;margin-left:2rem;width:250px}.search-bar{grid-gap:1rem;align-items:center;display:grid;grid-template-columns:auto 50px}.search-icon{cursor:pointer;max-width:30px}.search-input{-webkit-appearance:none;background:var(--input-background);border:1px solid var(--light-border-color);border-radius:8px;color:var(--bright-font-color);font-size:1.1rem;line-height:1.1;padding:.75rem 1rem;width:100%}.search-input:active,.search-input:focus,.search-input:hover{border-color:var(--primary)}.search-input:focus{box-shadow:1px 1px 1px var(--primary);-webkit-filter:brightness(1.1);filter:brightness(1.1);outline:none}::-webkit-scrollbar{background:var(--scrollbar);height:8px;width:8px}::-webkit-scrollbar-thumb{background:var(--scrollbar-track);border-radius:0}::selection{background:var(--primary);color:var(--reverse)}::-moz-selection{background:var(--primary);color:var(--reverse)}::marker{color:var(--primary)}.search-input::-webkit-search-cancel-button{color:var(--bright-font-color)}.collapsed .sidebar{display:none}.desktop-only{display:block!important}main{background:var(--background-color);margin-top:60px;min-height:calc(100vh - 215px)}.footer{background:var(--navbar-color);border-top:1px solid var(--light-border-color);font-family:var(--heading-font-family);padding:3rem 0}.footer section{align-items:center;display:flex;flex-direction:column;gap:1.25rem}.footer img{display:inline-block;max-height:20px;width:auto}.footer nav{display:flex;gap:.25rem;margin:0 1rem}.footer a,.footer span{align-items:center;color:var(--dark-font-color);display:flex;font-size:.9rem;line-height:1.2;padding:0 .5rem}.footer span{color:var(--toolbar-color)}.footer a:hover{color:var(--link-color)}@media screen and (max-width:800px){blockquote,ol,p,table,ul{font-size:1.1rem;margin:0 0 1.5rem}.flex-content{flex-direction:column;gap:.5rem}main{margin-top:60px}ol,ul{padding-left:1rem}.navigation nav.social-nav,.sidebar{display:none}.navigation-inner{justify-content:space-between;padding-right:0}.navigation nav{gap:.5rem}.navigation nav a{flex-direction:column;font-size:.8rem;gap:.25rem;padding:0 .25rem}.navigation nav a:hover{background:transparent}.navigation button.theme-switcher{margin-left:0;margin-right:-.5rem;min-width:auto}.navigation nav a.brand{font-size:.9rem;margin-left:0;margin-right:0;padding:0}.navigation nav img{max-width:20px}.toolbar-section{flex:initial;margin-left:0}.navigation nav .brand-section{flex:initial}.navbar img{max-width:30px}.projects{grid-gap:1rem;grid-template-columns:repeat(2,50%)}.project .stars{justify-content:center}.desktop-only{display:none!important}.hero{padding:0}.hero h1{font-size:2.25rem}.hero header{padding:1rem 0 0}.hero .container{padding-bottom:1rem}.hero p.subtitle{font-size:1.2rem}.hero .flex-content,.hero .hero-buttons{align-items:flex-start}.hero .hero-buttons{flex-direction:column;gap:.5rem}.post-image{max-height:75px;max-width:75px}.main-image{margin:0 0 1rem;width:150px}.flex-content div{order:2}.flex-content img{order:1}.container{padding:1rem}.navigation-inner{padding:0 1rem}article{padding-bottom:0}article h1{font-size:2.2rem;line-height:1.2}article h2{font-size:1.8rem}article header{padding-top:1.5rem}article .description{font-size:1.3rem}a.post h3{font-size:1rem}.project img{max-height:50px}}#resume header{text-align:left}#resume section h2,#resume section h3,#resume section h4,#resume section h5{margin-bottom:1rem;margin-top:0}#resume section h2{border-bottom:1px solid var(--light-border-color);font-size:1.1rem;margin-top:2.5rem;text-transform:uppercase}#resume section h3{align-items:center;display:flex;font-weight:600;justify-content:space-between}#resume section h3 span{display:block;font-size:1rem;font-weight:400}#resume section h3{font-size:1.3rem;margin-bottom:.5rem}#resume section li,#resume section p{font-size:1rem;line-height:1.3}#resume section li{margin-bottom:.5rem}.hidden{display:none}:root{--code-font-color:#b3b9c5;--code-background-color:#353535;--string:#92d192;--variable:#f2777a;--property:#abb2bf;--number:#fca369;--operator:#ac8d58;--punctuation:#d5d8df;--comment:#848991;--function:#62cfcf;--keyword:#ffeead;--attribute:#ffd479;--class:#e1a6f2;--tag:#6ab0f3;--error:#f2777a;--terminal-color:var(--code-font-color)}code[class*=language-],pre[class*=language-]{word-wrap:normal;color:var(--code-font-color);font-family:var(--code-font-family);font-size:.9rem!important;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-o-tab-size:2;tab-size:2;text-align:left;white-space:pre;word-break:break-word;word-spacing:normal}pre[class*=language-]{-webkit-font-smoothing:subpixel-antialiased;background:var(--code-background-color);border:1px solid var(--light-border-color);border-radius:8px;font-family:Menlo,monospace;margin-bottom:2rem;margin-top:2rem;overflow:initial;padding:1rem}:not(pre)>code[class*=language-]{-webkit-font-smoothing:antialiased;background:var(--inline-code-background-color)!important;color:var(--inline-code-color)!important;font-size:1rem!important;font-weight:600;padding:2px 3px;white-space:pre-wrap}article a:hover code{color:var(--reverse)!important}pre.language-text{background:transparent;margin-left:-1.5rem;padding-bottom:0;padding-top:.5rem}.line-numbers-rows{display:none}pre[class*=language-].line-numbers{counter-reset:linenumber;padding-left:1rem;position:relative}@media screen and (min-width:800px){.line-numbers-rows{display:block}pre.language-text.line-numbers{padding-left:1.5rem!important}pre[class*=language-].line-numbers{padding-left:4rem}pre.language-shell,pre.language-terminal{padding-left:1.5rem!important}pre.language-shell .line-numbers-rows,pre.language-terminal .line-numbers-rows,pre.language-text .line-numbers-rows{display:none}}code.language-text{background:var(--light-background)!important;box-shadow:none;color:var(--font-color)!important}pre.language-text code.language-text{border:none}code.language-shell:before{color:var(--comment);content:"$ "}pre.language-terminal{-webkit-text-size-adjust:none;background:var(--reverse);border:1px solid var(--light-border-color);border-top-left-radius:8px;border-top-right-radius:8px;color:var(--font-color);margin:2rem 0;padding-top:3rem;position:relative;white-space:normal}code.language-terminal{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;text-size-adjust:none;color:var(--terminal-color)}pre.language-terminal:before{background:var(--category-background-color);border-bottom:1px solid var(--light-border-color);border-top-left-radius:8px;border-top-right-radius:8px;color:var(--dark-font-color);content:"\2022 \2022 \2022";font-size:2.5rem;left:0;letter-spacing:-5px;line-height:0;margin:0;padding:15px 0 12px;position:absolute;text-indent:6px;top:0;width:100%}.line-numbers .line-numbers-rows{border-right:1px solid #444;font-size:100%;left:-3.8rem;letter-spacing:-1px;padding-right:.5rem;pointer-events:none;position:absolute;top:1rem!important;width:3rem!important}.line-numbers-rows>span:before{color:#777}.gatsby-highlight{-webkit-text-size-adjust:none;-moz-text-size-adjust:none;text-size-adjust:none;font-size:.9rem;margin-bottom:1.5rem;margin-top:1.5rem;max-width:999999px;overflow-x:auto;overflow-y:hidden}.gatsby-highlight pre[class*=language-]{float:left;margin-bottom:0;margin-top:0;min-width:100%}.gatsby-highlight-code-line{background-color:#222;border-left:.25rem solid #74cf74;display:block;margin-left:-1.25rem;margin-right:-1rem;padding-left:1rem;padding-right:1rem}.filename{align-items:center;background:#171717;border-top-left-radius:8px;border-top-right-radius:8px;color:#ccc;display:flex;font-family:var(--heading-font-family);font-size:.9rem;line-height:1;margin-bottom:-2rem;padding:.5rem 1.5rem .9rem}.token.cdata,.token.comment,.token.doctype,.token.important,.token.prolog{color:var(--comment)}.token.punctuation{color:var(--punctuation)}.token.namespace{opacity:.7}.token.property{color:var(--property)}.token.constant,.token.deleted,.token.symbol,.token.tag{color:var(--tag)}.token.number{color:var(--number)}.token.builtin,.token.char,.token.inserted,.token.url{color:var(--code-font-color)}.token.attr-name,.token.selector{color:var(--attribute)}.token.attr-value,.token.string{color:var(--string)}.token.operator{color:var(--operator)}.token.atrule,.token.keyword{color:var(--keyword)}.token.function{color:var(--function)}.language-css,.token.boolean,.token.class-name{color:var(--class)!important}.token.regex{color:var(--keyword)}.token.variable{color:var(--variable)}.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.language-jsx .token.class-name{color:var(--tag)!important}code::selection,pre::selection{background:hsla(0,0%,59%,.3)!important;color:inherit;text-shadow:none}code[class*=language-] ::selection,pre[class*=language-]::selection{background:hsla(0,0%,59%,.3)!important;color:inherit;text-shadow:none}pre[class*=language-]{margin-bottom:1.5rem;margin-top:1.5rem}.filename{margin-bottom:-1.9rem}.light{--primary:#16868f;--secondary:#444;--heading-font-color:#222;--link-color:#111;--border-color:#bbb;--light-border-color:#e0e0e0;--background-color:#fff;--sidebar-color:#f0f0f0;--navbar-color:#f0f0f0;--navbar-color-hover:#ddd;--sidebar-color-hover:#dedede;--sidebar-color-focus:#fff;--category-background-color:#d5d5d5;--category-background-color-hover:silver;--toolbar-color:#333;--toolbar-background-color:#f0f0f0;--font-color:#454545;--medium-font-color:#555;--dark-font-color:#888;--input-background:transparent;--bright-font-color:#222;--blockquote-background-color:rgba(0,0,0,.02);--blockquote-color:#111;--inline-code-background-color:rgba(0,0,0,.05);--inline-code-color:#111;--icon-filter:brightness(0.8);--dark-opacity:rgba(0,0,0,.03);--dark-opacity-hover:rgba(0,0,0,.1);--reverse:#fff;--terminal-color:var(--bright-font-color);--scrollbar:#888;--scrollbar-track:#bbb;--yellow:#16868f;--button-color:var(--primary)}.light pre[class*=language-]{border-color:var(--heading-font-color)}.light pre.language-terminal,.light table{border-color:var(--border-color)}.light blockquote{border-left-color:var(--border-color);border-color:var(--border-color) var(--border-color) var(--border-color) var(--primary)}.sepia{--primary:#6c71c4;--secondary:#cb4b16;--heading-font-color:#211806;--link-color:#332810;--border-color:#332810;--light-border-color:#6b4a00;--background-color:#ebdbb2;--sidebar-color:#fef0cf;--navbar-color:#f0d69a;--navbar-color-hover:#e2c175;--sidebar-color-hover:#eed18e;--sidebar-color-focus:#fff6e3;--category-background-color:#d8ba76;--category-background-color-hover:#c8a961;--toolbar-color:#332810;--toolbar-background-color:#fdf6e3;--font-color:#372e19;--medium-font-color:#6b4a00;--dark-font-color:#6b4a00;--input-background:transparent;--bright-font-color:#211806;--blockquote-background-color:rgba(0,0,0,.02);--blockquote-color:#111;--inline-code-background-color:rgba(0,0,0,.05);--inline-code-color:#111;--icon-filter:brightness(0.8);--dark-opacity:rgba(0,0,0,.03);--dark-opacity-hover:rgba(0,0,0,.1);--reverse:#fdf6e3;--terminal-color:var(--bright-font-color);--scrollbar:#a48337;--scrollbar-track:#c8a961;--yellow:#e59e32;--button-color:var(--primary)}.sepia .comments{background:#444;border-radius:8px;margin-bottom:2rem;padding:2rem}.sepia pre[class*=language-]{border-color:var(--heading-font-color)}</style><meta name="generator" content="Gatsby 3.14.6"/><title data-react-helmet="true">Create self-hosted maps and vector tiles for a limited area with Tilemaker | Astrid Günther</title><link data-react-helmet="true" rel="authorization_endpoint" href="https://indieauth.com/auth"/><link data-react-helmet="true" rel="token_endpoint" href="https://tokens.indieauth.com/token"/><link data-react-helmet="true" rel="me" href="https://fimidi.com/@astrid"/><link data-react-helmet="true" rel="me" href="https://github.com/astridx"/><link data-react-helmet="true" rel="me" href="https://codeberg.org/astrid"/><link data-react-helmet="true" rel="me" href="mailto:info@astrid-guenther.de"/><link data-react-helmet="true" rel="me" href="https://twitter.com/astridguenther"/><link data-react-helmet="true" rel="me" href="https://astrid-guenther.de"/><link data-react-helmet="true" rel="webmention" href="https://webmention.io/blog.astrid-guenther.de/webmention"/><link data-react-helmet="true" rel="pingback" href="https://webmention.io/blog.astrid-guenther.de/xmlrpc"/><meta data-react-helmet="true" name="description" content="Create and use self-hosted maps and vector tiles with Tilemaker When a digital map is shown in a web application, web developers usually use…"/><meta data-react-helmet="true" name="image" content="https://blog.astrid-guenther.de/static/7c1705d3acc30aff7fec6028c9c6c6b0/92ab1/maplibre.png"/><meta data-react-helmet="true" property="og:url" content="https://blog.astrid-guenther.de/en/maplibre-vector-tiles-self-host/"/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" property="og:title" content="Create self-hosted maps and vector tiles for a limited area with Tilemaker"/><meta data-react-helmet="true" property="og:description" content="Create and use self-hosted maps and vector tiles with Tilemaker When a digital map is shown in a web application, web developers usually use…"/><meta data-react-helmet="true" property="og:image" content="https://blog.astrid-guenther.de/static/7c1705d3acc30aff7fec6028c9c6c6b0/92ab1/maplibre.png"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="Create self-hosted maps and vector tiles for a limited area with Tilemaker"/><meta data-react-helmet="true" name="twitter:description" content="Create and use self-hosted maps and vector tiles with Tilemaker When a digital map is shown in a web application, web developers usually use…"/><meta data-react-helmet="true" name="twitter:image" content="https://blog.astrid-guenther.de/static/7c1705d3acc30aff7fec6028c9c6c6b0/92ab1/maplibre.png"/><script data-react-helmet="true" type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","url":"https://blog.astrid-guenther.de","name":"Create self-hosted maps and vector tiles for a limited area with Tilemaker","alternateName":"Create self-hosted maps and vector tiles for a limited area with Tilemaker"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://blog.astrid-guenther.de/en/maplibre-vector-tiles-self-host/","name":"Create self-hosted maps and vector tiles for a limited area with Tilemaker","image":"https://blog.astrid-guenther.de/static/7c1705d3acc30aff7fec6028c9c6c6b0/92ab1/maplibre.png"}}]},{"@context":"http://schema.org","@type":"BlogPosting","url":"https://blog.astrid-guenther.de","name":"Create self-hosted maps and vector tiles for a limited area with Tilemaker","alternateName":"Create self-hosted maps and vector tiles for a limited area with Tilemaker","headline":"Create self-hosted maps and vector tiles for a limited area with Tilemaker","image":{"@type":"ImageObject","url":"https://blog.astrid-guenther.de/static/7c1705d3acc30aff7fec6028c9c6c6b0/92ab1/maplibre.png"},"description":"Create and use self-hosted maps and vector tiles with Tilemaker When a digital map is shown in a web application, web developers usually use…"}]</script><link rel="alternate" type="application/rss+xml" title="Astrid Günther | RSS Feed" href="/rss.xml"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link as="script" rel="preload" href="/webpack-runtime-39397f3c9065deef2574.js"/><link as="script" rel="preload" href="/framework-a8bc927eb7481ca28d49.js"/><link as="script" rel="preload" href="/app-41810ff886939bb07aad.js"/><link as="script" rel="preload" href="/commons-dead6f2aafd4c57f7eb7.js"/><link as="script" rel="preload" href="/b84efa9b784e27572a845759437622c93533bed1-af3eca6a1f9625807cd6.js"/><link as="script" rel="preload" href="/component---src-templates-post-js-4c17552cdba24d661280.js"/><link as="fetch" rel="preload" href="/page-data/en/maplibre-vector-tiles-self-host/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/352937542.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="h-entry"><section class="p-author h-card hidden"><p><a class="u-url" href="https://blog.astrid-guenther.de/en/maplibre-vector-tiles-self-host/">Astrid Günther</a>created by<img src="/static/me-f1824a760e002339b4da1b33f0f0b776.jpg" alt="Me" class="u-photo"/><span class="p-name" rel="me">Astrid Günther</span>in<span class="p-country-name">Germany</span>.</p><p><span class="p-note">Hi, I’m Astrid, webworker, writer and I like open-source.</span></p></section><header><div class="container"><div class="post-details"><div><div class="post-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:150px;height:150px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADKUlEQVQ4y3VUy0sqURj3z2ihC9853ktQrSJ6QJtWQSjNqM0EdRF6SUW0aFERrryX66LSgqiscRxnNNIszB5OqRWZSyGiGrBVBdEbzZzLOCbT4x7O4vCd8/t+v/PxfT8B875yuRzDMA/PaQ913m2N1PX61AipRsg6k6/bGvFQ5w/P6eIzbgn4SH+UbuhfFWmdIq1ToceVBnYr9DgXaehf9cdoPr4AfsvlzI6ESOsUgy41QioMLhmEccwyCFMY2KAYdIm0TrMj8VYEc4fxheOS5iUAJgCEkEJYVc96p/10jLwZI2867adVPetSCAMQAoCJkual8YXjPH+e2R+lRRpUBbN3MgirH9i0Bp/nDxg79WqnXucPmL/B5/qBTRmEATChggmhBvVFWf2Cp5dMQ/+qGGQTl7a6VbB7jLye22eGFi9r+kI1faGhxcu5fWaMvFbB7tJWN4AQYhBr6F99eskIvNSZUIOqETalDMKqTcGpnVfrxkuF0S9uQcUtaIXRb914mdp5rTYFZRCmggk1wpJ7qHNBlzXCB9f2hWzhrCVwr4JZIXkthCVwbwtna/tCfHCXNSKoM/lkOpyTpNDjZe3LlsDDzF5Oaz6SQpgUwrTmo5m9nCXwUNa+rNDj3NdkOrzO5BOokQIDRyIBncapk9kYM7GZHnSkBh2pic30bIwxTp1IQGdRTmmrW40Qn8FynavS6P+z9minstO7b9O7b3Yq+3vtsdLol+tcn8F82e/kaOPwrj2cndzOTG5nbOFs4/CuBER5VXiXXSxYMSUAE1IQbRrdt4WztnC2aXRfCqLAR85CwTzU+Sew0uBWtrrlOmfTSKxpJCrXOZX54CewlzrjNUk+t9LAtoGHuoifXG/FU1vxVPzk2kNdAAjB4QGY1yQMw/iitDDfnirYLdfj5R3eu6fMSoQedyTGHYmVCH33lCnv8Mr1bGlUMCHSoH6uPT8MRl68GiFC8cskfXuYvDpMXiXp21D8krsCkC+DwR9JCeQCYOJnG1n+y1vcP9pIACYk0JeR/GAGsYIZCDWoFHIpDLjCgEshl1CDFswg+p0ZfGNDpncb6v2vDf0DP3S/D7fd8goAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/7c1705d3acc30aff7fec6028c9c6c6b0/92ab1/maplibre.png 1x" /><img loading="lazy" width="150" height="150" srcset="/static/7c1705d3acc30aff7fec6028c9c6c6b0/92ab1/maplibre.png 1x" src="/static/7c1705d3acc30aff7fec6028c9c6c6b0/92ab1/maplibre.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div>Written by<!-- --> <a class="u-url" href="https://astrid-guenther.de"><span>Astrid Günther</span></a> <!-- -->on<a href="https://blog.astrid-guenther.de/en/maplibre-vector-tiles-self-host/"><time datetime="2022-11-24" class="dt-published"> <!-- -->2022-11-24</time></a></div><h1 class="p-name">Create self-hosted maps and vector tiles for a limited area with Tilemaker</h1><div class="post-meta"><div class="tags p-category"><a class="tag-geografische Daten" href="/tags/geografische-daten">geografische Daten</a><a class="tag-Tilemaker" href="/tags/tilemaker">Tilemaker</a><a class="tag-Openstreetmap" href="/tags/openstreetmap">Openstreetmap</a></div></div><div class="post-syndication">Syndications:<div class="syndication"><a class="u-syndication{}" rel="syndication" href="https://github.com/astridx/meinblog/issues/71">https://github.com/astridx/meinblog/issues/71</a><br/></div></div><div class="post-booklink"><br/></div></div></header><div id="/en/maplibre-vector-tiles-self-host/" class="container post-content e-content"><h2 id="create-and-use-self-hosted-maps-and-vector-tiles-with-tilemaker" style="position:relative;"><a href="#create-and-use-self-hosted-maps-and-vector-tiles-with-tilemaker" aria-label="create and use self hosted maps and vector tiles with tilemaker permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create and use self-hosted maps and vector tiles with Tilemaker</h2>
+<p>When a digital map is shown in a web application, web developers usually use online services. However, for many applications this is not necessary. It is not that complicated to create maps yourself and host them on your own web space. Freely available data from OpenStreetmap and open source tools help to create individual vector tiles for a website. The only problem in my eyes is the amount of data. But mostly it is not necessary to include the whole world in the map.</p>
+<blockquote>
+<p>Hosting the whole planet requires significant amounts of storage. In November 2022 the file size is <a href="https://planet.osm.org/">66 GB</a>[^planet.osm.org/].</p>
+</blockquote>
+<p>In this post, I show how I created a map using data from OpenStreetmap and <em>Tilemaker</em> for the German state of Rhineland-Palatinate on my local machine. I am currently working under Ubuntu 22.04.</p>
+<h3 id="creating-a-regional-openstreetmap-data-export" style="position:relative;"><a href="#creating-a-regional-openstreetmap-data-export" aria-label="creating a regional openstreetmap data export permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a regional openstreetmap data export</h3>
+<blockquote>
+<p>The bounding box [^wiki.openstreetmap.org/wiki/EN:Bounding_Box] of Rhineland-Palatinate is <code class="language-text">bbox=6.1173598760,48.9662745077,8.5084754437,50.9404435711</code>. A handy tool to determine the bounding box coordinates is boundingbox[^boundingbox.klokantech.com] or calc[^tools.geofabrik.de/calc/].</p>
+</blockquote>
+<p>First of all, we need the data to create the map. If we want to display a limited area, it is not necessary to download the data from the whole planet. We need an export of the data of the region we want to host. Various vendors, always provide up-to-date pre-built exports. The <a href="http://download.geofabrik.de/">GeoFabrik</a>[download.geofabrik.de] is one of them. Note though that when we want to export a region, we actually want a rectangular export. So we also want to include some parts around the border. The Geofabrik exports will be extracted around the borders of the region, and the adjacent areas will appear as gray areas when we display the map on a rectangular area. And then it is not uncommon that the area you want to display is not available as an export.</p>
+<p>So we want to export a German state, Rhineland-Palatinate. We can generate a rectangular section from a larger region, for example, Germany. I create the section with the Osmium tool. So, we first download the data for the surrounding area from GeoFabrik. The next step is to determine the bounding box of the region we want to extract.</p>
+<blockquote>
+<p>Because Rhineland-Palatinate is on the western edge of Germany, I have to choose Europe as the larger data source so that it is actually rectangular.</p>
+</blockquote>
+<p>The bounding box I chose is: <code class="language-text">6.1173598760 48.9662745077 8.5084754437 50.940443571</code>[^tools.geofabrik.de/calc/#type=geofabrik_standard&#x26;bbox=6.1173598760,48.9662745077,8.5084754437,50.9404435711&#x26;tab=1&#x26;proj=EPSG:4326&#x26;places=2]</p>
+<p>Under Ubuntu I install the tool <em>Osmium</em> via:</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ sudo apt-get install osmium-tool</span></span></code></pre>
+<p>Then I create the regional export for the German state of Rhineland-Palatinate:</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ osmium extract --bbox=6.1173598760,48.9662745077,8.5084754437,50.9404435711 --set-bounds --strategy=smart europe-latest.osm.pbf  --output rlp.osm.pbf</span></span></code></pre>
+<p>At the end I have a rectangular section of the data of the region I wish in the file <code class="language-text">rlp.osm.pbf</code>. This I can further process for self hosting.</p>
+<h3 id="creating-vector-tiles" style="position:relative;"><a href="#creating-vector-tiles" aria-label="creating vector tiles permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating Vector Tiles</h3>
+<p>The next step is to create vector tiles from the regional export. For this I use Tilemaker[^github.com/systemed/tilemaker].</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">git clone https://github.com/systemed/tilemaker.git</span></span>
+<span class="grvsc-line"><span class="grvsc-source">cd tilemaker</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
+<p>Install the nessesary packages.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo apt install build-essential libboost-dev libboost-filesystem-dev libboost-iostreams-dev libboost-program-options-dev libboost-system-dev liblua5.1-0-dev libprotobuf-dev libshp-dev libsqlite3-dev protobuf-compiler rapidjson-dev</span></span></code></pre>
+<p>After that I compile and install Tilemaker via <code class="language-text">make</code> and <code class="language-text">sudo make install</code>.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ make</span></span>
+<span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<span class="grvsc-line"><span class="grvsc-source">$ sudo make install</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Using Lua 5.1 (include path is -I/usr/include/lua5.1, library path is -llua5.1)</span></span>
+<span class="grvsc-line"><span class="grvsc-source">install -m 0755 -d /usr/local/bin/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">install -m 0755 tilemaker /usr/local/bin/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">install -d /usr/share/man/man1/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">install docs/man/tilemaker.1 /usr/share/man/man1/</span></span></code></pre>
+<p>It is not relevant for Rhineland-Palatinate, but sometimes data from international waters and coastal areas or data from National Earth complement the output positively.</p>
+<p>Openstreetmap provides the coastlines on the website <code class="language-text">osmdata.openstreetmap.de</code>.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">wget https://osmdata.openstreetmap.de/download/water-polygons-split-4326.zip</span></span>
+<span class="grvsc-line"><span class="grvsc-source">unzip water-polygons-split-4326.zip</span></span></code></pre>
+<p><a href="https://www.naturalearthdata.com/downloads/">National Earth</a>[^naturalearthdata.com/downloads/] offers download options through their <a href="https://www.naturalearthdata.com/downloads/">website</a>[^naturalearthdata.com/downloads/] or <a href="https://github.com/nvkelso/natural-earth-vector">Github</a>[^github.com/nvkelso/natural-earth-vector]. Get the data for ne_10m_urban_areas, ne_10m_glaciated_areas, and ne_10m_antarctic_ice_shelves_polys here. Create a subdirectory named landcover and endpack the data here.</p>
+<p>If these data are important to you, then inside tilemaker now the following data have been added. If not, you can go on this text further. You will only be told that the data is missing when you create the vector tiles.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">.../tilemaker/coastline$ ll</span></span>
+<span class="grvsc-line"><span class="grvsc-source">insgesamt 1106544</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  2 youruser youruser       4096 Nov 19 19:20 ./</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x 12 youruser youruser       4096 Nov 20 12:23 ../</span></span>
+<span class="grvsc-line"><span class="grvsc-source">-rwxrwxrwx  1 youruser youruser        836 Nov 18 06:25 README.txt*</span></span>
+<span class="grvsc-line"><span class="grvsc-source">-rwxrwxrwx  1 youruser youruser          6 Nov 18 04:43 water_polygons.cpg*</span></span>
+<span class="grvsc-line"><span class="grvsc-source">-rwxrwxrwx  1 youruser youruser    1013349 Nov 18 04:43 water_polygons.dbf*</span></span>
+<span class="grvsc-line"><span class="grvsc-source">-rwxrwxrwx  1 youruser youruser        145 Nov 18 04:40 water_polygons.prj*</span></span>
+<span class="grvsc-line"><span class="grvsc-source">-rwxrwxrwx  1 youruser youruser 1131628636 Nov 18 04:43 water_polygons.shp*</span></span>
+<span class="grvsc-line"><span class="grvsc-source">-rwxrwxrwx  1 youruser youruser     426732 Nov 18 04:43 water_polygons.shx*</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">.../tilemaker/landcover$ ll</span></span>
+<span class="grvsc-line"><span class="grvsc-source">insgesamt 20</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  5 youruser youruser 4096 Nov 24 19:25 ./</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x 12 youruser youruser 4096 Nov 20 12:23 ../</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxrwx  2 youruser youruser 4096 Nov 24 19:25 ne_10m_antarctic_ice_shelves_polys/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxrwx  2 youruser youruser 4096 Nov 19 19:26 ne_10m_glaciated_areas/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxrwx  2 youruser youruser 4096 Nov 19 19:01 ne_10m_urban_areas/</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
+<p>Now I have everything I need and create the map using Tilemaker. First I get an overview of the options:</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ./tilemaker --help</span></span>
+<span class="grvsc-line"><span class="grvsc-source">tilemaker v2.2.0</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Convert OpenStreetMap .pbf files into vector tiles</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">Available options:</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --help                       show help message</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --input arg                  source .osm.pbf file</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --output arg                 target directory or .mbtiles/.sqlite file</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --bbox arg                   bounding box to use if input file does not have </span></span>
+<span class="grvsc-line"><span class="grvsc-source">                               a bbox header set, example: </span></span>
+<span class="grvsc-line"><span class="grvsc-source">                               minlon,minlat,maxlon,maxlat</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --merge                      merge with existing .mbtiles (overwrites </span></span>
+<span class="grvsc-line"><span class="grvsc-source">                               otherwise)</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --config arg (=config.json)  config JSON file</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --process arg (=process.lua) tag-processing Lua file</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --store arg                  temporary storage for node/ways/relations data</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --compact                    Reduce overall memory usage (compact mode).</span></span>
+<span class="grvsc-line"><span class="grvsc-source">                               NOTE: This requires the input to be renumbered </span></span>
+<span class="grvsc-line"><span class="grvsc-source">                               (osmium renumber)</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --verbose                    verbose error output</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --skip-integrity             don&#39;t enforce way/node integrity</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  --threads arg (=0)           number of threads (automatically detected if 0)</span></span></code></pre>
+<h4 id="output-options" style="position:relative;"><a href="#output-options" aria-label="output options permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output options</h4>
+<p>When you generate your maps with Tilemaker, there are two output options: <em>directory</em> and <em>mbtiles</em>.</p>
+<h5 id="directory" style="position:relative;"><a href="#directory" aria-label="directory permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Directory</h5>
+<p>With <em>Tilemaker</em> it is possible to generate the tile files as single files into a directory.</p>
+<blockquote>
+<p>Be sure to set <code class="language-text">"compress":</code> to <code class="language-text">"none"</code> in the configuration file. In this example this is the file <code class="language-text">config-openmaptiles.json</code>!</p>
+</blockquote>
+<p>Do you want to create all <code class="language-text">pbf</code> files one by one into one directory? Then it is sufficient not to use an extension in the <code class="language-text">output</code> parameter. For example <code class="language-text">--output rlp.mbtiles</code> puts all <code class="language-text">pbf</code> files into the file <code class="language-text">rlp.mbtiles</code>. <code class="language-text">--output rlp</code> puts all pbf files individually in the <code class="language-text">rlp</code> directory.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ./tilemaker --input /mnt/hgfs/Downloads/osm/rlp.osm.pbf --output rlp --process ./resources/process-openmaptiles.lua --config ./resources/config-openmaptiles.json</span></span></code></pre>
+<p>When the conversion is finished and everything went without errors, the following is displayed at the end</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">Filled the tileset with good things at rlp</span></span></code></pre>
+<p>In this example the files are created in the directory <code class="language-text">rlp</code>. In this directory there are a number of directories and a file called <code class="language-text">metadata.json</code>, in which the directory to the tiles must be adjusted.</p>
+<h5 id="mbtiles" style="position:relative;"><a href="#mbtiles" aria-label="mbtiles permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>mbtiles</h5>
+<p>The <code class="language-text">mbtiles</code> file is a <code class="language-text">sqlite3</code> database that can be read by server-side scripting languages like PHP LUA or NodeJs. Tileservers like tileserver-php open this file and read the tile data as soon as the client requests it. This is the environment I choose for my working environment.</p>
+<p>I call the following command, using the provided sample configuration from openmaptiles.org for simplicity.</p>
+<blockquote>
+<p>If you plan to offer the vector tiles later not as a file, but to unpack them into a directory, it is important to set the property <code class="language-text">"compress":</code> in the file <code class="language-text">config-openmaptiles.json</code> to <code class="language-text">"none"</code>!</p>
+</blockquote>
+<pre class="grvsc-container default-dark" data-language="" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ./tilemaker --input /mnt/hgfs/Downloads/osm/rlp.osm.pbf --output rlp.mbtiles --process ./resources/process-example.lua --config ./resources/config-example.json</span></span></code></pre>
+<p>When the conversion is finished and everything went without errors, the following is displayed at the end</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">Filled the tileset with good things at rlp.mbtiles</span></span></code></pre>
+<h3 id="hosting-the-vector-tiles" style="position:relative;"><a href="#hosting-the-vector-tiles" aria-label="hosting the vector tiles permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hosting the vector tiles</h3>
+<h4 id="tileserverphp-from-maptiler" style="position:relative;"><a href="#tileserverphp-from-maptiler" aria-label="tileserverphp from maptiler permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tileserver.php from Maptiler</h4>
+<p>For hosting the vector tiles we need a web server with PHP enabled. Also, the PHP server should be sqlite-enabled, since the mbtiles files are basically a sqlite database file that will be opened by our tile server.</p>
+<p>To host the map, we will use tileserver-php[^github.com/maptiler/tileserver-php]. Clone this repository to your web server using git:</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">/srv/www$ git clone  https://github.com/maptiler/tileserver-php</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Klone nach &#39;tileserver-php&#39; …</span></span>
+<span class="grvsc-line"><span class="grvsc-source">remote: Enumerating objects: 574, done.</span></span>
+<span class="grvsc-line"><span class="grvsc-source">remote: Counting objects: 100% (7/7), done.</span></span>
+<span class="grvsc-line"><span class="grvsc-source">remote: Compressing objects: 100% (7/7), done.</span></span>
+<span class="grvsc-line"><span class="grvsc-source">remote: Total 574 (delta 2), reused 0 (delta 0), pack-reused 567</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Empfange Objekte: 100% (574/574), 1.47 MiB | 739.00 KiB/s, fertig.</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Löse Unterschiede auf: 100% (290/290), fertig.</span></span></code></pre>
+<p>In the example, /srv/www is the web server root. Please adapt this specification to your situation.</p>
+<p>Copy the mbtiles file you just created into the tileserver-php directory. In our example this is the file <code class="language-text">rlp.mbtiles</code> and it should be in the directory <code class="language-text">/srv/www/tileserver-php</code> at the end.</p>
+<p>Edit the path to the tiles in the file <code class="language-text">srv/www/tileserver-php/rlp/metadata.json</code>. In my local example, the file is located in the <code class="language-text">srv/www/tileserver-php/rlp/metadata.json</code> directory and I set the path to the tiles to <code class="language-text">http://localhost/tileserver-php/rlp/{z}/{x}/{y}.pbf</code>.</p>
+<pre class="grvsc-container default-dark" data-language="js" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;tilejson&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;2.0.0&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;scheme&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;xyz&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;type&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;baselayer&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;format&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;pbf&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;tiles&quot;</span><span class="mtk1">: [</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk8">&quot;http://localhost/tileserver-php/rlp/{z}/{x}/{y}.pbf&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    ],</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;bounds&quot;</span><span class="mtk1">: [</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk7">6.1173599</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk7">48.9662745</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk7">8.5084754</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk7">50.94044360000001</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    ],</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<p>If you are using the Apache web server, everything is now set. Open the url to <code class="language-text">tileserver.php</code> and look at your map. In my case this is the URL <code class="language-text">https://localhost/tileserver-php/tileserver.php</code>. You see the raw version of the lines and points. The function test has been passed.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f64b7aec6f4fede70df7b94a4160a082/28e7f/maplibrevector1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaklEQVQoz4WRUU/UQBSF90/7BIYiiQ/+Bx8kAhuNrz4CCSzwKrBF6IobWkPK0nY7M52Z0k4/04auIIg3ObnJzck3594ZvP18yLsvR7wZjlgbjrrube6xurXfydsa4X06whsedHNvc5/XH3d59f4rKxt7LK/vdFr6sM3S+g4D/lsOVALOPJr+jC6hsigxR85T7rTElZpB7RwL1Q7XQCEEcXRDGFyRnI+ZHWxTTCctGucc1pZcnAdIpUhySSYU2liMLRk0TcNDtVVrSTadkE4C4lOf5PQbZXy9SFeVd4Q/plRVRS4kuSwoq7oL9WjlHlhZjQi+k/lnSP+YeOyj8mLhaW1VXeNcjVIFaZaR5RJj7TPApulWS8OQuX+Cnt2SRDGqUK3j3vPHb4xBa911+xywTyluZ8yiX+RRSDoeMxeChpq/T9RCehljn/5yD2yPXxQaexUgLy/QunzyaA9s0/0z4cO+mN8/8BKwT/kbMuapK58rhZkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Tileserver PHP"
+        title="Tileserver PHP"
+        src="/static/f64b7aec6f4fede70df7b94a4160a082/5a190/maplibrevector1.png"
+        srcset="/static/f64b7aec6f4fede70df7b94a4160a082/772e8/maplibrevector1.png 200w,
+/static/f64b7aec6f4fede70df7b94a4160a082/e17e5/maplibrevector1.png 400w,
+/static/f64b7aec6f4fede70df7b94a4160a082/5a190/maplibrevector1.png 800w,
+/static/f64b7aec6f4fede70df7b94a4160a082/c1b63/maplibrevector1.png 1200w,
+/static/f64b7aec6f4fede70df7b94a4160a082/29007/maplibrevector1.png 1600w,
+/static/f64b7aec6f4fede70df7b94a4160a082/28e7f/maplibrevector1.png 1848w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>View properties when navigating with the mouse over an element.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fef1fb4a8c292ab59d3648f59ac9e642/60b6a/tileserverprops.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABv0lEQVQozzWRyW5UMRBF36+QFhLKjj2fQ0Bkw45fSVpBYsH3IIFEJKIWicjQQ7r7+Y0eymUf9Nydkq6rfEu+vi5Xbz9/492X75yef+XNpytOz694/XHOq/cXzM4uOTm74KTkS04Kd1G42ZGbfZiXenY2L/tqXfdszcCutew6y6rpC5am4bGueap3rE3NxvSsTc/N8pEfv6+5X29ZPGz4c/vAv9WWu+Uz9+s9FSXycZ1yOuYpAjF3RAZACmNsz/XNNUNX07YNf2/v6BpDU++xY08Vo+JCxGnAqyWlgI+BqErOCYkDVjqiejJC0zbcLBYMdqAfRrrB4oMUhCBUIpGoGaeeoK4IagpIOjgqF+hASkIkYzYb7n7+wu622GHkeW9wojiJ5JypcppceHzySPKEFIgF8SCiI1aH0lcVZLmk26zwT0+4tmXftJimo+0tInKYoUZBUiBlJU7PLA4DPrkyBj+5Fks2hrh/xpst2rV4OzKOI33fY63FOXf8lMmlejRHyIpXR0hCSopqJIqQVYk6OXaoOiQp3vsiMmGqJ1TlR/Pk0hUhlwRRR46CaiJOvZTwwZFygqSQD2deBF/EJof/AVFOl+i0LbMxAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="View properties when navigating with the mouse over an element."
+        title="View properties when navigating with the mouse over an element."
+        src="/static/fef1fb4a8c292ab59d3648f59ac9e642/5a190/tileserverprops.png"
+        srcset="/static/fef1fb4a8c292ab59d3648f59ac9e642/772e8/tileserverprops.png 200w,
+/static/fef1fb4a8c292ab59d3648f59ac9e642/e17e5/tileserverprops.png 400w,
+/static/fef1fb4a8c292ab59d3648f59ac9e642/5a190/tileserverprops.png 800w,
+/static/fef1fb4a8c292ab59d3648f59ac9e642/c1b63/tileserverprops.png 1200w,
+/static/fef1fb4a8c292ab59d3648f59ac9e642/60b6a/tileserverprops.png 1559w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3 id="vector-tiles-on-your-website" style="position:relative;"><a href="#vector-tiles-on-your-website" aria-label="vector tiles on your website permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vector Tiles on your website</h3>
+<p>Now we are ready to use the generated tiles on our own website. For this we use the <em>MapLibre GL JS</em>[^maplibre.org/] library along with a style from OpenMapTiles[^<a href="https://openmaptiles.org/styles/%5D">https://openmaptiles.org/styles/]</a>. Create a small HTML document that displays the map. The code below shows a simple example:</p>
+<pre class="grvsc-container default-dark" data-language="html" data-index="14"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk17">&lt;!</span><span class="mtk4">DOCTYPE</span><span class="mtk1"> </span><span class="mtk12">html</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk17">&lt;</span><span class="mtk4">html</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk17">&lt;</span><span class="mtk4">head</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk17">&lt;</span><span class="mtk4">meta</span><span class="mtk1"> </span><span class="mtk12">charset</span><span class="mtk1">=</span><span class="mtk8">&quot;utf-8&quot;</span><span class="mtk1"> </span><span class="mtk17">/&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk17">&lt;</span><span class="mtk4">title</span><span class="mtk17">&gt;</span><span class="mtk1">Display a map on a webpage</span><span class="mtk17">&lt;/</span><span class="mtk4">title</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk17">&lt;</span><span class="mtk4">meta</span><span class="mtk1"> </span><span class="mtk12">name</span><span class="mtk1">=</span><span class="mtk8">&quot;viewport&quot;</span><span class="mtk1"> </span><span class="mtk12">content</span><span class="mtk1">=</span><span class="mtk8">&quot;initial-scale=1,maximum-scale=1,user-scalable=no&quot;</span><span class="mtk1"> </span><span class="mtk17">/&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk17">&lt;</span><span class="mtk4">script</span><span class="mtk1"> </span><span class="mtk12">src</span><span class="mtk1">=</span><span class="mtk8">&#39;https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js&#39;</span><span class="mtk17">&gt;&lt;/</span><span class="mtk4">script</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk17">&lt;</span><span class="mtk4">link</span><span class="mtk1"> </span><span class="mtk12">href</span><span class="mtk1">=</span><span class="mtk8">&#39;https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css&#39;</span><span class="mtk1"> </span><span class="mtk12">rel</span><span class="mtk1">=</span><span class="mtk8">&#39;stylesheet&#39;</span><span class="mtk1"> </span><span class="mtk17">/&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk17">&lt;/</span><span class="mtk4">head</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk17">&lt;</span><span class="mtk4">body</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk17">&lt;</span><span class="mtk4">div</span><span class="mtk1"> </span><span class="mtk12">id</span><span class="mtk1">=</span><span class="mtk8">&#39;map&#39;</span><span class="mtk1"> </span><span class="mtk12">style</span><span class="mtk1">=</span><span class="mtk8">&#39;width: 800px; height: 800px;&#39;</span><span class="mtk17">&gt;&lt;/</span><span class="mtk4">div</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk17">&lt;</span><span class="mtk4">script</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk4">var</span><span class="mtk1"> </span><span class="mtk12">map</span><span class="mtk1"> = </span><span class="mtk4">new</span><span class="mtk1"> </span><span class="mtk10">maplibregl</span><span class="mtk1">.</span><span class="mtk10">Map</span><span class="mtk1">({</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">container:</span><span class="mtk1"> </span><span class="mtk8">&#39;map&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">style:</span><span class="mtk1"> </span><span class="mtk8">&#39;rlp.json&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">center:</span><span class="mtk1"> [</span><span class="mtk7">7</span><span class="mtk1">, </span><span class="mtk7">50</span><span class="mtk1">],</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">zoom:</span><span class="mtk1"> </span><span class="mtk7">4</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk12">map</span><span class="mtk1">.</span><span class="mtk11">addControl</span><span class="mtk1">(</span><span class="mtk4">new</span><span class="mtk1"> </span><span class="mtk10">maplibregl</span><span class="mtk1">.</span><span class="mtk10">NavigationControl</span><span class="mtk1">());</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk17">&lt;/</span><span class="mtk4">script</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk17">&lt;/</span><span class="mtk4">body</span><span class="mtk17">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk17">&lt;/</span><span class="mtk4">html</span><span class="mtk17">&gt;</span></span></span></code></pre>
+<p>Furthermore, you need styles to make the raw lines and points more attractive. For now, choose a ready-made style file. You can download it from the demo of this post [astridx.github.io/vectortiles/rlp.json] or use another style from <a href="https://openmaptiles.org/styles/">OpenMapTiles</a>. Customize two URLs to your individual environment. The URLs point to your tile server. The name <code class="language-text">rlp.json</code> is mandatory if the <code class="language-text">mbtiles</code> file is called <code class="language-text">rlp</code>: the name of the <code class="language-text">mbtiles</code> file must match the name of the <code class="language-text">json</code> style file!</p>
+<p>In the <code class="language-text">rlp.json</code> file it is important that the URL in the <code class="language-text">glyphs</code> property points to fonts. We will get these fonts in the next step. Also, the URL in the <code class="language-text">sources</code> property may be different in your environment and therefore need to be modified.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">{</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;version&quot;: 8,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;name&quot;: &quot;Basic&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;metadata&quot;: {</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      &quot;mapbox:autocomposite&quot;: false,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      &quot;mapbox:type&quot;: &quot;template&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      &quot;maputnik:renderer&quot;: &quot;mbgljs&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      &quot;openmaptiles:version&quot;: &quot;3.x&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      &quot;openmaptiles:mapbox:owner&quot;: &quot;openmaptiles&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      &quot;openmaptiles:mapbox:source:url&quot;: &quot;mapbox://openmaptiles.4qljc88t&quot;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    },</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;sources&quot;: {</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      &quot;openmaptiles&quot;: {</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        &quot;type&quot;: &quot;vector&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">          &quot;url&quot;: &quot;metadata.json&quot;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      }</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    },</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;glyphs&quot;: &quot;fonts/{fontstack}/{range}.pbf&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;layers&quot;: [</span></span>
+<span class="grvsc-line"><span class="grvsc-source">...      </span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
+<p>I store the data for the property <code class="language-text">sources</code> in the file <code class="language-text">metadata.json</code>, which I save in the same directory as the <code class="language-text">rlp.json</code>. In this file I modify the URL in the property <code class="language-text">tiles</code>.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">{</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;tilejson&quot;: &quot;2.0.0&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;scheme&quot;: &quot;xyz&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;type&quot;: &quot;baselayer&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;format&quot;: &quot;pbf&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;tiles&quot;: [</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        &quot;https://localhost/tileserver-php/tileserver.php?/index.json?/rlp/{z}/{x}/{y}.pbf&quot;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    ],</span></span>
+<span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
+<p>When modifying the <code class="language-text">glyphs</code> property you have already seen that fonts are necessary on your server. Here you can also use ready-made fonts for the time being. klokantech[^github.com/klokantech/klokantech-gl-fonts] offers a package with fonts on Github. Clone it into your webserver directory and set symlinks.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">git clone https://github.com/klokantech/klokantech-gl-fonts fonts</span></span>
+<span class="grvsc-line"><span class="grvsc-source">ln -sf &#39;KlokanTech Noto Sans Bold&#39; fonts/Bold</span></span>
+<span class="grvsc-line"><span class="grvsc-source">ln -sf &#39;KlokanTech Noto Sans Regular&#39; fonts/Regular</span></span></code></pre>
+<p>In my web server directory I now have the following files:</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 657px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d3446c741064914fb7be19c75ac70424/a1253/maplibrevector2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAArklEQVQY022PSwvCMBCE+/8v4kkFDx7as39Bit69lZ4CKdoHmNZKIJs0GWlqfBQHEvbbzA7ZyDmH/XaH8+kIL+fwkArGDAgqigJKKV9X/IJ4scStLj1rInDOMeaMisYrThIc0tQ3iBSuZQ0h2mlAa2RZhraduGkarNYblFXlWUqJPM+htfkEWmthh+EVQBBCoO/7NzPG0HV3/BMReW/YKApfnbZ1P+Y5h973mb89AafcM39BkNpOAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Webserver directory to publish a mbtiles file"
+        title="Webserver directory to publish a mbtiles file"
+        src="/static/d3446c741064914fb7be19c75ac70424/a1253/maplibrevector2.png"
+        srcset="/static/d3446c741064914fb7be19c75ac70424/772e8/maplibrevector2.png 200w,
+/static/d3446c741064914fb7be19c75ac70424/e17e5/maplibrevector2.png 400w,
+/static/d3446c741064914fb7be19c75ac70424/a1253/maplibrevector2.png 657w"
+        sizes="(max-width: 657px) 100vw, 657px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>If you use a mbtiles file instead of individual tiles, it will look like on the next picture.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 717px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3ec26f93a114fedaf50a45158e544aca/0ad97/maplibrevector3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 17%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAkElEQVQI12WNSw/CIBCE+9v17D9Tj7YXIqFcwEcor9JSGLMkJo1+l53dmex04s5xOhzxfj1BmCkgxNS0tRacc3xhjMF737RzDsaYprdtg50CSqno4hxxvl6wLCtKKZBSQmndgg+tcet75JxRa4UQAiGE5imlMI6y3en5MAyIcUaHHWTuoeaU0p/3m6Odimh+AFlC5xs6b+zZAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Webserver directory to publish a mbtiles file"
+        title="Webserver directory to publish a mbtiles file"
+        src="/static/3ec26f93a114fedaf50a45158e544aca/0ad97/maplibrevector3.png"
+        srcset="/static/3ec26f93a114fedaf50a45158e544aca/772e8/maplibrevector3.png 200w,
+/static/3ec26f93a114fedaf50a45158e544aca/e17e5/maplibrevector3.png 400w,
+/static/3ec26f93a114fedaf50a45158e544aca/0ad97/maplibrevector3.png 717w"
+        sizes="(max-width: 717px) 100vw, 717px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>Check out your own hosted map now.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0cc5fb8db7e868d7659b39e217c42cb7/ffe34/maplibrevector4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 82.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7DAAAOwwHHb6hkAAADCElEQVQ4y3WU23LiRhRF/f8fkqfkaZIHJ8PYCLCNDOYihFpS33QBbMwggYCZsiteKWkSV1I4XXXeulfts88+fVHtdxTFhl31TFUVbLcbymLLer3m6WnB5uuaovjK6VRxOh04Hg8cT3sOx4Jv30+8vr7y8vLyXhePS0Ggv+DLK0bCQZkH8szHJh42nSDtgLnqYdIBvuwSqB6BvcZkY47Hivq8vb2918XTMkSbAV7YZRJ1ifU9aeoRmjaB6hDGwwY0lpeEto1QN0T6BptOORyKd+A/5+JxEfKYh0jbI1AOOnUxWR9hHEbyV+a6RaT7eNENcXLHTF4h1QilBxTl87nCBrgI0IlLqDvESQ+Z3OKrawLdJkocpBmxXESI0GMSfmYS/85cdtnvi/8AG4XrZYxNBwTaIbY9In2HUiN0ekeezciSGakV2GSCH98wFbUVt8yiDkX5eA58WkZoO2wUmvQBoTvMVRtl70mSKcaMGsAkauHFVwjTQ1kXX35hu1ucA+uW66Fk2ZQkG+PrFhP1G4HpNo/nus1UtRD1gEwXP+7ixdcMo1/Y7JK/gX/+W2GIMkNCdUtk7klSH5X28XWbuekwCq8RymkUaztofB3LP5jEX9iW648VJskMY0foZIy1fqOm9jO2oyZ3kemimtYdJvISWd9VAfvd9iOgYJnX0AnS3GPTEb5yCOtsqhahcZpM1t4GxiEyd8R6SmJ9DtX2Y4WPeUADzgSxGiBkH2EdhLnGU5cEqk1kboi1i4gHyMRFGZdjVXwMXOUBq0VAmsyI9ZDQdgnMFbO49WM7pPtjKKqPUpNmmyLd4XQo/0fhImCRBSTWIzBtZuozc+k0LdZ5rIchTV0uxo6JVL9ZgqrafABchk27q1yQZR6RcgllH2mGjZ81yNgheR400ZqJLjPRYxx/YrMz57FZ5XOWmd/UKptjtYeI3UaFtWPC2MUL6k+jT5I88CA+4c5/5nb+E09bfQ6s9huq3fN7leWacremLJ/YljmbImFT5GyLnKJc8VxqVlvBYuNz+HY+lL8ACAjWvPIGjgoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Webserver view to of the mbtiles file"
+        title="Webserver view to of the mbtiles file"
+        src="/static/0cc5fb8db7e868d7659b39e217c42cb7/5a190/maplibrevector4.png"
+        srcset="/static/0cc5fb8db7e868d7659b39e217c42cb7/772e8/maplibrevector4.png 200w,
+/static/0cc5fb8db7e868d7659b39e217c42cb7/e17e5/maplibrevector4.png 400w,
+/static/0cc5fb8db7e868d7659b39e217c42cb7/5a190/maplibrevector4.png 800w,
+/static/0cc5fb8db7e868d7659b39e217c42cb7/ffe34/maplibrevector4.png 1055w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3 id="unpack-mbtiles" style="position:relative;"><a href="#unpack-mbtiles" aria-label="unpack mbtiles permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unpack MBTiles</h3>
+<p>You have seen: It is possible to host the <code class="language-text">mbtile</code> file generated by Tilemaker, via tile servers like <em>tileserver-php</em>. This is convenient for a development environment. However, it is more performant to load the vector tiles directly from a static web server. Besides, handling large files is problematic in certain environments. For example, special steps are required to publish a demo [astridx.github.io/vectortiles/index.html] on <em>github.io</em> if there is a file larger than 100 MB in the package.</p>
+<p>As mentioned before, you can use <em>Tilemaker</em> to create individual <code class="language-text">pbf</code> files in a directory. In my workaround I prefer to work with <code class="language-text">mbtiles</code> files and unzip the file intended for publishing at the end. For this purpose there is a tool called <em>mbutil</em>.</p>
+<p>Install <em>mbutil</em> and <em>Python</em> and get an overview of the options of <em>mbutil</em>.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">git clone https://github.com/mapbox/mbutil.git</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">sudo apt-get install python3 </span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">cd mbutil/</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">./mbutil/mb-util -h</span></span></code></pre>
+<p>I unpack the file <code class="language-text">rlp.mbtiles</code> via</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">./mbutil/mb-util rlp.mbtiles rlpdir --image_format=pbf </span></span></code></pre>
+<blockquote>
+<p>Reminder: For static hosting the tiles must not be compressed! When creating them, <code class="language-text">"compress": "none"</code> must have been activated in the configuration of Tilemaker.</p>
+</blockquote>
+<p>In my web server directory I now have the following files:</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 657px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d3446c741064914fb7be19c75ac70424/a1253/maplibrevector2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAArklEQVQY022PSwvCMBCE+/8v4kkFDx7as39Bit69lZ4CKdoHmNZKIJs0GWlqfBQHEvbbzA7ZyDmH/XaH8+kIL+fwkArGDAgqigJKKV9X/IJ4scStLj1rInDOMeaMisYrThIc0tQ3iBSuZQ0h2mlAa2RZhraduGkarNYblFXlWUqJPM+htfkEWmthh+EVQBBCoO/7NzPG0HV3/BMReW/YKApfnbZ1P+Y5h973mb89AafcM39BkNpOAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="webserver directory for publishing static vector tiles"
+        title="webserver directory for publishing static vector tiles"
+        src="/static/d3446c741064914fb7be19c75ac70424/a1253/maplibrevector2.png"
+        srcset="/static/d3446c741064914fb7be19c75ac70424/772e8/maplibrevector2.png 200w,
+/static/d3446c741064914fb7be19c75ac70424/e17e5/maplibrevector2.png 400w,
+/static/d3446c741064914fb7be19c75ac70424/a1253/maplibrevector2.png 657w"
+        sizes="(max-width: 657px) 100vw, 657px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>I do not need the file <code class="language-text">tileserver.php</code> anymore. The file <code class="language-text">rlp.mptiles</code> has been replaced by the directory <code class="language-text">rlp</code>. I have to adjust the URL to the <code class="language-text">tiles</code> in the file <code class="language-text">metadata.json</code>. This is now <code class="language-text">"https://localhost/tileserver-php/rlp/{z}/{x}/{y}.pbf"</code> instead of <code class="language-text">"https://localhost/tileserver-php/tileserver.php?/index.json?/rlp/{z}/{x}/{y}.pbf"</code>.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 657px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d3446c741064914fb7be19c75ac70424/a1253/maplibrevector2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAArklEQVQY022PSwvCMBCE+/8v4kkFDx7as39Bit69lZ4CKdoHmNZKIJs0GWlqfBQHEvbbzA7ZyDmH/XaH8+kIL+fwkArGDAgqigJKKV9X/IJ4scStLj1rInDOMeaMisYrThIc0tQ3iBSuZQ0h2mlAa2RZhraduGkarNYblFXlWUqJPM+htfkEWmthh+EVQBBCoO/7NzPG0HV3/BMReW/YKApfnbZ1P+Y5h973mb89AafcM39BkNpOAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Webserver Verzeichnis zum Veröffentlichen von statischen Vector Tiles"
+        title="Webserver Verzeichnis zum Veröffentlichen von statischen Vector Tiles"
+        src="/static/d3446c741064914fb7be19c75ac70424/a1253/maplibrevector2.png"
+        srcset="/static/d3446c741064914fb7be19c75ac70424/772e8/maplibrevector2.png 200w,
+/static/d3446c741064914fb7be19c75ac70424/e17e5/maplibrevector2.png 400w,
+/static/d3446c741064914fb7be19c75ac70424/a1253/maplibrevector2.png 657w"
+        sizes="(max-width: 657px) 100vw, 657px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<pre class="grvsc-container default-dark" data-language="" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">{</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;tilejson&quot;: &quot;2.0.0&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;scheme&quot;: &quot;xyz&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;type&quot;: &quot;baselayer&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;format&quot;: &quot;pbf&quot;,</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &quot;tiles&quot;: [</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        &quot;https://localhost/tileserver-php/rlp/{z}/{x}/{y}.pbf&quot;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    ],</span></span>
+<span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
+<p>You can see the result under <a href="https://astridx.github.io/vectortiles/index.html">Demo</a>[^astridx.github.io/vectortiles/index.html].</p>
+<h3 id="links" style="position:relative;"><a href="#links" aria-label="links permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Links</h3>
+<ul>
+<li>Generating self-hosted maps using tilemaker[^blog.kleunen.nl/blog/tilemaker-generate-map]</li>
+<li>VectorTiles mithilfe von Tilemaker erstellen und nutzen[^youtube.com/watch?v=8J0J41YsAbc]</li>
+<li>Tipps zur Performance[^blog.kleunen.nl/blog/improving-tilemaker-hosting-speed]</li>
+<li>Planet[^wiki.openstreetmap.org/wiki/Planet.osm]</li>
+<li>GeoFabrik[^download.geofabrik.de]</li>
+<li>OSMData[^osmdata.openstreetmap.de/download/water-polygons-split-4326.zip]</li>
+<li>GeoFabrik Calc[^tools.geofabrik.de/calc]</li>
+<li>Osmium-tool[^github.com/osmcode/osmium-tool]</li>
+<li>OSMConvert[^wiki.openstreetmap.org/wiki/Osmconvert]</li>
+<li>Tilemaker[^github.com/systemed/tilemaker]</li>
+<li>Tileserver-php[^github.com/maptiler/tileserver-php]</li>
+<li>MapLibre[^maplibre.org]</li>
+<li>Klokantech GL fonts[^github.com/klokantech/klokantech-gl-fonts]</li>
+<li>OpenMapTiles styles[^openmaptiles.org/styles]</li>
+</ul>
+<img src="https://vg06.met.vgwort.de/na/5fe8f8e437824badacdd21c6b76b3b85" width="1" height="1" alt="">
+<style class="grvsc-styles">
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line > * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: ' ';
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting > .grvsc-code > .grvsc-line::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .default-dark {
+    background-color: #1E1E1E;
+    color: #D4D4D4;
+  }
+  .default-dark .mtk1 { color: #D4D4D4; }
+  .default-dark .mtk8 { color: #CE9178; }
+  .default-dark .mtk7 { color: #B5CEA8; }
+  .default-dark .mtk17 { color: #808080; }
+  .default-dark .mtk4 { color: #569CD6; }
+  .default-dark .mtk12 { color: #9CDCFE; }
+  .default-dark .mtk10 { color: #4EC9B0; }
+  .default-dark .mtk11 { color: #DCDCAA; }
+  .default-dark .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
+  }
+</style></div></article><section id="webmentions" class="comments webmentions__list container"><h3>Webmentions</h3><br/></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/en/maplibre-vector-tiles-self-host/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-87f5ae838a3e11ab908d.js"],"app":["/app-41810ff886939bb07aad.js"],"component---src-pages-404-js":["/component---src-pages-404-js-5f1261b30b7ee352090a.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-6eb3d12ab743f1423bf7.js"],"component---src-pages-books-js":["/component---src-pages-books-js-ffee86f2ac01d1e02a72.js"],"component---src-pages-index-js":["/component---src-pages-index-js-9ece8ce0ac889326e585.js"],"component---src-pages-projects-js":["/component---src-pages-projects-js-8ef4eae5ed3a363bdc9d.js"],"component---src-templates-category-js":["/component---src-templates-category-js-90e58ac4c560b9dbf839.js"],"component---src-templates-post-js":["/component---src-templates-post-js-4c17552cdba24d661280.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-81da552be0fccf239da3.js"]};/*]]>*/</script><script src="/polyfill-87f5ae838a3e11ab908d.js" nomodule=""></script><script src="/component---src-templates-post-js-4c17552cdba24d661280.js" async=""></script><script src="/b84efa9b784e27572a845759437622c93533bed1-af3eca6a1f9625807cd6.js" async=""></script><script src="/commons-dead6f2aafd4c57f7eb7.js" async=""></script><script src="/app-41810ff886939bb07aad.js" async=""></script><script src="/framework-a8bc927eb7481ca28d49.js" async=""></script><script src="/webpack-runtime-39397f3c9065deef2574.js" async=""></script></body></html>

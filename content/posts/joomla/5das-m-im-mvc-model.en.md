@@ -1,0 +1,136 @@
+---
+description: 'desc'
+set: 'en/der-weg-zu-joomla4-erweiterungen'
+booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
+syndication:
+shortTitle: 'short'
+date: 2022-07-21
+title: 'The M in MVC: Model'
+template: post
+thumbnail: '../../thumbnails/joomla.png'
+slug: en/das-m-im-mvc-model
+langKey: en
+categories:
+  - Joomla English
+tags:
+  - CMS
+  - Joomla
+---
+
+No new functionality is added in this part. We improve the previous structure. A web application usually consists of
+
+- Logic,
+- data and
+- the presentation.
+
+It is problematic to combine these three elements in one class. Especially for larger projects. Joomla uses the [Model-View-Controller-Concept (MVC)](https://en.wikipedia.org/wiki/Model_View_Controller)[^en.wikipedia.org/wiki/model_view_controller]. In this tutorial part, we add a Model to the frontend. The Model object is responsible for the data and its processing.<!-- \index{Model-View-Controller} -->
+
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t3...t4)[^codeberg.org/astrid/j4examplecode/compare/t3...t4] and copy these changes into your development version.
+
+## Step by step
+
+### New files
+
+<!-- prettier-ignore -->
+#### components/com\_foos/src/Model/FooModel.php
+
+With the model it is also so that you do not reinvent the wheel. You extend the Joomla class `BaseDatabaseModel`. Then implement only what you specifically use. In our case it is the output `$this->message = 'Hello Foo!';` for which we create the method `getMsg()`.
+
+> The model classes that are available as parent class of Joomla can be found in the directory `libraries/src/MVC/Model/`. BaseDatabaseModel is implemented in the file `libraries/src/MVC/Model/BaseDatabaseModel.php`.
+
+[components/com_foos/src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/Model/FooModel.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t4/src/components/com_foos/src/Model/FooModel.php
+
+<?php
+
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+namespace FooNamespace\Component\Foos\Site\Model;
+
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+
+/**
+ * Foo model for the Joomla Foos component.
+ *
+ * @since  __BUMP_VERSION__
+ */
+class FooModel extends BaseDatabaseModel
+{
+	/**
+	 * @var string message
+	 */
+	protected $message;
+
+	/**
+	 * Get the message
+	 *
+	 * @return  string  The message to be displayed to the user
+	 */
+	public function getMsg()
+	{
+		if (!isset($this->message)) {
+			$this->message = 'Hello Foo!';
+		}
+
+		return $this->message;
+	}
+}
+
+```
+
+### Modified files
+
+<!-- prettier-ignore -->
+#### components/com\_foos/src/View/Foo/HtmlView.php
+
+We get the data of the model in the view with `$this->msg = $this->get('Msg');`. This seems complicated in this simple example. In complex applications, this procedure has proven itself. The data calculation is done in the model. The view handles the design of the data.
+
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/View/Foo/HtmlView.php)
+
+```php {diff}
+ 	public function display($tpl = null)
+ 	{
++		$this->msg = $this->get('Msg');
++
+ 		return parent::display($tpl);
+ 	}
+ }
+
+```
+
+> You may be confused by the call `$this->get('Msg');` as I was when I first started using Joomla. The method in the model is called `getMsg()`, but we call it here via `get('Msg')`. Somehow that doesn't fit. If you have dealt with object oriented programming before, you are tempted to call it via `getMsg()`. If you are using Joomla, you will have an easier time using things the way they are prepared. You call [Getter](https://en.wikipedia.org/wiki/Mutator_method)[^en.wikipedia.org/wiki/mutator_method] in the model via the method `get()` with the appropriate parameter.
+
+<!-- prettier-ignore -->
+#### components/com\_foos/ tmpl/foo/default.php
+
+We output the data via the template. Here, everything will be packed into HTML tags later.
+
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/tmpl/foo/default.php)
+
+```php {diff}
+ \defined('_JEXEC') or die;
+ ?>
+-Hello Foos
++
++Hello Foos: <?php echo $this->msg;
+
+```
+
+## Test your Joomla component
+
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part.
+
+2. look at the frontend view of your component. Make sure that the data for the output is generated by the model. The text output now is `Hello Foos: Hello Foo!` instead of `Hello Foos` if you followed my example.
+
+![Joomla - Usind the Model - Frontend view](/images/j4x5x1.png)
+<img src="https://vg08.met.vgwort.de/na/d91b51e606454390a2dc4f6c776b837b" width="1" height="1" alt="">

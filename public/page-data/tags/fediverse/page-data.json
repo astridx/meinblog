@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/tags/fediverse/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"04a1ca2e-e9da-5047-88df-54ec94a6d7ab","fields":{"slug":"/soziale-netze/"},"frontmatter":{"date":"July 05, 2022","title":"Zentrale und dezentrale soziale Netze","tags":["mastodon","soziale Netze","Fediverse","zentral","dezentral"],"categories":["Internet"]}}}]}},"pageContext":{"tag":"Fediverse"}},
+    "staticQueryHashes": ["352937542"]}

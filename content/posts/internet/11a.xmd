@@ -1,0 +1,22 @@
+---
+description: 'desc'
+set: ''
+booklink: ''
+syndication:
+shortTitle: 'short'
+date: 2022-07-07
+title: 'Machtverteilung im zentralen/dezentralen Netz'
+template: post
+thumbnail: '../../thumbnails/worldinternet.png'
+slug: machtverteilung-dezentral-zentral-im-netz
+langKey: de
+categories:
+  - Internet
+tags:
+  - Paket
+  - Daten
+  - Datenübertragung
+  - Schichtenmodell
+  - Datenübertragung
+---
+

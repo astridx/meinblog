@@ -1,0 +1,862 @@
+---
+description: 'desc'
+set: 'en/der-weg-zu-joomla4-erweiterungen'
+booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
+syndication:
+shortTitle: 'short'
+date: 2022-08-05
+title: 'View by Categories'
+template: post
+thumbnail: '../../thumbnails/joomla.png'
+slug: en/joomla-ansicht-nach-kategorien
+langKey: en
+categories:
+  - Joomla English
+tags:
+  - CMS
+  - Joomla
+---
+
+Why use categories? Categories are often used when there are many posts on a site. With the help of categories, they can be grouped and managed more easily. Example: In the component content, articles can be filtered by category. If there are 200 articles on the site, it is easier to find a post if you know its category.<!-- \index{categories!frontend} -->
+
+For the frontend, there are built-in menu item types in Joomla that use categories: Category Blog and Category List. The menu item types or layouts simplify the display of posts in a category. When a new post is assigned to the category, it automatically appears on the page. This display is configurable. For example, imagine a blog layout of the 'Events' category that displays the latest articles first on the site. When a new article is added to this category, it will automatically appear at the top of the Events blog. All you have to do is add the post to the category. The category structure, for example 'Events | Online Events | Sports | Yoga', is completely independent of the site's menu structure. The site can have one or six menu levels and `Yoga` can be placed as a menu item in the first level.
+
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t25...t26)[^codeberg.org/astrid/j4examplecode/compare/t25...t26] and copy these changes into your development version.
+
+## Step by step
+
+[Categories](https://docs.joomla.org/Category)[^docs.joomla.org/category] are a way to organize content in Joomla. A category contains items and other categories. An item can belong to only one category. If a category is contained in another, it is a subcategory of that category. Does it happen in your structure that single elements belong to several subsets? Then categories are not the right choice. In this case use tags.
+
+### New files
+
+<!-- prettier-ignore -->
+#### components/com\_foos/src/Model/CategoryModel.php
+
+The class we use to prepare the data for displaying the category view extends the `ListModel` class in the `/libraries/src/MVC/Model/ListModel.php` file, as does the `FeaturedModel` class in `components/com_foos/src/Model/FeaturedModel.php`. ListModel provides, among other things, the ability to handle the display of multiple items simultaneously on a web page, including support for pagination. Below I include my full code, which is derived from `com_contact`.
+
+[components/com_foos/src/Model/CategoryModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Model/CategoryModel.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/Model/CategoryModel.php
+
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+namespace FooNamespace\Component\Foos\Site\Model;
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Categories\Categories;
+use Joomla\CMS\Categories\CategoryNode;
+use Joomla\CMS\Component\ComponentHelper;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Helper\TagsHelper;
+use Joomla\CMS\Language\Multilanguage;
+use Joomla\CMS\MVC\Model\ListModel;
+use Joomla\CMS\Table\Table;
+use Joomla\Database\ParameterType;
+use Joomla\Registry\Registry;
+
+/**
+ * Single item model for a foo
+ *
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ * @since       __BUMP_VERSION__
+ */
+class CategoryModel extends ListModel
+{
+	/**
+	 * Category item data
+	 *
+	 * @var    CategoryNode
+	 */
+	protected $_item = null;
+
+	/**
+	 * Array of foos in the category
+	 *
+	 * @var    \stdClass[]
+	 */
+	protected $_articles = null;
+
+	/**
+	 * Category left and right of this one
+	 *
+	 * @var    CategoryNode[]|null
+	 */
+	protected $_siblings = null;
+
+	/**
+	 * Array of child-categories
+	 *
+	 * @var    CategoryNode[]|null
+	 */
+	protected $_children = null;
+
+	/**
+	 * Parent category of the current one
+	 *
+	 * @var    CategoryNode|null
+	 */
+	protected $_parent = null;
+
+	/**
+	 * The category that applies.
+	 *
+	 * @var    object
+	 */
+	protected $_category = null;
+
+	/**
+	 * The list of other foo categories.
+	 *
+	 * @var    array
+	 */
+	protected $_categories = null;
+
+	/**
+	 * Constructor.
+	 *
+	 * @param   array  $config  An optional associative array of configuration settings.
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	public function __construct($config = [])
+	{
+		if (empty($config['filter_fields'])) {
+			$config['filter_fields'] = [
+				'id', 'a.id',
+				'name', 'a.name',
+				'state', 'a.state',
+				'ordering', 'a.ordering',
+				'featuredordering', 'a.featured'
+			];
+		}
+
+		parent::__construct($config);
+	}
+
+	/**
+	 * Method to get a list of items.
+	 *
+	 * @return  mixed  An array of objects on success, false on failure.
+	 */
+	public function getItems()
+	{
+		// Invoke the parent getItems method to get the main list
+		$items = parent::getItems();
+
+		if ($items === false) {
+			return false;
+		}
+
+		// Convert the params field into an object, saving original in _params
+		for ($i = 0, $n = count($items); $i < $n; $i++) {
+			$item = &$items[$i];
+
+			if (!isset($this->_params)) {
+				$item->params = new Registry($item->params);
+			}
+
+			// Some contexts may not use tags data at all, so we allow callers to disable loading tag data
+			if ($this->getState('load_tags', true)) {
+				$this->tags = new TagsHelper;
+				$this->tags->getItemTags('com_foos.foo', $item->id);
+			}
+		}
+
+		return $items;
+	}
+
+	/**
+	 * Method to build an SQL query to load the list data.
+	 *
+	 * @return  string    An SQL query
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	protected function getListQuery()
+	{
+		$user   = Factory::getUser();
+		$groups = $user->getAuthorisedViewLevels();
+
+		// Create a new query object.
+		$db    = $this->getDbo();
+		$query = $db->getQuery(true);
+
+		$query->select($this->getState('list.select', 'a.*'))
+			->select($this->getSlugColumn($query, 'a.id', 'a.alias') . ' AS slug')
+			->select($this->getSlugColumn($query, 'c.id', 'c.alias') . ' AS catslug')
+			->from($db->quoteName('#__foos_details', 'a'))
+			->leftJoin($db->quoteName('#__categories', 'c') . ' ON c.id = a.catid')
+			->whereIn($db->quoteName('a.access'), $groups);
+
+		// Filter by category.
+		if ($categoryId = $this->getState('category.id')) {
+			$query->where($db->quoteName('a.catid') . ' = :acatid')
+				->whereIn($db->quoteName('c.access'), $groups);
+			$query->bind(':acatid', $categoryId, ParameterType::INTEGER);
+		}
+
+		// Filter by state
+		$state = $this->getState('filter.published');
+
+		if (is_numeric($state)) {
+			$query->where($db->quoteName('a.published') . ' = :published');
+			$query->bind(':published', $state, ParameterType::INTEGER);
+		} else {
+			$query->whereIn($db->quoteName('c.published'), [0,1,2]);
+		}
+
+		// Filter by start and end dates.
+		$nowDate = Factory::getDate()->toSql();
+
+		if ($this->getState('filter.publish_date')) {
+			$query->where('(' . $db->quoteName('a.publish_up')
+				. ' IS NULL OR ' . $db->quoteName('a.publish_up') . ' <= :publish_up)')
+				->where('(' . $db->quoteName('a.publish_down')
+					. ' IS NULL OR ' . $db->quoteName('a.publish_down') . ' >= :publish_down)')
+				->bind(':publish_up', $nowDate)
+				->bind(':publish_down', $nowDate);
+		}
+
+		// Filter by search in title
+		$search = $this->getState('list.filter');
+
+		if (!empty($search)) {
+			$search = '%' . trim($search) . '%';
+			$query->where($db->quoteName('a.name') . ' LIKE :name ');
+			$query->bind(':name', $search);
+		}
+
+		// Filter on the language.
+		if ($language = $this->getState('filter.language')) {
+			$language = [Factory::getLanguage()->getTag(), '*'];
+			$query->whereIn($db->quoteName('a.language'), $language);
+		}
+
+		// Set sortname ordering if selected
+		if ($this->getState('list.ordering') === 'sortname') {
+			$query->order($db->escape('a.sortname1') . ' ' . $db->escape($this->getState('list.direction', 'ASC')))
+				->order($db->escape('a.sortname2') . ' ' . $db->escape($this->getState('list.direction', 'ASC')))
+				->order($db->escape('a.sortname3') . ' ' . $db->escape($this->getState('list.direction', 'ASC')));
+		} else if ($this->getState('list.ordering') === 'featuredordering') {
+			$query->order($db->escape('a.featured') . ' DESC')
+				->order($db->escape('a.ordering') . ' ASC');
+		} else {
+			$query->order($db->escape($this->getState('list.ordering', 'a.ordering')) . ' ' . $db->escape($this->getState('list.direction', 'ASC')));
+		}
+
+		return $query;
+	}
+
+	/**
+	 * Method to auto-populate the model state.
+	 *
+	 * Note. Calling getState in this method will result in recursion.
+	 *
+	 * @param   string  $ordering   An optional ordering field.
+	 * @param   string  $direction  An optional direction (asc|desc).
+	 *
+	 * @return  void
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	protected function populateState($ordering = null, $direction = null)
+	{
+		$app = Factory::getApplication();
+		$params = ComponentHelper::getParams('com_foos');
+
+		// Get list ordering default from the parameters
+		if ($menu = $app->getMenu()->getActive()) {
+			$menuParams = $menu->getParams();
+		} else {
+			$menuParams = new Registry;
+		}
+
+		$mergedParams = clone $params;
+		$mergedParams->merge($menuParams);
+
+		// List state information
+		$format = $app->input->getWord('format');
+
+		$numberOfFoosToDisplay = $mergedParams->get('foos_display_num');
+
+		if ($format === 'feed') {
+			$limit = $app->get('feed_limit');
+		} else if (isset($numberOfFoosToDisplay)) {
+			$limit = $numberOfFoosToDisplay;
+		} else {
+			$limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->get('list_limit'), 'uint');
+		}
+
+		$this->setState('list.limit', $limit);
+
+		$limitstart = $app->input->get('limitstart', 0, 'uint');
+		$this->setState('list.start', $limitstart);
+
+		// Optional filter text
+		$itemid = $app->input->get('Itemid', 0, 'int');
+		$search = $app->getUserStateFromRequest('com_foos.category.list.' . $itemid . '.filter-search', 'filter-search', '', 'string');
+		$this->setState('list.filter', $search);
+
+		$orderCol = $app->input->get('filter_order', $mergedParams->get('initial_sort', 'ordering'));
+
+		if (!in_array($orderCol, $this->filter_fields)) {
+			$orderCol = 'ordering';
+		}
+
+		$this->setState('list.ordering', $orderCol);
+
+		$listOrder = $app->input->get('filter_order_Dir', 'ASC');
+
+		if (!in_array(strtoupper($listOrder), ['ASC', 'DESC', ''])) {
+			$listOrder = 'ASC';
+		}
+
+		$this->setState('list.direction', $listOrder);
+
+		$id = $app->input->get('id', 0, 'int');
+		$this->setState('category.id', $id);
+
+		$user = Factory::getUser();
+
+		if ((!$user->authorise('core.edit.state', 'com_foos')) && (!$user->authorise('core.edit', 'com_foos'))) {
+			// Limit to published for people who can't edit or edit.state.
+			$this->setState('filter.published', 1);
+
+			// Filter by start and end dates.
+			$this->setState('filter.publish_date', true);
+		}
+
+		$this->setState('filter.language', Multilanguage::isEnabled());
+
+		// Load the parameters.
+		$this->setState('params', $params);
+	}
+
+	/**
+	 * Method to get category data for the current category
+	 *
+	 * @return  object  The category object
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	public function getCategory()
+	{
+		if (!is_object($this->_item)) {
+			$app = Factory::getApplication();
+			$menu = $app->getMenu();
+			$active = $menu->getActive();
+
+			if ($active) {
+				$params = $active->getParams();
+			} else {
+				$params = new Registry;
+			}
+
+			$options = [];
+			$options['countItems'] = $params->get('show_cat_items', 1) || $params->get('show_empty_categories', 0);
+			$categories = Categories::getInstance('Foos', $options);
+			$this->_item = $categories->get($this->getState('category.id', 'root'));
+
+			if (is_object($this->_item)) {
+				$this->_children = $this->_item->getChildren();
+				$this->_parent = false;
+
+				if ($this->_item->getParent()) {
+					$this->_parent = $this->_item->getParent();
+				}
+
+				$this->_rightsibling = $this->_item->getSibling();
+				$this->_leftsibling = $this->_item->getSibling(false);
+			} else {
+				$this->_children = false;
+				$this->_parent = false;
+			}
+		}
+
+		return $this->_item;
+	}
+
+	/**
+	 * Get the parent category.
+	 *
+	 * @return  mixed  An array of categories or false if an error occurs.
+	 */
+	public function getParent()
+	{
+		if (!is_object($this->_item)) {
+			$this->getCategory();
+		}
+
+		return $this->_parent;
+	}
+
+	/**
+	 * Get the sibling (adjacent) categories.
+	 *
+	 * @return  mixed  An array of categories or false if an error occurs.
+	 */
+	public function &getLeftSibling()
+	{
+		if (!is_object($this->_item)) {
+			$this->getCategory();
+		}
+
+		return $this->_leftsibling;
+	}
+
+	/**
+	 * Get the sibling (adjacent) categories.
+	 *
+	 * @return  mixed  An array of categories or false if an error occurs.
+	 */
+	public function &getRightSibling()
+	{
+		if (!is_object($this->_item)) {
+			$this->getCategory();
+		}
+
+		return $this->_rightsibling;
+	}
+
+	/**
+	 * Get the child categories.
+	 *
+	 * @return  mixed  An array of categories or false if an error occurs.
+	 */
+	public function &getChildren()
+	{
+		if (!is_object($this->_item)) {
+			$this->getCategory();
+		}
+
+		return $this->_children;
+	}
+
+	/**
+	 * Generate column expression for slug or catslug.
+	 *
+	 * @param   \JDatabaseQuery  $query  Current query instance.
+	 * @param   string           $id     Column id name.
+	 * @param   string           $alias  Column alias name.
+	 *
+	 * @return  string
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	private function getSlugColumn($query, $id, $alias)
+	{
+		return 'CASE WHEN '
+			. $query->charLength($alias, '!=', '0')
+			. ' THEN '
+			. $query->concatenate([$query->castAsChar($id), $alias], ':')
+			. ' ELSE '
+			. $query->castAsChar($id) . ' END';
+	}
+
+	/**
+	 * Increment the hit counter for the category.
+	 *
+	 * @param   integer  $pk  Optional primary key of the category to increment.
+	 *
+	 * @return  boolean  True if successful; false otherwise and internal error set.
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	public function hit($pk = 0)
+	{
+		$input = Factory::getApplication()->input;
+		$hitcount = $input->getInt('hitcount', 1);
+
+		if ($hitcount) {
+			$pk = (!empty($pk)) ? $pk : (int) $this->getState('category.id');
+
+			$table = Table::getInstance('Category');
+			$table->load($pk);
+			$table->hit($pk);
+		}
+
+		return true;
+	}
+}
+
+```
+
+<!-- prettier-ignore -->
+#### components/com\_foos/src/Service/Category.php
+
+In the `Category` service for the frontend part we set the specific options for our component.
+
+[components/com_foos/src/Service/Category.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/Service/category.php)<!-- \index{service!category} -->
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/Service/Category.php
+
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+namespace FooNamespace\Component\Foos\Site\Service;
+
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\Categories\Categories;
+
+/**
+ * Foo Component Category Tree
+ *
+ * @since  __BUMP_VERSION__
+ */
+class Category extends Categories
+{
+	/**
+	 * Class constructor
+	 *
+	 * @param   array  $options  Array of options
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	public function __construct($options = [])
+	{
+		$options['table']      = '#__foos_details';
+		$options['extension']  = 'com_foos';
+		$options['statefield'] = 'published';
+
+		parent::__construct($options);
+	}
+}
+
+```
+
+<!-- prettier-ignore -->
+#### components/com\_foos/src/View/Category/HtmlView.php
+
+We handle the category view in the frontend via the file `components/com_foos/src/View/Category/HtmlView.php`.
+
+[components/com_foos/src/View/Category/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php
+
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+namespace FooNamespace\Component\Foos\Site\View\Category;
+
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\MVC\View\CategoryView;
+use FooNamespace\Component\Foos\Site\Helper\RouteHelper;
+
+/**
+ * HTML View class for the Foos component
+ *
+ * @since  __BUMP_VERSION__
+ */
+class HtmlView extends CategoryView
+{
+	/**
+	 * @var    string  The name of the extension for the category
+	 * @since  __BUMP_VERSION__
+	 */
+	protected $extension = 'com_foos';
+
+	/**
+	 * @var    string  Default title to use for page title
+	 * @since  __BUMP_VERSION__
+	 */
+	protected $defaultPageTitle = 'COM_FOO_DEFAULT_PAGE_TITLE';
+
+	/**
+	 * @var    string  The name of the view to link individual items to
+	 * @since  __BUMP_VERSION__
+	 */
+	protected $viewName = 'foo';
+
+	/**
+	 * Run the standard Joomla plugins
+	 *
+	 * @var    boolean
+	 * @since  __BUMP_VERSION__
+	 */
+	protected $runPlugins = true;
+
+	/**
+	 * Execute and display a template script.
+	 *
+	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+	 *
+	 * @return  mixed  A string if successful, otherwise an Error object.
+	 */
+	public function display($tpl = null)
+	{
+		parent::commonCategoryDisplay();
+
+		$this->pagination->hideEmptyLimitstart = true;
+
+		foreach ($this->items as $item) {
+			$item->slug = $item->id;
+			$temp = $item->params;
+			$item->params = clone $this->params;
+			$item->params->merge($temp);
+		}
+
+		return parent::display($tpl);
+	}
+
+	/**
+	 * Prepares the document
+	 *
+	 * @return  void
+	 */
+	protected function prepareDocument()
+	{
+		parent::prepareDocument();
+
+		$menu = $this->menu;
+		$id = (int) @$menu->query['id'];
+
+		if ($menu && (!isset($menu->query['option']) || $menu->query['option'] != $this->extension || $menu->query['view'] == $this->viewName
+			|| $id != $this->category->id)) {
+			$path = [['title' => $this->category->title, 'link' => '']];
+			$category = $this->category->getParent();
+
+			while ((!isset($menu->query['option']) || $menu->query['option'] !== 'com_foos' || $menu->query['view'] === 'foo'
+				|| $id != $category->id) && $category->id > 1) {
+				$path[] = ['title' => $category->title, 'link' => RouteHelper::getCategoryRoute($category->id, $category->language)];
+				$category = $category->getParent();
+			}
+
+			$path = array_reverse($path);
+
+			foreach ($path as $item) {
+				$this->pathway->addItem($item['title'], $item['link']);
+			}
+		}
+
+		parent::addFeed();
+	}
+}
+
+```
+
+<!-- \index{slug} -->
+
+<!-- prettier-ignore -->
+#### components/com\_foos/tmpl/category/default.php
+
+That we also create a template for the category view is not new. As usual we create the file `default.php` in the directory `components/com_foos/tmpl/category`. We use `joomla.content.category_default` here. You can find this layout file in the folder `layouts/joomla/content/category_default.php`.
+
+[components/com_foos/tmpl/category/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/tmpl/category/default.php
+
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\Layout\LayoutHelper;
+?>
+
+<div class="com-foo-category">
+	<?php
+		$this->subtemplatename = 'items';
+		echo LayoutHelper::render('joomla.content.category_default', $this);
+	?>
+</div>
+
+```
+
+<!-- prettier-ignore -->
+#### components/com\_foos/tmpl/category/default.xml
+
+Um im Backend auf benutzerfreundliche Art und Weise einen Menüpunkt für die Navigation im Frontend anlegen zu können, erstellen wir die Datei `components/com_foos/tmpl/category/default.xml`. Das haben wir hier im Text vorher schon öfter erledigt. Beispielsweise für ein Element oder für die Ansicht der Haupteinträge (`featured`).
+
+[components/com_foos/tmpl/category/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default.xml)
+
+```xml {numberLines: -2}
+<!-- https://github.com/astridx/boilerplate/raw/t26/src/components/com_foos/tmpl/category/default.xml -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_FOOS_CATEGORY_VIEW_DEFAULT_TITLE">
+		<help
+			key = "JHELP_MENUS_MENU_ITEM_FOO_CATEGORY"
+		/>
+		<message>
+			<![CDATA[COM_FOOS_CATEGORY_VIEW_DEFAULT_DESC]]>
+		</message>
+	</layout>
+
+	<!-- Add fields to the request variables for the layout. -->
+	<fields name="request">
+		<fieldset
+			name="request"
+			addfieldprefix="Joomla\Component\Categories\Administrator\Field"
+			>
+			<field
+				name="id"
+				type="modal_category"
+				label="JGLOBAL_CHOOSE_CATEGORY_LABEL"
+				extension="com_foos"
+				required="true"
+				select="true"
+				new="true"
+				edit="true"
+				clear="true"
+			/>
+		</fieldset>
+	</fields>
+	<fields name="params">
+		<fieldset name="basic" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
+			<field
+				name="show_pagination"
+				type="list"
+				label="JGLOBAL_PAGINATION_LABEL"
+				useglobal="true"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+				<option value="2">JGLOBAL_AUTO</option>
+			</field>
+
+			<field
+				name="show_pagination_results"
+				type="list"
+				label="JGLOBAL_PAGINATION_RESULTS_LABEL"
+				useglobal="true"
+				class="custom-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+		</fieldset>
+	</fields>
+</metadata>
+
+```
+
+> The category views in Joomla usually have a lot of other parameters. For example, I have ignored the subcategories and filters. This keeps the example clear. Look up in the core extensions what is important to you .
+
+> If your element is not displayed, it may be because you have set the parameter `show_name` to `no` for the element.
+
+<!-- prettier-ignore -->
+#### components/com\_foos/tmpl/category/default_items.php
+
+To make the category view code clear, we work with layouts. In the template `components/com_foos/tmpl/category/default.php` we use the layout `joomla.content.category_default`. This in turn requires the `items` layout, which we implement in the file `components/com_foos/tmpl/category/default_items.php`. At first glance, this seems cumbersome. In practice, however, it has proven its worth.
+
+[components/com_foos/tmpl/category/default_items.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default_items.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/tmpl/category/default_items.php
+
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
+use Joomla\CMS\Uri\Uri;
+use FooNamespace\Component\Foos\Site\Helper\RouteHelper;
+
+HTMLHelper::_('behavior.core');
+?>
+<div class="com-foo-category__items">
+	<form action="<?php echo htmlspecialchars(Uri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
+		<?php if (empty($this->items)) : ?>
+			<p>
+				<?php echo Text::_('JGLOBAL_SELECT_NO_RESULTS_MATCH'); ?>
+			</p>
+		<?php else : ?>
+			<ul class="com-foo-category__list category">
+				<?php foreach ($this->items as $i => $item) : ?>
+					<?php if (in_array($item->access, $this->user->getAuthorisedViewLevels())) : ?>
+						<li class="row cat-list-row" >
+
+						<div class="list-title">
+							<a href="<?php echo Route::_(RouteHelper::getFooRoute($item->slug, $item->catid, $item->language)); ?>">
+							<?php echo $item->name; ?></a>
+							<?php echo $item->event->afterDisplayTitle; ?>
+
+							<?php echo $item->event->beforeDisplayContent; ?>
+						</div>
+
+						<?php echo $item->event->afterDisplayContent; ?>
+					</li>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+
+			<?php if ($this->params->get('show_pagination', 2)) : ?>
+			<div class="com-foo-category__counter">
+				<?php if ($this->params->def('show_pagination_results', 1)) : ?>
+					<p class="counter">
+						<?php echo $this->pagination->getPagesCounter(); ?>
+					</p>
+				<?php endif; ?>
+
+				<?php echo $this->pagination->getPagesLinks(); ?>
+			</div>
+			<?php endif; ?>
+	</form>
+</div>
+
+```
+
+> The view in this chapter is not styled. Since this is a matter of taste - and in my opinion a task of the template - anyway, I leave the styling to you. I am of the opinion that the layouts of the categories do not respect the separation of model, view and controller. That's why discussions like the one in [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012)[^github.com/joomla/joomla-cms/issues/32012] keep coming up. Again and again it has to be decided whether the insertion of a CSS class in the output of a component brings too much dependency and belongs only in the template - or whether only in this way a user-friendly offer is possible - where the number of intro articles can be determined in the backend via a user interface.
+
+### Modified files
+
+In this chapter we only add new files.
+
+## Test your Joomla component
+
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Install your component as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since new files have been added, this is necessary.
+
+2. Create a menu item that displays the elements of a category of our extension.
+
+![Categories in Joomla - Create Menu Item](/images/j4x31x1.png)
+
+3. switch to the frontend and make sure that the elements are displayed correctly.
+
+![Categories in Joomla - View in Frontend ](/images/j4x31x2a.png)
+
+![Categories in Joomla - View in Frontend ](/images/j4x31x2.png)
+<img src="https://vg08.met.vgwort.de/na/fab79276fbb64fe1ad8ebba5c5581848" width="1" height="1" alt="">
