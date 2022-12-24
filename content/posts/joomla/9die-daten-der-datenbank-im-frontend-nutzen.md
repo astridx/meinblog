@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Wir haben eine Datenbank, in der die Daten zur Komponente gespeichert werden. Der nächste Schritt ist, die dynamischen Inhalte im Frontend anzuzeigen. In diesem Teil zeige ich dir, wie du den Inhalt eines Elements per Menüpunkt im Frontend anzeigst. Hierzu erstellen wir ein eigenes Formularfeld.<!-- \index{Formularfeld} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t6b...t7)[^codeberg.org/astrid/j4examplecode/compare/t6b...t7] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -26,7 +36,7 @@ Wir haben eine Datenbank, in der die Daten zur Komponente gespeichert werden. De
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Field/Modal/FooField.php
+#### administrator/components/com\_foos/ src/Field/Modal/FooField.php
 
 Als erstes erstellen wir das Formularfeld, über welches es möglich ist, ein Foo-Element auszuwählen, beziehungsweise abzuwählen. Auf ein vorgefertigtes Feld können wir in diesem Fall nicht zugreifen. Im Wesentlichen implementieren wir die Methoden `getInput` und `getLabel` und wir legen Typ mit `Modal_Foo` fest. Das der Name der Klasse mit dem Wort `Field` beginnt und dass die Klasse im Verzeichnis `Field` gespeichert wird ist nicht zwingend. Es kann aber hilfreich sein, weil es in Joomla-eigenen Erweiterung Standard ist.
 
@@ -269,7 +279,7 @@ Der Name der Funktion muss an beiden Stellen gleich sein!
 > In einer früher Beispielcode-Version zum Feld `FooField` nutzen wir den Webasset Manager nicht. Die notwendigen Änderungen findest du [hier](https://github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9)[^github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9].
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/modal.php
+#### administrator/components/com\_foos/ tmpl/foos/modal.php
 
 Die Auswahl öffnen wir über das FooField in einem Modal-Fenster. Als Adresse haben wir im Feld `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'` eingefügt. Der nachfolgende Code zeigt dir das Template für dieses Modal-Fenster.
 
@@ -447,7 +457,7 @@ Es folgt der JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpunktes 
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Wir haben eine neue JavaScript-Datei erstellt. Wir legen sie im Verzeichnis `media\js` ab. Damit sie bei der Installation der Komponente kopiert wird, fügen wir den Ordner `js` in den Abschnitt `media` des Installationsmanifests ein.
 

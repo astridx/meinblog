@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu gestalten. Hierfür ist grundsätzlich das Template zuständig. Eine Komponente ist für die Ausgabe von Inhalten verantwortlich, nicht mehr und nicht weniger. Das Template sorgt für ein einheitliches Aussehen. Trotzdem gibt es Anwendungsfälle für unterschiedliche Layouts. Wie du diese für eine Ansicht einbaust, ist Thema des folgenden Artikels.<!-- \index{Layout} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t19...t20)[^codeberg.org/astrid/j4examplecode/compare/t19...t20] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -127,7 +137,7 @@ echo $this->item->event->afterDisplayContent;
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/foo.xml
+#### administrator/components/com\_foos/ forms/foo.xml
 
 Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 

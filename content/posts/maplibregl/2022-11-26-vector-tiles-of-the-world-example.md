@@ -22,7 +22,7 @@ tags:
 
 Wir haben bereits eigene selbst gehostete Vector Kacheln für einen kleinen Bereich der Erde erstellt. Dabei haben wir einen Eindruck davon bekommen, wie aufwendig es sein könnte, den ganzen Planeten Erde in Vektor Kacheln abzubilden. Hinzu kommt, dass die Informationen sich permanent ändern. Gerade bei den Details veraltern die Geodaten recht schnell. Es entstehen Neubaugebiete und Straßen ändern sich, Geschäfte und Ärzte ziehen um und sogar die Erde selbt ist nicht unveränderlich [^nationalgeographic.de/wissenschaft/2020/12/warum-der-mount-everest-waechst-und-schrumpft].
 
-Die Datei, die alle Openstreetmap-Daten enthält, beinhaltet 2022 im November 66 GB. Diese 66 GB muss man mal 12 rechnen, um auf den notwendigen Arbeitsspeicher zu kommen. 12 mal 66 GB sind 792 GB. Soviel Arbeitsspeicher haben nicht viele zur Verfügung. [^https://wheregroup.com/blog/details/tilemaker-am-limit/]
+Die Datei, die alle Openstreetmap-Daten enthält, beinhaltet 2022 im November 66 GB. Diese 66 GB muss man mal 12 rechnen, um auf den notwendigen Arbeitsspeicher zu kommen. 12 mal 66 GB sind 792 GB. Soviel Arbeitsspeicher haben nicht viele zur Verfügung. [^wheregroup.com/blog/details/tilemaker-am-limit/]
 
 ![Download OSM Planet File](/images/spannend.png)
 

@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 In diesem Teil kommt keine neue Funktionalität hinzu. Wir verbessern den bisherigen Aufbau. Eine Web-Anwendung besteht in der Regel aus
 
 - Logik,

@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Du entwickelst die Erweiterung nicht als Selbstzweck. Sie hilft bei der Erledigung von Aufgaben. Damit die Menschen, die mit der Komponente arbeiten, immer einen Überblick über die möglichen Arbeitsschritte haben, ist es sinnvoll, eine Werkzeugleiste zu haben. In diesem Teil des Tutorials werden wir die bereits vorhandene Werkzeugleiste um die Standardaktionen erweitern. Hierbei greifen wir auf eine Vielzahl von vorgefertigten Methoden zu. Auch hier gilt: Beim Standard ist es nicht notwendig, das Rad selbst zu erfinden. Bei zukünftigen speziellen Aufgaben ist es sinnvoll, den Standard als Beispiel zu verwenden.<!-- \index{Aktionen} --><!-- \index{Werzeugleiste} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t16...t17)[^codeberg.org/astrid/j4examplecode/compare/t16...t17] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -32,7 +42,7 @@ Wir ändern in diesem Kapitel lediglich Dateien, es kommt keine neue hinzu.
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foo/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foo/HtmlView.php
 
 Der nachfolgende Code zeigt dir, welche Funktionen du beim Erstellen oder Editieren eines Elementes nutzt. Die Klasse ToolbarHelper[^libraries/src/Toolbar/ToolbarHelper.php] bietet eine Menge hilfreicher Funktionen. Beispielweise
 
@@ -123,7 +133,7 @@ Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 Hier siehst du beispielhaft die Werkzeugleiste der Listenansicht - die Ansicht, die dir eine Übersicht über deine Elemente bietet. Die Prüfung von Berechtigungen ist hier ebenfalls hinzugekommen.
 

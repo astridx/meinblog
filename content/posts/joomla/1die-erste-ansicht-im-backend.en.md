@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 We'll start with the basics. For this we create the _View_ in the administration area rudimentary. At the end of this text you know how to insert a menu item in the menu of the administration area<!-- \index{menu item!backend} -->. Via the menu item you open the view to your component. Don't be disappointed: This view contains nothing more than a short text. You have a good basis for the next steps.
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t0...t1)[^codeberg.org/astrid/j4examplecode/compare/t0...t1] and copy these changes into your development version.
@@ -26,7 +36,7 @@ We'll start with the basics. For this we create the _View_ in the administration
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 `foos.xml` tells Joomla how to install our component. Just like modules and plugins, components have an XML installation<!-- \index{installation manifest} --> file that informs Joomla about the extension to be installed. This file is called a manifest and contains details such as
 
@@ -180,7 +190,7 @@ Finally, we close the `</extension>` tag. Here is the complete code:
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ script.php
+#### administrator/components/com\_foos/script.php
 
 With the installation script<!-- \index{installation script} --> file you call code
 
@@ -373,7 +383,7 @@ The `postflight` function is called after the component has been installed, disc
 > Do you want to know exactly when which method is called? Then have a look at the file `/libraries/src/Installer/InstallerAdapter.php`. The commands `$this->triggerManifestScript('');` will start the execution of the related method. For example, the `postflight` function is triggered via `$this->triggerManifestScript('postflight');`. See [Potential backward compatibility issues in Joomla 4](https://docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries)[^docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries].
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ services/provider.php
+#### administrator/components/com\_foos/ services/provider.php
 
 `provider.php` is used to implement the component services. Via an interface, the component class defines which services it provides. A dependency injection container or DI container is used for this. To register, `ComponentDispatcherFactory` and `MVCFactory` are mandatory for each component. Registering `CategoryFactory` is at this place optional, we need `CategoryFactory` when we integrate categories later. Using `provider.php` it is possible to introduce new services without breaking backwards compatibility (BC). If you are not familiar with the concept of DI Container but would like to learn more, you can find explanations and some examples in the following links:<!-- \index{DI Container} -->
 
@@ -449,7 +459,7 @@ return new class implements ServiceProviderInterface
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Controller/DisplayController.php
+#### administrator/components/com\_foos/ src/Controller/DisplayController.php
 
 The file `DisplayController.php`<!-- \index{DisplayController (Backend)} --> is the entry point for the Model View Controller part in the administration area of the Foo component. Name the class _DisplayController_. Joomla expects it like this. Extend _BaseController_ to use many things out-of-the-box.
 
@@ -549,7 +559,7 @@ class DisplayController extends BaseController
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
 `FoosComponent.php` is the code for booting the extension. It is the first file that is called when Joomla loads the component. Boot' is the function to set up the environment of the extension, such as registering new classes. For more information, see the pull request [github.com/joomla/joomla-cms/pull/20217](https://github.com/joomla/joomla-cms/pull/20217). In the following we will expand the file `FoosComponent.php`.
 
@@ -611,7 +621,7 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Service/HTML/AdministratorService.php
+#### administrator/components/com\_foos/ src/Service/HTML/AdministratorService.php
 
 Although we are developing the code for a minimal component, some administrator files are needed. The file `AdministratorService.php` will be used later to add functions like multilingualism or main entries/featured. At the moment we do not need these functions. But we are already preparing everything here.
 
@@ -645,7 +655,7 @@ class AdministratorService
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 The view `administrator/components/com_foos/src/View/Foos/HtmlView.php` defines objects (toolbar, title) and calls the model (data). At the moment our component has a primitive view. Only a static text is shown. This will change soon! There are several files that work together to generate the view in the frontend. For example, the controller that calls the view is involved. We created the controller earlier in the current chapter. Later, we will add the model, which prepares the data.
 
@@ -698,7 +708,7 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 The file `default.php` is the template for rendering the view. You can further identify them by the directory name `tmpl`. In it is the text that we display. At the moment we are putting all the effort into the output of the text "Hello Foos".
 

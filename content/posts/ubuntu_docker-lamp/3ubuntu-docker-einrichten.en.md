@@ -18,13 +18,22 @@ tags:
   - Docker
 ---
 
+
+
+
+
+
+
+
+
+
 [Docker](https://en.wikipedia.org/wiki/Docker_(software))[^en.wikipedia.org/wiki/Docker_(software)] simplifies the management of application processes. The free software is like virtual machines, but containers are more portable, resource-efficient and dependent on the host operating system. I install [Docker](https://docs.docker.com/get-docker/)[^docs.docker.com/get-docker] on Ubuntu 22.04 and publish my own Docker image.
 
 ## Prerequisites
 
 After installing the desktop image of [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) I have a _non-root superuser accounto_ and can directly start installing Docker.
 
-## Installing Docker
+## Installing Docker<!-- \index{Docker! Installation} -->
 
 To make sure I get the latest version, I install Docker from the official Docker repository.
 

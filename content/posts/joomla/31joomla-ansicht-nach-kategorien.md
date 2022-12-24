@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Warum Kategorien verwenden? Oft werden Kategorien eingesetzt, wenn es viele Beiträge auf einer Site gibt. Mithilfe von Kategorien können diese einfacher gruppiert und verwaltet werden. Beispiel: In der Beitragsverwaltung können die Beiträge nach Kategorien gefiltert werden. Wenn es 200 Beiträge auf der Site gibt, ist es einfach, einen Beitrag zu finden, wenn man seine Kategorie kennt.<!-- \index{Kategorien!Frontend} -->
 
 Für das Frontend gibt es in Joomla eingebaute Menüpunkttypen, die Kategorien verwenden: Kategorie Blog und Kategorie Liste. Die Menüeintragstypen oder Layouts vereinfachen die Anzeige der Beiträge in einer Kategorie. Wenn ein neuer Beitrag der Kategorie zugewiesen wird, erscheint er automatisch auf der Seite. Diese Anzeige ist konfigurierbar. Beispiel: Stelle dir ein Blog-Layout der Kategorie `Events` vor, welches die neuesten Beiträge als erstes auf der Website anzeigt. Wenn ein neuer Beitrag zu dieser Kategorie hinzugefügt wird, erscheint dieser automatisch ganz oben im Blog Events. Alles, was du tun musst ist, den Beitrag zur Kategorie hinzuzufügen. Die Kategorie-Struktur, beispielsweise `Events | Onlineveranstaltungen | Sport | Yoga`, ist völlig unabhängig von der Menüstruktur der Site. Die Site kann eine oder sechs Menüebenen haben und `Yoga` kann als Menüpunkt in der ersten Ebene eingeordnet werden.

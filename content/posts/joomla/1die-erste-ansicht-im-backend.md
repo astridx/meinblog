@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Wir fangen mit den Grundlagen an. Dazu erstellen wir die _View_ im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt<!-- \index{Menüpunkt!Backend} --> im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen statischen Text. Du hast eine Grundlage für die weiteren Schritte.
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t0...t1)[^codeberg.org/astrid/j4examplecode/compare/t0...t1] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -26,7 +36,7 @@ Wir fangen mit den Grundlagen an. Dazu erstellen wir die _View_ im Administratio
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Die Datei `foos.xml` teilt Joomla mit, wie unsere Komponente installiert wird. Genau wie Module und Plugins verfügen Komponenten über eine XML-Installationsdatei<!-- \index{Installationsmanifest} -->, die Joomla über die zu installierende Erweiterung informiert. Diese Datei wird als Manifest bezeichnet und enthält Details wie
 
@@ -180,7 +190,7 @@ Zuletzt schließen wir das `</extension>`-Tag. Hier der vollständige Code:
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ script.php
+#### administrator/components/com\_foos/script.php
 
 Mit der Installationsskriptdatei<!-- \index{Installationsskript} --> rufst du Code auf
 
@@ -373,7 +383,7 @@ Die `postflight`-Funktion wird aufgerufen, nachdem die Komponente installiert, d
 > Möchtest du ganz genau wissen, wann welche Methode aufgerufen wird? Dann sieh dir die Datei `/libraries/src/Installer/InstallerAdapter.php` an. Die Befehle `$this->triggerManifestScript('');` starten die Ausführung der entsprechenden Methode. Die `postflight`-Funktion wird beispielsweise via `$this->triggerManifestScript('postflight');` getriggert.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ services/provider.php
+#### administrator/components/com\_foos/ services/provider.php
 
 `provider.php` wird zum Implementieren der Komponentendienste verwendet. Über eine Schnittstelle definiert die Komponentenklasse, welche Dienste sie bereitstellt. Hierzu wird ein Abhängigkeitsinjektionscontainer oder DI-Container verwendet. Zum Registrieren sind `ComponentDispatcherFactory` und `MVCFactory` für jede Komponente obligatorisch. Die Registrierung von `CategoryFactory` ist an dieser Stelle optional, wir benötigen die `CategoryFactory`, wenn wir später Kategorien integrieren. Mithilfe von `provider.php` ist es möglich, neue Dienste ohne Unterbrechung der Abwärtskompatibilität (Backwards compatibility BC) einzuführen. Wenn du mit dem Konzept der DI Container nicht vertraut bist aber gerne mehr erfahren möchtest, findest du unter folgenden Links Erklärungen und einige Beispiele:<!-- \index{DI Container} -->
 
@@ -449,7 +459,7 @@ return new class implements ServiceProviderInterface
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Controller/DisplayController.php
+#### administrator/components/com\_foos/ src/Controller/DisplayController.php
 
 Die Datei `DisplayController.php`<!-- \index{DisplayController (Backend)} --> ist der Einstiegspunkt für den Model-View-Controller-Teil des Administrationsbereichs der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen.
 
@@ -549,7 +559,7 @@ class DisplayController extends BaseController
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
 `FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du im Pull Request [github.com/joomla/joomla-cms/pull/20217](https://github.com/joomla/joomla-cms/pull/20217). Im weiteren Verlauf werden wir die Datei `FoosComponent.php` erweitern.
 
@@ -611,7 +621,7 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Service/HTML/AdministratorService.php
+#### administrator/components/com\_foos/ src/Service/HTML/AdministratorService.php
 
 Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Dateien für die Administration benötigt. Die Datei `AdministratorService.php` wird später verwendet, um Funktionen wie die Mehrsprachigkeit oder Haupteinträge/Featured hinzuzufügen. Im Moment brauchen wir diese Funktionen nicht. Aber wir bereiten hier schon alles vor.
 
@@ -645,7 +655,7 @@ class AdministratorService
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 Die Ansicht `administrator/components/com_foos/src/View/Foos/HtmlView.php` definiert Objekte (Symbolleiste, Titel) und ruft das Modell (Daten) auf. Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird lediglich ein statischer Text angezeigt. Dies ändert sich bald! Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beteiligt ist beispielsweise der Controller, der die Ansicht aufruft. Den Controller erstellten wir im aktuellen Kapitel weiter vorne. In einem späteren Kapitel kommt das Modell hinzu, welches die Daten vorbereitet.
 
@@ -698,7 +708,7 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 Die Datei `default.php` ist das Template zum Rendern der Ansicht. Man erkennt diese weiterhin am Verzeichnisnamen `tmpl`. In ihr befindet sich der Text, den wir anzeigen. Im Moment betreiben wir den ganze Aufwand für die Ausgabe des Textes "Hello Foos".
 

@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Über [Parameter](<https://de.wikipedia.org/wiki/Parameter_(Informatik)>) ist das Joomla-Modul für Endbenutzer flexibel anpassbar. Parameter sind Übergabewerte, mit deren Hilfe Joomla auf die Verarbeitung bestimmter Werte eingestellt wird. Anders ausgedrückt sind Parameter extern gesetzte Einflussfaktoren. Sie werden verwendet, um dem Modul von außen mitzuteilen, welche Daten wie verarbeitet werden sollen.<!-- \index{Modul!Parameter} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t32...t33)[^codeberg.org/astrid/j4examplecode/compare/t32...t33] an und übernimm diese Änderungen in deine Entwicklungsversion.

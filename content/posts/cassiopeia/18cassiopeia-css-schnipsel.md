@@ -1,7 +1,7 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/buecher/joomla-4-cassipeia-anwenden'
 syndication:
 shortTitle: 'short'
 date: 2022-03-02

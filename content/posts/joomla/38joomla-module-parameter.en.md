@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Via [Parameter](<https://en.wikipedia.org/wiki/Parameter_(computer_programming)>), the Joomla module can be flexibly adapted for end users. Parameters are variables through which Joomla is set to process certain values. In other words, parameters are influencing factors set externally to the programme. They are used to tell the module externally which data should be processed and how.<!-- \index{module!parameter} -->
 
 > For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t32...t33)[^codeberg.org/astrid/j4examplecode/compare/t32...t33] and copy these changes into your development version.

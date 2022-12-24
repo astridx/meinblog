@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 In this chapter we will change the output of the extensions in the frontend. In Joomla this is done using
 
 - overrides,

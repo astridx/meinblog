@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 After you have a working backend for your component, you implement the frontend. Currently, with the extension it is possible to display a static text. We don't have dynamic data yet. This will change soon. First, however, we build the rough structure.
 
 > For impatient people: Look at the changed program code in the [diff view](https://codeberg.org/astrid/j4examplecode/compare/t1...t2)[^codeberg.org/astrid/j4examplecode/compare/t1...t2] and copy these changes into your development version.
@@ -181,7 +191,7 @@ Hello Foos
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Administrator/components/com_foos/foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories `src` and `tmpl` exist and where to copy them to. The copy destination is the directory `components/com_foos` because of `folder="components/com_foos"`.
 

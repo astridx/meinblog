@@ -19,13 +19,21 @@ tags:
   - Docker Compose
 ---
 
+
+
+
+
+
+
+
+
 Docker erleichtert die Konfiguration von Software mithilfe von Containern. Docker Compose vereinfacht die Arbeite mit mehreren Containern. Ich installiere [Docker Compose](https://docs.docker.com/compose/) unter Ubuntu 22.04.
 
 ## Voraussetzungen
 
 Nach der Installation des Desktop Images von [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) verfüge ich über ein _non-root-Superuser-Konto_ und kann direkt mit der Installation von _Docker Compose_ beginnen.
 
-## Installieren von Docker Compose
+## Installieren von Docker Compose<!-- \index{Docker Compose! Installation} -->
 
 Mit dem folgenden Befehl lädst du die Version `v2.12.2` herunter und speicherst die ausführbare Datei unter `/usr/local/bin/docker-compose`. So ist diese global als `docker compose` erreichbar. Die neueste **Docker Compose** Version findest du auf der [Seite](https://github.com/docker/compose/releases):
 

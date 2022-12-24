@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Are there things you plan to offer configurable? Then this part is important for you. Here I show you how to add a configuration to your component in the Joomla typical way. We create the global configuration for our component!<!-- \index{configuration (global)} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t8...t9)[^codeberg.org/astrid/j4examplecode/compare/t8...t9] and copy these changes into your development version.
@@ -26,7 +36,7 @@ Are there things you plan to offer configurable? Then this part is important for
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ config.xml
+#### administrator/components/com\_foos/ config.xml
 
 We add the `config.xml` file. This implements the configuration parameters. In this XML file you can use all [standard form field types](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] as usual or implement your own types analogous to the already created modal field FieldFoo.
 
@@ -61,7 +71,7 @@ We use a selection field of type `type="list"`. We minimise the translation work
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 The addition in the `foos.xml` file ensures that the `config.xml` file is copied during installation and Joomla can thus access it later.
 
@@ -79,7 +89,7 @@ The addition in the `foos.xml` file ensures that the `config.xml` file is copied
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 The line `$toolbar->preferences('com_foos');` ensures that the button `Options' is inserted at the top of the administration area. This way, the configuration is easily accessible later in the backend.
 

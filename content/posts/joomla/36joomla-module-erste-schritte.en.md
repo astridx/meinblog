@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 We create a module.H This is an add-on that extends the display of the actual content. It is used when a content is not the main content and is displayed in different positions. Besides, it is possible to select the menu items under which the module is visible.<!-- \index{module} -->
 
 In Joomla, there are a variety of modules that I use as a guide. For example:

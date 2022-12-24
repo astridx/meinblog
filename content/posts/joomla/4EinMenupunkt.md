@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. Später ist eine Umwandlung in [suchmaschinenfreundliche (SEF) URLs](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/de>)[^docs.joomla.org/enabling_search_engine_friendly_(sef)_urls/de] automatisch möglich. Zur Erinnerung: Aktiviere diese Funktion bitte noch nicht. Diese Beispielerweiterung unterstützt SEF noch nicht. Das Joomla-konforme Routing ergänzen wir später.<!-- \index{Menüpunkt!Frontend} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t2...t3)[^codeberg.org/astrid/j4examplecode/compare/t2...t3] an und übernimm diese Änderungen in deine Entwicklungsversion.

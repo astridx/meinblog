@@ -17,6 +17,16 @@ tags:
   - Ubuntu
 ---
 
+
+
+
+
+
+
+
+
+
+
 ## docker-lamp
 
 Ich habe Ubuntu 22.04 installiert und dokumentiere hier meine Installation.

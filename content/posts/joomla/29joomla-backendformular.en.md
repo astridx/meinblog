@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 The administration area has filled up. I have inserted the individual parameters without structure so far. It is user-friendly if the views in an application are uniform. That way, everyone can quickly find their way around. It is not necessary to familiarise oneself with every new extension. In this part of the tutorial we will tidy up the view in the administration area. Our aim is to adapt the display to the standard views in the content management system. As in the following picture, your backend looks tidy and 'Joomla-like'.<!-- \index{backend form} -->
 
 ![Joomla Ansicht im Backend](/images/j4x29x1.png)
@@ -32,7 +42,7 @@ Nothing new
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com\_foos/ tmpl/foo/edit.php
 
 We replace the previously rudimentary form fields. The result is a view that resembles the normal Joomla extensions.
 

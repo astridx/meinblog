@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 If you are new to Joomla, please read [_Absolute basics of how a component works_](https://docs.joomla.org/Absolute_Basics_of_How_a_Component_Functions)[^docs.joomla.org/Absolute_Basics_of_How_a_Component_Functions].
 
 This tutorial is intended for Joomla 4. For information on creating a component for Joomla 3, see [Developing a Model View Controller Component / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component)[^docs.joomla.org/J3.x:Developing_an_MVC_Component].

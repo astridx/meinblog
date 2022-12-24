@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 A [favicon](https://de.wikipedia.org/wiki/Favicon) is a small icon used to identify a website in a recognizable way. It appears in different ways on different devices. Most often, you see it as an icon in your favorites when you save the website here to visit it again more quickly. Almost always the tabs in the browser are marked with the icon.<!-- \index{template!favicon} -->
 
 > The size and type of the favicon is expected to be different on different devices. I use the website [realfavicongenerator.net](https://realfavicongenerator.net/) to create the optimal format of my image for the individual devices. I consider this tool to be tried and tested and the easiest to use. However, there is an alternative newer approach that is used by the Joomla standard template Cassiopeia. If you prefer to use the modern SVG format with an ICO file as a fallback layer, you will find a solution that suits you better under [Favicon in Joomla template](https://blog.astrid-guenther.de/en/cassiopeia-favicon).

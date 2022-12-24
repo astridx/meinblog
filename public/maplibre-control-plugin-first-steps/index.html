@@ -118,10 +118,10 @@
 <p>Maplibre GL JS beinhalte von Hause aus vier Standardsteuerelementen:</p>
 <ul>
 <li><a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#navigationcontrol">Navigation</a>[^maplibre.org/maplibre-gl-js-docs/api/markers/#navigationcontrol]: Schaltflächen zum Zoomen und Drehen der Karte</li>
-<li><a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#geolocatecontrol">Geolocation</a>[^<a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#geolocatecontrol%5D">https://maplibre.org/maplibre-gl-js-docs/api/markers/#geolocatecontrol]</a>: eine Schaltfläche, um die Position des Benutzers zu ermitteln</li>
-<li><a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#scalecontrol">Maßstab</a>[^<a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#scalecontrol%5D">https://maplibre.org/maplibre-gl-js-docs/api/markers/#scalecontrol]</a>: eine Anzeige für den Pixel-zu-Meter-Maßstab</li>
-<li><a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#attributioncontrol">Attribution</a>[^<a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#attributioncontrol%5D">https://maplibre.org/maplibre-gl-js-docs/api/markers/#attributioncontrol]</a>: eine Anzeige für Copyright- und Vertragsinformationen</li>
-<li><a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#fullscreencontrol">Fullscreen</a>[^<a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#fullscreencontrol%5D">https://maplibre.org/maplibre-gl-js-docs/api/markers/#fullscreencontrol]</a>: Schaltfläche zum Öffnen der Fullscreenansicht</li>
+<li><a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#geolocatecontrol">Geolocation</a>[^maplibre.org/maplibre-gl-js-docs/api/markers/#geolocatecontrol]: eine Schaltfläche, um die Position des Benutzers zu ermitteln</li>
+<li><a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#scalecontrol">Maßstab</a>[^maplibre.org/maplibre-gl-js-docs/api/markers/#scalecontrol]: eine Anzeige für den Pixel-zu-Meter-Maßstab</li>
+<li><a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#attributioncontrol">Attribution</a>[^maplibre.org/maplibre-gl-js-docs/api/markers/#attributioncontrol]: eine Anzeige für Copyright- und Vertragsinformationen</li>
+<li><a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#fullscreencontrol">Fullscreen</a>[^maplibre.org/maplibre-gl-js-docs/api/markers/#fullscreencontrol]: Schaltfläche zum Öffnen der Fullscreenansicht</li>
 </ul>
 <p>Dies sind gute Beispiele dafür, was Steuerelemente tun: Sie manipulieren die Karte oder fügen Informationen hinzu.</p>
 <pre class="grvsc-container default-dark" data-language="" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;!DOCTYPE html&gt;</span></span>
@@ -327,7 +327,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">…</span></span></span></code></pre>
 <p>Wenn alles fertig ist, geben Sie das DOM-Element mit return controlElement zurück.</p>
-<p>MapLibre erwartet eine weitere Methode. Diese heißt <code class="language-text">onRemove</code>. <code class="language-text">onRemove</code> wird - wie der Name schon sagt - aufgerufen, wenn das Steuerelement von der <a href="https://maplibre.org/maplibre-gl-js-docs/api/map/#map#removecontrol">Karte entfernt</a>[^<a href="https://maplibre.org/maplibre-gl-js-docs/api/map/#map#removecontrol%5D">https://maplibre.org/maplibre-gl-js-docs/api/map/#map#removecontrol]</a> wird.</p>
+<p>MapLibre erwartet eine weitere Methode. Diese heißt <code class="language-text">onRemove</code>. <code class="language-text">onRemove</code> wird - wie der Name schon sagt - aufgerufen, wenn das Steuerelement von der <a href="https://maplibre.org/maplibre-gl-js-docs/api/map/#map#removecontrol">Karte entfernt</a>[^maplibre.org/maplibre-gl-js-docs/api/map/#map#removecontrol] wird.</p>
 <pre class="grvsc-container default-dark" data-language="js" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk12">map</span><span class="mtk1">.</span><span class="mtk11">removeControl</span><span class="mtk1">(</span><span class="mtk12">Steuerelement</span><span class="mtk1">)</span></span></span></code></pre>
 <p>Die <code class="language-text">onRemove</code>-Methode ist der Ort, an dem aufgeräumt wird. Entferne hier die DOM-Elemente und Ereignis-Listener.</p>
 <pre class="grvsc-container default-dark" data-language="js" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">…</span></span></span>

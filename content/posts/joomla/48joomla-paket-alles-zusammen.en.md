@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 We have created a lot of different extensions. It is annoying to do a separate installation for each one. This is not reasonable for a user. Moreover, some of these extensions build on each other and it is important to make sure that everything is installed and nothing has been forgotten. Therefore, in this concluding chapter I show how different extensions are packed together into one installation package.<!-- \index{package} -->
 
 > For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t41...t42)[^codeberg.org/astrid/j4examplecode/compare/t41...t42] and apply these changes to your development version.

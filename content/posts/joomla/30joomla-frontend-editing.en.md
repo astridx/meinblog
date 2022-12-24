@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 There are several reasons for allowing a user to edit in the frontend. For one thing, users feel that working directly on the website is more user-friendly than logging into the backend. Or, it is important for an administrator not to release access to the administration area. Therefore, in the next step, we equip our component with the possibility to edit items in the frontend.<!-- \index{frontend editing} -->
 
 > For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t24b...t25)[^codeberg.org/astrid/j4examplecode/compare/t24b...t25] and copy these changes into your development version.
@@ -26,7 +36,7 @@ There are several reasons for allowing a user to edit in the frontend. For one t
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Service/HTML/Icon.php
+#### administrator/components/com\_foos/ src/Service/HTML/Icon.php
 
 The following file contains all the information needed to display an icon used to open the edit in the frontend - provided the viewer is allowed to edit.
 
@@ -1142,7 +1152,7 @@ Last but not least we need the file `components/com_foos/tmpl/form/edit.xml` to 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
 In the file `administrator/components/com_foos/src/Extension/FoosComponent.php` we register the icon. In other words, we make the icon known to Joomla.
 

@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Suchmaschinenfreundliche URLs funktionieren bisher nicht. Die URL zu den Elementen der Komponente erscheint in der Form `JOOMLA/category?view=category&id=8`. Anhand eines Services reparieren wir diesen Missstand. Gleichzeitig ist dies ein gutes Beispiel, um herauszuarbeiten, was notwendig ist, um einen Service in einer Joomla Erweiterung zu integrieren.<!-- \index{Service} --><!-- \index{Routing} -->
 
 _Suchmaschinenfreundlich (SEF)_, [menschlich lesbare](https://de.wikipedia.org/wiki/Clean_URL)[^de.wikipedia.org/wiki/Clean_URL] sind URLs, die sowohl für Menschen als auch für Suchmaschinen Sinn machen, weil sie den Pfad zu der bestimmten Seite erklären. Joomla ist in der Lage, URLs in jedem Format zu erstellen. Dies hängt nicht vom URL-Rewriting ab, das vom Webserver ausgeführt wird, so dass es auch dann funktioniert, wenn Joomla einen anderen Server als Apache mit dem Modul mod_rewrite verwendet. Die SEF-URLs folgen einem bestimmten festen Muster, aber der Benutzer kann einen kurzen beschreibenden Text [Alias](https://docs.joomla.org/Alias/de)[^docs.joomla.org/Alias/de] für jedes Segment der URL definieren.<!-- \index{Suchmaschinenfreundlich (SEF)} --><!-- \index{Service!Suchmaschinenfreundlich (SEF)} -->
@@ -333,7 +343,7 @@ class Router extends RouterView
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ services/provider.php
+#### administrator/components/com\_foos/ services/provider.php
 
 Im Service Provider registrieren wir den Service.
 
@@ -370,7 +380,7 @@ Im Service Provider registrieren wir den Service.
 Die Zeilen `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Component\\Foos'))` und `$component->setRouterFactory ($container->get(RouterFactoryInterface::class))` kommen hinzu.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
 Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien zur Verfügung stehen.
 

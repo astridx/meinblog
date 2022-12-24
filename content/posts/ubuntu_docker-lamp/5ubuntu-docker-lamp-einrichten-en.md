@@ -19,6 +19,14 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
 As a reminder, _Docker_ simplifies the management of software in containers. _Docker Compose_ is a tool that simplifies working with multiple containers.
 
 This is about _docker-lamp_. A software that provides pre-built images, containers and scripts to help you develop in a [LAMP environment](<https://en.wikipedia.org/w/index.php?title=LAMP_(software_bundle)&oldid=1015344121>). In this part, I set up the environment.
@@ -85,7 +93,7 @@ docker images -a
 docker ps -a
 ```
 
-### clone docker-lamp repository from Github
+### clone docker-lamp repository from Github<!-- \index{docker-lamp! Installation} -->
 
 Now I clone the `docker-lamp` Github repository to a directory of choice.
 

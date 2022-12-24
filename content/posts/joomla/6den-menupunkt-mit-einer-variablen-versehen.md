@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell gestaltest. Hierzu benötigst du eine Variable. In diesem Teil des Tutorials fügen wir eine Textvariable zum Menüpunkt hinzu und nutzen diese für die Anzeige im Frontend.<!-- \index{Parameter} --><!-- \index{Variable} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t4...t5)[^codeberg.org/astrid/j4examplecode/compare/t4...t5] an und übernimm diese Änderungen in deine Entwicklungsversion.

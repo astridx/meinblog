@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statischen Text. Du zeigst hier Daten an, die dynamisch sind. So arbeiten zumindest die meisten Erweiterungen. Deshalb legen wir in diesem Teil eine Datenbank für deine Komponente an. In der Datenbank speichern wir bei der Einrichtung drei Datensätze und zeigen diese im Administrationsbereich an. Am Ende wird eine statische Liste ausgegeben. Änderbar sind die einzelnen Einträge über das Backend bisher nicht. Daran arbeiten wir im nächsten Teil.
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t5...t6)[^codeberg.org/astrid/j4examplecode/compare/t5...t6] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -26,7 +36,7 @@ Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statisch
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
 
 Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle<!-- \index{Datenbank} --> enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen der Datei später im Manifest ein.
 
@@ -55,7 +65,7 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 > Lies im Vorwort dieses Tutorials, was genau das Präfix `#__` bedeutet, falls dir dieses unbekannt ist.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/uninstall.mysql.utf8.sql
+#### administrator/components/com\_foos/ sql/uninstall.mysql.utf8.sql
 
 Damit Joomla im Falle einer Deinstallation keine unnötigen Daten enthält, erstellen wir eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet. Diese wird beim Deinstallieren automatisch ausgeführt.
 
@@ -70,7 +80,7 @@ DROP TABLE IF EXISTS `#__foos_details`;
 > Vielleicht denkst du weiter und fragst dich schon jetzt, wie du potentielle zukünftige Datenbankänderungen handhabst. Was ist notwendig, um in einer späteren Version neben dem Namen auch den Vornamen zu speichern. SQL-Updates sind in Joomla namensbasiert. Genau bedeutet das: Für jede Version der Komponente ist eine Datei anzulegen, deren Name aus der Versionsnummer und der Dateiendung `.sql` besteht, falls sich Datenbankinhalte ändern. Praktisch wirst du dies im weiteren Verlauf dieses Tutorials erleben.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com\_foos/ src/Model/FoosModel.php
 
 Als nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns selbst um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an. Spezifisch sind beispielsweise die Namen der Datenbanktabelle und der Spalten.
 
@@ -146,7 +156,7 @@ class FoosModel extends ListModel
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Der mit Pluszeichen markierte Eintrag im Installationsmanifest bewirkt, dass die SQL-Statements in den genannten Dateien zum passenden Zeitpunkt aufgerufen werden, nämlich während einer Installation oder während einer Deinstallation.
 
@@ -204,7 +214,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ services/provider.php
+#### administrator/components/com\_foos/ services/provider.php
 
 Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu setzten, jetzt ist es erforderlich. Andernfalls siehst du die folgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{Service!Provider} -->
 
@@ -229,7 +239,7 @@ Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu s
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 In der View sammeln wir am Ende alle Elemente. Hierzu rufen wir die Methode `$this->get('Items')` des Models auf:
 
@@ -256,7 +266,7 @@ In der View sammeln wir am Ende alle Elemente. Hierzu rufen wir die Methode `$th
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife, die alle Elemente durchläuft.
 

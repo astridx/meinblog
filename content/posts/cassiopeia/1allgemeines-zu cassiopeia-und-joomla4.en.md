@@ -1,7 +1,7 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'en/eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication:
 shortTitle: 'short'
 date: 2021-03-03
@@ -18,13 +18,22 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 Joomla is an open source content management system, CMS for short, for creating websites. Joomla 4 refers to any version of the 4.x.x series.
 
-A Joomla website requires a certain environment. A server must meet the [minimum requirements](https://downloads.joomla.org/technical-requirements)[^https://downloads.joomla.org/technical-requirements]<!-- \index{installation!minimum requirements} --> for a Joomla installation. In particular, look for supported MySQL or PostgreSQL database versions, PHP version and supported web servers. It is also important that your hosting account has access to the database, as well as access to the file system to upload and unpack the Joomla installation files.
+A Joomla website requires a certain environment. A server must meet the [minimum requirements](https://downloads.joomla.org/technical-requirements)[^downloads.joomla.org/technical-requirements]<!-- \index{installation!minimum requirements} --> for a Joomla installation. In particular, look for supported MySQL or PostgreSQL database versions, PHP version and supported web servers. It is also important that your hosting account has access to the database, as well as access to the file system to upload and unpack the Joomla installation files.
 
 Joomla can also be installed on a local computer <!-- \index{installation!local} --> as long as it has the necessary requirements. For beginners, I recommend an easy-to-install distribution that contains Apache, MariaDB and PHP. For this purpose, [WAMP](https://www.wampserver.com/en/)[^wampserver.com/en/], [LAMP](<https://en.wikipedia.org/wiki/LAMP_(software_bundle)>)[^en.wikipedia.org/wiki/lamp_(software_bundle)] or [XAMP](https://www.apachefriends.org/index.html)[^apachefriends.org/index.html] come into question. A local installation is often used to learn the Joomla system and to develop new sites before they go live on the web.
 
-## Cassiopeia
+## Cassiopeia<!-- \index{Cassiopeia!General information} -->
 
 Joomla 4 comes with a frontend template and an administrator template. The frontend template defines what the visitor sees. The administrator template works in the backend, the place where administrators create content, change settings, manage users, upload extensions for additional functions.
 

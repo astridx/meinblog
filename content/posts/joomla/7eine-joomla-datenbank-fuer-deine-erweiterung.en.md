@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Your view in the administration area usually does not contain only static text. You display data here that is dynamic. At least that's how most extensions work. That's why in this part we create a database for your component. In the database, we store three records during setup and display them in the administration area. A static list is displayed. The single entries are not changeable via the backend. We will work on that in the next part.
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t5...t6)[^codeberg.org/astrid/j4examplecode/compare/t5...t6] and copy these changes into your development version.
@@ -26,7 +36,7 @@ Your view in the administration area usually does not contain only static text. 
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
 
 We create a file that contains SQL statements for creating the database table<!-- \index{database} -->. So that these statements are called, we add the name of the file later in the manifest.
 
@@ -55,7 +65,7 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 > Read in the preface of this tutorial what exactly the prefix `#__` means, if you are unfamiliar with it.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/uninstall.mysql.utf8.sql
+#### administrator/components/com\_foos/ sql/uninstall.mysql.utf8.sql
 
 So that Joomla does not contain unnecessary data in case of uninstallation, we simultaneously create a file that contains the SQL command to delete the database table. This automatically executed when uninstalling.
 
@@ -70,7 +80,7 @@ DROP TABLE IF EXISTS `#__foos_details`;
 > You might think ahead and ask yourself already how to handle potential future database changes. What is needed to store the first name in addition to the name in a future version. SQL updates are name-based in Joomla. This means exactly: For each version of the component you have to create a file whose name consists of the version number and the file extension `.sql` in case database contents change. Practically you will experience this in the further course of this tutorial.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com\_foos/ src/Model/FoosModel.php
 
 Next, we create a _Model_ for the administration area. Since we are extending the `ListModel` class, we do not need to take care of the connection to the database ourselves. We create the `getListQuery()` method and specify our specific requirements here. Specific are for example the name of the database table and the column.
 
@@ -146,7 +156,7 @@ class FoosModel extends ListModel
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 The entry in the installation manifest marked with a plus sign causes the SQL statements in the named files to be called at the right moment, either during an installation or during an uninstallation..
 
@@ -204,7 +214,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ services/provider.php
+#### administrator/components/com\_foos/ services/provider.php
 
 Previously it was not necessary to set the `MVC factory` in `provider.php`, now it is required. Otherwise you will see the following error message or you will be forced to program the connection to the database yourself: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{service!provider} -->
 
@@ -229,7 +239,7 @@ Previously it was not necessary to set the `MVC factory` in `provider.php`, now 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 In the view we get all the items at the end. For this we call the method `$this->get('Items')` in the model:
 
@@ -256,7 +266,7 @@ In the view we get all the items at the end. For this we call the method `$this-
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 Last but not least, we display everything using the template file. Instead of the static text `Hello Foos` there is now a loop that goes through all elements.
 

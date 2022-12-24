@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Filtering, sorting and searching - now we organize the Joomla 4 component! Joomla offers view filters and search tools with which you can limit the number of visible items. If the status filter is set accordingly, only items whose status is published will be displayed. Beside the status filter the search tools offer the search by title or content and the possibility to sort the table, i.e. to change the order.<!-- \index{filtering} --><!-- \index{sorting} --><!-- \index{searching} -->
 
 > For impatient people: Look at the changed program code in the [Diff view](https://codeberg.org/astrid/j4examplecode/compare/t15a...t16)[^codeberg.org/astrid/j4examplecode/compare/t15a...t16] and take over these changes into your development version.
@@ -26,7 +36,7 @@ Filtering, sorting and searching - now we organize the Joomla 4 component! Jooml
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/filter_foos.xml
+#### administrator/components/com\_foos/ forms/filter_foos.xml
 
 First, we create the form through which the filters will be set.
 
@@ -145,7 +155,7 @@ First, we create the form through which the filters will be set.
 > `featured` is included here as a filter field for the sake of completeness, although we do not support this in the extension yet.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/updates/mysql/16.0.0.sql
+#### administrator/components/com\_foos/ sql/updates/mysql/16.0.0.sql
 
 In case of an update of your component, the file `16.0.0.sql` adds a column to store the sequence.
 
@@ -161,7 +171,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/foo.xml
+#### administrator/components/com\_foos/ forms/foo.xml
 
 The form used to create or modify an element is extended with a field for specifying the order.
 
@@ -184,7 +194,7 @@ The form used to create or modify an element is extended with a field for specif
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
 
 In case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the order.
 
@@ -201,7 +211,7 @@ In case of a new installation, the script in the file `install.mysql.utf8.sql` c
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com\_foos/ src/Model/FoosModel.php
 
 There are a lot of changes in the model for the list. In the constructor we first save the filter fields to the configuration.
 
@@ -325,7 +335,7 @@ In the `getListQuery()` method we adjust the database query to respect the filte
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 The view loads the filter form `src/administrator/components/com_foos/forms/foo.xml`, which is displayed in the upper area. Besides we add here the check if the active user is allowed to perform actions.
 
@@ -413,7 +423,7 @@ The view loads the filter form `src/administrator/components/com_foos/forms/foo.
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 The code below shows all the essentials for using `searchtools` in the list view of the backend.
 In the case of the header, I replaced `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?>` with `<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'access_level', $listDirn, $listOrder); ?>`. This way the header of the table is marked with a small arrow when a sort is active in a column.
@@ -547,7 +557,7 @@ was introduced to Joomla 4.2 via PR 36591[^github.com/joomla/joomla-cms/pull/365
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/modal.php
+#### administrator/components/com\_foos/ tmpl/foos/modal.php
 
 Icons show us if a column is sorted and in which direction. To make the sorting clear to someone who doesn't see these markers, we add a `<caption>` element. This is not displayed, it is read out.
 

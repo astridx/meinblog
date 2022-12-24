@@ -17,6 +17,16 @@ tags:
   - Ubuntu
 ---
 
+
+
+
+
+
+
+
+
+
+
 _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht.
 
 Hier geht es um _docker-lamp_ und konkrete darum, wie spezielle Domains erzeugt werden. _docker-lamp_ ist eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung auf einem Webserver unterstützen. In diesem Teil dokumentiere ich meine Konfiguration von Visual Studio Code.
@@ -25,7 +35,7 @@ Hier geht es um _docker-lamp_ und konkrete darum, wie spezielle Domains erzeugt 
 
 Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Wenn du diesem [Set](mein-ubuntu-rechner-mit-docker-lamp-themen/) bisher gefolgt bist, passt alles.
 
-## Visual Studio Code
+## Visual Studio Code<!-- \index{Visual Studio Code} -->
 
 ### Installation
 
@@ -140,7 +150,7 @@ $ code
 
 ### Extensions
 
-#### PHP-Debug
+#### PHP-Debug<!-- \index{PHP-Debug} --><!-- \index{Visual Studio Code! PHP-Debug} -->
 
 [felixfbecker.php-debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug). Debug-Unterstützung für PHP mit XDebug.
 
@@ -156,13 +166,16 @@ Ich füge zu Firefox hinzu.
 
 ![Xdebug Helper for Firefox](/images/xdebug6.png)
 
-##### PHP Debug  installieren und konfigurieren
+##### PHP Debug installieren und konfigurieren
 
 ![PHP Debug ](/images/xdebug2.png)
 
 ![PHP Konfiguration hinzufügen](/images/xdebug3.png)
 
-Die Standardkonfiguration passt bis auf eine Ausnahme, der `port` muss auf `10000` abgeändert werden.
+Die Standardkonfiguration passt bis auf zwei Ausnahme:<!-- \index{PHP-Debug! pathMappings} --><!-- \index{PHP-Debug! configuration} --> 
+
+1. Der `port` muss auf `10000` abgeändert werden.
+2. Für die Arbeit mit docker muss ein `pathMappings` hinzugefügt werden, wenn der Pfad im Container nicht mit dem im Betriebssystem übereinstimmt `"/srv/www/joomla/j4dev" : "/home/youruser/docker-lamp/data/www/joomla/j4dev"`. Links steht der Pfad im Container. Rechts steht der Pfad im Betriebssystem.
 
 ```
 {

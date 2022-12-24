@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Komponente! Joomla bietet Ansichtsfilter und Suchwerkzeuge, mit denen du die Anzahl der sichtbaren Items einschränkst. Wenn der Statusfilter entsprechend gesetzt ist, werden nur Elemente angezeigt, deren Status veröffentlicht ist. Neben dem Statusfilter bieten die Suchwerkzeuge die Suche nach Titel oder Inhalt und die Möglichkeit die Tabelle zu sortieren, sprich, die Reihenfolge zu ändern.<!-- \index{filtern} --><!-- \index{sortieren} --><!-- \index{suchen} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t15a...t16)[^codeberg.org/astrid/j4examplecode/compare/t15a...t16] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -26,7 +36,7 @@ Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Kompon
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/filter_foos.xml
+#### administrator/components/com\_foos/ forms/filter_foos.xml
 
 Als erstes erstellen wir das Formular über das die Filter gesetzt werden.
 
@@ -145,7 +155,7 @@ Als erstes erstellen wir das Formular über das die Filter gesetzt werden.
 > `featured` ist hier der Vollständigkeit halber als Filterfeld aufgenommen, obwohl wir das in der Erweiterung bisher nicht unterstützen.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/updates/mysql/16.0.0.sql
+#### administrator/components/com\_foos/ sql/updates/mysql/16.0.0.sql
 
 Im Falle eines Updates deiner Komponente, fügt die Datei `16.0.0.sql` eine Spalte zur Speicherung der Reihenfolge hinzu.
 
@@ -161,7 +171,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/foo.xml
+#### administrator/components/com\_foos/ forms/foo.xml
 
 Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird, ergänzen wir mit einem Feld zur Festlegung der Reihenfolge.
 
@@ -184,7 +194,7 @@ Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird, ergä
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
 
 Im Falle einer neuen Installation, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Reihenfolge hinzu.
 
@@ -201,7 +211,7 @@ Im Falle einer neuen Installation, wird über das Skript in der Datei `install.m
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com\_foos/ src/Model/FoosModel.php
 
 Im Model für die Liste gibt es eine Menge Änderungen. Im Konstruktor speichern wir zunächst die Filterfelder in die Konfiguration.
 
@@ -325,7 +335,7 @@ In der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 Die View lädt das Filterformular `src/administrator/components/com_foos/forms/foo.xml`, welches im oberen Bereich angezeigt wird. Nebenbei ergänzen wir hier die Prüfung, ob der aktive Benutzer Aktionen ausführen darf.
 
@@ -412,7 +422,7 @@ Die View lädt das Filterformular `src/administrator/components/com_foos/forms/f
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 Der nachfolgende Code zeigt alles Wesentliche für die Nutzung der `searchtools` in der Listenansicht des Backend.
 Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?>` mit `<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'access_level', $listDirn, $listOrder); ?>` ersetzt. So wird der Kopfbereich der Tabelle mit einem kleinen Pfeil markiert, wenn eine Sortierung in einer Spalte aktiv ist.
@@ -546,7 +556,7 @@ eine an- und abwahl der Spaltenansichten ermöglicht, ist via PR 36591[^github.c
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/modal.php
+#### administrator/components/com\_foos/ tmpl/foos/modal.php
 
 Icons zeigen uns an, ob und in welche Richtung eine Spalte sortiert ist. Damit die Sortierung für jemanden klar ist, der diese Markierungen nicht sieht, fügen wir ein `<caption>`-Element hinzu. Das wird nicht angezeigt, es wird vorgelesen.
 

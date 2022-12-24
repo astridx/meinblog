@@ -1,7 +1,7 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/buecher/joomla-4-cassipeia-anwenden'
 syndication: 
 shortTitle: 'short'
 date: 2022-03-29
@@ -27,7 +27,7 @@ tags:
 
 
 
-Wie implementiert man die Tastaturnavigation in der Navbar, so dass beispielsweise die linke und rechte Pfeiltasten das vorherige, beziehungsweise nächste Dropdown-Menü öffnen, und ein Klick auf einen Buchstaben den dazugehörigen Menüpunkt aktiviert. 
+Wie implementiert man die Tastaturnavigation in der Navbar, so dass beispielsweise die linke und rechte Pfeiltasten das vorherige, beziehungsweise nächste Dropdown-Menü öffnen, und ein Klick auf einen Buchstaben den dazugehörigen Menüpunkt aktiviert.<!-- \index{Barrierefreiheit} --><!-- \index{Zugänglichkeit} --><!-- \index{Accessibility} --><!-- \index{a11y} --> 
 
 Die gute Nachricht, es ist nicht erforderlich, dies selbst zu implementieren. Es gibt bereits eine JavaScript Bibliothek[^github.com/NickDJM/accessible-menu], die dies umsetzt. Weil Cassiopeia ein Bootstrap 5 Template ist, wähle ich die Variante, die speziell für Bootstrap 5[^github.com/NickDJM/accessible-menu-bootstrap-5] erstellt wurde.
 

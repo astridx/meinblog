@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 There is a lot of content soon. Displaying all elements on one page is not useful. It has a negative effect on the layout and performance. Therefore, we divide the elements into sub-pages and add pagination or page numbering. With this, navigation through the pages is possible. Links are inserted for this purpose. Usually, these are located at the bottom of the page.<!-- \index{pagination} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t18...t19)[^codeberg.org/astrid/j4examplecode/compare/t18...t19] and copy these changes into your development version.
@@ -30,7 +40,7 @@ No new files are added.
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 We do not have any special requests. To display the default pagination, more or less two lines are enough. In the view you call
 `$this->pagination = $this->get('Pagination');` to set the variable `$this->pagination`.
@@ -58,7 +68,7 @@ We do not have any special requests. To display the default pagination, more or 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 In the template we use the `getListFooter` method of the variable `$this->pagination`. That was all!
 

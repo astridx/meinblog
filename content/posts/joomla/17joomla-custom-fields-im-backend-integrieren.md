@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Custom Fields (Eigene Felder)<!-- \index{Eigene Felder!Backend} --><!-- \index{Custom Fields!Backend} --> sind seit Joomla Version 3.7 eine beliebte Funktion in Joomla. Sie bieten viele zusätzliche Möglichkeiten. Deshalb steht es außer Frage, dass wir diese in unsere Komponente integrieren.
 
 Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich programmierst. Im nächsten Kapitel integrieren wir Custom Fields im Frontend.
@@ -32,7 +42,7 @@ Wir haben in diesem Teil keine neue Datei erstellt, sondern lediglich Dateien ge
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ access.xml
+#### administrator/components/com\_foos/ access.xml
 
 In der Datei `administrator/components/com_foos/access.xml` bereiten wir alles dafür vor, die benutzerdefinierten Felder mit Berechtigungen zu versehen. So ist es möglich, dass das Ändern oder das Ansehen eines Feldes nur bestimmten Benutzern erlaubt ist.
 
@@ -60,7 +70,7 @@ In der Datei `administrator/components/com_foos/access.xml` bereiten wir alles d
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/config.xml
+#### administrator/components/com\_foos/config.xml
 
 Über die Konfiguration `config.xml` wird mithilfe eines Paramters festgelegt, ob die Erweiterung eigene Felder verwendet.
 
@@ -114,7 +124,7 @@ Ein Tipp zum Type `radio` mit dem Layout `joomla.form.field.radio.switcher`. Mö
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Im Navigationsmenü links im Joomla Administrationsbereichs fügen wir zwei Links ein. Der erste neue Link führt zu der Ansicht, in der die eigene Felder für die Komponente erstellt werden. Der andere führt zu der Ansicht, über die Feld-Gruppen angelegt werden.
 
@@ -133,7 +143,7 @@ Im Navigationsmenü links im Joomla Administrationsbereichs fügen wir zwei Link
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FooModel.php
+#### administrator/components/com\_foos/ src/Model/FooModel.php
 
 Das Formular, über das ein Foo-Element editierbar ist, verfügt nun über Tabulatoren. Damit die Daten innerhalb der Session nicht verloren gehen, wenn man zwischen den Tabs wechselt, ändern wir die Methode `loadFormData()` in der Datei `administrator/components/com_foos/src/Model/FooModel.php`. Es ist nicht notwendig, dass wir selbst Daten zwischenspeichern. Die Methode `$app->getUserState()` erledigt dies für uns. Gleichzeitig stellen wir sicher, dass für die Kategorie ein Standardwert gesetzt wird, falls ein neues Element geladen wird und deshalb `$this->getState('foo.id') == 0` gleich `true` ist.
 
@@ -162,7 +172,7 @@ Das Formular, über das ein Foo-Element editierbar ist, verfügt nun über Tabul
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com\_foos/ tmpl/foo/edit.php
 
 Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla eigenen Erweiterungen, nutzen wir UiTab[^libraries/src/html/helpers/uitab.php]. `$this->useCoreUI = true;` sorgt dafür, dass der Helper[^layouts/joomla/edit/params.php] flexibel die richtige Tab-Impementierung liefert.
 

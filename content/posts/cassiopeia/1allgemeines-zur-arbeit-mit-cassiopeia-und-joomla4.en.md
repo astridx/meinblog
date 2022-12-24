@@ -1,7 +1,7 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'en/eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication:
 shortTitle: 'short'
 date: 2022-02-14
@@ -17,6 +17,15 @@ tags:
   - Joomla
   - Cassiopeia
 ---
+
+
+
+
+
+
+
+
+
 
 Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many functions are offered in a way that is good for most people. When working with Cassiopeia and Joomla, there are things that can be individually extended or customized for you.
 

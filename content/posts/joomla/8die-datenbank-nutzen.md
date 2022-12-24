@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Im vorhergehenden Teil hatten wir eine Datenbank für die Joomla-Komponenten eingerichtet. In diesem Teil lernst du, wie du mithilfe eines Formulars im Administrationsbereich die Daten der Datenbank änderst oder ergänzt. Am Ende enthält die Ansicht deiner Komponente im Administrationsbereich eine Schaltfläche zum Hinzufügen von neuen Elementen. Du änderst ein vorhandenes Item, indem du in der Listenansicht auf den Titel klickst.<!-- \index{Datenbank! Datenbank nutzen} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t6...t6b)[^codeberg.org/astrid/j4examplecode/compare/t6...t6b] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -26,7 +36,7 @@ Im vorhergehenden Teil hatten wir eine Datenbank für die Joomla-Komponenten ein
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/foo.xml
+#### administrator/components/com\_foos/ forms/foo.xml
 
 Joomla erstellt das Formular für dich, wenn du ihm die Rahmenbedingungen in einer XML-Datei vorgibst. Nachfolgend siehst du dies für unser Beispiel.
 
@@ -74,7 +84,7 @@ Joomla erstellt das Formular für dich, wenn du ihm die Rahmenbedingungen in ein
 > Weiterführender Tipp: Wir haben bisher ein einfaches Formular. Später kommen sicher speziellere Anforderungen hinzu. Zum Beispiel: Wie platzierst du am besten JavaScript in einem Joomla Formular? Eine unkomplizierte schnelle aber unschöne Lösung ist diese: Du erstellst ein Feld `type=note` in der XML-Definition und schreibst dann den JavaScript Code in die Sprachkonstante der Beschreibung. Eine elegantere Lösung fand ich im Allrounder Template von Bakual [^github.com/Bakual/Allrounder]. Zunächst erstellt er ein neues [Feld des Typs `loadjscss`](https://github.com/Bakual/Allrounder/blob/master/fields/loadjscss.php)[^github.com/Bakual/Allrounder/blob/master/fields/loadjscss.php]. Dieses bindet er dann in der Datei [`templateDetails.xml`](https://github.com/Bakual/Allrounder/blob/57bb030ec0e243c776e758daeade898abbbb9c10/templateDetails.xml#L51)[^github.com/Bakual/Allrounder/blob/master/templateDetails.xml#L51] ein. Mach dir keine Sorgen, falls du die letzte Variante nicht sofort durchschaust. Wir erstellen im weiteren Verlauf noch weitere Felder.<!-- \index{JavaScript! Formular} --><!-- \index{Formular! JavaScript} -->
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Controller/FooController.php
+#### administrator/components/com\_foos/ src/Controller/FooController.php
 
 Wir erstellen mit `FooController` mehr oder weniger eine leere Klasse. Obwohl diese keine eigene Logik beinhaltet, brauchen wir sie, weil sie von `FormController` erbt. Joomla erwartet `FooController` als eigenen Controller pro Erweiterung an dieser Stelle unter dem Namen.
 
@@ -121,7 +131,7 @@ protected $view_list = 'katzen';
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FooModel.php
+#### administrator/components/com\_foos/ src/Model/FooModel.php
 
 Jetzt erstellen wir das Model, mit dem die Daten für ein Element aus der Datenbank geladen werden. Dieses nennen wir `FooModel`. Es erbt die wesentlichen Implementierungen von `AdminModel`. Wir programmieren unsere speziellen Anforderungen selbst hinzu. Mit `$typeAlias` setzen wir den Typalias für den Inhaltstyp. So weiß Joomla bei allen vererbten Funktionen, auf welches Element es diese genau anzuwenden hat. Beispielsweise wird der Alias in `loadFormData()` genutzt, um die passende XML-Datei in ein Formular umzuwandeln. Erinnerst du dich, die Datei hast du im aktuellen Kapitel erstellt. Und für das korrekte Zuordnen der Tabelle ist der Alias unerlässlich, wenn du Joomla Funktionen wiederverwendest. Der Typalias übernimmt im Hintergrund eine große Rolle, ohne dass du es mitbekommst.
 
@@ -219,7 +229,7 @@ class FooModel extends AdminModel
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Table/FooTable.php
+#### administrator/components/com\_foos/ src/Table/FooTable.php
 
 Wir implementieren den Zugriff auf die Datenbanktabelle. Wichtig ist das Setzten von `$this->typeAlias` und die Angabe des Namens der Tabelle `#__foos_details`.
 
@@ -291,7 +301,7 @@ class FooTable extends Table
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foo/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foo/HtmlView.php
 
 Die Datei `administrator/components/com_foos/src/View/Foo/HtmlView.php` organisiert die Ansicht eines Elements. Achte darauf, dass du diese nicht mit der Datei `administrator/components/com_foos/src/View/Foo s /HtmlView.php` verwechselt, welche alle Elemente in einer Übersichtsliste anzeigt. Für die Bearbeitung eines Elementes benötigen wir genau wie bei der Listenansicht eine Toolbar. Die Anzeige selbst erfolgt wie gewohnt über die Methode `display` der Klasse `BaseHtmlView`. Lediglich unsere Besonderheiten geben wir über `$this->form = $this->get('Form');` und `$this->item = $this->get('Item');` mit.
 
@@ -379,7 +389,7 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com\_foos/ tmpl/foo/edit.php
 
 In der Datei `edit.php` ist die Ansicht implementiert, die zum Bearbeiten aufgerufen wird. Mir ist wichtig, dass ich den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de)[^docs.joomla.org/j4.x:web_assets/de] `$wa = $this->document->getWebAssetManager();` an dieser Stelle anspreche. Der ist in Joomla 4 neu. Du lädst zwei JavaScript Dateien via Webassetmanager. `useScript('keepalive')` lädt `media/system/js/keepalive.js` und hält deine Sitzung am Leben, während du ein Element bearbeitest oder erstellst. `useScript('form.validate')` lädt mit `media/system/js/core.js` eine Menge hilfreicher Funktionen. Zum Beispiel die Validierung, die wir später genauer ansehen.
 
@@ -476,7 +486,7 @@ Das Empty-State-Layout wurde in Joomla im [PR 33264](https://github.com/joomla/j
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Damit während einer neuen Installation das Verzeichnis `forms` an Joomla übergeben wird, tragen wird diese im Installationsmanifest ein.
 
@@ -494,7 +504,7 @@ Damit während einer neuen Installation das Verzeichnis `forms` an Joomla überg
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 In der Ansicht, die die Übersichtsliste anzeigt, ergänzen wir die Toolbar. Hier fügen wir eine Schaltfläche ein, über die ein neues Element erstellt wird. Außerdem fragen wir über `if (!count($this->items) && $this->get('IsEmptyState'))` ab, ob es Elemente zum Anzeigen gibt. Falls die Ansicht leer ist, zeigen wir das benutzerfreundliche Empty State Layout `$this->setLayout('emptystate');` an.
 
@@ -539,7 +549,7 @@ In der Ansicht, die die Übersichtsliste anzeigt, ergänzen wir die Toolbar. Hie
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 Im Template der Übersichtsliste ersetzen wir den einfachen Text mit einem Formular. Das Formular enthält ein Formularfeld für jede Spalte in der Datenbanktabelle und ermöglicht es, Daten anzulegen beziehungsweise zu ändern.
 

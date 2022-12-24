@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Extensive Joomla Core extensions have a dashboard in which related functions are displayed. This is user-friendly because it provides an overview. This way, a user can orientate himself in the extension without many clicks. In this part, we create such a dashboard for our sample component.<!-- \index{dashboard} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27...t28)[^codeberg.org/astrid/j4examplecode/compare/t27...t28] and copy these changes into your development version.
@@ -26,7 +36,7 @@ Extensive Joomla Core extensions have a dashboard in which related functions are
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ presets/foos.xml
+#### administrator/components/com\_foos/ presets/foos.xml
 
 In the file `administrator/components/com_foos/presets/foos.xml` we define what is displayed on the dashboard by default.
 
@@ -72,7 +82,7 @@ In the file `administrator/components/com_foos/presets/foos.xml` we define what 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 We modify the XML manifest so that the sidebar in the Joomla administration template knows how to link to the dashboard.
 
@@ -121,7 +131,7 @@ We modify the XML manifest so that the sidebar in the Joomla administration temp
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ script.php
+#### administrator/components/com\_foos/script.php
 
 In the installation script we add the call. With this, we call a Joomla-specific function that makes our dashboard known in the CMS.
 
@@ -178,4 +188,5 @@ Install your component as described in part one, after copying all files. Joomla
 ## Links
 
 [Allow 3rd party components to create the dashboard](https://github.com/joomla/joomla-cms/pull/28027)[^github.com/joomla/joomla-cms/pull/28027]
+[Joomla Manual](https://manual.joomla.org/docs/using-core-functions/Dashboard)[^manual.joomla.org/docs/using-core-functions/Dashboard]
 <img src="https://vg08.met.vgwort.de/na/bfbc6200b5a54a8ab708b591c07c5a61" width="1" height="1" alt="">

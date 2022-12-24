@@ -19,6 +19,14 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
 As a reminder, _Docker_ simplifies the management of software in containers. _Docker Compose_ is a tool that simplifies working with multiple containers.
 
 This is about _docker-lamp_ and specifically how special domains are created. _docker-lamp_ is software that provides pre-built images, containers and scripts to help you develop on a web server. In this section I add one of my projects.
@@ -31,7 +39,7 @@ Besides [Docker](/en/ubuntu-docker-set-up-docker-lamp), [Docker Compose](/en/ubu
 
 I store my projects in the directory `/home/youruser/git`. The directory is available in the container because I set it that way in the [docker-lamp-setup](/ubuntu-docker-lamp-setup) section using `docker-compose.override.yml`.
 
-### Include your own projects
+### Include your own projects<!-- \index{Joomla! include own projects} -->
 
 ##### An example project
 

@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Wenn du neu bei Joomla bist, lese bitte [_Absolute Grundlagen der Funktionsweise einer Komponente_](https://docs.joomla.org/Absolute_Basics_of_How_a_Component_Functions)[^docs.joomla.org/Absolute_Basics_of_How_a_Component_Functions].
 
 Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component)[^docs.joomla.org/J3.x:Developing_an_MVC_Component].

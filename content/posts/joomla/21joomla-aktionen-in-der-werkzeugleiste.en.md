@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 You don't develop the extension as an end in itself. It helps with the completion of tasks. In order for the people working with the component to always have an overview of the possible work steps, it makes sense to have a toolbar. In this part of the tutorial we will extend the already existing toolbar with the standard actions. Here we will access a variety of ready-made methods. Again, for the standard, it is not necessary to invent the wheel yourself. Later on, for special tasks, it makes sense to use the standard as an example.<!-- \index{actions} --><!-- \index{toolbar} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t16...t17)[^codeberg.org/astrid/j4examplecode/compare/t16...t17] and copy these changes into your development version.
@@ -122,7 +132,7 @@ We add permission checking here. A button is displayed only if the user is autho
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 Here you can see an example of the List View toolbar - the view that gives you an overview of your items. Permission checking has also been added here.
 

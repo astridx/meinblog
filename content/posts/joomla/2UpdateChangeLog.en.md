@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 You will continue to develop your component. How do you make sure that users always use the latest version? How do they know about an update? Now that the basic framework of the extension is ready, it's important that your users know about enhancements.
 
 In this chapter I will explain how to create and run an update server for your component. If you want to continue working on the features first, I fully understand. Then just skip this section and come back when you publish your extension.
@@ -27,7 +37,7 @@ Update Server sounds complicated, it's basically just a URL to an XML file. This
 
 ## Step by step
 
-In the current section, two files are added that are stored outside the website. The addresses or URLs under which these are stored were entered in the previous chapter in the file `src/administrator/components/com_foos/foos.xml`.
+In the current section, two files are added that are stored outside the website. The addresses or URLs under which these are stored were entered in the previous chapters in the file `src/administrator/components/com_foos/foos.xml`.
 
 ```xml
 <changelogurl>https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/changelog.xml</changelogurl>
@@ -36,9 +46,12 @@ In the current section, two files are added that are stored outside the website.
 </updateservers>
 ```
 
+Wondering where to save those files? Perhaps an example is appropriate. Go to the repo https://github.com/astridx/pkg_agadvents. Here you can see the files `agadvents-update4.xml` and `changelog.xml`. If you click on one of the files, you can call the raw version via a button in the upper right corner. This is 
+`raw.githubusercontent.com/astridx/pkg_agadvents/master/changelog.xml` respectively `github.com/astridx/pkg_agadvents/blob/master/agadvents-update4.xml`. I have included these addresses in the manifest XML file. In the example it is a package. But it is the same for a component, a module or a plugin. The XML file can be found at [pkg_agadvents.xml](https://github.com/astridx/pkg_agadvents/blob/master/j4/pkg_agadvents/src/administrator/manifests/packages/pkg_agadvents.xml)[github.com/astridx/pkg_agadvents/blob/master/j4/pkg_agadvents/src/administrator/manifests/packages/pkg_agadvents.xml].
+
 ### New files
 
-> The changes concerning the changelog and the Joomla Update Server are only mentioned in this chapter. In every other chapter you can update the numbers yourself if this is important to you. This is not witchcraft. If I described this over and over again, it would not only bore you - it would unnecessarily inflate this text.
+> The changes concerning the changelog and the Joomla Update Server are only mentioned in this chapter. In every other chapter you can update the numbers yourself if this is important to you. If I described this over and over again, it would not only bore you - it would unnecessarily inflate this text.
 
 #### foo_update.xml (Update Server)<!-- \index{Update Server} -->
 
@@ -167,7 +180,7 @@ Information on the changelog can be found on Github [in PR github.com/joomla/joo
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Only the version number has been adjusted. This change is necessary in every new chapter, because a new function is always added. I do not mention this explicitly in the following.
 

@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Why use categories? Categories are often used when there are many posts on a site. With the help of categories, they can be grouped and managed more easily. Example: In the component content, articles can be filtered by category. If there are 200 articles on the site, it is easier to find a post if you know its category.<!-- \index{categories!frontend} -->
 
 For the frontend, there are built-in menu item types in Joomla that use categories: Category Blog and Category List. The menu item types or layouts simplify the display of posts in a category. When a new post is assigned to the category, it automatically appears on the page. This display is configurable. For example, imagine a blog layout of the 'Events' category that displays the latest articles first on the site. When a new article is added to this category, it will automatically appear at the top of the Events blog. All you have to do is add the post to the category. The category structure, for example 'Events | Online Events | Sports | Yoga', is completely independent of the site's menu structure. The site can have one or six menu levels and `Yoga` can be placed as a menu item in the first level.

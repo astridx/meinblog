@@ -64,10 +64,10 @@ Ich baue auf einem einfachen Quickstart auf:
 Maplibre GL JS beinhalte von Hause aus vier Standardsteuerelementen:
 
 - [Navigation](https://maplibre.org/maplibre-gl-js-docs/api/markers/#navigationcontrol)[^maplibre.org/maplibre-gl-js-docs/api/markers/#navigationcontrol]: Schaltflächen zum Zoomen und Drehen der Karte
-- [Geolocation](https://maplibre.org/maplibre-gl-js-docs/api/markers/#geolocatecontrol)[^https://maplibre.org/maplibre-gl-js-docs/api/markers/#geolocatecontrol]: eine Schaltfläche, um die Position des Benutzers zu ermitteln
-- [Maßstab](https://maplibre.org/maplibre-gl-js-docs/api/markers/#scalecontrol)[^https://maplibre.org/maplibre-gl-js-docs/api/markers/#scalecontrol]: eine Anzeige für den Pixel-zu-Meter-Maßstab
-- [Attribution](https://maplibre.org/maplibre-gl-js-docs/api/markers/#attributioncontrol)[^https://maplibre.org/maplibre-gl-js-docs/api/markers/#attributioncontrol]: eine Anzeige für Copyright- und Vertragsinformationen
-- [Fullscreen](https://maplibre.org/maplibre-gl-js-docs/api/markers/#fullscreencontrol)[^https://maplibre.org/maplibre-gl-js-docs/api/markers/#fullscreencontrol]: Schaltfläche zum Öffnen der Fullscreenansicht
+- [Geolocation](https://maplibre.org/maplibre-gl-js-docs/api/markers/#geolocatecontrol)[^maplibre.org/maplibre-gl-js-docs/api/markers/#geolocatecontrol]: eine Schaltfläche, um die Position des Benutzers zu ermitteln
+- [Maßstab](https://maplibre.org/maplibre-gl-js-docs/api/markers/#scalecontrol)[^maplibre.org/maplibre-gl-js-docs/api/markers/#scalecontrol]: eine Anzeige für den Pixel-zu-Meter-Maßstab
+- [Attribution](https://maplibre.org/maplibre-gl-js-docs/api/markers/#attributioncontrol)[^maplibre.org/maplibre-gl-js-docs/api/markers/#attributioncontrol]: eine Anzeige für Copyright- und Vertragsinformationen
+- [Fullscreen](https://maplibre.org/maplibre-gl-js-docs/api/markers/#fullscreencontrol)[^maplibre.org/maplibre-gl-js-docs/api/markers/#fullscreencontrol]: Schaltfläche zum Öffnen der Fullscreenansicht
 
 Dies sind gute Beispiele dafür, was Steuerelemente tun: Sie manipulieren die Karte oder fügen Informationen hinzu.
 
@@ -267,7 +267,7 @@ In der folgenden `onAdd`-Methode erstellen wir ein div-Element. Diesem `div`-Ele
 
 Wenn alles fertig ist, geben Sie das DOM-Element mit return controlElement zurück.
 
-MapLibre erwartet eine weitere Methode. Diese heißt `onRemove`. `onRemove` wird - wie der Name schon sagt - aufgerufen, wenn das Steuerelement von der [Karte entfernt](https://maplibre.org/maplibre-gl-js-docs/api/map/#map#removecontrol)[^https://maplibre.org/maplibre-gl-js-docs/api/map/#map#removecontrol] wird.
+MapLibre erwartet eine weitere Methode. Diese heißt `onRemove`. `onRemove` wird - wie der Name schon sagt - aufgerufen, wenn das Steuerelement von der [Karte entfernt](https://maplibre.org/maplibre-gl-js-docs/api/map/#map#removecontrol)[^maplibre.org/maplibre-gl-js-docs/api/map/#map#removecontrol] wird.
 
 ```js
 map.removeControl(Steuerelement)

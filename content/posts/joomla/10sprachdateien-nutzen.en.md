@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Your goal was that descriptive text in the views are not mixed with the program code. So they are uncomplicatedly changeable via the Joomla backend. This is possible for every user. Even the one who is not familiar with the program code. By the way, this is the prerequisite for your extension to be multilingual! For this reason you did not enter the real texts directly into the program code, but used language strings instead. Specifically, by descriptive texts I mean the texts that are displayed in the browser. You had prepared everything so that you use special files. These are easily changeable. So far you have seen cryptic texts in the browser views. In this part we translate the unattractive language strings into human readable words.<!-- \index{language Strings} -->
 
 > Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts via language override[^docs.joomla.org/j3.x:language_overrides_in_joomla] without editing the source code. Under some circumstances a user prefers to write _first name_ instead of _name_ in the column header.
@@ -112,7 +122,7 @@ COM_FOOS_N_ITEMS_FEATURED_2="Two foos featured."
 Create six files to support the German language in addition to English. Each file is structured as follows: One language string is inserted per line. The _left side_ of the equal sign in the language string, for example `COM_FOOS_ CONFIGURATION"` in `COM_FOOS_ CONFIGURATION="Foo Options"`, is always in upper case. Normally the extension name is at the beginning, in our case it is `COM_FOOS`. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed. The _right side_ of the language string, for example `Foo Options"` in `COM_FOOS_ CONFIGURATION = "Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ language/de-DE/com_foos.ini
+#### administrator/components/com\_foos/ language/de-DE/com_foos.ini
 
 We add the German language version for the administration area with the files 'administrator/components/com_foos/language/en-DE/com_foos.ini' and 'administrator/components/com_foos/language/en-DE/com_foos.sys.ini'.
 
@@ -133,7 +143,7 @@ COM_FOOS_CATEGORIES="Kategorien"
 > Naming conventions: Each language file is marked with an abbreviation, which is defined in [ISO-639](https://en.wikipedia.org/wiki/ISO_639)[^en.wikipedia.org/wiki/iso_639] and [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166)[^en.wikipedia.org/wiki/iso_3166]: The first two lower case letters name the language. For German this is `de` and `en` for English. After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A folder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ language/de-DE/com_foos.sys.ini
+#### administrator/components/com\_foos/ language/de-DE/com_foos.sys.ini
 
 As mentioned before, you need two language files for the backend: one ending with `.ini` and one ending with `sys.ini`. The [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) is primarily used during installation and for displaying the menu items and the `ini` for everything else.
 
@@ -154,7 +164,7 @@ COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Alles hier passiert nach der Installatio
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ language/en-GB/com_foos.ini
+#### administrator/components/com\_foos/ language/en-GB/com_foos.ini
 
 I had already written it: The English versions of the language files should always be available as a fallback.
 
@@ -171,7 +181,7 @@ COM_FOOS_CATEGORIES="Categories"
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ language/en-GB/com_foos.sys.ini
+#### administrator/components/com\_foos/ language/en-GB/com_foos.sys.ini
 
 We also add the file `administrator/components/com_foos/language/en-GB/com_foos.sys.ini` as a fallback for all non-German or English Joomla installations.
 
@@ -224,7 +234,7 @@ COM_FOOS_NAME="Surname: "
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 To make sure that the language files are copied to Joomla Core when the extension is installed, we add the `<folder>language</folder>` entry for the frontend and the backend to the manifest.
 
@@ -320,7 +330,7 @@ One last step is still missing. The own use of the language strings. So far we h
 
 1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part. If you do a new installation, you will notice that the hints in the installation script are now translated.
 
-> In case of discovery, the texts may be hidden[^https://github.com/joomla/joomla-cms/issues/36343]. 
+> In case of discovery, the texts may be hidden[^github.com/joomla/joomla-cms/issues/36343]. 
 
 ![Joomla language files are used](/images/j4x10x3.png)
 

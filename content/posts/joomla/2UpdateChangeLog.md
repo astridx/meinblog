@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Du wirst deine Komponente weiterentwickeln. Wie stellst du sicher, dass die User immer die neueste Version verwenden? Woher wissen sie von einem Update? Jetzt, wo das Grundgerüst der Erweiterung fertig ist, ist es wichtig, dass deine Anwender von Weiterentwicklungen erfahren.
 
 In diesem Kapitel erläutere ich dir, wie du einen Update-Server für deine Komponente erstellst und ausführst. Falls du erst weiter an den Funktionen arbeiten möchtest, verstehe ich dies voll und ganz. Überspringe dann einfach diesen Abschnitt und komme wieder zurück, wenn du deine Erweiterung veröffentlichst.
@@ -27,7 +37,7 @@ Update Server klingt kompliziert, im Grunde handelt es sich lediglich eine URL z
 
 ## Schritt für Schritt
 
-Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website gespeichert werden. Die Adressen oder URLs unter der diese abgelegt sind, hatten wir im vorherigen Kapitel in der Datei `src/administrator/components/com_foos/foos.xml` eingetragen.
+Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website gespeichert werden. Die Adressen oder URLs unter der diese abgelegt sind, hatten wir zuvor in der Datei `src/administrator/components/com_foos/foos.xml` eingetragen.
 
 ```xml
 <changelogurl>https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/changelog.xml</changelogurl>
@@ -35,6 +45,9 @@ Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website gesp
 	<server type="extension" name="Foo Updates">https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/foo_update.xml</server>
 </updateservers>
 ```
+
+Du fragst dich, wo du diese Dateien speichern sollst? Vielleicht ist ein Beispiel angebracht. Gehe zum Repo https://github.com/astridx/pkg_agadvents. Hier siehst du die Dateien `agadvents-update4.xml` und `changelog.xml`. Wenn du auf eine der Dateien klickst, kannst du über eine Schaltfläche in der oberen rechten Ecke die Rohfassung raw aufrufen. Diese lautet 
+raw.githubusercontent.com/astridx/pkg_agadvents/master/changelog.xml` bzw. `github.com/astridx/pkg_agadvents/blob/master/agadvents-update4.xml`. Ich habe diese Adressen in die Manifest-XML-Datei aufgenommen. In dem Beispiel handelt es sich um ein Paket. Aber es ist das gleiche für eine Komponente, ein Modul oder ein Plugin. Die XML-Datei ist zu finden unter [pkg_agadvents.xml](https://github.com/astridx/pkg_agadvents/blob/master/j4/pkg_agadvents/src/administrator/manifests/packages/pkg_agadvents.xml)[github.com/astridx/pkg_agadvents/blob/master/j4/pkg_agadvents/src/administrator/manifests/packages/pkg_agadvents.xml].
 
 ### Neue Dateien
 
@@ -167,7 +180,7 @@ Informationen zum Changelog findest du unter in Github im PR [github.com/joomla/
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in ähnlicher Form in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das im weiteren nicht explizit.
 

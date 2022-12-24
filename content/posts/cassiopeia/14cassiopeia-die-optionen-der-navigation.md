@@ -1,7 +1,7 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/buecher/joomla-4-cassipeia-anwenden'
 syndication:
 shortTitle: 'short'
 date: 2022-02-19
@@ -106,3 +106,4 @@ Vergiß nicht, alle Änderungen zu speichern.
 Jetzt gehen wir zurück zu Ihrer Joomla-Seite und sehen uns die Menüs an.
 
 ![Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Ansicht im Frontend](/images/menu_header_frontendview.png)
+

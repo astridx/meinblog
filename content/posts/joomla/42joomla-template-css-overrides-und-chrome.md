@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 In diesem Kapitel werden wir die Ausgabe der Erweiterungen im Frontend verändern. In Joomla geschieht dies mithilfe von
 
 - Overrides,

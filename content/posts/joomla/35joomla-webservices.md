@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 In diesem Teil werfen wir einen Blick auf die Joomla 4-API und den Zugriff auf Joomla 4-Inhalte. Eine [Programmierschnittstelle](https://de.wikipedia.org/wiki/Programmierschnittstelle) - kurz API (von englisch application programming interface) - ist ein Programmteil, der von einem Softwaresystem anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird. Heutzutage bieten viele Online-Dienste APIs; diese heißen dann [Webservice](https://de.wikipedia.org/wiki/Webservice). Das Vorhandensein einer dokumentierten Programmierschnittstelle (API) für eine Joomla-Komponente macht es möglich, mit anderen zusammenzuarbeiten. Entweder über zusätzliche Software, welche die API per Erweiterung nutzt oder Daten werden über die API in anderen Anwendungen nutzbar.<!-- \index{API} --><!-- \index{Webservices} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t29...t30)[^codeberg.org/astrid/j4examplecode/compare/t29...t30] an und übernimm diese Änderungen in deine Entwicklungsversion.

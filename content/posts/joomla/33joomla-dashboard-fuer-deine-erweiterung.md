@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Umfangreiche Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörige Funktionen angezeigt werden. Das ist benutzerfreundlich, weil es einen Überblick bietet. So kann sich sich ein Benutzer ohne viele Klicks in der Erweiterung orientieren. In diesem Teil erstellen wir ein solches Dashboard für unsere Beispielkomponente.<!-- \index{Dashboard} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27...t28)[^codeberg.org/astrid/j4examplecode/compare/t27...t28] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -26,7 +36,7 @@ Umfangreiche Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zus
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ presets/foos.xml
+#### administrator/components/com\_foos/ presets/foos.xml
 
 In der Datei `administrator/components/com_foos/presets/foos.xml` legen wir fest, was standardmäßig auf dem Dashboard angezeigt wird.
 
@@ -72,7 +82,7 @@ In der Datei `administrator/components/com_foos/presets/foos.xml` legen wir fest
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrationstemplate weiß, das und wie es das Dashboard verlinkt.
 
@@ -121,9 +131,9 @@ Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrations
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ script.php
+#### administrator/components/com\_foos/script.php
 
-Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-eigene Funktion auf die unsere Dashboard im CMS bekannt macht.
+Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-eigene Funktion auf, die unsere Dashboard im CMS bekannt macht.
 
 [administrator/components/com_foos/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/script.php)
 
@@ -178,4 +188,5 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 ## Links
 
 [Komponenten von Drittanbietern das Erstellen eines Dashboards gestatten](https://github.com/joomla/joomla-cms/pull/28027)[^github.com/joomla/joomla-cms/pull/28027]
+[Joomla Manual](https://manual.joomla.org/docs/using-core-functions/Dashboard)[^manual.joomla.org/docs/using-core-functions/Dashboard]
 <img src="https://vg08.met.vgwort.de/na/e904d48cfed64f41adf05e9fa436fcce" width="1" height="1" alt="">

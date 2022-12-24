@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Manche Items sind etwas Besonderes und für sie gibt es in Joomla ein spezielles Attribut: `featured` oder `Haupteintrag`. Dieser Teil der Artikelserie fügt `featured` zu unserer Komponente hinzu.<!-- \index{Haupteintrag} --><!-- \index{Featured} -->
 
 > In Joomla werden mit `featured` markierte Elemente angezeigt, wenn der Startseiten-Menü-Eintrag mit dem `featured`-Layout verlinkt ist. Auf diese Weise ist es möglich, ein Element nur durch Änderung der Eigenschaft `featured` auf einer Seite ein- oder auszublenden - beispielsweise der Startseite. Dabei gibt es keine Auswirkungen auf andere Anzeigeeigenschaften - beispielsweise die Zugehörigkeit zu einem Kategorie-Blog. Im deutschen wird `featured` mit `Haupteintrag` bezeichnet.
@@ -28,7 +38,7 @@ Manche Items sind etwas Besonderes und für sie gibt es in Joomla ein spezielles
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/updates/mysql/24.0.0.sql
+#### administrator/components/com\_foos/ sql/updates/mysql/24.0.0.sql
 
 Du kennst das schon. Wir speichern die Eigenschaft `featured` in der Datenbank, deshalb erweitern wir die Datenbanktabelle um eine Spalte. Dies erledigen wir in der Datei `24.0.0.sql`.
 
@@ -635,7 +645,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/foo.xml
+#### administrator/components/com\_foos/ forms/foo.xml
 
 Wir erweitern das Formular, mit dem ein Element angelegt oder geändert wird, um das Feld zur Festlegung der Eigenschaft `featured`.
 
@@ -663,7 +673,7 @@ Wir erweitern das Formular, mit dem ein Element angelegt oder geändert wird, um
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
 
 Im Falle einer neuen Installation, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Eigenschaft `featured` hinzu.
 
@@ -679,7 +689,7 @@ Im Falle einer neuen Installation, wird über das Skript in der Datei `install.m
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Controller/FoosController.php
+#### administrator/components/com\_foos/ src/Controller/FoosController.php
 
 Wir implementieren die Logik mit der wir die Eigenschaft `featured` setzen in der Funktion `featured()` im `FoosController`.
 
@@ -756,7 +766,7 @@ Wir implementieren die Logik mit der wir die Eigenschaft `featured` setzen in de
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FooModel.php
+#### administrator/components/com\_foos/ src/Model/FooModel.php
 
 Im Model eines Elementes implementieren wir die Methode, mit der die Belegung der Eigenschaft (Daten) `featured` gespeichert und verändert wird.
 
@@ -824,7 +834,7 @@ Im Model eines Elementes implementieren wir die Methode, mit der die Belegung de
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com\_foos/ src/Model/FoosModel.php
 
 Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Datenbankabfrage.
 
@@ -873,7 +883,7 @@ Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Dat
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Service/HTML/AdministratorService.php
+#### administrator/components/com\_foos/ src/Service/HTML/AdministratorService.php
 
 Im `AdministratorService.php` machen wir es möglich, die Belegung der Eigenschaft auch in der Übersichtsliste zu verändern. Ein Klick auf das Stern-Symbol schaltet den Wert um.<!-- \index{Service!Administrator} -->
 
@@ -923,7 +933,7 @@ Im `AdministratorService.php` machen wir es möglich, die Belegung der Eigenscha
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 Wir ergänzen die Werkzeugleiste. `featured` soll auch hier über eine Aktion bearbeitbar sein.
 
@@ -949,7 +959,7 @@ Wir ergänzen die Werkzeugleiste. `featured` soll auch hier über eine Aktion be
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com\_foos/ tmpl/foo/edit.php
 
 Im Formular `administrator/components/com_foos/tmpl/foo/edit.php` zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, der mithilfe der XML-Datei ein Feld erstellt.
 
@@ -966,7 +976,7 @@ Im Formular `administrator/components/com_foos/tmpl/foo/edit.php` zum Anlegen od
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 In der Übersicht aller Elemente im Backend in der Datei `administrator/components/com_foos/tmpl/foos/default.php` fügen wir eine Spalte ein, in der der Zustand mit einem ausgefüllten oder leeren Stern angezeigt wird und per Klick geändert werden kann. Die Datei `HTMLHelper` übernimmt die meister Arbeit für uns.
 

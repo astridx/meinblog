@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Wir ergänzen Namespace und Helper.<!-- \index{Modul!Helper} --><!-- \index{Modul!Namespace} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t31...t32)[^codeberg.org/astrid/j4examplecode/compare/t31...t32] an und übernimm diese Änderungen in deine Entwicklungsversion.

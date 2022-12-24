@@ -17,6 +17,16 @@ tags:
   - Ubuntu
 ---
 
+
+
+
+
+
+
+
+
+
+
 Ich habe das Desktop Image von [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) heruntergeladen und installiert. Das war kein Hexenwerk.
 
 Angepasst habe ich [Region und Sprache](https://help.ubuntu.com/stable/ubuntu-help/prefs-language.html.de).

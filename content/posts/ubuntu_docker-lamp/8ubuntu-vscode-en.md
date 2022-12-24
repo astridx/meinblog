@@ -17,6 +17,16 @@ tags:
   - Ubuntu
 ---
 
+
+
+
+
+
+
+
+
+
+
 _Docker_ simplifies the administration of software in containers. _Docker Compose_ is a tool that simplifies working with multiple containers.
 
 This is about _docker-lamp_ and specifically how special domains are created. _docker-lamp_ is a software that provides prebuilt images, containers and scripts to help you develop on a web server. In this part I document my configuration of Visual Studio Code.
@@ -25,7 +35,7 @@ This is about _docker-lamp_ and specifically how special domains are created. _d
 
 Besides [Docker](/en/ubuntu-docker-set-up-docker-lamp), [Docker Compose](/en/ubuntu-docker-compose-set-up-docker-lamp) is necessary. If you have followed this [set](en/my-ubuntu-computer-with-docker-lamp-themes/) so far, everything is fine.
 
-## Visual Studio Code
+## Visual Studio Code<!-- \index{Visual Studio Code} -->
 
 ### Installation
 
@@ -139,7 +149,7 @@ $ code
 
 ### Extensions
 
-#### PHP-Debug
+#### PHP-Debug<!-- \index{PHP-Debug} --><!-- \index{Visual Studio Code! PHP-Debug} -->
 
 [felixfbecker.php-debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug). Debug-Unterstützung für PHP mit XDebug.
 
@@ -155,13 +165,16 @@ Ich füge zu Firefox hinzu.
 
 ![Xdebug Helper for Firefox](/images/xdebug6.png)
 
-##### PHP Debug  installieren und konfigurieren
+##### PHP Debug installieren und konfigurieren
 
 ![PHP Debug ](/images/xdebug2.png)
 
 ![PHP Konfiguration hinzufügen](/images/xdebug3.png)
 
-Die Standardkonfiguration passt bis auf eine Ausnahme, der `port` muss auf `10000` abgeändert werden.
+The default configuration fits except for two exceptions: <!-- \index{PHP-Debug! pathMappings} --><!-- \index{PHP-Debug! configuration} -->
+
+1. the `port` must be changed to `10000`.
+2. for working with docker a `pathMappings` must be added if the path in the container does not match the one in the operating system `"/srv/www/joomla/j4dev" : "/home/youruser/docker-lamp/data/www/joomla/j4dev"`. On the left is the path in the container. On the right is the path in the operating system.
 
 ```
 {

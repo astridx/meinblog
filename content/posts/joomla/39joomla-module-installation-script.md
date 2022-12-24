@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Wir ergänzen in diesem Kapitel ein Installationsskript. Bei den Erklärungen zur Komponente hatte ich beschrieben, wofür du dieses verwendest.<!-- \index{Module!Installationsskript} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t33...t34)[^codeberg.org/astrid/j4examplecode/compare/t33...t34] an und übernimm diese Änderungen in deine Entwicklungsversion.

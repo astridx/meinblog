@@ -245,7 +245,7 @@ View properties when navigating with the mouse over an element.
 
 ### Vector Tiles on your website
 
-Now we are ready to use the generated tiles on our own website. For this we use the _MapLibre GL JS_[^maplibre.org/] library along with a style from OpenMapTiles[^https://openmaptiles.org/styles/]. Create a small HTML document that displays the map. The code below shows a simple example:
+Now we are ready to use the generated tiles on our own website. For this we use the _MapLibre GL JS_[^maplibre.org/] library along with a style from OpenMapTiles[^openmaptiles.org/styles/]. Create a small HTML document that displays the map. The code below shows a simple example:
 
 ```html
 <!DOCTYPE html>

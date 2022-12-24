@@ -18,13 +18,22 @@ tags:
   - Git
 ---
 
+
+
+
+
+
+
+
+
+
 Ich verwalte meine Softwareprojekte mit Git. So greife ich jederzeit auf verschiedene Versionsstände zurück. Um die Dateien unkompliziert in der Versionsverwaltung auf den neuen Rechner zu laden, installiere und konfiguriere ich als erstes Git.
 
 ## Voraussetzungen
 
 Nach der Installation des Desktop Images von [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) verfüge ich über ein _non-root-Superuser-Konto_ und kann direkt mit der Installation von Git beginnen.
 
-## Installieren von Git mit Standardpaketen
+## Installieren von Git mit Standardpaketen<!-- \index{Git} -->
 
 Ich nutze die Standardinstallation.
 

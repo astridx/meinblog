@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 _Dependency Injection (DI)_ sounds complicated and the synonym _introducing dependencies_ does not really sound positive. At first glance, program code should be as flexible as possible. In other words, not dependent on anything else. Nobody likes to be dependent. The word has a negative touch.
 
 _Complicated_ and _negative_? On closer inspection, neither applies. With the help of a practical example, the advantages will become clear.

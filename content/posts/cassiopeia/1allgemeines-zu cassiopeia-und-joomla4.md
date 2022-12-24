@@ -1,7 +1,7 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/buecher/joomla-4-cassipeia-anwenden'
 syndication:
 shortTitle: 'short'
 date: 2021-03-03
@@ -18,13 +18,22 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 Joomla ist ein Open Source Content Management System, kurz CMS, zur Erstellung von Websites. Joomla 4 bezieht sich dabei auf eine beliebige Version der Reihe 4.x.x.
 
 Eine Joomla-Website setzt eine bestimmte Umgebung voraus. Ein Server muss die [Mindestanforderungen](https://downloads.joomla.org/de/technical-requirements-de)[^downloads.joomla.org/de/technical-requirements-de]<!-- \index{Installation!Mindestanforderungen} --> für eine Joomla-Installation erfüllen. Achte insbesondere auf unterstützte MySQL oder PostgreSQL-Datenbankversionen, PHP-Version und unterstützte Webserver. Wichtig ist auch, dass dein Hosting-Account über den Zugriff auf die Datenbank verfügt, sowie Zugriff auf das Dateisystem hat, um die Joomla-Installationsdateien hochzuladen und zu entpacken.
 
 Joomla kann auch auf einem lokalen Computer <!-- \index{Installation!lokal} --> installiert werden, solange dieser über die notwendigen Voraussetzungen verfügt. Für Anfänger empfiehlt sich eine leicht zu installierende Distribution, die Apache, MariaDB und PHP enthält. In Frage kommen hierfür [WAMP](https://www.heise.de/download/product/wampserver-56697)[^heise.de/download/product/wampserver-56697], [LAMP](<https://de.wikipedia.org/wiki/LAMP_(Softwarepaket)>)[^de.wikipedia.org/wiki/lamp_(softwarepaket)] oder [XAMP](https://www.apachefriends.org/de/index.html)[^apachefriends.org/de/index.html]. Eine lokale Installation wird oft verwendet, um das Joomla-System zu erlernen und um neue Seiten zu entwickeln, bevor sie live ins Netz gehen.
 
-## Cassiopeia
+## Cassiopeia<!-- \index{Cassiopeia!Allgemeines} -->
 
 Joomla 4 kommt mit einem Frontend-Templates und einem Administrator-Templates. Das Frontend-Template bestimmen, was der Besucher sieht. Das Administrator Template wirkt im Backend, also dem Ort, an dem die Administratoren Inhalte erstellen, Einstellungen ändern, Benutzer verwalten, Erweiterungen für zusätzliche Funktionen hochladen.
 
@@ -38,7 +47,7 @@ Nachfolgend beschreibe ich meine Erfahrungen mit dem Cassiopeia Template. Ich ze
 
 Ein CMS ist eine Benutzeroberfläche zur Erstellung von Websites. Ein CMS stellt die Webseite aus Inhalten zusammen, die in einer Datenbank oder anderen Dateien enthalten sind.
 
-Das CMS erleichtert den Zugriff auf die Datenbank. In der Regel bietet es eine benutzerfreundliche Oberfläche. Hier können Inhalte erstellt und das Erscheinungsbild der Website manipuliert werden. Dabei sind keine PHP oder SQL Kenntnisse erforderlich. Wer das Aussehen der Website im Frontend verändern möchte sollte wissen, wie man HTML und CSS benutzt. Je tiefer das Wissen in diesen Bereichen, desto einfacher sind das Layout, die Farben und die Schriftarten zu individualisieren. Es ist auch sehr praktisch, mit Diagnosetools wie den [Entwicklerwerkzeugen](https://de.wikipedia.org/wiki/Wikipedia:Technik/Browser/Entwicklerwerkzeuge)[^https://de.wikipedia.org/wiki/wikipedia:technik/browser/entwicklerwerkzeuge] eines Browsers vertraut zu sein.
+Das CMS erleichtert den Zugriff auf die Datenbank. In der Regel bietet es eine benutzerfreundliche Oberfläche. Hier können Inhalte erstellt und das Erscheinungsbild der Website manipuliert werden. Dabei sind keine PHP oder SQL Kenntnisse erforderlich. Wer das Aussehen der Website im Frontend verändern möchte sollte wissen, wie man HTML und CSS benutzt. Je tiefer das Wissen in diesen Bereichen, desto einfacher sind das Layout, die Farben und die Schriftarten zu individualisieren. Es ist auch sehr praktisch, mit Diagnosetools wie den [Entwicklerwerkzeugen](https://de.wikipedia.org/wiki/Wikipedia:Technik/Browser/Entwicklerwerkzeuge)[^de.wikipedia.org/wiki/wikipedia:technik/browser/entwicklerwerkzeuge] eines Browsers vertraut zu sein.
 
 > Mit einem Content Management System ist es möglich unkompliziert über einen Webbrowser alle Informationen einer Website zu ändern. Es ist nicht erforderlich mühsam statische Internetseiten zu erzeugen und diese dann auf den Webserver zu kopieren. Dieser große Vorteil hat einen entscheidenden Nachteil. Content Management Systeme erstellen die Website dynamisch mit Hilfe von Skripten. Manche dieser Skripte sind alt und enthalten Code, der heute nicht mehr so geschrieben werden würde. Deshalb findet man immer wieder mehr oder weniger große Sicherheitslücken. Es ist zwingend, dass ein CMS auf dem neuesten Stand gehalten wird und Aktualisierungen zeitnah installiert werden!
 

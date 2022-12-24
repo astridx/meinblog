@@ -1,7 +1,7 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'en/eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication:
 shortTitle: 'short'
 date: 2022-07-15
@@ -24,7 +24,7 @@ This tutorial is written for Joomla 4. For information on creating a template fo
 
 You need Joomla 4.x for this tutorial. You can find the latest stable version of Joomla 4 at downloads.joomla.org/cms(https://downloads.joomla.org/cms) or create a free website at [https://launch.joomla.org](https://launch.joomla.org).
 
-> You can check the latest version of Joomla 4 on [GitHub](https://github.com/joomla/joomla-cms) or download it from the [Joomla developer website](https://developer.joomla.org/nightly-builds.html).
+> You can check the latest version of Joomla 4 on [GitHub](https://github.com/joomla/joomla-cms)[^github.com/joomla/joomla-cms] or download it from the [Joomla developer website](https://developer.joomla.org/nightly-builds.html).
 
 ## Who is this tutorial for?
 

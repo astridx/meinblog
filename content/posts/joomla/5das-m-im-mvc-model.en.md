@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 No new functionality is added in this part. We improve the previous structure. A web application usually consists of
 
 - Logic,

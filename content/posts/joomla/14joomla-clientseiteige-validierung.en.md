@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Our goal in this part: when we enter a number in the name field, an error message is displayed immediately after we leave the field. In server-side validation, the message was not issued until after the form was sent to the server via the `Save` button.<!-- \index{validation (client-side)} -->
 
 In client-side validation, we provide a better user experience by responding quickly at the browser level. Here, all inputs in the user's browser are validated immediately. Client-side validation does not require a query to the server, thus reducing the load on the server and the network. This type of validation works on the browser side using scripting languages such as JavaScript or with HTML5 attributes.
@@ -75,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function(){
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 In the installation manifest we add `<filename>joomla.asset.json</filename>` so that Joomla knows that the file `joomla.asset.json` belongs to the extension and is copied to the `media/com_foos` directory. We create this file later in this part.
 
@@ -93,7 +103,7 @@ In the installation manifest we add `<filename>joomla.asset.json</filename>` so 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com\_foos/ tmpl/foo/edit.php
 
 The entry `->useScript('com_foos.admin-foos-letter');` ensures that the JavaScript file `media/com_foos/js/admin-foos-letter.js`, which is responsible for checking, is applicable via the [webasset manager](https://docs.joomla.org/J4.x:Web_Assets). For this purpose, we will register it later in this chapter via the file `joomla.asset.json`.
 
@@ -111,7 +121,7 @@ The entry `->useScript('com_foos.admin-foos-letter');` ensures that the JavaScri
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/foo.xml
+#### administrator/components/com\_foos/ forms/foo.xml
 
 We add `class="validate-letter"`, so Joomla knows which CSS class should be checked. Joomla sets this class when creating the field. See for yourself by opening the form in the backend and checking out the source code.
 

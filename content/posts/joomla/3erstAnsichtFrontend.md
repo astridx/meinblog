@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Nachdem du über ein funktionierendes Backend für deine Komponente verfügst, implementierst du das Frontend. Aktuell ist es mit der Erweiterung möglich, einen statischen Text anzuzeigen. Wir haben bisher keine dynamischen Daten. Das wird sich bald ändern. Zunächst bauen wir jedoch die grobe Struktur auf.
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t1...t2)[^codeberg.org/astrid/j4examplecode/compare/t1...t2] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -181,9 +191,9 @@ Hello Foos
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
-`administrator/components/ com\_foos/ foos.xml` ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird. Aus diesem Grund ergänzen wir die beiden neu hinzugekommenen Dateien. So weiß Joomla bei einer Installation oder einer Aktualisierung, dass es die Verzeichnisse `src` und `tmpl` gibt und wohin es sie kopieren soll. Kopier-Ziel ist aufgrund von `folder="components/com_foos"` das Verzeichnis `components/com_foos`.
+`administrator/components/com\_foos/foos.xml` ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird. Aus diesem Grund ergänzen wir die beiden neu hinzugekommenen Dateien. So weiß Joomla bei einer Installation oder einer Aktualisierung, dass es die Verzeichnisse `src` und `tmpl` gibt und wohin es sie kopieren soll. Kopier-Ziel ist aufgrund von `folder="components/com_foos"` das Verzeichnis `components/com_foos`.
 
 [administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/administrator/components/com_foos/foos.xml)
 

@@ -19,9 +19,17 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
 _Docker_ simplifies the administration of software in containers. _Docker Compose_ is a tool that simplifies working with multiple containers.
 
-This is about _docker-lamp_ and specifically how special domains are created. _docker-lamp_ is a software that provides prebuilt images, containers and scripts to help you develop on a web server. In this part we will create a separate domain.
+This is about _docker-lamp_ and specifically how special domains are created. _docker-lamp_ is a software that provides prebuilt images, containers and scripts to help you develop on a web server. In this part we will create a separate domain.<!-- \index{docker-lamp! domain} -->
 
 ## Requirements
 

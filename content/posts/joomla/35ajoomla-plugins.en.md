@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 You have created a plug-in in the previous section. You have probably already configured other plugins in the plugin manager and know the different types. Plugins cover many different areas in Joomla. This chapter provides an overview of what plugins are and how they work within Joomla.<!-- \index{plugins} -->
 
 > In the [Joomla Documentation](https://docs.joomla.org/Plugin/Events)[^docs.joomla.org/Plugin/Events] you will find a list of all plugin groups with all associated events. Use this list as a quick reference.

@@ -1,10 +1,9 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'en/eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication: 
   - https://ug-mayen.de/de/joomla-blog-de/135-indieweb
-  - https://fimidi.com/@astrid/109370361303728146
 shortTitle: 'short'
 date: 2022-11-12
 title: 'IndieWeb'

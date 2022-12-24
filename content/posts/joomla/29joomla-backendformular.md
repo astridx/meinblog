@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich bisher ohne Struktur eingefügt. Es ist benutzerfreundlich, wenn in einer Anwendung die Ansichten einheitlich sind. So findet sich jeder schnell zurecht. Es ist nicht erforderlich, dass man sich in jede neue Erweiterung einarbeitet. In diesem Teil des Tutorials räumen wir die Ansicht im Administrationsbereich auf. Dabei haben wir das Ziel die Darstellung an die Standardansichten im Content Management System anzupassen. So wie im nachfolgenden Bild sieht dein Backend aufgeräumt aus und man erkennt Joomla auf den ersten Blick.<!-- \index{Backendformular} -->
 
 ![Joomla Ansicht im Backend](/images/j4x29x1.png)
@@ -32,7 +42,7 @@ Nichts Neues.
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com\_foos/ tmpl/foo/edit.php
 
 Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Es entsteht eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
 

@@ -244,7 +244,7 @@ Sieh dir die Eigenschaften an, indem du mit der Maus über ein Element navigiers
 
 ### Vector Tiles auf deiner Website
 
-Nun sind wir bereit, die generierten Kacheln auf unserer eigenen Website zu verwenden. Hierfür verwenden wir die Bibliothek _MapLibre GL JS_[^maplibre.org/] zusammen mit einem Stil von OpenMapTiles[^https://openmaptiles.org/styles/]. Erstelle ein kleines HTML-Dokument, welches die Karte anzeigt. Der nachfolgende Code zeigt ein einfaches Beispiel:
+Nun sind wir bereit, die generierten Kacheln auf unserer eigenen Website zu verwenden. Hierfür verwenden wir die Bibliothek _MapLibre GL JS_[^maplibre.org/] zusammen mit einem Stil von OpenMapTiles[^openmaptiles.org/styles/]. Erstelle ein kleines HTML-Dokument, welches die Karte anzeigt. Der nachfolgende Code zeigt ein einfaches Beispiel:
 
 ```html
 <!DOCTYPE html>

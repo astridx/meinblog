@@ -1,7 +1,7 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'en/eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication: 
 shortTitle: 'short'
 date: 2022-03-29
@@ -27,7 +27,7 @@ tags:
 
 
 
-How to implement keyboard navigation in the navbar so that, for example, the left and right arrow keys open the previous and next dropdown menus, respectively, and clicking on a letter activates the corresponding menu item. 
+How to implement keyboard navigation in the navbar so that, for example, the left and right arrow keys open the previous and next dropdown menus, respectively, and clicking on a letter activates the corresponding menu item. <!-- \index{Accessibility} --><!-- \index{a11y} -->
 
 The good news, it is not necessary to implement this yourself. There is already a JavaScript library [^github.com/NickDJM/accessible-menu] that implements this. Because Cassiopeia is a Bootstrap 5 template, I choose to use the variant created specifically for Bootstrap 5[^github.com/NickDJM/accessible-menu-bootstrap-5].
 

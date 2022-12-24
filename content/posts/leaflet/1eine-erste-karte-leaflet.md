@@ -131,7 +131,7 @@ Wenn Sie sich diese Abfolge ansehen, können Sie sich vorstellen, dass Punkt vie
 
 ##### Wie können Sie die Ladezeit positiv beeinflussen?
 
-Um das im vorherigen Abschnitt beschriebene Problem zu umgehen wurde früher oft empfohlen, den JavaScript-Code möglichst nah am schließenden `<body>`-Tag in die Website zu integrieren. Zu dieser Empfehlung gibt es mit HTML5 zwei gute Alternativen – nämlich die Attribute [`defer`](https://wiki.selfhtml.org/wiki/HTML/Attribute/defer)[^https://wiki.selfhtml.org/wiki/html/attribute/defer] und [`async`](https://wiki.selfhtml.org/wiki/HTML/Attribute/async)[^wiki.selfhtml.org/wiki/html/attribute/async]. [^https://html.spec.whatwg.org/multipage/scripting.html#attr-script-defer].
+Um das im vorherigen Abschnitt beschriebene Problem zu umgehen wurde früher oft empfohlen, den JavaScript-Code möglichst nah am schließenden `<body>`-Tag in die Website zu integrieren. Zu dieser Empfehlung gibt es mit HTML5 zwei gute Alternativen – nämlich die Attribute [`defer`](https://wiki.selfhtml.org/wiki/HTML/Attribute/defer)[^wiki.selfhtml.org/wiki/html/attribute/defer] und [`async`](https://wiki.selfhtml.org/wiki/HTML/Attribute/async)[^wiki.selfhtml.org/wiki/html/attribute/async]. [^html.spec.whatwg.org/multipage/scripting.html#attr-script-defer].
 
 Sofern Sie das Attribut `defer` verwenden, wird das Skript ausgeführt, wenn das HTML-Dokument geladen und für die Ansicht umgewandelt - also geparst - ist. Zum anderen können Sie das Attribut `async` einsetzten. Mit `async` wird Ihr Skript asynchron mit dem HTML-Dokument ausgeführt. Wenn Sie keines dieser Attribute explizit angegeben, wird erst das vollständige Skript geladen und ausgeführt und erst dann wird das Laden und Parsen des HTML-Dokuments fortgesetzt.
 
@@ -400,7 +400,7 @@ Um eine Karte anzuzeigen, wird die Welt also in Ausschnitte, genau genommen in Q
 | 18         | 68 Milliarden  | 306 Meter               | 0,6 Meter            |
 | 19         | 275 Milliarden | 76 Meter                | 0,3 Meter            |
 
-Die vollständige Tabelle können Sie unter der Adresse [http://wiki.openstreetmap.org/wiki/Zoom_levels](https://wiki.openstreetmap.org/w/index.php?title=Zoom_levels)[^https://wiki.openstreetmap.org/w/index.php?title=zoom_levels] mit weiteren Angaben im Internet abrufen.
+Die vollständige Tabelle können Sie unter der Adresse [http://wiki.openstreetmap.org/wiki/Zoom_levels](https://wiki.openstreetmap.org/w/index.php?title=Zoom_levels)[^wiki.openstreetmap.org/w/index.php?title=zoom_levels] mit weiteren Angaben im Internet abrufen.
 
 > Vielleicht probieren Sie nun das Zoomen im vorangegangene Beispiel aus und wundern sich, dass Sie die Karte nur bis zur Zoom-Stufe 18 vergrößern können. Das liegt daran, dass bei dieser OpenStreeMap Karte standardmäßig die Option `maxZoom` mit 18 gesetzt ist. Sie können diese Option jedoch überschreiben. Wie das geht sehen Sie im nachfolgenden Programmcodebeispiel. Weitere Informationen finden Sie im Kapitel zur Karte von _Stamen_.
 

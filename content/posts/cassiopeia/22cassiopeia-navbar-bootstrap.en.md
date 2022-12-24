@@ -1,7 +1,7 @@
 ---
 description: 'desc'
-set: ''
-booklink: ''
+set: 'en/eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen'
+booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication: 
 shortTitle: 'short'
 date: 2022-03-28
@@ -27,7 +27,7 @@ tags:
 
 
 
-Cassiopia is a Bootstrap 5 template. But the navigation works with MetisMenu. If you are familiar with Bootstrap and want to customize the navigation, you will run into problems every now and then.
+Cassiopia is a Bootstrap 5 template. But the navigation works with MetisMenu. If you are familiar with Bootstrap and want to customize the navigation, you will run into problems every now and then.<!-- \index{navigation} -->
 
 I created an override which adds the essential Bootstrap classes and attributes.
 
@@ -36,7 +36,9 @@ I created an override which adds the essential Bootstrap classes and attributes.
 
 ## Embed Bootstrap
 
-First I copy the minimized Bootstrap 5 files [^getbootstrap.com/] and put them in the directory `media/templates/site/MyTemplate/js/bootstrap.bundle.min.js`, respectively `media/templates/site/MyTemplate/css/bootstrap.bundle.min.css`.
+First I copied the minimized Bootstrap 5 files [^getbootstrap.com/] and put them in the directory `media/templates/site/MyTemplate/js/bootstrap.bundle.min.js`, respectively `media/templates/site/MyTemplate/css/bootstrap.bundle.min.css`. 
+
+But that was not necessary at all. You don't need to download anything. because Bootstrap is already registered in `media/vendor/joomla.asset.json`. Cassiopeia does not load all parts. It uses a different navigation and does not need Bootstrap to expand and collapse. But in Joomla everything is available and can be loaded easily.<!-- \index{Bootstrap!load} -->
 
 ## Create an override from the backend
 
@@ -97,20 +99,11 @@ The difference view looks like this:
  use Joomla\CMS\Helper\ModuleHelper;
 +use Joomla\CMS\HTML\HTMLHelper;
  
--/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
--$wa = $app->getDocument()->getWebAssetManager();
 -$wa->registerAndUseScript('mod_menu', 'mod_menu/menu.min.js', [], ['type' => 'module']);
 -$wa->registerAndUseScript('mod_menu', 'mod_menu/menu-es5.min.js', [], ['nomodule' => true, 'defer' => true]);
-+HTMLHelper::_(
-+    'script',
-+    'media/templates/site/astrid/js/bootstrap.bundle.min.js',
-+    ['version' => 'auto', 'relative' => false]
-+    );
-+HTMLHelper::_(
-+    'stylesheet',
-+    'media/templates/site/astrid/js/bootstrap.bundle.min.css',
-+    ['version' => 'auto', 'relative' => false]
-+    ); 
++$wa->useScript('bootstrap.dropdown');
++$wa->useScript('bootstrap.collapse');
+
  $id = '';
   
  // The menu class is deprecated. Use mod-menu instead
@@ -149,16 +142,11 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 
-HTMLHelper::_(
-    'script',
-    'media/templates/site/astrid/js/bootstrap.bundle.min.js',
-    ['version' => 'auto', 'relative' => false]
-    );
-HTMLHelper::_(
-    'stylesheet',
-    'media/templates/site/astrid/js/bootstrap.bundle.min.css',
-    ['version' => 'auto', 'relative' => false]
-    );
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = $app->getDocument()->getWebAssetManager();
+
+$wa->useScript('bootstrap.dropdown');
+$wa->useScript('bootstrap.collapse');
 
 $id = '';
 
@@ -251,9 +239,9 @@ The difference view looks like this:
 +}
 +
 +if ($item->level > 1) {
-+    $attributes['class'] .= 'dropdown-item';
++    $attributes['class'] .= ' dropdown-item';
 +} else {
-+    $attributes['class'] .= 'nav-link';
++    $attributes['class'] .= ' nav-link';
 +}
 +
 +if ($item->parent) {
@@ -294,9 +282,9 @@ if ($item->anchor_css) {
 }
 
 if ($item->level > 1) {
-    $attributes['class'] .= 'dropdown-item';
+    $attributes['class'] .= ' dropdown-item';
 } else {
-    $attributes['class'] .= 'nav-link';
+    $attributes['class'] .= ' nav-link';
 }
 
 if ($item->parent) {
@@ -473,9 +461,9 @@ The difference view looks like this:
 +}
 +
 +if ($item->level > 1) {
-+    $attributes['class'] .= 'dropdown-item';
++    $attributes['class'] .= ' dropdown-item';
 +} else {
-+    $attributes['class'] .= 'nav-link';
++    $attributes['class'] .= ' nav-link';
 +}
 +
 +if ($item->parent) {
@@ -514,9 +502,9 @@ if ($item->anchor_css) {
 }
 
 if ($item->level > 1) {
-    $attributes['class'] .= 'dropdown-item';
+    $attributes['class'] .= ' dropdown-item';
 } else {
-    $attributes['class'] .= 'nav-link';
+    $attributes['class'] .= ' nav-link';
 }
 
 if ($item->parent) {

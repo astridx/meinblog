@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 In this chapter we add an installation script. In the explanations of the component, I described what you use it for.<!-- \index{module!installation script} -->
 
 > For impatient people: Look at the changed program code in the [diff view](https://codeberg.org/astrid/j4examplecode/compare/t33...t34)[^codeberg.org/astrid/j4examplecode/compare/t33...t34] and copy these changes into your development version.

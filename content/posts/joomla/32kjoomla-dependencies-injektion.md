@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 _Dependency Injection (DI)_ hört sich kompliziert an und die deutsche Übersetzung _Einbringen von Abhängigkeiten_ ist ebenfalls nicht wirklich positiv. Auf den ersten Blick soll Programmcode so flexibel wie möglich sein. Also nicht angewiesen auf etwas anderes. Abhängig ist niemand gerne. Das Wort hat einen negativen Touch.
 
 _Kompliziert_ und _negativ_? Bei genauem Hinsehen trifft beides nicht zu. Mithilfe eines praktischen Beispiels, werden die Vorteile klar.

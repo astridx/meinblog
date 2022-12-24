@@ -19,6 +19,14 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
 _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht.
 
 Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die bei der Entwicklung auf einem Webserver unterstützen. Im letzten Teil haben wir die Umgebung eingerichtet. Nun installiere ich Joomla in unterschiedlichen Versionen. Im nächsten Teil dieser Beitragsreihe füge ich eines meiner Joomla-Projekte hinzu.
@@ -35,7 +43,7 @@ Im Webbrowser sollte nun die URL `https://joomla.test/` oder `https://joomla.loc
 
 ![Webserver Oberfläche](/images/joomlalocal1.png)
 
-### Webserverumgebung einrichten
+### Webserverumgebung einrichten<!-- \index{docker-lamp! Webserverumgebung einrichten} -->
 
 #### Verwendung des Standardverzeichnisses
 
@@ -140,7 +148,7 @@ Im Webbrowser sollte nun die URL `https://joomla.test/` oder `https://joomla.loc
 
 ![Webserver Oberfläche](/images/joomlalocal1.png)
 
-#### Joomla installieren
+#### Joomla installieren<!-- \index{Joomla! Installation} -->
 
 Jenachdem, ob du mit der Entwicklerversion von Joomla arbeitest oder eine stabile Variante nutzt, unterscheidet sich die Installation.
 

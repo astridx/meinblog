@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Sometimes you need to customize the frontend output for a menu item. For this you need a variable. In this part of the tutorial we will add a text variable to the menu item and use it for the display in the frontend.<!-- \index{parameter} --><!-- \index{variable} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t4...t5)[^codeberg.org/astrid/j4examplecode/compare/t4...t5] and copy these changes into your development version.

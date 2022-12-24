@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Du hast im vorhergehenden Abschnitt ein Plugin erstellt. Sicherlich hast du vorher auch schon andere Plugins im Plugin-Manager konfiguriert und kennst unterschiedliche Arten. Plugins decken viele verschiedene Bereiche in Joomla ab. Dieses Kapitel bietet einen Überblick darüber, was Plugins sind und wie sie innerhalb von Joomla funktionieren.<!-- \index{Plugins} -->
 
 > Einen Überblick über alle im Joomla Kern zur Verfügung stehen Plugins und den dazugehörigen Ereignissen/Events bietet die [Joomla-Dokumentation](https://docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin)[^docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin]. Schau dir den Code an, wenn du Inspiration beim Programmieren benötigst.

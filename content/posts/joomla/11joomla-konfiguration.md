@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wichtig für dich. Hier zeige ich dir, wie du eine Konfiguration auf die Joomla typische Art und Weise zu deiner Komponente hinzufügst. Wir erstellen die globale Konfiguration für unsere Komponente!<!-- \index{Konfiguration (globale)} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t8...t9)[^codeberg.org/astrid/j4examplecode/compare/t8...t9] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -26,7 +36,7 @@ Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wic
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/config.xml]
+#### administrator/components/com\_foos/config.xml]
 
 Zu unseren Dateien hinzu kommt die Datei `config.xml`. Diese implementiert die Konfigurations-Parameter. In der XML-Datei kannst du wie gewohnt auf alle [Standard-Formular-Feldtypen](https://docs.joomla.org/Form_field/de)[^docs.joomla.org/form_field/de] zurückgreifen oder analog des bereits erstellten Modalfeldes FieldFoo eigene Typen implementieren.
 
@@ -61,7 +71,7 @@ Wir verwenden ein Auswahlfeld vom Typ `type="list"`. Die Übersetzungsarbeit min
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 Die Ergänzung in der Datei `foos.xml` stellt sicher, dass die Datei `config.xml` bei der Installation kopiert wird und Joomla so später auf sie zugreifen kann.
 
@@ -79,7 +89,7 @@ Die Ergänzung in der Datei `foos.xml` stellt sicher, dass die Datei `config.xml
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 Die Zeile `$toolbar->preferences('com_foos');` sorgt dafür, dass im Administrationsbereich rechts oben die Schaltfäche `Optionen` eingefügt wird. So ist die Konfiguration später im Backend unkompliziert erreichbar.
 

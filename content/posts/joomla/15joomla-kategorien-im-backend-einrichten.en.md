@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Almost every website divides its content into categories. Joomla offers this useful feature as well. The current part of the tutorial shows you how to ideally integrate categories into a Joomla component. Don't reinvent the wheel yourself. Use what Joomla offers you.<!-- \index{categories!backend} -->
 
 > [Categories](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') are a way of organising content in Joomla A category contains posts and other categories. A post can only be in one category. If a category is contained in another, it is a subcategory of the category.
@@ -28,7 +38,7 @@ Almost every website divides its content into categories. Joomla offers this use
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/updates/mysql/12.0.0.sql
+#### administrator/components/com\_foos/ sql/updates/mysql/12.0.0.sql
 
 We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database. To do this, we create the file `administrator/components/com_foos/sql/updates/mysql/12.0.0.sql` and enter the necessary SQL statement in it. We choose the name because we are currently working on version 12 of our extension.
 
@@ -46,7 +56,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ access.xml
+#### administrator/components/com\_foos/ access.xml
 
 The entries in the file `access.xml` marked below with a plus sign are necessary to set permissions for the categories. The new code causes the display of a tab for setting user permissions per category in the administration area.
 
@@ -71,7 +81,7 @@ The entries in the file `access.xml` marked below with a plus sign are necessary
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a menu item to be added in the administration area menu for editing the category.
 
@@ -90,7 +100,7 @@ The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a m
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/foo.xml
+#### administrator/components/com\_foos/ forms/foo.xml
 
 We add a selection field with matching categories to the form used to create a Foo item. We use the Joomla own field `categoryedit` for this. Note the line `extension="com_foos"`. This ensures that only categories belonging to the component `com_foos` are displayed.
 
@@ -117,7 +127,7 @@ We add a selection field with matching categories to the form used to create a F
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ script.php
+#### administrator/components/com\_foos/script.php
 
 To ensure that a category already exists at the beginning, we add the script that is called during the installation. Using the `install` method, we create a category with the title `Uncategorised` for the component during a new installation. We store these directly in the database. To be able to specify a user as the creator of the category, we request the ID of the administrator in the `getAdminId()` method.
 
@@ -238,7 +248,7 @@ To ensure that a category already exists at the beginning, we add the script tha
 <!-- \index{alias} -->
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ services/provider.php
+#### administrator/components/com\_foos/ services/provider.php
 
 In the service provider we register the interface `CategoryFactoryInterface`. It is not necessary to create `CategoryFactory Interface` by yourself. We use the Joomla own functions.
 
@@ -264,7 +274,7 @@ In the service provider we register the interface `CategoryFactoryInterface`. It
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
 
 In order to create the table column in which the category of a Foo element is stored during a new installation, we add the necessary SQL command in the SQL file that is called during the installation.
 
@@ -280,7 +290,7 @@ In order to create the table column in which the category of a Foo element is st
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
 Additionally, implementations are required in the component class to use Joomla's own functions. The method `countItems` is necessary so that an overview of assigned items appears in the category view. The method `getTableNameForSection` ensures that the correct database table is always queried.
 
@@ -328,7 +338,7 @@ Additionally, implementations are required in the component class to use Joomla'
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### administrator/components/com\_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 In the model we add to the database query the table where Joomla stores categories. Thus, in the administration area, when a category is selected, only the elements belonging to it are displayed.
 
@@ -361,7 +371,7 @@ In the model we add to the database query the table where Joomla stores categori
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com\_foos/ tmpl/foo/edit.php
 
 We add the category field to the form for editing an element. It is rendered using the information in the XML form `administrator/components/com_foos/forms/foo.xml`, which we worked on earlier in this chapter.
 
@@ -379,7 +389,7 @@ We add the category field to the form for editing an element. It is rendered usi
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 In the overview table of the view in the backend, we add a column for displaying the category.
 

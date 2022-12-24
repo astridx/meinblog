@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Not everyone has the right to edit all content. For this purpose Joomla offers an access control list, the ACL. With this you manage user rights in your component.<!-- \index{access control list} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t9...t10)[^codeberg.org/astrid/j4examplecode/compare/t9...t10] and copy these changes into your development version.
@@ -26,7 +36,7 @@ Not everyone has the right to edit all content. For this purpose Joomla offers a
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ access.xml
+#### administrator/components/com\_foos/ access.xml
 
 First, we set all possible permissions in an XML file. Each component can define individual permissions. I orientate myself here on the usual actions in Joomla. `core.admin` thereby determines which groups are allowed to configure the permissions at component level via the `options` button in the toolbar. `core.manage` determines which groups are allowed to access the backend of the component.
 
@@ -53,7 +63,7 @@ First, we set all possible permissions in an XML file. Each component can define
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/updates/mysql/10.0.0.sql
+#### administrator/components/com\_foos/ sql/updates/mysql/10.0.0.sql
 
 Joomla stores the permissions in the database. Regarding the database, only changes are relevant during a Joomla update. We enter these in the file `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql`, here this is specifically `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. This file is only called during an update. In case of a new installation the database will be set up correctly via the main file `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
 
@@ -70,7 +80,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ config.xml
+#### administrator/components/com\_foos/ config.xml
 
 We set the permissions for the entire component in the configuration. For this we integrate a special form field. Joomla offers the type `rules` for this.
 
@@ -99,7 +109,7 @@ We set the permissions for the entire component in the configuration. For this w
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ foos.xml
+#### administrator/components/com\_foos/foos.xml
 
 To make sure that everything runs smoothly during the installation, we add the new file and folder `sql/updates/mysql` and `access.xml` here.
 
@@ -128,7 +138,7 @@ To make sure that everything runs smoothly during the installation, we add the n
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/foo.xml
+#### administrator/components/com\_foos/ forms/foo.xml
 
 We extend the form for creating a new Foo item with the possibility to set permissions for a single item. We add the field `name="access"`.
 
@@ -150,7 +160,7 @@ We extend the form for creating a new Foo item with the possibility to set permi
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
 
 The SQL script for a new installation of the component is also extended with the necessary fields. In this way we ensure that the database is also completely set up for a new installation.
 
@@ -167,7 +177,7 @@ The SQL script for a new installation of the component is also extended with the
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com\_foos/ src/Model/FoosModel.php
 
 If you are not familiar with SQL, the database query in the model will now seem complex. It is now necessary to combine data from two database tables. One table is `#__viewlevels` which manages the permissions of `com_user`. The other table is that of our example component which is named `#__foos_details`. Don't feel discouraged by this. Joomla supports you in creating the queries.
 
@@ -198,7 +208,7 @@ If you are not familiar with SQL, the database query in the model will now seem 
 > As a reminder, Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/accessing_the_database_using_jdatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL for you.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
 
 A button to create an element is only useful if this is allowed. Therefore we change the view - `$canDo` is added. The call `$canDo = ContentHelper::getActions('com_foos');` gets the actions you defined in the file `administrator/components/com_foos/access.xml` at the beginning of this chapter.
 
@@ -240,7 +250,7 @@ A button to create an element is only useful if this is allowed. Therefore we ch
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com\_foos/ tmpl/foo/edit.php
 
 The entry `<?php echo $this->getForm()->renderField(access);` is necessary to include the field in the form, which we have already configured in the XML file. Only this way it is possible to change the permissions per element.
 
@@ -257,7 +267,7 @@ The entry `<?php echo $this->getForm()->renderField(access);` is necessary to in
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foos/default.php
+#### administrator/components/com\_foos/ tmpl/foos/default.php
 
 Last but not least, we include a column in the overview for the authorization display.
 

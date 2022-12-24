@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Das Template ist fertig. Nun möchtest du sichergehen, dass es technisch gut ist und keine Fehler enthält. Dann sieh dir [Lighthouse](https://developers.google.com/web/tools/lighthouse)[^developers.google.com/web/tools/lighthouse] an. Das ist ein Browser-Plugin und ein in Google Chrome entwickeltes Audit-Tool mit dem die Ladezeit einer Internetpräsenz untersucht und optimiert werden kann. Es beachtet neben dem Aufbau von HTML-, CSS- und JavaScript-Dateien auch die Integration von Bildern und die Cache-Vorgaben der Website.<!-- \index{Google Lighthoause} --><!-- \index{Template!Performance, Zugänglichkeit, Accessibility, Bewährte Praxis, SEO,PWA} -->
 
 ## Google Lighthouse

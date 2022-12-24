@@ -40,7 +40,7 @@ Dazwischen sind andere Formen zu unterscheiden, je nachdem, wie viele Entscheidu
 
 
 
-Im Falle eines Staats und der Regierungsform gibt es viele Ähnlichkeiten mit der Nikomachischen Ethik von Aristoteles[^https://www.projekt-gutenberg.org/aristote/nikomach/niko0812.html].
+Im Falle eines Staats und der Regierungsform gibt es viele Ähnlichkeiten mit der Nikomachischen Ethik von Aristoteles[^www.projekt-gutenberg.org/aristote/nikomach/niko0812.html].
 https://www.youtube.com/watch?v=DaQptkPBNV8
 
 <img src="https://vg04.met.vgwort.de/na/6bdf50c4198d416bae81e7e9d2528f23" width="1" height="1" alt="">

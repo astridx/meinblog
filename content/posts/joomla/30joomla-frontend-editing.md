@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu ermöglichen. Zum einen empfinden es die Nutzer als benutzerfreundlicher, direkt auf der Website zu arbeiten, als sich in das Backend einzuloggen. Oder, einem Administrator ist es wichtig, den Zugriff auf den Administrationsbereich nicht freizugeben. Deshalb statten wir unsere Komponente im nächsten Schritt mit der Möglichkeit aus, Items im Frontend zu bearbeiten.<!-- \index{Frontend Editing} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t24b...t25)[^codeberg.org/astrid/j4examplecode/compare/t24b...t25] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -26,7 +36,7 @@ Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu erm�
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Service/HTML/Icon.php
+#### administrator/components/com\_foos/ src/Service/HTML/Icon.php
 
 Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearbeitung geöffnet wird, im Frontend anzuzeigen - vorausgesetzt, der Betrachter darf bearbeiten.
 
@@ -1142,7 +1152,7 @@ Zu guter Letzt benötigen wir die Datei `components/com_foos/tmpl/form/edit.xml`
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
 In der Datei `administrator/components/com_foos/src/Extension/FoosComponent.php` registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla bekannt.
 

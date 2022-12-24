@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Your component is user-friendly. User experience (UX) or user experience is on everyone's lips. If a user enters incorrect data, it's important to you that they get an explanation. This is where we use validation.<!-- \index{validation (server-side)} -->
 
 In server-side validation, the input submitted by the user is sent to the server and validated using the scripting language. In the case of Joomla, this is PHP. After the validation process on the server side, the feedback is sent back to the client from a new dynamically generated web page. It is safe to validate user input from the server. Malicious attackers have no easy game this way. Client-side scripting languages are easier to trick. Intruders bypass them to send malicious input to the server.
@@ -32,7 +42,7 @@ This part covers the server-side validation in Joomla 4.
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Rule/LetterRule.php
+#### administrator/components/com\_foos/ src/Rule/LetterRule.php
 
 The main goal here is not to learn meaningful validation. Rather, I'm showing you how to integrate your rules into Joomla. That's why you see here only a rudimentary example: In the name it is forbidden to insert a number from now on. In concrete terms, this means: _Astrid_ is allowed. _Astrid9_ is not allowed. For this we create the file `LetterRule.php`.
 
@@ -106,7 +116,7 @@ public function test(\SimpleXMLElement $element, $value, $group = null, Registry
 To make Joomla apply the rule in the `LetterRule.php` file to the text field for entering the name, we modify the form file.
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ forms/foo.xml
+#### administrator/components/com\_foos/ forms/foo.xml
 
 What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` and `validate="Letter"`. The parameter `addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"` ensures that the form searches for rules in the namespace `FooNamespace\Component\Foos\Administrator\Rule` and `validate="Letter"` indicates that the rule `Letter`, i.e. according to Joomla standard the class `LetterRule`, is applied.
 

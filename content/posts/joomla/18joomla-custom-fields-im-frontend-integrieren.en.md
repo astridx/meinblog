@@ -17,6 +17,16 @@ tags:
   - Joomla
 ---
 
+
+
+
+
+
+
+
+
+
+
 Very few use custom fields only in the administration area. As usual, an output in the frontend is required. We will address this question in the current part of the article series. How and where are custom fields in Joomla displayed in the frontend?<!-- \index{custom fields!frontend} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t14a...t14b)[^codeberg.org/astrid/j4examplecode/compare/t14a...t14b] and copy these changes into your development version.
