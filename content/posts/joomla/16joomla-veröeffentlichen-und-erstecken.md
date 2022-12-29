@@ -42,7 +42,7 @@ Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente h
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/updates/mysql/13.0.0.sql
+#### administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql
 
 Im Falle eines Updates, wird die Datenbank mithilfe der Datei `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql` auf den neuesten Stand für Version 13 gebracht. Konkret werden Spalten für das Speichern der Daten zur Veröffentlichung eingefügt.
 
@@ -61,7 +61,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Controller/FoosController.php
+#### administrator/components/com_foos/ src/Controller/FoosController.php
 
 Jetzt benötigt Joomla die Klasse `AdminController`. Deshalb erstellen wir die Klasse `FoosController`, welche von `AdminController` erbt. `FoosController` enthält momentan keine eigenen Implementierungen. Der Controller ruft lediglich Methoden der Elternklasse auf.
 
@@ -134,7 +134,7 @@ class FoosController extends AdminController
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ forms/foo.xml
+#### administrator/components/com_foos/ forms/foo.xml
 
 Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird und zwei, über die eine terminierte Veröffentlichung mithilfe eines Kalenders erreicht wird.
 
@@ -185,7 +185,7 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
 
 `administrator/components/com_foos/sql/install.mysql.utf8.sql` wird im Falle einer neuen Installation verwendet, um die Datenbank anzulegen. Deshalb ergänzen wir hier die notwendigen Informationen. In der Datei `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql` hatten wir diese schon ergänzt. Diese Datei wird lediglich bei einer Aktualisierung angewendet.
 
@@ -211,7 +211,7 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/ src/Extension/FoosComponent.php
 
 Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`. Diese wird verwendet um in der Kategorie-Ansicht anzuzeigen, wie viele Elemente veröffentlich oder versteckt sind. Erinnerst du dich. Kategorien hatten wir im vorherigen Teil eingeführt. Da hat dieser Teil in der Kategorie-Ansicht nicht funktioniert. Jetzt wird korrekt gezählt. Überzeuge dich selbst davon, nachdem du die Komponente um diese Funktion in Joomla ergänzt hast.
 
@@ -231,7 +231,7 @@ Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`. Dies
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/ src/Model/FoosModel.php
 
 Das Model erweitern wir, damit die Informationen über den Status aus der Datenbank abgefragt werden, wenn die Listenansicht für das Backend erstellt wird.
 
@@ -250,7 +250,7 @@ Das Model erweitern wir, damit die Informationen über den Status aus der Datenb
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Table/FooTable.php
+#### administrator/components/com_foos/ src/Table/FooTable.php
 
 In der Datei `administrator/components/com_foos/src/Table/FooTable.php`, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. So stellen wir sicher, dass keine unmöglichen Daten gespeichert werden.
 
@@ -301,7 +301,7 @@ In der Datei `administrator/components/com_foos/src/Table/FooTable.php`, die die
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/ tmpl/foo/edit.php
 
 Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Felder gerendert werden.
 
@@ -320,7 +320,7 @@ Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Fel
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/ tmpl/foos/default.php
 
 Zum Schluss ergänzen wir die Übersichtsliste im Backend. Wir erstellen eine Spalte für die Anzeige des Veröffentlichungsstatus.
 

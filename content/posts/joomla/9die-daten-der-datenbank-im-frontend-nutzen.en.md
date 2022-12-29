@@ -36,7 +36,7 @@ We have a database where the data about the component is stored. The next step i
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Field/Modal/FooField.php
+#### administrator/components/com_foos/ src/Field/Modal/FooField.php
 
 First, we create the form field through which it is possible to select or deselect a Foo element. In this case, we cannot access a ready-made field. Basically, we implement the methods `getInput` and `getLabel` and we set the type to `Modal_Foo`. It is not mandatory that the name of the class starts with the word 'Field' and that the class is stored in the directory 'Field'. However, it can be helpful because it is standard in Joomla's own extension.
 
@@ -279,7 +279,7 @@ The name of the function must be the same in both places!
 > In an early sample code version for the field 'FooField' we do not use the Webasset Manager. The necessary changes can be found [here](https://github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9)[^github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9].
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foos/modal.php
+#### administrator/components/com_foos/ tmpl/foos/modal.php
 
 We open the selection in a modal window via the FooField. As address we have inserted in the field `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'`. The following code shows you the template for this modal window.
 
@@ -457,7 +457,7 @@ The following is the JavaScript code that causes a foo element to be selectable 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
 We have created a new JavaScript file. We place it in the `media\js` directory. So that it is copied when the component is installed, we add the `js` folder in the section `media` of the installation manifest.
 
@@ -480,7 +480,7 @@ We have created a new JavaScript file. We place it in the `media\js` directory. 
 > Read in the preface why you choose the `media` directory ideally for assets like JavaScript files or stylesheets.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Model/FooModel.php
+#### components/com_foos/src/Model/FooModel.php
 
 We no longer output static text. An item from the database is displayed. Therefore we rename the `getMsg` method to `getItem`. We adjust the variable names and create a database query.
 
@@ -559,7 +559,7 @@ We no longer output static text. An item from the database is displayed. Therefo
 > Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/accessing_the_database_using_jdatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/View/Foo/HtmlView.php
+#### components/com_foos/src/View/Foo/HtmlView.php
 
 In the view we consequently replace `$this->msg = $this->get('Msg');` with `$this->item = $this->get('Item');`.
 
@@ -592,7 +592,7 @@ In the view we consequently replace `$this->msg = $this->get('Msg');` with `$thi
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.php
+#### components/com_foos/ tmpl/foo/default.php
 
 We will customize the display of the name in the template. Here we access the `item` element and its `name` property. In this way we can flexibly and easily add new properties in the future.
 
@@ -609,7 +609,7 @@ We will customize the display of the name in the template. Here we access the `i
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.xml
+#### components/com_foos/ tmpl/foo/default.xml
 
 We create an entry in the `default.xml` file for the new form field. This way we enable the selection of a Foo element at the menu item. Worth mentioning are the entries `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` and `type="modal_foo"`:
 

@@ -42,7 +42,7 @@ The initial situation: Imagine you want to make the directions for each item in 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27..t27a1)[^codeberg.org/astrid/j4examplecode/compare/t27..t27a1].
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 So that every direction can be managed from one place, you start the call in the file `administrator/components/com_foos/src/Extension/FoosComponent.php`. This file uses a container, or rather the interface `ContainerInterface`.
 
@@ -67,7 +67,7 @@ public function boot(ContainerInterface $container)
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/src/Service/HTML/Direction.php
+#### administrator/components/com_foos/src/Service/HTML/Direction.php
 
 We print the directions as text using the `displayDirection` method of the `Direction` class.
 

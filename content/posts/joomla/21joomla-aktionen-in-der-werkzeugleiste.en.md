@@ -132,7 +132,7 @@ We add permission checking here. A button is displayed only if the user is autho
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
 
 Here you can see an example of the List View toolbar - the view that gives you an overview of your items. Permission checking has also been added here.
 

@@ -43,7 +43,7 @@ If you worked with Joomla, you know it from other components: Items have a statu
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/updates/mysql/13.0.0.sql
+#### administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql
 
 In case of an update, the database is updated to the latest version for version 13 using the file `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql`. Specifically, columns are added for saving the data for publication.
 
@@ -62,7 +62,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Controller/FoosController.php
+#### administrator/components/com_foos/ src/Controller/FoosController.php
 
 Now Joomla needs the class `AdminController`. Therefore, we create the class `FoosController`, which inherits from `AdminController`. At the moment, `FoosController` does not contain any implementations of its own. The controller only calls methods of the parent class.
 
@@ -135,7 +135,7 @@ class FoosController extends AdminController
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ forms/foo.xml
+#### administrator/components/com_foos/ forms/foo.xml
 
 Three fields are added to the form. One, in which the status is set and two, through which a scheduled publication is achieved with the help of a calendar.
 
@@ -187,7 +187,7 @@ Three fields are added to the form. One, in which the status is set and two, thr
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
 
 `administrator/components/com_foos/sql/install.mysql.utf8.sql` is used in the case of a new installation to create the database. Therefore, we add the necessary information here. We had already added this in the file `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql`. This file is only used during an update.
 
@@ -213,7 +213,7 @@ Three fields are added to the form. One, in which the status is set and two, thr
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/ src/Extension/FoosComponent.php
 
 The component class receives the new function 'getStateColumnForSection'. This is used to show in the category view how many items are published or hidden. Remember. We introduced categories in the previous part. Then this part did not work in the category view. Now it is counted correctly. See for yourself after you have added this function to the component in Joomla.
 
@@ -234,7 +234,7 @@ The component class receives the new function 'getStateColumnForSection'. This i
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/ src/Model/FoosModel.php
 
 We extend the model so that the information about the status is retrieved from the database when the list view is created for the backend.
 
@@ -253,7 +253,7 @@ We extend the model so that the information about the status is retrieved from t
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Table/FooTable.php
+#### administrator/components/com_foos/ src/Table/FooTable.php
 
 In the file `administrator/components/com_foos/src/Table/FooTable.php`, which manages the database table, we add checks. This way we make sure that no impossible data is stored.
 
@@ -305,7 +305,7 @@ We need `store($updateNulls = true)` because the parent class `Table` sets the v
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/ tmpl/foo/edit.php
 
 In the form for editing an element, we make sure that the new fields are rendered.
 
@@ -324,7 +324,7 @@ In the form for editing an element, we make sure that the new fields are rendere
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/ tmpl/foos/default.php
 
 Finally, we add to the overview list in the backend. We create a column for displaying the publication status.
 

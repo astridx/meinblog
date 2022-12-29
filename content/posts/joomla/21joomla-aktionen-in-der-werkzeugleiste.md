@@ -42,7 +42,7 @@ Wir ändern in diesem Kapitel lediglich Dateien, es kommt keine neue hinzu.
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/View/Foo/HtmlView.php
+#### administrator/components/com_foos/ src/View/Foo/HtmlView.php
 
 Der nachfolgende Code zeigt dir, welche Funktionen du beim Erstellen oder Editieren eines Elementes nutzt. Die Klasse ToolbarHelper[^libraries/src/Toolbar/ToolbarHelper.php] bietet eine Menge hilfreicher Funktionen. Beispielweise
 
@@ -133,7 +133,7 @@ Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
 
 Hier siehst du beispielhaft die Werkzeugleiste der Listenansicht - die Ansicht, die dir eine Übersicht über deine Elemente bietet. Die Prüfung von Berechtigungen ist hier ebenfalls hinzugekommen.
 

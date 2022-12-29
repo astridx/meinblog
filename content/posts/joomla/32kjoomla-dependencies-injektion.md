@@ -42,7 +42,7 @@ Die Ausgangssituation: Stelle dir vor, du möchtest zu jedem Item in deiner Komp
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27..t27a1)[^codeberg.org/astrid/j4examplecode/compare/t27..t27a1] an.
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 Damit alle Anfahrsmöglichkeiten von einer Stelle aus verwaltbar sind, startest du den Aufruf in der Datei `administrator/components/com_foos/src/Extension/FoosComponent.php` ein. Diese Datei nutzt einen Container, beziehungsweise die Schnittstelle `ContainerInterface`.
 
@@ -67,7 +67,7 @@ public function boot(ContainerInterface $container)
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/src/Service/HTML/Direction.php
+#### administrator/components/com_foos/src/Service/HTML/Direction.php
 
 Die Anfahrtsbeschreibung geben wir über die Methode `displayDirection` der Klasse `Direction` als Text aus.
 

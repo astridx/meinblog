@@ -38,7 +38,7 @@ We already use layouts. The empty state Layout (`administrator/components/com_fo
 ### New files
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/withhead.php
+#### components/com_foos/ tmpl/foo/withhead.php
 
 [components/com_foos/tmpl/foo/withhead.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.php)
 
@@ -67,7 +67,7 @@ echo $this->item->event->afterDisplayContent;
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/withhead.xml
+#### components/com_foos/ tmpl/foo/withhead.xml
 
 [components/com_foos/tmpl/foo/withhead.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.xml)
 
@@ -103,7 +103,7 @@ echo $this->item->event->afterDisplayContent;
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/withheadandfoot.php
+#### components/com_foos/ tmpl/foo/withheadandfoot.php
 
 [components/com_foos/tmpl/foo/withheadandfoot.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
@@ -137,7 +137,7 @@ echo $this->item->event->afterDisplayContent;
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ forms/foo.xml
+#### administrator/components/com_foos/ forms/foo.xml
 
 In the form of the element we add a field to select the layout.
 
@@ -164,7 +164,7 @@ In the form of the element we add a field to select the layout.
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Model/FooModel.php
+#### components/com_foos/src/Model/FooModel.php
 
 This is what happens during development. Basically we would not have to change the file `components/com_foos/src/Model/FooModel.php`. In this chapter I noticed that a `use` entry is missing. Therefore a change is made after all.
 
@@ -181,7 +181,7 @@ This is what happens during development. Basically we would not have to change t
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/View/Foo/HtmlView.php
+#### components/com_foos/src/View/Foo/HtmlView.php
 
 In the case of a menu item, I think it is important that it - or the content and design - is always displayed consistently. That is why we query the active menu item. If, for example, elements are displayed via a category view, then a uniform layout is possible with the help of this information. If the content is displayed as a single element, a different layout can be used.
 

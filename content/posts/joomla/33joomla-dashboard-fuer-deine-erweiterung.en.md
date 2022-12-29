@@ -36,7 +36,7 @@ Extensive Joomla Core extensions have a dashboard in which related functions are
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ presets/foos.xml
+#### administrator/components/com_foos/ presets/foos.xml
 
 In the file `administrator/components/com_foos/presets/foos.xml` we define what is displayed on the dashboard by default.
 
@@ -82,7 +82,7 @@ In the file `administrator/components/com_foos/presets/foos.xml` we define what 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
 We modify the XML manifest so that the sidebar in the Joomla administration template knows how to link to the dashboard.
 
@@ -131,7 +131,7 @@ We modify the XML manifest so that the sidebar in the Joomla administration temp
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/script.php
+#### administrator/components/com_foos/script.php
 
 In the installation script we add the call. With this, we call a Joomla-specific function that makes our dashboard known in the CMS.
 

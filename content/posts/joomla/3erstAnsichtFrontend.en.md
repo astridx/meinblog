@@ -38,7 +38,7 @@ After you have a working backend for your component, you implement the frontend.
 The administration area of our component is located in the folder `com_foos` under `/administrator/component`. Now we work on the frontend. The data of the frontend view are stored in the folder `com_foos` directly under `/components`.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Controller/DisplayController.php
+#### components/com_foos/src/Controller/DisplayController.php
 
 The DisplayController in the directory `components/com_foos/src/Controller/` is the entry point for the Model-View-Controller part in the frontend of the Foo component. Name the class _DisplayController_. Joomla expects this. Extend _BaseController_ to use many things out-of-the-box. Everything I wrote in the chapter on the _First View in the Backend_ applies here analogously.
 
@@ -108,7 +108,7 @@ class DisplayController extends BaseController
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/View/Foo/HtmlView.php
+#### components/com_foos/src/View/Foo/HtmlView.php
 
 At the moment, the view of our component is simple. Only a static text is displayed. This will change!
 
@@ -164,10 +164,12 @@ Joomla logging offers the possibility to log messages in a file and on the scree
 
 ![Activate debugging in the Joomla backend](/images/j4x3x2a.png)
 
-<!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.php
+> We do not use the file here, just because it fits a note: The file `libraries/src/Log/DelegatingPsrLogger.php` becomes final in Joomla 5 and cannot be overwritten further. See PR 39134 [^github.com/joomla/joomla-cms/pull/39134].
 
-The file `components/com\_foos/ tmpl/foo/default.php` contains the text we display. Everything I wrote in the chapter about the _first view in the backend_ also applies here.
+<!-- prettier-ignore -->
+#### components/com_foos/ tmpl/foo/default.php
+
+The file `components/com_foos/ tmpl/foo/default.php` contains the text we display. Everything I wrote in the chapter about the _first view in the backend_ also applies here.
 
 [components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
 
@@ -191,7 +193,7 @@ Hello Foos
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
 Administrator/components/com_foos/foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories `src` and `tmpl` exist and where to copy them to. The copy destination is the directory `components/com_foos` because of `folder="components/com_foos"`.
 

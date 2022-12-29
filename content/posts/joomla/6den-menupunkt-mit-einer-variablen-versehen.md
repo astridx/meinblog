@@ -40,7 +40,7 @@ In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich Date
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Model/ FooModel.php
+#### components/com_foos/src/Model/ FooModel.php
 
 Im Model änderst du die Methode, in welcher der Text für die Ausgabe berechnet wird. Lösche den folgenden Eintrag:
 
@@ -122,7 +122,7 @@ Mögliche Datentypen für die Filterung sind:
 Soweit, so gut. Es fehlt noch die Möglichkeit, den Wert für `show_text` beim Menüpunkt im Backend zu konfigurieren. Diese implementieren wir jetzt in der Datei `default.xml`.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.xml
+#### components/com_foos/ tmpl/foo/default.xml
 
 Du bietest in deiner Erweiterung die Möglichkeit einen Wert beim Menüpunkt zu speichern, indem du die XML-Datei um ein Inputelement erweiterst. Der nachfolgende Code zeigt dir, wie du ein Eingabefeld für Text hinzufügst.
 

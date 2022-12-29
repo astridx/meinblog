@@ -42,7 +42,7 @@ Dieser Teil behandelt die serverseitige Validierung in Joomla 4.
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Rule/LetterRule.php
+#### administrator/components/com_foos/ src/Rule/LetterRule.php
 
 In diesem Text ist es nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen. Konkret bedeutet dies: _Astrid_ ist erlaubt. _Astrid9_ ist nicht erlaubt. Diese Prüfung implementieren wir in der Datei `LetterRule.php`.
 
@@ -116,7 +116,7 @@ public function test(\SimpleXMLElement $element, $value, $group = null, Registry
 Damit Joomla die Regel in der Datei `LetterRule.php` auf das Textfeld zur Eingabe des Namens anwendet, passen wir die Formulardatei an.
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ forms/foo.xml
+#### administrator/components/com_foos/ forms/foo.xml
 
 Geändert hat sich `<fieldset addruleprefix="FooNamespace\Component\Foos\ Administrator\Rule">` und `validate="Letter"`. Der Parameter `addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"` sorgt dafür, dass das Formular im Namespace `FooNamespace\Component\Foos\Administrator\Rule` nach Regeln sucht und `validate="Letter"` zeigt an, dass die Regel `Letter`, also nach Joomla Standard die Klasse `LetterRule`, angewendet wird.
 

@@ -38,7 +38,7 @@ Nachdem du über ein funktionierendes Backend für deine Komponente verfügst, i
 Der Administrationsbereich unserer Komponente ist im Ordner `com_foos` unter `/administrator/component` gespeichert. Jetzt arbeiten wir am Frontend. Die Daten der Frontend-Ansicht befinden sich im Ordner `com_foos` direkt unter `/components`.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Controller/DisplayController.php
+#### components/com_foos/src/Controller/DisplayController.php
 
 Der DisplayController im Verzeichnis `components/com_foos/src/Controller/` ist der Einstiegspunkt für den Model-View-Controller-Teil im Frontend der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen. Alles was ich im Kapitel zur _Ersten Ansicht im Backend_ geschrieben habe, trifft hier analog zu.
 
@@ -108,7 +108,7 @@ class DisplayController extends BaseController
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/View/Foo/HtmlView.php
+#### components/com_foos/src/View/Foo/HtmlView.php
 
 Im Moment ist die Ansicht unserer Komponente einfach gehalten. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!
 
@@ -164,10 +164,12 @@ Die Joomla-Protokollierung bietet die Möglichkeit, Meldungen in einer Datei und
 
 ![Aktivierung der Debug Anzeige im Joomal Backend](/images/j4x3x2a.png)
 
-<!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.php
+> Wir nutzen die Datei hier nicht, nur weil es passt ein Hinweis: Die Datei `libraries/src/Log/DelegatingPsrLogger.php` wird in Joomla 5 final und kann nicht weiter überschrieben werden. Siehe PR 39134[^github.com/joomla/joomla-cms/pull/39134].
 
-Die Datei `components/com\_foos/ tmpl/foo/default.php` beinhaltet den Text, welchen wir anzeigen. Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier ebenfalls zu.
+<!-- prettier-ignore -->
+#### components/com_foos/ tmpl/foo/default.php
+
+Die Datei `components/com_foos/ tmpl/foo/default.php` beinhaltet den Text, welchen wir anzeigen. Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier ebenfalls zu.
 
 [components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
 
@@ -191,9 +193,9 @@ Hello Foos
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
-`administrator/components/com\_foos/foos.xml` ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird. Aus diesem Grund ergänzen wir die beiden neu hinzugekommenen Dateien. So weiß Joomla bei einer Installation oder einer Aktualisierung, dass es die Verzeichnisse `src` und `tmpl` gibt und wohin es sie kopieren soll. Kopier-Ziel ist aufgrund von `folder="components/com_foos"` das Verzeichnis `components/com_foos`.
+`administrator/components/com_foos/foos.xml` ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird. Aus diesem Grund ergänzen wir die beiden neu hinzugekommenen Dateien. So weiß Joomla bei einer Installation oder einer Aktualisierung, dass es die Verzeichnisse `src` und `tmpl` gibt und wohin es sie kopieren soll. Kopier-Ziel ist aufgrund von `folder="components/com_foos"` das Verzeichnis `components/com_foos`.
 
 [administrator/components/com_foos/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/administrator/components/com_foos/foos.xml)
 

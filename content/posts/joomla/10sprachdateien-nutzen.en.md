@@ -122,7 +122,7 @@ COM_FOOS_N_ITEMS_FEATURED_2="Two foos featured."
 Create six files to support the German language in addition to English. Each file is structured as follows: One language string is inserted per line. The _left side_ of the equal sign in the language string, for example `COM_FOOS_ CONFIGURATION"` in `COM_FOOS_ CONFIGURATION="Foo Options"`, is always in upper case. Normally the extension name is at the beginning, in our case it is `COM_FOOS`. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed. The _right side_ of the language string, for example `Foo Options"` in `COM_FOOS_ CONFIGURATION = "Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ language/de-DE/com_foos.ini
+#### administrator/components/com_foos/ language/de-DE/com_foos.ini
 
 We add the German language version for the administration area with the files 'administrator/components/com_foos/language/en-DE/com_foos.ini' and 'administrator/components/com_foos/language/en-DE/com_foos.sys.ini'.
 
@@ -143,7 +143,7 @@ COM_FOOS_CATEGORIES="Kategorien"
 > Naming conventions: Each language file is marked with an abbreviation, which is defined in [ISO-639](https://en.wikipedia.org/wiki/ISO_639)[^en.wikipedia.org/wiki/iso_639] and [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166)[^en.wikipedia.org/wiki/iso_3166]: The first two lower case letters name the language. For German this is `de` and `en` for English. After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A folder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ language/de-DE/com_foos.sys.ini
+#### administrator/components/com_foos/ language/de-DE/com_foos.sys.ini
 
 As mentioned before, you need two language files for the backend: one ending with `.ini` and one ending with `sys.ini`. The [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) is primarily used during installation and for displaying the menu items and the `ini` for everything else.
 
@@ -164,7 +164,7 @@ COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Alles hier passiert nach der Installatio
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ language/en-GB/com_foos.ini
+#### administrator/components/com_foos/ language/en-GB/com_foos.ini
 
 I had already written it: The English versions of the language files should always be available as a fallback.
 
@@ -181,7 +181,7 @@ COM_FOOS_CATEGORIES="Categories"
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ language/en-GB/com_foos.sys.ini
+#### administrator/components/com_foos/ language/en-GB/com_foos.sys.ini
 
 We also add the file `administrator/components/com_foos/language/en-GB/com_foos.sys.ini` as a fallback for all non-German or English Joomla installations.
 
@@ -202,7 +202,7 @@ COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Anything here happens after the installa
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ language/de-DE/com_foos.ini
+#### components/com_foos/ language/de-DE/com_foos.ini
 
 In the frontend there is only the `.ini` - so no `sys.ini`. The file `components/com_foos/language/en-DE/com_foos.ini` implements the German language.
 
@@ -216,7 +216,7 @@ COM_FOOS_NAME="Vorame: "
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ language/en-GB/com_foos.ini
+#### components/com_foos/ language/en-GB/com_foos.ini
 
 We add the English version to the file `components/com_foos/language/en-GB/com_foos.ini` so that it is used as a fallback in all languages other as German.
 
@@ -234,7 +234,7 @@ COM_FOOS_NAME="Surname: "
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
 To make sure that the language files are copied to Joomla Core when the extension is installed, we add the `<folder>language</folder>` entry for the frontend and the backend to the manifest.
 
@@ -308,7 +308,7 @@ where you need to adjust the value of the `folder` parameter to your structure:
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.php
+#### components/com_foos/ tmpl/foo/default.php
 
 One last step is still missing. The own use of the language strings. So far we have printed the name without a label in the frontend via `echo $this->item->name;`. Now we add a label that takes different languages into account. The following code causes the string that is entered in the corresponding language file to be printed in the frontend. This is done by the command `Text::_('COM_FOOS_NAME')`. If there is a Spanish language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Nombre"` and the Spanish language is active in the frontend, then `Nombre` is printed. If the German language is set and there is a German language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Name"`, the word `Name` is displayed. If the Spanish language is active without a Spanish language file, the English language file is used.
 

@@ -40,7 +40,7 @@ No new file is added in this chapter. We only change files.
 ### Modified files
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Model/FooModel.php
+#### components/com_foos/src/Model/FooModel.php
 
 In the model, change the method in which text is calculated for output. Delete the following entry:
 
@@ -122,7 +122,7 @@ Possible data types for filtering are:
 So far, so good. We are still missing the possibility to configure the value for `show_text` at the menu item in the backend. We implement this next in the file `default.xml`.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.xml
+#### components/com_foos/ tmpl/foo/default.xml
 
 In your extension you offer the possibility to save a value at the menu item by extending the XML file with an input element. The following code shows you how to add a text input field.
 

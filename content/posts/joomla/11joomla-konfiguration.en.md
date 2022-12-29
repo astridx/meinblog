@@ -36,7 +36,7 @@ Are there things you plan to offer configurable? Then this part is important for
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ config.xml
+#### administrator/components/com_foos/ config.xml
 
 We add the `config.xml` file. This implements the configuration parameters. In this XML file you can use all [standard form field types](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] as usual or implement your own types analogous to the already created modal field FieldFoo.
 
@@ -71,7 +71,7 @@ We use a selection field of type `type="list"`. We minimise the translation work
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
 The addition in the `foos.xml` file ensures that the `config.xml` file is copied during installation and Joomla can thus access it later.
 
@@ -89,7 +89,7 @@ The addition in the `foos.xml` file ensures that the `config.xml` file is copied
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
 
 The line `$toolbar->preferences('com_foos');` ensures that the button `Options' is inserted at the top of the administration area. This way, the configuration is easily accessible later in the backend.
 
@@ -108,7 +108,7 @@ The line `$toolbar->preferences('com_foos');` ensures that the button `Options' 
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Model/FooModel.php
+#### components/com_foos/src/Model/FooModel.php
 
 The `populateState` method ensures that the `State` object is correctly filled and available to all code. We add the new parameter here for the site part.
 
@@ -134,7 +134,7 @@ The `populateState` method ensures that the `State` object is correctly filled a
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.php
+#### components/com_foos/ tmpl/foo/default.php
 
 Finally, we replace `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. We only show the label if in the status the parameter is set to `true` or `1`.
 

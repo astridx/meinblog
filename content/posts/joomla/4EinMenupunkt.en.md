@@ -38,7 +38,7 @@ In this article you will learn how to create a menu item for the frontend view o
 The menu item in the frontend works differently than the one in the administration area. We create a separate XML file. Later we will use parameters. But for now we keep it straightforward. We add some language strings for text. Later on, we will see how to translate them.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.xml
+#### components/com_foos/ tmpl/foo/default.xml
 
 Create the file `default.xml` under `components/com_foos/tmpl/foo` and add the following code:
 

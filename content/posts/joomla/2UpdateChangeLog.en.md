@@ -180,7 +180,7 @@ Information on the changelog can be found on Github [in PR github.com/joomla/joo
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
 Only the version number has been adjusted. This change is necessary in every new chapter, because a new function is always added. I do not mention this explicitly in the following.
 

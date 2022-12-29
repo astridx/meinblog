@@ -42,7 +42,7 @@ We have not created a new file in this part, we have only changed files.
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/access.xml
+#### administrator/components/com_foos/access.xml
 
 In the file `administrator/components/com_foos/access.xml` we prepare everything to give permissions to the user-defined fields. So it is possible that only specific users are allowed to change or view a field.
 
@@ -70,7 +70,7 @@ In the file `administrator/components/com_foos/access.xml` we prepare everything
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/config.xml
+#### administrator/components/com_foos/config.xml
 
 The configuration `config.xml` uses a paramter to define whether the extension uses custom fields.
 
@@ -124,7 +124,7 @@ A tip for the type `radio` with the layout `joomla.form.field.radio.switcher`. D
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
 In the navigation menu on the left in the Joomla administration area we add two links. The first new link leads to the view where custom fields are created for the component. The other one leads to the view where field groups are created.
 
@@ -143,7 +143,7 @@ In the navigation menu on the left in the Joomla administration area we add two 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/ src/Model/FooModel.php
 
 The form through which a Foo element can be edited now has tabs. To ensure that the data is not lost within the session when switching between tabs, we change the `loadFormData()` method in the file `administrator/components/com_foos/src/Model/FooModel.php`. It is not necessary that we cache data ourselves. The method `$app->getUserState()` does this for us. At the same time we make sure that a default value is set for the category if a new element is loaded and therefore `$this->getState('foo.id') == 0` equals `true`.
 
@@ -172,7 +172,7 @@ The form through which a Foo element can be edited now has tabs. To ensure that 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/ tmpl/foo/edit.php
 
 To make editing the custom fields work the same way as in Joomla's own extensions, we use UiTab[^libraries/src/html/helpers/uitab.php]. `$this->useCoreUI = true;` ensures that the Helper[^layouts/joomla/edit/params.php#l20] flexibly provides the correct tab implementation.
 

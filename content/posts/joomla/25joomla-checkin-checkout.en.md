@@ -38,7 +38,7 @@ The checkout function avoids unexpected results that occur when two users edit t
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/updates/mysql/21.0.0.sql
+#### administrator/components/com_foos/ sql/updates/mysql/21.0.0.sql
 
 Like all properties of a Foo element, the checkout state is stored in the database. We create two columns. Below you can see the script that is called during a Joomla update.
 
@@ -58,7 +58,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ forms/foo.xml
+#### administrator/components/com_foos/ forms/foo.xml
 
 In the form we add the fields for saving the state. We hide them with the attribute `hidden`, as they are not changed by the user here. Joomla sets the values automatically in the background.
 
@@ -87,7 +87,7 @@ In the form we add the fields for saving the state. We hide them with the attrib
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
 
 We add the database changes that we entered above for the update in the separate SQL file to the SQL script that is called during a new installation.
 
@@ -107,7 +107,7 @@ We add the database changes that we entered above for the update in the separate
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/ src/Model/FoosModel.php
 
 In the model, we adjust everything so that the two new columns are loaded correctly.
 
@@ -158,7 +158,7 @@ In the model, we adjust everything so that the two new columns are loaded correc
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/ tmpl/foos/default.php
 
 In the list view we do not insert a separate column. A symbol is displayed by the name if the element is locked. To display this, I choose the function that Joomla uses in its own extensions: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. At the same time, this takes over the check whether the contribution is released or not.
 

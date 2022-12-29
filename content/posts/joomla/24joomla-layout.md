@@ -38,7 +38,7 @@ Wir nutzen bereits Layouts. Das Empty-State-Layout (`administrator/components/co
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/withhead.php
+#### components/com_foos/ tmpl/foo/withhead.php
 
 [components/com_foos/tmpl/foo/withhead.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.php)
 
@@ -67,7 +67,7 @@ echo $this->item->event->afterDisplayContent;
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/withhead.xml
+#### components/com_foos/ tmpl/foo/withhead.xml
 
 [components/com_foos/tmpl/foo/withhead.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.xml)
 
@@ -103,7 +103,7 @@ echo $this->item->event->afterDisplayContent;
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/withheadandfoot.php
+#### components/com_foos/ tmpl/foo/withheadandfoot.php
 
 [components/com_foos/tmpl/foo/withheadandfoot.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
@@ -137,7 +137,7 @@ echo $this->item->event->afterDisplayContent;
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ forms/foo.xml
+#### administrator/components/com_foos/ forms/foo.xml
 
 Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 
@@ -164,7 +164,7 @@ Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Model/FooModel.php
+#### components/com_foos/src/Model/FooModel.php
 
 So etwas passiert beim Entwickeln. Im Grunde genommen müssten wir die Datei `components/com_foos/src/Model/FooModel.php` nicht ändern. In diesem Kapitel ist mir aufgefallen, dass ein `use`-Eintrag fehlt. Deshalb erfolgt doch eine Änderung.
 
@@ -181,7 +181,7 @@ So etwas passiert beim Entwickeln. Im Grunde genommen müssten wir die Datei `co
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/View/Foo/HtmlView.php
+#### components/com_foos/src/View/Foo/HtmlView.php
 
 Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt und das Design- immer einheitlich angezeigt werden. Deshalb fragen wir den aktiven Menüpunkt ab. Werden beispielsweise Elemente über eine Kategorie-Ansicht angezeigt, dann ist mithilfe dieser Information ein einheitliches Layout möglich. Wird der Content als einzelnes Element angezeigt kann auf ein anderes Layout zurückgegriffen werden.
 

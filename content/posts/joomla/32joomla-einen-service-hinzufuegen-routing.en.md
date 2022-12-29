@@ -44,7 +44,7 @@ An example of routing is the URL to the article "Welcome to Joomla" in the sampl
 ### New files
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Service/Router.php
+#### components/com_foos/src/Service/Router.php
 
 The service `components/com_foos/src/Service/Router.php` does the actual work and converts the URLs into search engine friendly versions.
 
@@ -343,7 +343,7 @@ class Router extends RouterView
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ services/provider.php
+#### administrator/components/com_foos/ services/provider.php
 
 In the service provider we register the service.
 
@@ -380,7 +380,7 @@ In the service provider we register the service.
 The lines `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Component\\Foos'))` and `$component->setRouterFactory ($container->get(RouterFactoryInterface::class))` are added.
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/ src/Extension/FoosComponent.php
 
 We implement `RouterServiceInterface` and use `RouterServiceTrait` so that these files are available.
 

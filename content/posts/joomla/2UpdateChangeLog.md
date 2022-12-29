@@ -180,7 +180,7 @@ Informationen zum Changelog findest du unter in Github im PR [github.com/joomla/
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
 Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in ähnlicher Form in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das im weiteren nicht explizit.
 

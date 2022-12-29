@@ -40,7 +40,7 @@ For the frontend, there are built-in menu item types in Joomla that use categori
 ### New files
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Model/CategoryModel.php
+#### components/com_foos/src/Model/CategoryModel.php
 
 The class we use to prepare the data for displaying the category view extends the `ListModel` class in the `/libraries/src/MVC/Model/ListModel.php` file, as does the `FeaturedModel` class in `components/com_foos/src/Model/FeaturedModel.php`. ListModel provides, among other things, the ability to handle the display of multiple items simultaneously on a web page, including support for pagination. Below I include my full code, which is derived from `com_contact`.
 
@@ -502,7 +502,7 @@ class CategoryModel extends ListModel
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Service/Category.php
+#### components/com_foos/src/Service/Category.php
 
 In the `Category` service for the frontend part we set the specific options for our component.
 
@@ -553,7 +553,7 @@ class Category extends Categories
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/View/Category/HtmlView.php
+#### components/com_foos/src/View/Category/HtmlView.php
 
 We handle the category view in the frontend via the file `components/com_foos/src/View/Category/HtmlView.php`.
 
@@ -673,7 +673,7 @@ class HtmlView extends CategoryView
 <!-- \index{slug} -->
 
 <!-- prettier-ignore -->
-#### components/com\_foos/tmpl/category/default.php
+#### components/com_foos/tmpl/category/default.php
 
 That we also create a template for the category view is not new. As usual we create the file `default.php` in the directory `components/com_foos/tmpl/category`. We use `joomla.content.category_default` here. You can find this layout file in the folder `layouts/joomla/content/category_default.php`.
 
@@ -706,7 +706,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/tmpl/category/default.xml
+#### components/com_foos/tmpl/category/default.xml
 
 Um im Backend auf benutzerfreundliche Art und Weise einen Menüpunkt für die Navigation im Frontend anlegen zu können, erstellen wir die Datei `components/com_foos/tmpl/category/default.xml`. Das haben wir hier im Text vorher schon öfter erledigt. Beispielsweise für ein Element oder für die Ansicht der Haupteinträge (`featured`).
 
@@ -779,7 +779,7 @@ Um im Backend auf benutzerfreundliche Art und Weise einen Menüpunkt für die Na
 > If your element is not displayed, it may be because you have set the parameter `show_name` to `no` for the element.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/tmpl/category/default_items.php
+#### components/com_foos/tmpl/category/default_items.php
 
 To make the category view code clear, we work with layouts. In the template `components/com_foos/tmpl/category/default.php` we use the layout `joomla.content.category_default`. This in turn requires the `items` layout, which we implement in the file `components/com_foos/tmpl/category/default_items.php`. At first glance, this seems cumbersome. In practice, however, it has proven its worth.
 

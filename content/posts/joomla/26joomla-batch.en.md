@@ -36,7 +36,7 @@ Joomla offers a number of functions that enable administrators to process severa
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foos/default_batch_body.php
+#### administrator/components/com_foos/ tmpl/foos/default_batch_body.php
 
 The following file creates the middle part of the form that is displayed to trigger batch processing.
 
@@ -88,7 +88,7 @@ $noUser    = true;
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foos/default_batch_footer.php
+#### administrator/components/com_foos/ tmpl/foos/default_batch_footer.php
 
 The following file creates the footer of the form that is displayed to trigger batch processing. The 'JCANCEL' button clears all values in the form fields using `document.getElementById('ELEMENT_ID').value=''`. I have included all possible fields here, although we don't use them all yet. For example, `batch-user-id` and `batch-tag-id` are not yet used in our form. The button `JGLOBAL_BATCH_PROCESS` starts the batch processing.
 
@@ -124,7 +124,7 @@ use Joomla\CMS\Language\Text;
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Controller/FooController.php
+#### administrator/components/com_foos/ src/Controller/FooController.php
 
 In the controller we implement the method `batch`. If we look at it closely, we add nothing more than the specifics: The name of the model used for data processing and the address to forward to after processing. At the end we call the implementation of Joomla with `return parent::batch($model);`. Done! For the standard functions, the wheel has already been invented by Joomla.
 
@@ -159,7 +159,7 @@ In the controller we implement the method `batch`. If we look at it closely, we 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/ src/Model/FooModel.php
 
 In the model we specify whether copying and moving is supported. In case of `false` the command is not provided by the batch processing. We also specify the properties that are editable using the batch function.
 
@@ -183,7 +183,7 @@ protected $associationsContext = 'com_foos.item';
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
 
 To make the batch processing usable via a button, we add an entry to the toolbar.
 
@@ -226,7 +226,7 @@ To make the batch processing usable via a button, we add an entry to the toolbar
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/ tmpl/foos/default.php
 
 We create the template that is used to create the form to trigger batch processing with the help of `HTMLHelper`.
 

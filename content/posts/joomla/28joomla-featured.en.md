@@ -38,7 +38,7 @@ Some items are special and for them there is a special attribute in Joomla: `fea
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/updates/mysql/24.0.0.sql
+#### administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql
 
 You already know this. We store the property `featured` in the database, so we extend the database table by one column. We do this in the file `24.0.0.sql`.
 
@@ -54,7 +54,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_featured_catid` (`featured`,`catid`);
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Model/FeaturedModel.php
+#### components/com_foos/src/Model/FeaturedModel.php
 
 To process the data that is `featured`, we create our own model.
 
@@ -255,7 +255,7 @@ class FeaturedModel extends ListModel
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/View/Featured/HtmlView.php
+#### components/com_foos/src/View/Featured/HtmlView.php
 
 `featured` gets its own file to manage the display in the frontend.
 
@@ -453,7 +453,7 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/featured/default.php
+#### components/com_foos/ tmpl/featured/default.php
 
 The display in the frontend is done as before via a template, which we implement in the file `default.php`.
 
@@ -499,7 +499,7 @@ The display in the frontend is done as before via a template, which we implement
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/featured/default.xml
+#### components/com_foos/ tmpl/featured/default.xml
 
 We need the file `components/com_foos/tmpl/featured/default.xml` to enable the display of `featured` elements via a menu item in the frontend.
 
@@ -560,7 +560,7 @@ We need the file `components/com_foos/tmpl/featured/default.xml` to enable the d
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/featured/default_items.php
+#### components/com_foos/ tmpl/featured/default_items.php
 
 In the file `default.php` we use the statement `<?php echo $this->loadTemplate('items'); ?>`. This way we keep the template clear. Everything concerning an item is inserted into `default.php` via the subtemplate `default_items.php`.
 
@@ -645,7 +645,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ forms/foo.xml
+#### administrator/components/com_foos/ forms/foo.xml
 
 We extend the form with which an element is created or changed by the field for setting the property `featured`.
 
@@ -673,7 +673,7 @@ We extend the form with which an element is created or changed by the field for 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
 
 In the case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the property `featured`.
 
@@ -689,7 +689,7 @@ In the case of a new installation, the script in the file `install.mysql.utf8.sq
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Controller/FoosController.php
+#### administrator/components/com_foos/ src/Controller/FoosController.php
 
 We implement the logic with which we set the `featured` property in the `featured()` function in the `FoosController`.
 
@@ -766,7 +766,7 @@ We implement the logic with which we set the `featured` property in the `feature
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/ src/Model/FooModel.php
 
 In the model of an element we implement the method with which the assignment of the property (data) `featured` is saved and changed.
 
@@ -834,7 +834,7 @@ In the model of an element we implement the method with which the assignment of 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/ src/Model/FoosModel.php
 
 In the list view model, we make the necessary adjustments to the database query.
 
@@ -883,7 +883,7 @@ In the list view model, we make the necessary adjustments to the database query.
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Service/HTML/AdministratorService.php
+#### administrator/components/com_foos/ src/Service/HTML/AdministratorService.php
 
 In `AdministratorService.php` we make it possible to change the assignment of the property also in the overview list. A click on the star symbol toggles the value.<!-- \index{service!administrator} -->
 
@@ -933,7 +933,7 @@ In `AdministratorService.php` we make it possible to change the assignment of th
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
 
 We add to the toolbar. `featured` should also be editable here via an action.
 
@@ -959,7 +959,7 @@ We add to the toolbar. `featured` should also be editable here via an action.
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/ tmpl/foo/edit.php
 
 In the form for creating or editing an element, we insert the command that creates a field using the XML file.
 
@@ -976,7 +976,7 @@ In the form for creating or editing an element, we insert the command that creat
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/ tmpl/foos/default.php
 
 In the overview of all elements in the backend in the file `administrator/components/com_foos/tmpl/foos/default.php` we add a column in which the state is displayed with a filled or empty star and can be changed by clicking. The file `HTMLHelper` does the master work for us.
 

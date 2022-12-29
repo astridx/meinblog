@@ -36,7 +36,7 @@ Wir haben eine Datenbank, in der die Daten zur Komponente gespeichert werden. De
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Field/Modal/FooField.php
+#### administrator/components/com_foos/ src/Field/Modal/FooField.php
 
 Als erstes erstellen wir das Formularfeld, über welches es möglich ist, ein Foo-Element auszuwählen, beziehungsweise abzuwählen. Auf ein vorgefertigtes Feld können wir in diesem Fall nicht zugreifen. Im Wesentlichen implementieren wir die Methoden `getInput` und `getLabel` und wir legen Typ mit `Modal_Foo` fest. Das der Name der Klasse mit dem Wort `Field` beginnt und dass die Klasse im Verzeichnis `Field` gespeichert wird ist nicht zwingend. Es kann aber hilfreich sein, weil es in Joomla-eigenen Erweiterung Standard ist.
 
@@ -279,7 +279,7 @@ Der Name der Funktion muss an beiden Stellen gleich sein!
 > In einer früher Beispielcode-Version zum Feld `FooField` nutzen wir den Webasset Manager nicht. Die notwendigen Änderungen findest du [hier](https://github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9)[^github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9].
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ tmpl/foos/modal.php
+#### administrator/components/com_foos/ tmpl/foos/modal.php
 
 Die Auswahl öffnen wir über das FooField in einem Modal-Fenster. Als Adresse haben wir im Feld `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'` eingefügt. Der nachfolgende Code zeigt dir das Template für dieses Modal-Fenster.
 
@@ -457,7 +457,7 @@ Es folgt der JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpunktes 
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/foos.xml
+#### administrator/components/com_foos/foos.xml
 
 Wir haben eine neue JavaScript-Datei erstellt. Wir legen sie im Verzeichnis `media\js` ab. Damit sie bei der Installation der Komponente kopiert wird, fügen wir den Ordner `js` in den Abschnitt `media` des Installationsmanifests ein.
 
@@ -480,7 +480,7 @@ Wir haben eine neue JavaScript-Datei erstellt. Wir legen sie im Verzeichnis `med
 > Lies im Vorwort warum du das `media` Verzeichnis idealerweise für Assets wie JavaScript-Dateien oder Stylesheets wählst.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/Model/FooModel.php
+#### components/com_foos/src/Model/FooModel.php
 
 Wir geben keinen statischen Text mehr aus. Es wird ein Element aus der Datenbank angezeigt. Deshalb benennen wir die Methode `getMsg` in `getItem` um. Wir passen die Variablenbezeichnungen an und erstellen eine Datenbankabfrage.
 
@@ -559,7 +559,7 @@ Wir geben keinen statischen Text mehr aus. Es wird ein Element aus der Datenbank
 > Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de)[^docs.joomla.org/accessing_the_database_using_jdatabase/de] nutzt, dann kümmert sich Joomla um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/View/Foo/HtmlView.php
+#### components/com_foos/src/View/Foo/HtmlView.php
 
 In der View tauschen wir folgerichtig `$this->msg = $this->get('Msg');` gegen `$this->item = $this->get('Item');` aus.
 
@@ -592,7 +592,7 @@ In der View tauschen wir folgerichtig `$this->msg = $this->get('Msg');` gegen `$
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.php
+#### components/com_foos/ tmpl/foo/default.php
 
 Die Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Element `item` und dessen Eigenschaft `name` zu. Auf diese Art können wir in Zukunft weitere Eigenschaften flexibel und unkompliziert ergänzen.
 
@@ -609,7 +609,7 @@ Die Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Eleme
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.xml
+#### components/com_foos/ tmpl/foo/default.xml
 
 Wir erstellen einen Eintrag in der Datei `default.xml` für das neue Formularfeld. So ermöglichen wir beim Menüpunkt die Auswahl eines Foo-Elementes. Erwähnenswert sind die Einträge `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` und `type="modal_foo"`:
 

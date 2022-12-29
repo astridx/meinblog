@@ -55,7 +55,7 @@ Der Code mit dem die Belegung eines Parameters berechnet wird, war lange Zeit un
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/updates/mysql/18.0.0.sql
+#### administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql
 
 Damit bei einer Aktualisierung der Komponente die Spalte `params` in der Datenbank erstellt wird, in welcher die Parameter gespeichert werden, benötigen wir die SQL-Datei `administrator/components/com_foos/sql/updates/mysql/18.0.0.sql`.
 
@@ -70,7 +70,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/config.xml
+#### administrator/components/com_foos/config.xml
 
 In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu setzen. Wir fügen ein Feld `show_name` zur Konfiguration hinzu. Anschließend schaffen wir die Möglichkeit, diesen für ein einzelnes Element `administrator/components/com_foos/forms/foo.xml` oder einen Menüpunkt `components/com_foos/tmpl/foo/default.xml` zu überschreiben.
 
@@ -97,7 +97,7 @@ In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu se
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ forms/foo.xml
+#### administrator/components/com_foos/ forms/foo.xml
 
 In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params` hinzu. So ist `show_name` ebenfalls für ein einzelnes Element konfigurierbar.
 
@@ -126,7 +126,7 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params
 > In Joomla gibt es die Möglichkeit, den Parmeter auf den Wert [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F) zu setzen. Der Vorteil ist, dass beim Konfigurien angezeigt wird, was global eingestellt ist. Verwende dazu `useglobal="true"` wie [/administrator/components/com_contact/forms/contact.xml](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).<!-- \index{Parameter!useglobal} --><!-- \index{useglobal!Parameter} -->
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
 
 Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die SQL-Datei `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
 
@@ -142,7 +142,7 @@ Damit bei einer neuen Installation die Spalte erstellt wird, in der die Paramete
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com\_foos/ src/Table/FooTable.php
+#### administrator/components/com_foos/ src/Table/FooTable.php
 
 In der Klasse, die die Tabelle verwaltet, stellen wir sicher, dass die Parameter in der korrekten Form gespeichert werden. Wir verwenden das [Registry-Entwurfsmuster](<https://de.wikipedia.org/wiki/Registry_(Entwurfsmuster)>)[^de.wikipedia.org/wiki/registry_(entwurfsmuster)]. <!-- \index{Entwurfsmuster!Registy} --> Dieses nutzt die Möglichkeit, Eigenschaften [in PHP zu überschreiben](http://php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members)[^php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members]. Eigenschaften fügen wir mittels
 
@@ -185,7 +185,7 @@ $foo = $registry->foo;
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/src/View/Foo/HtmlView.php
+#### components/com_foos/src/View/Foo/HtmlView.php
 
 Die View kombiniert die Daten zu den Parametern so, dass die Anzeige passt.
 
@@ -239,7 +239,7 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.php
+#### components/com_foos/ tmpl/foo/default.php
 
 Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `components/com_foos/tmpl/foo/default.php`. Wenn es den Parameter gibt und er so gesetzt ist, dass der Name angezeigt werden soll `if ($this->item->params->get('show_name'))`, dann wird der Name angezeigt. Das Label `$this->params->get('show_foo_name_label')` wird ebenfalls nur dann angezeigt:
 
@@ -265,7 +265,7 @@ Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `componen
 ```
 
 <!-- prettier-ignore -->
-#### components/com\_foos/ tmpl/foo/default.xml
+#### components/com_foos/ tmpl/foo/default.xml
 
 [components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/tmpl/foo/default.xml)
 
