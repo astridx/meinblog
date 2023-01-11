@@ -153,7 +153,7 @@ Mir ist wichtig, dass das Bild bei jeder Displaygröße die Breite des Container
 Dazu wechsle ich über die Schaltfläche 'Toggle Editor' in die Codeansicht des Editors.
 
 > Hinweis: Es gibt eine Alternative zur Schaltfläche 'Toggle Editor': Seit Februar 2022, d.h. ab Joomla 4.1, wird der Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen, wenn man den im nächsten Bild gezeigten Editor-Button verwendet:
-> ![Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche anzeigen](/images/switcher_backend_new2.png)
+> ![Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche anzeigen](/images/switcherbackendnew2.png)
 
 Über die Schaltfläche 'Toggle Editor' wechsle ich in die Code-Ansicht des Editors.
 

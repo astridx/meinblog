@@ -152,7 +152,7 @@ As a result I see the image in the editor.
 It is important to me that the image fills the width of the container at any display size. Therefore, I add CSS styles that make this possible. To do this, I switch to the code view of the editor via the 'Toggle Editor' button.
 
 > Hint: There is an alternative to 'Toggle Editor' button: Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting if you use the editor button shown in the next picture:
-> ![Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button](/images/switcher_backend_new2.png)
+> ![Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button](/images/switcherbackendnew2.png)
 
 I switch to the code view of the editor via the 'Toggle Editor' button.
 
