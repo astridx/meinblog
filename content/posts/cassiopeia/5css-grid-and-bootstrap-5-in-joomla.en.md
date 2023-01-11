@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication:
 shortTitle: 'short'
 date: 2022-03-07
-title: 'CSS Grid'
+title: 'Bootstrap 5 and CSS Grid'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/css-grid-and-bootstrap-5-in-joomla

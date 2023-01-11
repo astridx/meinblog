@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication:
 shortTitle: 'short'
 date: 2022-10-30
-title: 'Override des Modules Articles - Category Beiträge - Kategorie'
+title: 'Override of the module Articles - Category Articles - Category'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/cassiopeia-override-module-articles-category

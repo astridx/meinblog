@@ -27,7 +27,7 @@ tags:
 
 
 
-Ich möchte eine Reihe von Kontakten anzeigen. Die Standardausgabe von Joomla möchte ich nicht verwenden. Alles soll etwas individueller aussehen. Deshalb schreibe ich ein Override für die Ansicht der Kontakte einer Kategorie.
+Ich möchte eine Reihe von Kontakten anzeigen. Die Standardausgabe von Joomla möchte ich nicht verwenden. Alles soll etwas individueller aussehen. Deshalb schreibe ich ein Override für die Ansicht der Kontakte einer Kategorie.<!-- \index{Override!com_contact category} -->
 
 ![Joomla Override Kategorie von Kontakten - So soll es aussehen](/images/overridegemeinderat2.png)
 

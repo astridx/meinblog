@@ -33,7 +33,7 @@ Die Einstellungen für Cassiopeia lassen zwei Optionen für das Layout der Seite
 
 Diese Einstellungen wirken sich hauptsächlich auf die Darstellung auf breiten Bildschirmen wie Computermonitoren aus. Auf schmalen Bildschirmen gibt es im Wesentlichen keinen Unterschied zwischen den beiden Einstellungen.
 
-> Wie du die Optionen öffnest findest du unter [Optionen in Cassiopeia](/cassiopeia-optionen).
+> Wie du die Optionen öffnest findest du unter [Optionen in Cassiopeia](https://blog.astrid-guenther.de/en/cassiopeia-optionen)[^blog.astrid-guenther.de/en/cassiopeia-optionen].
 
 ## Statische Einstellung für Cassiopeia
 

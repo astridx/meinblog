@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/buecher/joomla-4-cassipeia-anwenden'
 syndication:
 shortTitle: 'short'
 date: 2022-02-19
-title: 'Die Einstellmöglichkeiten der Navigation im Joomla 4 Standardtemplate Cassiopeia'
+title: 'Die Einstellmöglichkeiten der Navigation'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-die-optionen-der-navigation
@@ -40,7 +40,7 @@ In Joomla bearbeitet man dieses Hauptmenü im Administrationsbereich an zwei Ste
 1. Im Menü-Manager fügt man neue Menüpunkte hinzu.
 2. Die Darstellung der Navigation handhabt man über ein Modul im Modul-Manager.
 
-Schwerpunkt dieses Abschnitts ist die gestaltung der Navigation. Deshalb lassen wir den Menü-Manager außen vor. Wir möchten das Menü horizontal präsentieren und werden somit im nächsten Schritt Einstellungen im Site-Modul verändern.
+Schwerpunkt dieses Abschnitts ist die Gestaltung der Navigation. Deshalb lassen wir den Menü-Manager außen vor. Wir möchten das Menü horizontal präsentieren und werden somit im nächsten Schritt Einstellungen im Site-Modul verändern.
 
 ![Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Erste Ansicht im Backend](/images/menufooterbackend1.png)
 

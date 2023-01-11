@@ -27,7 +27,7 @@ tags:
 
 
 
-I want to display a set of contacts. I do not want to use the standard output of Joomla. Everything should look a bit more individual. Therefore I write an override for the view of the contacts of a category.
+I want to display a set of contacts. I do not want to use the standard output of Joomla. Everything should look a bit more individual. Therefore I write an override for the view of the contacts of a category.<!-- \index{Override!com_contact category} -->
 
 ![Joomla Override Category of Contacts - This is how it should look like](/images/overridegemeinderat2.png)
 

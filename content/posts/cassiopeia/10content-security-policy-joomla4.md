@@ -31,7 +31,7 @@ Die Aufgabe eines Browsers erscheint auf den ersten Blick simpel: er zeigt Text 
 
 > Testest du lokal und es funktioniert nicht. Du siehst die Meldung `Quellübergreifende (Cross-Origin) Anfrage blockiert: Die Gleiche-Quelle-Regel verbietet das Lesen der externen Ressource auf ... Grund: CORS-Kopfzeile 'Access-Control-Allow-Origin' fehlt.`. Der Zugriff auf lokale Dateien in Firefox ist normalerweise aufgrund der `Same-Origin-Policy` nicht möglich. Die Funktion an sich ist nützlich, aber manchmal möchte man sie für Entwicklungszwecke abschalten. Dies kann durch den Aufruf von `about:config` in der Adressleiste des Firefox-Browsers erreicht werden. In den Einstellungen findet man das Attribut `privacy.file_unique_origin`. Wenn dieser Wert auf `false` gesetzt ist, können die Dateien lokal geladen werden.
 
-# Wie macht man die Header sichtbar
+## Wie macht man die Header sichtbar
 
 HTTP Header werden oft mit dem `<head>`-Element eines HTML-Dokuments verwechselt. HTTP-Header wird man im HTML-Header nicht finden! Die stecken im HTTP-Protokoll. Dieses bildet die Basis des World-Wide-Webs. HTTP ist die Sprache, mit der Browser und Webserver kommunizieren. Zusammen mit den sichtbaren Inhalten werden Informationen zu den Daten übermittelt. Diese sind im Kopf-Bereich der Browser-Antwort – im Head der [HTTP-Response](https://developer.mozilla.org/de/docs/Web/HTTP#die_struktur_einer_server-antwort)[^developer.mozilla.org/de/docs/web/http#die_struktur_einer_server-antwort]. Deshalb der Name Header. Um diese anzusehen öffnet man den Netzwerk-Tab der Browser-Entwicklertools.
 
@@ -43,7 +43,7 @@ Mit dem Tool [Security Headers von Scott Helme](https://securityheaders.com/)[^s
 
 > Ein alternatives Testwerkzeug ist _Webbkoll_. Dies ist ein Projekt aus Schweden, das unter anderem von [Internetfonden](https://internetstiftelsen.se/) finanziert wird. Der Quellcode ist quelloffen und auf [Github](https://github.com/andersju/webbkoll) verfügbar. Wenn man die technischen Voraussetzungen erfüllt, kann man Webbkoll auf seinem eigenen Server hosten. Einfacher ist es, eine bereits existierende Webbkoll-Instanz zu verwenden, wie sie unter [https://webbkoll.dataskydd.net](https://webbkoll.dataskydd.net) angeboten wird.
 
-# Was bietet Joomla 4
+## Was bietet Joomla 4
 
 Joomla 4 unterstützt Benutzer mit dem Plugin [System - HTTP Headers](https://docs.joomla.org/J4.x:Http_Header_Management/de#Plugin) eine sichere [Content Security Policy](https://wiki.selfhtml.org/wiki/Sicherheit/Content_Security_Policy) zu konfigurieren. Stelle sicher, dass dieses Plugin aktiviert ist, wenn du es verwenden möchtest.
 
@@ -57,15 +57,15 @@ Ich beschreibe die wichtigsten HTTP Header und die Konfiguration in Joomla 4.
 
 > Vorweg: Wer seine Website unter `localhost` testet, wird feststellen, dass nicht alle hier beschriebenen Funktionen lokal testbar sind.
 
-# HTTP Security Header im Detail
+## HTTP Security Header im Detail
 
 Die folgenden Security Header sind [HTTP Response Header](https://developer.mozilla.org/de/docs/Web/HTTP/Headers), welche der Webserver mit den Daten der Webseite an den Webbrowser übergibt. Daraufhin aktiviert der Browser Sicherheitsfunktionen.
 
-## Herausgehobene HTTP Header im Joomla 4 Plugins HTTP Header
+### Herausgehobene HTTP Header im Joomla 4 Plugins HTTP Header
 
 Im Joomla Plugin werden die drei Header _X-Frame-Options_, _Referrer-Policy_ und _Cross-Origin-Opener-Policy_ im oberen Bereich angezeigt und der Header _Strict-Transport-Security_ ist in einem eigenen Tabulator konfigurierbar.
 
-### X-Frame-Options
+#### X-Frame-Options
 
 Der [X-Frame-Options](https://developer.mozilla.org/de/docs/Web/HTTP/Headers/X-Frame-Options)-Header verhindert [Clickjacking](https://de.wikipedia.org/wiki/Clickjacking). Diese Technik lädt eine fremde Website über ein _iframe_-Tag in die eigene. Ziel ist es, einen Benutzer dazu zu bringen, sensible Daten preiszugeben – zum Beispiel Anmelde-Daten. Sobald eine Site versucht, eine andere als _iframe_ zu laden, überprüft der Browser die einzubettende Website. Ist dort der _X-Frame-Options Header_ gesetzt, wird die Seite nicht geladen. Auf diese Weise ist er möglich, zu verhindern, dass andere Websites die eigene Website in ihre Inhalte einbetten und sich als man selbst ausgeben.
 
@@ -91,7 +91,7 @@ Achtung: Wenn du die Option im oberen Bereich aktiviert hast, wird immer `SAMEOR
 
 ![X-Frame-Option in der Joomla 4 Content Security Policy](/images/header5.png)
 
-### Referrer-Policy
+#### Referrer-Policy
 
 [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) weißt den Browser an, den Referer zu entfernen und nicht an die nachfolgende Site zu übermitteln.
 
@@ -109,7 +109,7 @@ Mittels `.htaccess` kann der Header ebenfalls [gesetzt werden](https://developer
 </IfModule>
 ```
 
-### Cross-Origin-Opener-Policy
+#### Cross-Origin-Opener-Policy
 
 Der Header [Cross-Origin-Opener-Policy (COOP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy) bietet die Möglichkeit, einen neuen Browser-Kontext anzufordern, um sich besser von anderen, nicht vertrauenswürdigen Aufrufen zu isolieren.
 
@@ -132,7 +132,7 @@ Mittels `.htaccess` kann der Header ebenfalls [gesetzt](https://developer.mozill
 </IfModule>
 ```
 
-### Strict-Transport-Security
+#### Strict-Transport-Security
 
 Der [Strict-Transport-Security (HSTS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) Header ist im Plugin in einem eigenen Tabulator konfigurierbar. Er bietet eine zusätzliche Absicherung aller Sites, die mit HTTPS verschlüsselt sind. Ist der Header gesetzt, lehnt der Browser alle unverschlüsselten HTTP-Verbindungen ab.
 
@@ -159,9 +159,9 @@ Per `.htaccess` ist der Header wie folgt zu [aktivieren](https://developer.mozil
 
 > Trotz des Nutzens steht HSTS in der [Kritik](https://de.wikipedia.org/wiki/HTTP_Strict_Transport_Security#Kritik), da Website-Betreiber darüber in der Lage sind, Nutzerinformationen auszulesen. Zwar ist der Zugriff kompliziert, aber möglich.
 
-## Weitere Plugins im Bereich Force HTTP Headers
+### Weitere Plugins im Bereich Force HTTP Headers
 
-### HTTP Header Feature-Policy
+#### HTTP Header Feature-Policy
 
 Der HTTP Header [Feature-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy) ist relativ jung und weitreichend. Er teilt dem Browser mit, welche Funktionen die Site benötigt. Wenn kein Zugriff auf das Mikrofon notwendig ist, hat ein möglicher Angreifer keinen Zugriff auf diese Browser-Funktionen - vorausgesetzt der Header ist korrekt gesetzt.
 
@@ -183,13 +183,13 @@ Mittels `.htaccess` sieht der Eintrag für ein Verbot von Mikrophone und Ortung 
 </IfModule>
 ```
 
-### Expect-CT
+#### Expect-CT
 
 Der [Expect-CT Header](https://developer.mozilla.org/de/docs/Web/HTTP/Headers/Expect-CT) erlaubt es Webseiten, die Anforderungen der [Certificate Transparency](https://developer.mozilla.org/en-US/docs/Web/Security/Certificate_Transparency) zu erzwingen.
 
 Wenn eine Webseite die Verwendung des `Expect-CT` Headers aktiviert überprüft der Browser jedes im Zusammenhang mit der Webseite verwendete Zertifikat in [öffentlichen CT Protokollen](https://www.certificate-transparency.org/known-logs).
 
-### Content-Security-Policy
+#### Content-Security-Policy
 
 Die [Content-Security-Policy](https://scotthelme.co.uk/content-security-policy-an-introduction/) oder CSP ist das Tüpfelchen auf das I der HTTP Header.
 
@@ -219,9 +219,9 @@ Das Setzen der Content-Security-Policy in einer `.htaccess` sieht beispielweise 
 
 > Viele Sites beinhalten _Inline-Stile_ und _Inline-Skripte_, so dass es erforderlich ist, dass man `unsafe-inline` hinzufügt, damit die Website korrekt arbeitet.
 
-## Weitere Header
+### Weitere Header
 
-### X-Content-Type-Options
+#### X-Content-Type-Options
 
 Der Header [X-Content-Type-Options](https://developer.mozilla.org/de/docs/Web/HTTP/Headers/X-Content-Type-Options) ist unkompliziert zu konfigurieren, seit [Joomla 3.9.13 in der Joomla Core `.htaccess`](https://github.com/joomla/joomla-cms/blob/9b54e8bd5da61dfc1a4d1476b9e0df608d7289e9/htaccess.txt#L30) enthalten und [wird für alle Joomla Webseiten](https://docs.joomla.org/J3.x:Joomla_3.9.3_Security_Notes) empfohlen.
 
@@ -235,7 +235,7 @@ Idealerweise wird dieser Header in der Datei `.htaccess` [gesetzt](https://devel
 </IfModule>
 ```
 
-### X-XSS-Protection
+#### X-XSS-Protection
 
 Diesen Header erwähne ich der Vollständigkeit halber. Er ist im Joomla 4 Backend nicht konfigurierbar. Der HTTP [X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) Header war dazu gedacht im Browser einen XSS Auditor zu aktivieren. Moderne Browser berücksichtigen diesen Header [nicht mehr]https://portswigger.net/daily-swig/google-deprecates-xss-auditor-for-chrome).
 
@@ -247,17 +247,17 @@ Die empfohlene Konfiguration für ältere Browser ist: `1; mode=block`. In Jooml
 </IfModule>
 ```
 
-# Weitere Links
+## Weitere Links
 
-## Joomla Dokumentation
+### Joomla Dokumentation
 
 [Joomla Dokumentation](https://docs.joomla.org/J4.x:Http_Header_Management/en)
 
-## csp-cheat-sheet
+### csp-cheat-sheet
 
 Die Seite [scotthelme.co.uk](https://scotthelme.co.uk/csp-cheat-sheet/) bietet eine Übersicht in englischer Sprache über alle unterstützten Funktionen und Direktiven in der _Content Security Policy_. Sie kann als Kurzreferenz verwendet werden, um gültige und ungültige Direktiven und Werte zu identifizieren und enthält Beispielrichtlinien und Anleitungen zur effektiven Verwendung von CSP.
 
-## CSP-Auswerter
+### CSP-Auswerter
 
 Der [CSP Evaluator](https://csp-evaluator.withgoogle.com/) ermöglicht es Entwicklern und Sicherheitsexperten zu überprüfen, ob eine Content Security Policy (CSP) eine starke Möglichkeit gegen Cross-Site-Scripting-Angriffe darstellt. Er unterstützt den Prozess der Überprüfung von CSP-Richtlinien, der normalerweise eine manuelle Aufgabe ist, und hilft, subtile CSP-Umgehungen zu identifizieren, die den Wert einer Richtlinie untergraben. Die Prüfungen des CSP Auswerters basieren auf einer groß angelegten Studie und sollen Entwicklern helfen, ihre CSP zu härten und die Sicherheit ihrer Anwendungen zu verbessern. Dieses Tool (auch als Chrome-Erweiterung verfügbar) wird Entwicklern zur Verfügung gestellt und Google gibt keine Garantien oder Gewährleistungen für dieses Tool.
 <img src="https://vg04.met.vgwort.de/na/5c2df911b6c147a8ba1af8a11e92b1a7" width="1" height="1" alt="">

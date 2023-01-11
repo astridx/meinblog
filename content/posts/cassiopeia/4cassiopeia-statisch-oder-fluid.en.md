@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication:
 shortTitle: 'short'
 date: 2021-03-06
-title: 'Statisch oder fluid'
+title: 'Static or fluid'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/cassiopeia-statisch-oder-fluid
@@ -27,13 +27,13 @@ tags:
 
 
 
-Die Einstellungen für Cassiopeia lassen zwei Optionen für das Layout der Seite zu, statisch oder fluid.<!-- \index{statisch} --><!-- \index{fluid} -->
+The settings for Cassiopeia allow two options for the layout of the page, static or fluid.<!-- \index{static} --><!-- \index{fluid} -->
 
 ![Templates_Edit_Style_admin_Administration](/images/ce4.png)
 
-Diese Einstellungen wirken sich hauptsächlich auf die Darstellung auf breiten Bildschirmen wie Computermonitoren aus. Auf schmalen Bildschirmen gibt es im Wesentlichen keinen Unterschied zwischen den beiden Einstellungen.
+These settings mainly affect the display on wide screens such as computer monitors. On small screens, there is essentially no difference between the two settings.
 
-> Wie du die Optionen öffnest findest du unter [Optionen in Cassiopeia](/cassiopeia-optionen).
+> Wie du die Optionen öffnest findest du unter [Optionen in Cassiopeia](https://blog.astrid-guenther.de/en/cassiopeia-optionen)[^blog.astrid-guenther.de/en/cassiopeia-optionen].
 
 ## Statische Einstellung für Cassiopeia
 

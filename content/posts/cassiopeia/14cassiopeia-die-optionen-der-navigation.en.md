@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication:
 shortTitle: 'short'
 date: 2022-02-19
-title: 'Die Einstellmöglichkeiten der Navigation im Joomla 4 Standardtemplate Cassiopeia'
+title: 'The possible options for setting the navigation'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/cassiopeia-die-optionen-der-navigation
@@ -27,28 +27,28 @@ tags:
 
 
 
-Das Cassiopeia Standardtemplate ist technisch ausgereift. Es bietet alles was man benötigt. Es gibt eine Navigation die aufklappbare Untermenüpunkte bietet, sie ist barrierefrei und passt sich an unterschiedliche Bildschirmbreiten an. Nebenbei kann man die Hauptanwendungsfälle unkompliziert individuell anpassen. Beispielsweise ein horizontales Menü in der Kopf- und Fußzeile der Website. Wie dies funktioniert ist Thema dieses Abschnitts.<!-- \index{navigation!options} -->
+The Cassiopeia standard template is technically mature. It offers everything you need. There is a navigation that offers expandable submenu items, it is barrier-free and adapts to different screen widths. Besides, you can easily customise the main use cases. For example, a horizontal menu in the header and footer of the website. How this works is the subject of this section.<!-- \index{navigation!options} -->
 
-### Ausgangsituation
+### Initial situation
 
-Unmittelbar nach der Installation von Joomla 4 findet man im Frontend ein vertikales Menü in der rechten Seitenleiste vor.
+Immediately after installing Joomla 4, you will find a vertical menu in the right sidebar of the frontend.
 
-![Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Erste Ansicht im Fronden](/images/menufooterfrontend1.png)
+![Joomla 4 - Horizontal Menu in the Header and Footer | First View in the Frontend](/images/menufooterfrontend1.png)
 
-In Joomla bearbeitet man dieses Hauptmenü im Administrationsbereich an zwei Stellen.
+In Joomla, you edit this main menu in the administration area in two places.
 
-1. Im Menü-Manager fügt man neue Menüpunkte hinzu.
-2. Die Darstellung der Navigation handhabt man über ein Modul im Modul-Manager.
+1. you add new menu items in the menu manager.
+2. the display of the navigation is handled via a module in the module manager.
 
-Schwerpunkt dieses Abschnitts ist die gestaltung der Navigation. Deshalb lassen wir den Menü-Manager außen vor. Wir möchten das Menü horizontal präsentieren und werden somit im nächsten Schritt Einstellungen im Site-Modul verändern.
+The focus of this section is the design of the navigation. Therefore, we will leave out the menu manager. We want to present the menu horizontally and will therefore change settings in the site module in the next step.
 
-![Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Erste Ansicht im Backend](/images/menufooterbackend1.png)
+![Joomla 4 - Horizontal Menu in the Header and Footer [First View in the Backend](/images/menufooterbackend1.png)
 
-### Horizontales Menü im Kopfbereich der Website
+### Horizontal menu in the header of the website
 
-Öffne über die linke Seitenleiste die Einstellungen zum Modul. Klicke hierzu erst auf `Content` und danach auf `Site-Modules`. Nun siehst du im rechten Bereich den Eintrag `Main-Menü` und öffnest auch diese Ansicht per Klick.
+Open the settings for the module via the left sidebar. First click on 'Content' and then on 'Site Modules'. Now you will see the entry 'Main Menu' in the right-hand area and open this view by clicking on it.
 
-Als erstes siehst du den Tabulator `Module` in welchem du die _Position_ von `sidebar-right` auf `menu` änderst.
+First you see the tab `Module` in which you change the _position_ from `sidebar-right` to `menu`.
 
 ![Joomla 4 - Horizontales Menü in der Kopfzeile | Standard Einstellungen des Menüs im Module-Manager](/images/menuheadermodule.png)
 
