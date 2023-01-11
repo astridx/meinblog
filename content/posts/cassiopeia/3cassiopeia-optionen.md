@@ -237,9 +237,6 @@ h6,
 
 ![Google Webfonts Helper](/images/c19.png)
 
-
-![Google Webfonts Helper](/images/c19a.png)
-
 > Natürlich ist es möglich, die Schriftarten an einer anderen Stelle abzulegen. Beachte dann, dass in der Datei `media/templates/site/cassiopeia/css/user.css` die Adressierung passt. Verwende relative Pfade, wenn möglich. Ein doppelter Punkt (..) bedeutet, dass es einen Ordner nach oben geht und dann nach dem Ordner hinter dem Schrägstrich gesucht wird. Befindet sich die `user.css` im Ordner `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, dann ist das `..` korrekt, weil ich einen Ordner zurückgehe, um von `css` zu `/fonts` zu gelangen. Ist die `user.css` in `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/css/fonts`, dann verwende ich nur einen Punkt. Hinweis: Der Pfad zu den _Template-Medienordnern_ war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 
 ##### Schriften aus dem Web
@@ -262,7 +259,7 @@ Wer eine eigene Schrift laden möchte ohne sie selbst zu hosten, kann dies tun. 
 
 2. Ich wähle die Schriftart aus `Select this style` und klicke rechts oben auf `View your selected families.`- Mir werden alle erforderlichen Angaben angezeigt.
 
-![Editiere den Template Style im Backend](/images/c.png)
+![Editiere den Template Style im Backend](/images/c19a.png)
 
 3. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
 

@@ -39,8 +39,28 @@ Füge den nachfolgenden Code in die Datei `user.css` ein, wenn es dein Ziel ist,
 
 ### Silbentrennung
 
+#### Normale Silbentrennung
+
+Die Silbentrennung aktiviert man per CSS mit der Eigenschaft `hyphens`. Die Silbentrennung nutzt die Regeln der Sprache, die im [HTML-Language Code](http://www.w3schools.com/tags/ref_language_codes.asp)[^w3schools.com/tags/ref_language_codes.asp] angegeben ist. 
 
 ```css
+body {
+  hyphens: auto;
+}
+```
+
+Weitere Informationen: [hyphens](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens)[developer.mozilla.org/en-US/docs/Web/CSS/hyphens] und [word-break](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)[^developer.mozilla.org/en-US/docs/Web/CSS/word-break]
+
+> Vielleicht hilfreich: `<wbr>` Word Break: Das Wort wird ohne Bindestrich umgebrochen, wenn nicht ausreichend Platz zur Verfügung steht. Beispiel: `Hunde<wbr>leine`. `&shy;` Soft Hyphen: Das Wort wird mit Bindestrich umgebrochen, wenn nicht ausreichend Platz zur Verfügung steht. Beispiel: `Hunde&shy;leine`. `&nbsp;` Non Breaking Space: Wenn der Zeilenumbruch zwischen zwei Wörtern verhindert werden soll, muss ein geschütztes Leerzeichen eingefügt werden. Beispiel: `3&nbsp;cm`.
+
+#### Trennung erzwingen
+
+Die Eigenschaft `overflow-wrap` gibt an, ob der Browser Zeilen mit langen Wörtern umbrechen kann, wenn diese über den Container hinaus laufen. Gerade in der mobilen Ansicht, ist ein solches Hinausragen nicht benutzerfreundlich. Beim Wischen verschiebt sich die gesamte Ansicht. Mit dem Wert `anywhere` wird ein Umbruch erzwungen. Weitere Informationen bei [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/overflow-wrap)[^wiki.selfhtml.org/wiki/CSS/Eigenschaften/overflow-wrap]
+
+```css
+body {
+  overflow-wrap: anywhere;
+}
 ```
 
 

@@ -39,13 +39,13 @@ Nachfolgend zeige ich dir, wie man einen Login-Menüpunkt erstellen, der nur Ben
 
 Zuerst erstellen wir den Login. Öffne dazu den Menümanager über die linke Seitenleister. Öffne `Menus | All Menu Items` und klicke in der Werkzeugleiste die Schaltfläche `New` um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ `User | Login Form`. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe `Public` in `Guest` änderst. Dies bewirkt, dass der Menüpunkt nur _nicht_ angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.
 
-![Login - Logout | Login-Link erstellen](/images/login_logout1.png)
+![Login - Logout | Login-Link erstellen](/images/loginlogout1.png)
 
 ### Logout-Link
 
 Als nächstes erstellen wir den Logout-Link. Du befindest dich noch im Menümanager, richtig? Anderfalls öffne diesen über `Menus | All Menu Items` in der linken Seitenleiste. Im Menümanger klicke in der Werkzeugleiste erneut die Schaltfläche `New` um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ `User | Logout`. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe `Public` mit `Registert` ersetzt. Dies bewirkt, dass der Menüpunkt nur angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.
 
-![Login - Logout | Logout-Link erstellen](/images/login_logout2.png)
+![Login - Logout | Logout-Link erstellen](/images/loginlogout2.png)
 
 ### Teste die Links
 
@@ -53,7 +53,7 @@ Abschließend testen wir, ob alles richtig funktioniert. Siehst du den Login-Men
 
 Funktioniert das Umschalten nicht wie erwartet? Überprüfe in dem Fall eine Einstellung in der globalen Konfiguration. Klicke dazu in der linken Seitenleiste `System` und dann im rechten Bereich den Link `globale Konfiguration`. Stelle sicher, dass `Guest User Group` mit `Gast` belegt ist.
 
-![Login - Logout | Option Gast Gruppe](/images/login_logout3.png)
+![Login - Logout | Option Gast Gruppe](/images/loginlogout3.png)
 
 ## Editor Switcher / Syntax Highlight (Syntax-Hervorhebung)<!-- \index{Editor!Syntax-Hervorhebung} --><!-- \index{Editor!Switcher} --><!-- \index{Editor!Syntax Highlight} -->
 
@@ -65,11 +65,11 @@ Den Editor kann man in der globalen Konfiguration einstellen. Alternativ kann ma
 
 Nach der Installation und Aktivierung, stelle ich bei meinem Benutzer den Switcher als Standard-Editior ein.
 
-![Editor Switcher | Edit Style im Joomla Administrationsbereich](/images/switcher_backend_user.png)
+![Editor Switcher | Edit Style im Joomla Administrationsbereich](/images/switcherbackenduser.png)
 
 Daraufhin ist es während des Schreibens eines Textes im Artikel Manager möglich, den Editor zu wechseln. Ein wechseln in einen anderen Konfigurationsbereich ist nicht erforderlich. Lediglich ein Zwischenspeichern ist notwendig.
 
-![Editor Switcher | Edit Style im Joomla Administrationsbereich](/images/switcher_backend_article.png)
+![Editor Switcher | Edit Style im Joomla Administrationsbereich](/images/switcherbackendarticle.png)
 
 ### Seit Joomla 4.1
 
@@ -77,15 +77,15 @@ Seit Februar 2022, also ab Joomla 4.1, ist Code im integrierten TinyMCE-Editor m
 
 Syntax-Highlighting im integrierten TinyMCE-Editor
 
-![Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor](/images/switcher_backend_new1.png)
+![Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor](/images/switcherbackendnew1.png)
 
 Editor Schaltfläche zum Anzeigen
 
-![Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche zum Anzeigen](/images/switcher_backend_new2.png)
+![Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche zum Anzeigen](/images/switcherbackendnew2.png)
 
 Option zum Aktivieren der Editor Schaltfläche
 
-![Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Option zum Aktivieren der Editor-Schaltfläche](/images/switcher_backend_new3.png)
+![Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Option zum Aktivieren der Editor-Schaltfläche](/images/switcherbackendnew3.png)
 
 ## Joomla Barrierefreiheit <!-- \index{Barrierefreiheit} --><!-- \index{Zugänglichkeit} --><!-- \index{Accessibility} --><!-- \index{a11y} -->
 
@@ -117,15 +117,15 @@ Das System Plugin _Joomla Accessibility Checker_ hebt häufige Probleme der Zug�
 
 Wenn du die erste Option aktivierst, wird der Zugänglichkeits-Checker auf allen Seiten geladen. Dies ist nützlich bei der Entwicklung der Website, sollte aber nicht aktiviert bleiben, wenn die Website live ist.
 
-![System Plugin - Joomla Accessibility Checker | Plugin Einstellungen](/images/c_a11y_1.png)
+![System Plugin - Joomla Accessibility Checker | Plugin Einstellungen](/images/ca11y1.png)
 
 Du kannst die Zugänglichkeit des Inhalts über eine Schaltfläche in der Symbolleiste überprüfen, wenn du einen Beitrag erstellest.
 
-![System Plugin - Joomla Accessibility Checker | Überprüfung der Barrierefreiheit beim Erstellen eines Beitrags](/images/c_a11y_1_1.png)
+![System Plugin - Joomla Accessibility Checker | Überprüfung der Barrierefreiheit beim Erstellen eines Beitrags](/images/ca11y11.png)
 
 Wenn wir mehrere Artikel nacheinander prüfen wollen, ist es bequemer, im Frontend zu arbeiten. Dies ist über einen Button im unteren rechten Bereich möglich.
 
-![System Plugin - Joomla Accessibility Checker | Überprüfen Sie die Barrierefreiheit im Frontend](/images/c_a11y_1_2.png)
+![System Plugin - Joomla Accessibility Checker | Überprüfen Sie die Barrierefreiheit im Frontend](/images/ca11y12.png)
 
 > Projekt-Website und Demo ansehen [joomla-projects.github.io/joomla-a11y-checker/](https://joomla-projects.github.io/joomla-a11y-checker/).
 
@@ -133,11 +133,11 @@ Wenn wir mehrere Artikel nacheinander prüfen wollen, ist es bequemer, im Fronte
 
 Dieses Plugin fügt der Website eine Symbolleiste für Barrierefreiheit mit zusätzlichen Optionen für Barrierefreiheit hinzu. Sobald es aktiviert ist, kann die Symbolleiste geöffnet werden. Du kannst wählen, wo du die Barrierefreiheits-Symbolleiste anzeigen möchten: Sie kann entweder im Joomla-Backend, im Frontend oder in beiden aktiviert werden.
 
-![System-Plugin - Zusätzliche Zugänglichkeitsfunktionen | Plugin-Einstellungen](/images/c_a11y_2.png)
+![System-Plugin - Zusätzliche Zugänglichkeitsfunktionen | Plugin-Einstellungen](/images/ca11y2.png)
 
 Dieses Plugin fügt der Website eine Symbolleiste mit zusätzlichen Optionen für die Barrierefreiheit hinzu. Sobald es aktiviert ist, wird das Symbol für Barrierefreiheit in der linken unteren Ecke jeder Seite der Website angezeigt. Klicke auf das Symbol, um die zusätzlichen Zugänglichkeitsfunktionen zu nutzen.
 
-![System-Plugin - Zusätzliche Eingabehilfen | Eingabehilfen-Symbol in der linken unteren Ecke jeder Seite](/images/c_a11y_2_1.png)
+![System-Plugin - Zusätzliche Eingabehilfen | Eingabehilfen-Symbol in der linken unteren Ecke jeder Seite](/images/ca11y21.png)
 
 Dieses Plugin bietet dem Benutzer eine Reihe von Möglichkeiten, darunter
 
@@ -152,4 +152,4 @@ Dieses Plugin bietet dem Benutzer eine Reihe von Möglichkeiten, darunter
 - Lesehilfe
 - Text in Sprache.
 
-![System-Plugin - Zusätzliche Funktionen für Barrierefreiheit | Symbolleiste geöffnet](/images/c_a11y_2_2.png)
+![System-Plugin - Zusätzliche Funktionen für Barrierefreiheit | Symbolleiste geöffnet](/images/ca11y22.png)

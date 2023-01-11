@@ -101,35 +101,35 @@ Der obige Befehl installiert die Pakete -- Inkscape und Imagemagick. Mit dem Ink
 
 Mit Inkscape können wir praktisch alles entwerfen. Wir erstellen ein Text-Favicon. Öffne Inkscape und du siehst zunächst eine leere Seite umringt von Symbolleisten. Klinke auf der linken Seite auf das Symbol mit dem `A`.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape1.png)
+![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeiainkscape1.png)
 
 Die Funktion hinter dem `A` dient zum Erstellen und Bearbeiten von Textobjekten in Inkscape. Danach erstellen wir einen rechteckigen Rahmen in der Standard-Leerzeile.
 
-![Cassiopeia Favicon erstellen - Schrift anpassen in Inkscape](/images/cassiopeia_inkscape2.png)
+![Cassiopeia Favicon erstellen - Schrift anpassen in Inkscape](/images/cassiopeiainkscape2.png)
 
 Schreibe irgendetwas und markieren den Text. Direkt unter der Menüleiste ist die Schriftart und die Größe des Textes änderbar. Wähle eine Schrift nach deinem Geschmack.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape3.png)
+![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeiainkscape3.png)
 
 Danach drücke F1, um das Textobjekt auszuwählen und zu transformieren.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape3a.png)
+![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeiainkscape3a.png)
 
 Des Weiteren werden wir das Textobjekt einfärben. Diese kann über die Leise im unteren Bereich erfolgen.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape4.png)
+![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeiainkscape4.png)
 
 Das Textobjekt sollte in einen Pfad umgewandelt werden, dies könnte über das Tastenkürzel Objekt in Pfad umwandeln Strg+Shft+C und Seitengröße auf Auswahlgröße Strg+Shft+R geschehen, um die Seite auf die Auswahl zu verkleinern.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape5.png)
+![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeiainkscape5.png)
 
 Speichere die SVG-Datei über das Menü oder die Tastenkombination Strg+Shft+S. Wähle als Format ein normales SVG. Als Speicherort wählst du
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape6.png)
+![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeiainkscape6.png)
 
 Im Browser siehst du das Favicon nun im Tabulator.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape7.png)
+![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeiainkscape7.png)
 
 Der Vollständigkeit halber füge ich den Quellcode der SVG-Datei nachfolgend ein.
 
@@ -247,7 +247,7 @@ oder
 </svg>
 ```
 
-![Cassiopeia Favicon erstellen - Emoji als Favicon](/images/cassiopeia_inkscape8.png)
+![Cassiopeia Favicon erstellen - Emoji als Favicon](/images/cassiopeiainkscape8.png)
 
 > Du möchtest gerne wissen, welche Emojis du verwenden kannst? Dann ist die [Emoji-Liste mit HTML-Codes](https://www.getemojis.net/html/#Emoji-Liste) eine mögliche Anlaufstelle.
 

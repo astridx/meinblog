@@ -35,17 +35,17 @@ Wie ist das mit Cassiopeia umsetzbar? Gehen wir das Problem praktisch an!
 
 Als erstes legen wir zwei Module vom Typ `Beiträge - Kategorie` zum Testen an.
 
-![Joomla Testmodule anlegen](/images/module_override0.png)
+![Joomla Testmodule anlegen](/images/moduleoverride0.png)
 
 Weil wir das äußere HTML-Element des Module mit einer CSS-Klasse versehen müssen, stellen wir das Modul so ein, dass kein Module Chrome Style verwendet wird.
 
 > Es gibt die `:has() CSS relational pseudo-class`, mit deren Hilfe es möglich wäre, Eltern-HTML-Elemente zu stylen. Diese Funktion wird aber noch nicht gut unterstützt: [caniuse.com](https://caniuse.com/css-has)[^caniuse.com/css-has]
 
-![Keinen Module Style beim Module einstellen](/images/module_override1.png)
+![Keinen Module Style beim Module einstellen](/images/moduleoverride1.png)
 
 Im Frontend sieht dies nun erst einmal etwas nackt aus.
 
-![Ansicht der Module im Frontend](/images/module_override1a.png)
+![Ansicht der Module im Frontend](/images/moduleoverride1a.png)
 
 
 
@@ -53,11 +53,11 @@ Im Frontend sieht dies nun erst einmal etwas nackt aus.
 
 Nun erstellen wir über das Joomla Backend ein Override für das Module.
 
-![Override zum Modul anlegen](/images/module_override2.png)
+![Override zum Modul anlegen](/images/moduleoverride2.png)
 
 Es sollten die beiden Dateien `/templates/cassiopeia/html/mod_articles_category/default.php` und `/templates/cassiopeia/html/mod_articles_category/default_items.php` angelegt werden.
 
-![Ansicht der Dateien zum Override](/images/module_override3.png)
+![Ansicht der Dateien zum Override](/images/moduleoverride3.png)
 
 ## Das Override editieren
 
@@ -160,7 +160,7 @@ Als erstes sorgen wir dafür, dass das Modul nicht mehr so gedrückt wirkt. Hier
 </div>
 ```
 
-![Den Style im Override selbst implementieren](/images/module_override4.png)
+![Den Style im Override selbst implementieren](/images/moduleoverride4.png)
 
 
 Danach ergänzen wir den Code, der die ID des aktiven Beitrags speichert. Ist gerade keine Beitragsansicht aktiv, weil beispielsweise ein Kategorieblog angezeigt wird, wird die ID mit -1 als ungültig gesetzt.
@@ -213,9 +213,9 @@ Zum Schluss fügen wir die Klasse im umgebenden Div-Element ein und eränzen Sty
 
 Im Frontend sollte dies nun wie in den beiden nachfolgenden Bildern aussehen. Ist der gerade aktive Beitrag im Modul zu sehen, wird das Module rot dargestellt. 
 
-![Hintergrundfarbe anpassen](/images/module_override5.png)
+![Hintergrundfarbe anpassen](/images/moduleoverride5.png)
 
-![Hintergrundfrabe, wenn keine Artikelansicht aktiv ist](/images/module_override5a.png)
+![Hintergrundfrabe, wenn keine Artikelansicht aktiv ist](/images/moduleoverride5a.png)
 
 #### Die vollständige Datei am Ende der Implementierung
 
@@ -420,9 +420,9 @@ Danach setzen wir den Klassennamen, jennachdem, ob der gerade einzufügende Beit
 
 Im Frontend sollte dies nun wie in den beiden nachfolgenden Bildern aussehen. Der Name des aktiven Beitrags ist im Modul groß und in grüner Farbe zu sehen.
 
-![Den aktiven Artikel kennzeichnen](/images/module_override6.png)
+![Den aktiven Artikel kennzeichnen](/images/moduleoverride6.png)
 
-![Den aktiven Artikel kennzeichnen](/images/module_override6a.png)
+![Den aktiven Artikel kennzeichnen](/images/moduleoverride6a.png)
 
 #### Die vollständige Datei am Ende der Implementierung
 

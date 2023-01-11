@@ -39,13 +39,13 @@ Below I show how to create a login menu item that is only shown to users who are
 
 First we create the login. To do this, open the menu manager via the left sidebar. Open 'Menus | All Menu Items' and click the 'New' button in the toolbar to create a new menu item. Select the type 'User | Login Form' for the menu item. It is also important that you change the default group 'Public' to 'Guest' for access. This will cause the menu item to be displayed only to _not_ logged in users. Select all other settings as it suits your environment and save the menu item.
 
-![Login - Logout | Create Login Link](/images/login_logout1.png)
+![Login - Logout | Create Login Link](/images/loginlogout1.png)
 
 ### Logout link
 
 Next we create the logout link. You are still in the menu manager, right? Otherwise open it via 'Menus | All Menu Items' in the left sidebar. In the menu manager, click the 'New' button in the toolbar again to create a new menu item. Select the type 'User | Logout' for the menu item. It is also important that you replace the default group 'Public' with 'Register'. This causes the menu item to be displayed only to logged-in users. Choose all other settings as it suits your environment and save the menu item.
 
-![Login - Logout | Create Logout Link](/images/login_logout2.png)
+![Login - Logout | Create Logout Link](/images/loginlogout2.png)
 
 ### Test the links
 
@@ -53,7 +53,7 @@ Finally, we test whether everything works correctly. Do you see the login menu i
 
 Does switching not work as expected? In this case, check a setting in the global configuration. To do this, click on 'System' in the left-hand sidebar and then on the link 'Global configuration' in the right-hand area. Make sure that `Guest User Group` is set to `Guest`.
 
-![Login - Logout | Option Guest Group](/images/login_logout3.png)
+![Login - Logout | Option Guest Group](/images/loginlogout3.png)
 
 ## Editor Switcher / Syntax Highlight<!-- \index{editor!switcher} --><!-- \index{editor!syntax highlight} -->
 
@@ -65,11 +65,11 @@ The editor can be set in the global configuration. Alternatively, you can set it
 
 After installing and activating it, I set the Switcher as the default editor for my user.
 
-Editor Switcher | Edit Style in the Joomla administration area](/images/switcher_backend_user.png)
+Editor Switcher | Edit Style in the Joomla administration area](/images/switcherbackenduser.png)
 
 It is then possible to switch the editor while writing a text in the Article Manager. It is not necessary to switch to another configuration area. Only a buffering is necessary.
 
-![Editor Switcher | Edit Style in the Joomla Administration Area](/images/switcher_backend_article.png)
+![Editor Switcher | Edit Style in the Joomla Administration Area](/images/switcherbackendarticle.png)
 
 ### Since Joomla 4.1
 
@@ -77,15 +77,15 @@ Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE edito
 
 Syntax-Highlighting in the integrated TinyMCE-Editor
 
-![Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor](/images/switcher_backend_new1.png)
+![Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor](/images/switcherbackendnew1.png)
 
 Editor button:
 
-![Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button](/images/switcher_backend_new2.png)
+![Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button](/images/switcherbackendnew2.png)
 
 Option to activate the editor button:
 
-![Editor Switcher | Syntax highlighting in the integrated TinyMCE editor | Option to activate the editor button](/images/switcher_backend_new3.png)
+![Editor Switcher | Syntax highlighting in the integrated TinyMCE editor | Option to activate the editor button](/images/switcherbackendnew3.png)
 
 ## Joomla Accessibility <!-- \index{Accessibility} --><!-- \index{a11y} -->
 
@@ -117,15 +117,15 @@ The System Plugin _Joomla Accessibility Checker_ visually highlights common acce
 
 If you activate the first option, the accessiblity checker is loaded on all pages. This is useful when developing the website but should not be left on when the website is live.
 
-![System Plugin - Joomla Accessibility Checker | Plugin Settings](/images/c_a11y_1.png)
+![System Plugin - Joomla Accessibility Checker | Plugin Settings](/images/ca11y1.png)
 
 You can check the accessibility of your content via a button in the toolbar when creating a post.
 
-![System Plugin - Joomla Accessibility Checker | Check the accessibility when creating a post](/images/c_a11y_1_1.png)
+![System Plugin - Joomla Accessibility Checker | Check the accessibility when creating a post](/images/ca11y11.png)
 
 If you want to examine several articles one after the other, it is more convenient to work in the frontend. This is possible via a button in the lower right area.
 
-![System Plugin - Joomla Accessibility Checker | Check the accessibility in frontend](/images/c_a11y_1_2.png)
+![System Plugin - Joomla Accessibility Checker | Check the accessibility in frontend](/images/ca11y12.png)
 
 > View project website and demo [joomla-projects.github.io/joomla-a11y-checker/](https://joomla-projects.github.io/joomla-a11y-checker/).
 
@@ -133,11 +133,11 @@ If you want to examine several articles one after the other, it is more convenie
 
 This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled the toolbar can be opened. You can choose whether you want to display the accessibility toolbar: It can be enabled on either Joomla backend, frontend, or both.
 
-![System Plugin - Additional Accessibility Features | Plugin Settings](/images/c_a11y_2.png)
+![System Plugin - Additional Accessibility Features | Plugin Settings](/images/ca11y2.png)
 
 This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled shows it the Accessibility icon on the bottom left corner of every page of your website. Click on the icon for using the additional accessibility features.
 
-![System Plugin - Additional Accessibility Features | Accessibility icon on the bottom left corner of every page](/images/c_a11y_2_1.png)
+![System Plugin - Additional Accessibility Features | Accessibility icon on the bottom left corner of every page](/images/ca11y21.png)
 
 This plugin gives the user ability to a variety of things including
 
@@ -152,4 +152,4 @@ This plugin gives the user ability to a variety of things including
 - Reading Guide
 - Text to Speech.
 
-![System Plugin - Additional Accessibility Features | Toolbar opend](/images/c_a11y_2_2.png)
+![System Plugin - Additional Accessibility Features | Toolbar opend](/images/ca11y22.png)

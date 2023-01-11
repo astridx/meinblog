@@ -39,7 +39,7 @@ I use the image from Pexels[^pixabay.com/en/users/pexels-2286921/?utm_source=lin
 
 > My image serves only as an example. When choosing the image for a productive website, make sure that all content remains readable!
 
-![Joomla 4.1 - Cassiopeia | Background image over whole screen | ](/images/c1_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Background image over whole screen | ](/images/c1hintergrund.png)
 
 3. now open the system settings in the administration area of Joomla by clicking on `System` in the left menu. Then click in the right area under `Template` the entry `Site Templates` and choose Cassiopeia. Now add the following text to the file `user.css` and save your changes.
 
@@ -60,11 +60,11 @@ body.site {
 
 4. now check the view in the frontend. Your image should now be visible here as background.
 
-![Joomla 4.1 - Cassiopeia | Background image over whole screen ](/images/c2_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Background image over whole screen ](/images/c2hintergrund.png)
 
 You can see the result in the following image.
 
-![Joomla 4.1 - Cassiopeia | Background image over whole screen | ](/images/c3_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Background image over whole screen | ](/images/c3hintergrund.png)
 
 5. adjust background of modules and header.
 
@@ -82,13 +82,13 @@ Add the following text to `user.css` if you want the background of the modules a
 ```
 You can see the result in the following image.
 
-![Joomla 4.1 - Cassiopeia | background image over whole screen ](/images/c4_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | background image over whole screen ](/images/c4hintergrund.png)
 
 7. the image stays fixed while scrolling
 
 Scroll to the bottom of the website and make sure that the background does not change.
 
-![Joomla 4.1 - Cassiopeia | full screen background image | ](/images/c5_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | full screen background image | ](/images/c5hintergrund.png)
 
 8. check the appearance of the image on different screen sizes.
 
@@ -96,9 +96,9 @@ The image will not be deformed! But areas are cut off:
 
 If the screen is narrow, image area right and left will be cut off.
 
-![Joomla 4.1 - Cassiopeia | Background image over whole screen ](/images/c6_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Background image over whole screen ](/images/c6hintergrund.png)
 
 If the screen is wide but not very high, image area above and below will be hidden.
 
-![Joomla 4.1 - Cassiopeia | Background image over whole screen | ](/images/c6a_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Background image over whole screen | ](/images/c6ahintergrund.png)
 <img src="https://vg05.met.vgwort.de/na/7612d32f83da4248a09815fd0a6ef730" width="1" height="1" alt="">

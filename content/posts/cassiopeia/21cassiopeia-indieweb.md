@@ -77,7 +77,7 @@ foreach ($this->params->get('websignin') as $websigninitem) {
 $row->text = $row->text . '</ul></div>';
 ```
 
-![Set up Web Sign In](/images/cassiopeia_indieweb_1.png)
+![Set up Web Sign In](/images/cassiopeiaindieweb1.png)
 
 Im HTML-Quellcode der Beitragsansicht werden die Relationen aufgelistet.
 
@@ -221,7 +221,7 @@ Via Task Plugin hole ich einmal täglich Webmentions von `https://webmention.io`
     }
 ```
 
-![Joomla Task Plugin](/images/cassiopeia_indieweb_2.png)
+![Joomla Task Plugin](/images/cassiopeiaindieweb2.png)
 
 ###### Content Plugin
 
@@ -268,7 +268,7 @@ Ich füge per Editor-xtd Plugin ein Pattern ein.
 
 `{loadsyndication syndicationurl1,syndicationurl1,syndicationurl1}`
 
-![Joomla IndieWeb Syndication](/images/cassiopeia_indieweb_3.png)
+![Joomla IndieWeb Syndication](/images/cassiopeiaindieweb3.png)
 
 Dieses Pattern passe dann via Content Plugin an.
 

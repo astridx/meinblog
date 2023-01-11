@@ -39,7 +39,7 @@ Ich verwende das Bild von Pexels[^pixabay.com/de/users/pexels-2286921/?utm_sourc
 
 > Mein Bild dient nur als Beispiel. Achte bei der Auswahl des Bildes für eine produktive Website darauf, dass alle Inhalte weiterhin gut lesbar bleiben!
 
-![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c1_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c1hintergrund.png)
 
 3. Öffne nun im Administrationsbereich von Joomla zunächst per Klick auf `System` im linken Menü die Systemeinstellungen. Klicke danach im rechten Bereich unter `Template` den Eintrag `Site Templates` und wähle Cassiopeia. Füge jetzt in die Datei `user.css` den nachfolgenden Text ein und speichere deine Änderungen.
 
@@ -60,11 +60,11 @@ body.site {
 
 4. Überprüfe nun die Ansicht im Frontend. Dein Bild sollte hier nun als Hintergrund zu sehen sein.
 
-![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c2_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c2hintergrund.png)
 
 Das Ergebnis siehst du im nachfolgenden Bild.
 
-![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c3_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c3hintergrund.png)
 
 5. Hintergrund von Modulen und Kopfleiste anpassen.
 
@@ -82,13 +82,13 @@ Ergänze den nachfolgenden Text in die `user.css`, wenn du den Hintergrund der M
 ```
 Das Ergebnis siehst du im nachfolgenden Bild.
 
-![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c4_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c4hintergrund.png)
 
 7. Das Bild bleibt beim Scollen fest stehen
 
 Scrolle ans Fußende der Website und überzeuge dich davon, dass sich das Hintergrund nicht verändert.
 
-![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c5_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c5hintergrund.png)
 
 8. Überprüfe das Erscheinungbild des Images unter unterschiedlichen Bildschirmgrößen.
 
@@ -96,9 +96,9 @@ Das Bild wird nicht verzerrt! Allerdings wird das Bild nicht immer vollständig 
 
 Wenn der Bildschirm schmall ist, werden Bildbereich rechts und links abgeschnitten.
 
-![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c6_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c6hintergrund.png)
 
 Wenn der Bildschirm breit aber nicht sehr hoch ist, werden Bildbereich oben und unten ausgeblendet.
 
-![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c6a_hintergrund.png)
+![Joomla 4.1 - Cassiopeia | Hintergrundbild über ganzen Bildschirm |  ](/images/c6ahintergrund.png)
 <img src="https://vg05.met.vgwort.de/na/9188ae5850044ab0807c83b7536429a1" width="1" height="1" alt="">

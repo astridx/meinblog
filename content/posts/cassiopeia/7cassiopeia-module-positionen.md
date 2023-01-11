@@ -102,10 +102,10 @@ Hast du oft Problemen mit nicht aktiven Modulpositionen? Dann empfehle ich dir d
 
 Wir können alle in einem Template festgelegten Module anzeigen, indem wir `"tp=1"` im Frontend an die URL anhängen. Zum Beispiel so: `http://www.example.com/index.php?tp=1`.
 
-![Modulpositionen in Cassiopeia](images/cp_templatepositionen2.png)
+![Modulpositionen in Cassiopeia](images/cptemplatepositionen2.png)
 
 Siehst du die Positionen nicht? Überprüfe die Konfiguraiton: Die Option ist in der globalen Konfiguration deaktivierbar.
 
-![Modulpositionen in Cassiopeia](images/cp_templatepositionen.png)
+![Modulpositionen in Cassiopeia](images/cptemplatepositionen.png)
 
 <img src="https://vg04.met.vgwort.de/na/fa4a0a767c984db3b20c8b32fef88493" width="1" height="1" alt="">

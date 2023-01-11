@@ -78,7 +78,7 @@ foreach ($this->params->get('websignin') as $websigninitem) {
 $row->text = $row->text . '</ul></div>';
 ```
 
-![Set up Web Sign In](/images/cassiopeia_indieweb_1.png)
+![Set up Web Sign In](/images/cassiopeiaindieweb1.png)
 
 In the HTML source code of the post view, the relations are listed.
 
@@ -222,7 +222,7 @@ Via Task Plugin I fetch webmentions from `https://webmention.io` once a day and 
     }
 ```
 
-![Joomla Task Plugin](/images/cassiopeia_indieweb_2.png)
+![Joomla Task Plugin](/images/cassiopeiaindieweb2.png)
 
 ###### Content Plugin
 
@@ -268,7 +268,7 @@ I add a pattern via editor-xtd plugin.
 
 `{loadsyndication syndicationurl1,syndicationurl1,syndicationurl1}`
 
-![Joomla IndieWeb Syndication](/images/cassiopeia_indieweb_3.png)
+![Joomla IndieWeb Syndication](/images/cassiopeiaindieweb3.png)
 
 Then adapt this pattern via Content Plugin.
 

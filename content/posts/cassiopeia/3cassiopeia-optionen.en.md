@@ -236,8 +236,6 @@ h6,
 
 ![Google Webfonts Helper](/images/c19.png)
 
-![Google Webfonts Helper](/images/c19a.png)
-
 > Of course it is possible to store the fonts in a different place. Then make sure that the addressing in the file `media/templates/site/cassiopeia/css/user.css` fits. Use relative paths if possible. A double dot (..) means that it goes up one folder and then searches for the folder after the slash. If the `user.css` is in the folder `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, then the `..` is correct because I go back one folder to get from `css` to `/fonts`. If the `user.css` is in `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/css/fonts`, then I use only one dot. Note: The path to the _template media folders_ was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
 
 ##### Fonts from the web
@@ -260,7 +258,7 @@ If you want to load your own font without hosting it yourself, you can do so. I 
 
 2. i select the font 'Select this style' and click on 'View your selected families' in the upper right corner. all the necessary information is displayed.
 
-![Edit the template style in the backend](/images/c.png)
+![Edit the template style in the backend](/images/c19a.png)
 
 3. if not already done, I create the file `media/templates/site/cassiopeia/css/user.css` and add the following content.
 
