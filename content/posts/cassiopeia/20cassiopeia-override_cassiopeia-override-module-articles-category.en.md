@@ -18,13 +18,22 @@ tags:
   - Cassiopeia
 ---
 
-Du verwendest verschieden Module des Types Beiträge - Kategorie. Nun möchtest du, dass ein Website Besucher auf den ersten Blick erkennt, zu welchem Module der gerade aktive Beitrag gehört und um welchen Beitrag es sich handelt. Dazu möchtest du das Modul und den Beitrag selbst per CSS besonders stylen. 
 
-Wie ist das mit Cassiopeia umsetzbar? Gehen wir das Problem praktisch an!
 
-## Zwei Test-Module
 
-Als erstes legen wir zwei Module vom Typ Beiträge - Kategorie zum Testen an.
+
+
+
+
+
+
+You use different modules of the type Contributions - Category. Now you want a website visitor to recognise at first glance which module the currently active post belongs to and which post it is. To do this, you want to style the module and the post itself using CSS.<!-- \index{Highlight current post} --><!-- \index{Override!mod_articles_category} -->
+
+How can this be implemented with Cassiopeia? Let's take a practical approach to the problem!
+
+## Two test modules
+
+First, we create two modules of the type `Articles - Category` for testing.
 
 ![Joomla Testmodule anlegen](/images/module_override0.png)
 
@@ -58,15 +67,6 @@ Die Datei `/templates/cassiopeia/html/mod_articles_category/default.php` beinhal
 
 ```php
 <?php
-
-/**
- * @package     Joomla.Site
- * @subpackage  mod_articles_category
- *
- * @copyright   (C) 2010 Open Source Matters, Inc. <https://www.joomla.org>
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
-
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;

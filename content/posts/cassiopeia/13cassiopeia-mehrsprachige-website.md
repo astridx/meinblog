@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-Dieses Tutorial zeigt dir, wie du eine mehrsprachige Website in Joomla 4 mit dem Standardtemplate Cassiopeia einrichtest.
+
+
+
+
+
+
+
+
+
+Dieses Tutorial zeigt dir, wie du eine mehrsprachige Website in Joomla 4 mit dem Standardtemplate Cassiopeia einrichtest.<!-- \index{mehrsprachige Website} -->
 
 Joomla ermöglicht es dir, auf einfache Weise eine mehrsprachige Website zu erstellen, ohne dass wir eine Erweiterung eines Drittanbieters installieren müssen.
 

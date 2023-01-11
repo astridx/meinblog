@@ -21,7 +21,13 @@ tags:
 ---
 
 
-Im [IndieWeb](https://indieweb.org/)[^indieweb.org/] geht es darum, dass man seine Inhalte selbst in die Hand nimmt. Man teilt seine Gedanken und Ideen an einem Ort und verbreitet sie dann auf anderen sozialen Plattformen. Was ist, wenn ein soziales Netzwerk sich so entwickelt, dass du dich dort nicht mehr wohl fühlst? Oder es wird ganz abgeschaltet? Was wird in diesem Falle aus all deinen Beiträgen?
+
+
+
+
+
+
+Im [IndieWeb](https://indieweb.org/)[^indieweb.org/] geht es darum, dass man seine Inhalte selbst in die Hand nimmt. Man teilt seine Gedanken und Ideen an einem Ort und verbreitet sie dann auf anderen sozialen Plattformen. Was ist, wenn ein soziales Netzwerk sich so entwickelt, dass du dich dort nicht mehr wohl fühlst? Oder es wird ganz abgeschaltet? Was wird in diesem Falle aus all deinen Beiträgen?<!-- \index{Indieweb} -->
 
 Meiner Meinung nach sollte deine digitale Identität dir gehören und nicht einem kommerziellen Unternehmen. Du sollten der alleinige Eigentümer der Inhalte sein, die du online teilst. Und das ist es, wozu IndieWeb die Menschen ermutigt.
 

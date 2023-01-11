@@ -18,6 +18,15 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 _Favicons_ sind die kleinen Symbole, die wir in Browser-Registerkarten sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen und offenen Registerkarten im Browsers durchsuchen. Die Integration der Favicons änderte sich im Laufe der Zeit. Manche sagen, sie ist historisch gewachsen. Heute bieten Favicons verschiedene Zusatzfunktionen und es kommen immer wieder neue hinzu.<!-- \index{Favicon} -->
 
 Es ist möglich, den Dateityp SVG als Favicon zu verwenden. Dies unterstützen [die meisten modernen Browser](https://caniuse.com/#feat=link-icon-svg). Um diese neue Funktion zu nutzen, benötigst du eine SVG-Datei. Um sicherzustellen, dass auch ältere Browser die Grafik anzeigen, ist zusätzlich eine ICO-Datei erforderlich.

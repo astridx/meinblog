@@ -31,7 +31,7 @@ Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann
 
 ## Praxistipps
 
-## Joomla Login- und Logout-Menüpunkte umschalten
+## Joomla Login- und Logout-Menüpunkte umschalten<!-- \index{Login- und Logout!toggel} -->
 
 Nachfolgend zeige ich dir, wie man einen Login-Menüpunkt erstellen, der nur Benutzern angezeigt wird, die noch nicht eingeloggt sind. Sobald sie sich angemeldet haben, sehen sie stattdessen den Menüpunkt "Logout". Also: Wie richtet man Login- und Logout-Links in Joomla so ein, dass der Menüpunkt Login automatisch durch Logout ersetzt wird, sobald sich jemand eingeloggt hat, und umgekehrt?
 

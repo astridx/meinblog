@@ -18,6 +18,15 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 ## Sollte ich Cassiopeia oder eine Joomla-Vorlage eines Drittanbieters verwenden?
 
 Das Cassiopeia Template ist das Frontend-Template, das standardmäßig in einer Joomla 4-Installation enthalten ist. Cassiopeia ist eine unkomplizierte Vorlage. Es ist responsiv. Das bedeutet, dass es den Inhalt auf verschiedenen Geräten korrekt anzeigt. Außerdem ist es barrierefrei.

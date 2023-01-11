@@ -18,9 +18,18 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 Auf einer Website veröffentlichst du Artikel. Du wünschst dir, dass in der Seitenleiste eine Timeline mit den neuesten Beiträgen ausgegeben wird.
 
-Wie die Timeline am Ende aussieht, zeigt das nächste Bild.
+Wie die Timeline am Ende aussieht, zeigt das nächste Bild.<!-- \index{Timeline} --><!-- \index{Override!mod_articles_latest} -->
 
 ![Joomla 4 und Cassiopeia - Timeline mit den neuesten Beiträgen](/images/timeline2.png)
 

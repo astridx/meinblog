@@ -18,9 +18,18 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 Eine der wichtigsten Änderungen in Joomla 4 ist das Upgrade von Bootstrap 2 auf [Bootstrap 5](https://getbootstrap.com/docs/5.0/). Allerdings setzt Joomla 4 nicht ausschließlich auf Bootstrap auf. Joomla 4 verwendet ebenfalls [CSS Grid](https://developer.mozilla.org/de/docs/Web/CSS/CSS_Grid_Layout).
 
-Bootstrap 5 und CSS Grid sind die Werkzeuge, die für das Frontend-Design in Joomla 4 verwendet werden. Das [Joomla-Team machte diese Änderung](https://github.com/joomla/joomla-cms/pull/16810#issuecomment-310654687), weil sie glauben, dass CSS Grid zukunftssicherer ist. Joomla 3 war lange Jahre an eine alte Version von Bootstrap gebunden. Die Hoffnung ist, dass dieser neue Ansatz ähnliche Probleme mit Joomla 4 vermeiden wird.
+Bootstrap 5 und CSS Grid sind die Werkzeuge, die für das Frontend-Design in Joomla 4 verwendet werden. Das [Joomla-Team machte diese Änderung](https://github.com/joomla/joomla-cms/pull/16810#issuecomment-310654687), weil sie glauben, dass CSS Grid zukunftssicherer ist. Joomla 3 war lange Jahre an eine alte Version von Bootstrap gebunden. Die Hoffnung ist, dass dieser neue Ansatz ähnliche Probleme mit Joomla 4 vermeiden wird.<!-- \index{Bootstrap 5} --><!-- \index{CSS Grid} -->
 
 ## Bootstrap 2 versus Bootstrap 5
 

@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-Auf einer Website veröffentlichen verschiedene Autoren Artikel. Du wünschst dir, dass bei Blog-Beiträgen eine Information zum Urheber ausgegeben wird. Der Name des Autors ist verfügbar. Wir ergänzen ein _Bild_, eine _URL_ und einen _"Über mich"_-Text.
+
+
+
+
+
+
+
+
+
+Auf einer Website veröffentlichen verschiedene Autoren Artikel. Du wünschst dir, dass bei Blog-Beiträgen eine Information zum Urheber ausgegeben wird. Der Name des Autors ist verfügbar. Wir ergänzen ein _Bild_, eine _URL_ und einen _"Über mich"_-Text.<!-- \index{Override!Autor} --><!-- \index{Override!Custom Field} --><!-- \index{Custom Field!Verwendung in Override} -->
 
 Wie die Information zum Autor am Ende aussieht, zeigt das nächste Bild. Statt eines Porträts habe ich für das Beispiel das Bild einer Sternformation gewählt.
 

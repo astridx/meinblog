@@ -31,7 +31,7 @@ Every person has his or her preferences. A content management system like Joomla
 
 ## Practical tips
 
-## Toggle Joomla login and logout menu items
+## Toggle Joomla login and logout menu items<!-- \index{login and logout!toggle} -->
 
 Below I show how to create a login menu item that is only shown to users who are not yet logged in. Once they have logged in, they will see the Logout menu item instead. So: How do you set up login and logout links in Joomla so that the Login menu item is automatically replaced by Logout as soon as someone has logged in, and vice versa?
 

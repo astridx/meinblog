@@ -20,7 +20,16 @@ tags:
   - Content Security Policy
 ---
 
-At first glance, the task of a browser seems simple: it displays text and images that you send it. On closer look, everything becomes more complex. Web standards have to be supported, usability is high on the agenda and developers need tools. On top of that, the web is a tricky place. Websites are constantly under automated attack. To protect against various attack vectors, software manufacturers have implemented HTTP headers that enable the website to activate security functions in the web browser and thus block or make attack patterns more difficult.
+
+
+
+
+
+
+
+At first glance, the task of a browser seems simple: it displays text and images that you send it. On closer look, everything becomes more complex. Web standards have to be supported, usability is high on the agenda and developers need tools. On top of that, the web is a tricky place. Websites are constantly under automated attack. To protect against various attack vectors, software manufacturers have implemented HTTP headers that enable the website to activate security functions in the web browser and thus block or make attack patterns more difficult.<!-- \index{HTTP headers} --><!-- \index{Content Security Policy} -->
+
+> You test locally and it doesn't work. You see the message `Cross-source (cross-origin) request blocked: The same-source rule forbids reading the external resource on ... Reason: CORS header 'Access-Control-Allow-Origin' is missing.`. Access to local files in Firefox is normally not possible due to the `Same-Origin-Policy`. The function itself is useful, but sometimes you want to disable it for development purposes. This can be done by calling `about:config` in the address bar of the Firefox browser. In the settings you will find the attribute `privacy.file_unique_origin`. If this value is set to `false`, the files can be loaded locally.
 
 # How to make the headers visible
 

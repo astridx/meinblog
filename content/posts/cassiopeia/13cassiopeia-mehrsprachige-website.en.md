@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-This tutorial shows you how to set up a multilingual website in Joomla 4 with the default template Cassiopeia.
+
+
+
+
+
+
+
+
+
+This tutorial shows you how to set up a multilingual website in Joomla 4 with the default template Cassiopeia.<!-- \index{Multilingual} -->
 
 Joomla allows you to easily create a multilingual website without the need to install a third party extension.
 

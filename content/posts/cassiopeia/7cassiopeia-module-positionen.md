@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-Schon beim ersten Blick auf eine frische Joomla 4 Installation wird eine der wesentlichen Neuerungen sichtbar: Das neue Frontend-Template namens Cassiopeia. Aber auch im Hintergrund hat sich einiges geändert: Die Modulpositionen des Templates wurden umbenannt, so dass sich Module nun leichter und intuitiver den entsprechenden Positionen zuordnen lassen: Ein Mensch kann mit `sidebar-right` mehr anfangen als mit `position-7`.
+
+
+
+
+
+
+
+
+
+Schon beim ersten Blick auf eine frische Joomla 4 Installation wird eine der wesentlichen Neuerungen sichtbar: Das neue Frontend-Template namens Cassiopeia. Aber auch im Hintergrund hat sich einiges geändert: Die Modulpositionen des Templates wurden umbenannt, so dass sich Module nun leichter und intuitiver den entsprechenden Positionen zuordnen lassen: Ein Mensch kann mit `sidebar-right` mehr anfangen als mit `position-7`.<!-- \index{Grundgerüst!Modulpositionen} --><!-- \index{Modulpositionen} -->
 
 > Eine Modulposition ist ein Platzhalter in einem [Template](https://docs.joomla.org/Special:MyLanguage/Template). Platzhalter bestimmen eine oder mehrere Positionen innerhalb der Vorlage und teilen der Joomla-Anwendung mit, wo Module, die einer bestimmten Position zugeordnet sind, angezeigt werden sollen.
 

@@ -18,13 +18,22 @@ tags:
   - Cassiopeia
 ---
 
-Du verwendest verschieden Module des Types Beiträge - Kategorie. Nun möchtest du, dass ein Website Besucher auf den ersten Blick erkennt, zu welchem Module der gerade aktive Beitrag gehört und um welchen Beitrag es sich handelt. Dazu möchtest du das Modul und den Beitrag selbst per CSS besonders stylen. 
+
+
+
+
+
+
+
+
+
+Du verwendest verschieden Module des Types Beiträge - Kategorie. Nun möchtest du, dass ein Website Besucher auf den ersten Blick erkennt, zu welchem Module der gerade aktive Beitrag gehört und um welchen Beitrag es sich handelt. Dazu möchtest du das Modul und den Beitrag selbst per CSS besonders stylen.<!-- \index{Aktuellen Beitrag hervorheben} --><!-- \index{Override!mod_articles_category} -->
 
 Wie ist das mit Cassiopeia umsetzbar? Gehen wir das Problem praktisch an!
 
 ## Zwei Test-Module
 
-Als erstes legen wir zwei Module vom Typ Beiträge - Kategorie zum Testen an.
+Als erstes legen wir zwei Module vom Typ `Beiträge - Kategorie` zum Testen an.
 
 ![Joomla Testmodule anlegen](/images/module_override0.png)
 

@@ -18,9 +18,18 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 One of the most important changes in Joomla 4 is the upgrade from Bootstrap 2 to [Bootstrap 5](https://getbootstrap.com/docs/5.0/). However, Joomla 4 does not rely exclusively on Bootstrap. Joomla 4 also uses [CSS Grid](https://developer.mozilla.org/de/docs/Web/CSS/CSS_Grid_Layout).
 
-Bootstrap 5 and CSS Grid are the tools used for front-end design in Joomla 4. The [Joomla team made this change](https://github.com/joomla/joomla-cms/pull/16810#issuecomment-310654687) because they believe CSS Grid is more future-proof. Joomla 3 was tied to an old version of Bootstrap for many years. The hope is that this new approach will avoid similar problems with Joomla 4.
+Bootstrap 5 and CSS Grid are the tools used for front-end design in Joomla 4. The [Joomla team made this change](https://github.com/joomla/joomla-cms/pull/16810#issuecomment-310654687) because they believe CSS Grid is more future-proof. Joomla 3 was tied to an old version of Bootstrap for many years. The hope is that this new approach will avoid similar problems with Joomla 4.<!-- \index{Bootstrap 5} --><!-- \index{CSS Grid} -->
 
 ## Bootstrap 2 versus Bootstrap 5
 
@@ -31,7 +40,7 @@ In summary, Boostrap 2 versus Boostrap 5 means: [Float versus Flex for building
 
 The following code snippet shows a two-column grid layout in Bootstrap 2:
 
-```
+```html
 <div class="container">
     <div class="row">
         <div class="span6"></div>
@@ -46,7 +55,7 @@ This code shows the following layout:
 
 The following is an similar code example using Bootstrap 5:
 
-```
+```html
 <div class="container">
     <div class="row">
         <div class="col-md-6"></div>

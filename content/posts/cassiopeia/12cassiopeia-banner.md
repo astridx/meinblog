@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-Du hast kein Logo und es gibt auch keinen Text, der anstelle des Logos auf deiner Website passt. Dafür möchtest du ein Banner ganz oben auf deiner Joomla Website anzeigen. Unter diesem Banner, soll dein Menü erscheinen. Das Logo oder der alternative Text soll gar nicht zu sehen sein. Am allerliebsten wäre es dir, wenn deine Website genauso aussieht, wie du sie unter Joomla 3 und Protostar angelegt hast.
+
+
+
+
+
+
+
+
+
+Du hast kein Logo und es gibt auch keinen Text, der anstelle des Logos auf deiner Website passt. Dafür möchtest du ein Banner ganz oben auf deiner Joomla Website anzeigen. Unter diesem Banner, soll dein Menü erscheinen. Das Logo oder der alternative Text soll gar nicht zu sehen sein. Am allerliebsten wäre es dir, wenn deine Website genauso aussieht, wie du sie unter Joomla 3 und Protostar angelegt hast.<!-- \index{Banner} --><!-- \index{Navigation} -->
 
 So soll es aussehen:
 

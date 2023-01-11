@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-You don't have a logo and there is no text that fits instead of the logo on your website. Instead, you want to display a banner at the top of your Joomla website. Your menu should appear under this banner. The logo or the alternative text should not be visible at all. You would prefer your website to look exactly as you created it using Joomla 3 and Protostar.
+
+
+
+
+
+
+
+
+
+You don't have a logo and there is no text that fits instead of the logo on your website. Instead, you want to display a banner at the top of your Joomla website. Your menu should appear under this banner. The logo or the alternative text should not be visible at all. You would prefer your website to look exactly as you created it using Joomla 3 and Protostar.<!-- \index{banner} --><!-- \index{navigation} -->
 
 This is how it should look:
 

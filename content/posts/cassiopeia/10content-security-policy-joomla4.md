@@ -20,7 +20,16 @@ tags:
   - Content Security Policy
 ---
 
-Die Aufgabe eines Browsers erscheint auf den ersten Blick simpel: er zeigt Text und Bilder an, die man ihm übermittelt. Bei genauerem Hinsehen wird alles komplexer. Web-Standards sind zu unterstützen, Benutzerfreundlichkeit steht hoch im Kurs und Entwickler benötigen Werkzeuge. Hinzu kommt, dass das Web ist ein tückischer Ort ist. Webseiten werden ständig automatisiert angegriffen. Zum Schutz vor verschieden Angriffsvektoren, haben Software Hersteller HTTP Header implementiert, über welche die Webseite im Webbrowser Sicherheitsfunktionen aktiviert und so Angriffsmuster blockiert oder erschwert.
+
+
+
+
+
+
+
+Die Aufgabe eines Browsers erscheint auf den ersten Blick simpel: er zeigt Text und Bilder an, die man ihm übermittelt. Bei genauerem Hinsehen wird alles komplexer. Web-Standards sind zu unterstützen, Benutzerfreundlichkeit steht hoch im Kurs und Entwickler benötigen Werkzeuge. Hinzu kommt, dass das Web ist ein tückischer Ort ist. Webseiten werden ständig automatisiert angegriffen. Zum Schutz vor verschieden Angriffsvektoren, haben Software Hersteller HTTP Header implementiert, über welche die Webseite im Webbrowser Sicherheitsfunktionen aktiviert und so Angriffsmuster blockiert oder erschwert.<!-- \index{HTTP headers} --><!-- \index{Content Security Policy} -->
+
+> Testest du lokal und es funktioniert nicht. Du siehst die Meldung `Quellübergreifende (Cross-Origin) Anfrage blockiert: Die Gleiche-Quelle-Regel verbietet das Lesen der externen Ressource auf ... Grund: CORS-Kopfzeile 'Access-Control-Allow-Origin' fehlt.`. Der Zugriff auf lokale Dateien in Firefox ist normalerweise aufgrund der `Same-Origin-Policy` nicht möglich. Die Funktion an sich ist nützlich, aber manchmal möchte man sie für Entwicklungszwecke abschalten. Dies kann durch den Aufruf von `about:config` in der Adressleiste des Firefox-Browsers erreicht werden. In den Einstellungen findet man das Attribut `privacy.file_unique_origin`. Wenn dieser Wert auf `false` gesetzt ist, können die Dateien lokal geladen werden.
 
 # Wie macht man die Header sichtbar
 

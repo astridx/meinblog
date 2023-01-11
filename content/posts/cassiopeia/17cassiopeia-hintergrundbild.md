@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-Du möchtest ein Bild in den Hintergrund deines Cassiopeia Templates in Joomla einfügen. Das Bild sollte jederzeit den gesamten Bildschirm ausfüllen. Wenn der Inhalt der Website entweder länger oder breiter als der Bildschirm ist, sollte das Bild beim Scrollen fixiert bleiben. Dieses Ziel kann mithilfe der Datei `user.css` erreicht werden.  
+
+
+
+
+
+
+
+
+
+Du möchtest ein Bild in den Hintergrund deines Cassiopeia Templates in Joomla einfügen. Das Bild sollte jederzeit den gesamten Bildschirm ausfüllen. Wenn der Inhalt der Website entweder länger oder breiter als der Bildschirm ist, sollte das Bild beim Scrollen fixiert bleiben. Dieses Ziel kann mithilfe der Datei `user.css` erreicht werden.<!-- \index{Hintergrundbild} -->
 
 ### Hintergrundbild über ganzen Bildschirm
 

@@ -18,6 +18,15 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 Cassiopeia offers options that are customized via styles in the template manager. To make major changes to the appearance of the template, we need to edit the template files themselves, such as `user.css`, `index.php` or `templateDetails.xml`. In this case, you should ideally create a child template. This is a function that was introduced in Joomla 4.1.
 
 Here I first look at the options for which no changes in the code are necessary and then go into smaller customizations using overrides.

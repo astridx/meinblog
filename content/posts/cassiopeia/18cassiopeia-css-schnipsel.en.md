@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication:
 shortTitle: 'short'
 date: 2022-03-02
-title: 'Joomla Standardtemplate Cassiopeia - CSS Schnipsel'
+title: 'Joomla Standard Template Cassiopeia - CSS Snippets'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/cassiopeia-css-schnipsel
@@ -18,11 +18,20 @@ tags:
   - Cassiopeia
 ---
 
-Du möchtest das Cassiopeia Templates in Joomla in der Darstellung geringfügig abändern? Dieses Ziel kann mithilfe der Datei `user.css` erreicht werden. In diesem Beitrag findest du Codeschnipsel für unkomplizierte Anwendungsfälle. 
 
-### Den Nach-oben-Link in Cassiopeia so konfigurieren, dass dieser immer sichtbar ist
 
-Füge den nachfolgenden Code in die Datei `user.css` ein, weenn es dein Ziel ist, den `Nach-oben-Link` in Cassiopeia so zu konfigurieren, dass dieser immer sichtbar ist und nicht erst am Ende der Seite.
+
+
+
+
+
+
+
+You would like to slightly change the display of the Cassiopeia templates in Joomla? This can be achieved with the help of the file 'user.css'. In this article you will find code snippets for uncomplicated use cases. 
+
+### Configure the up link in Cassiopeia so that it is always visible
+
+Add the following code to the `user.css` file if your goal is to configure the `up-link` in Cassiopeia so that it is always visible and not only at the end of the page.<!-- \index{CSS!back to top} -->
 
 ```
 #back-top { position: fixed; }

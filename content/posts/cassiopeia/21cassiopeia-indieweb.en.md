@@ -20,7 +20,14 @@ tags:
 ---
 
 
-The [IndieWeb](https://indieweb.org/)[^indieweb.org/] is about taking control of your content, sharing your thoughts and ideas in one place and then spreading them on other social platforms. What if a social network becomes so that you don't feel comfortable there anymore? Or it gets shut down altogether? In that case, what happens to all your posts?
+
+
+
+
+
+
+
+The [IndieWeb](https://indieweb.org/)[^indieweb.org/] is about taking control of your content, sharing your thoughts and ideas in one place and then spreading them on other social platforms. What if a social network becomes so that you don't feel comfortable there anymore? Or it gets shut down altogether? In that case, what happens to all your posts?<!-- \index{Indieweb} -->
 
 In my opinion, your digital identity should belong to you and not to a commercial company. You should be the sole owner of the content you share online. And that's what IndieWeb encourages people to do.
 

@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-Die Einstellungen für Cassiopeia lassen zwei Optionen für das Layout der Seite zu, statisch oder fluid.
+
+
+
+
+
+
+
+
+
+Die Einstellungen für Cassiopeia lassen zwei Optionen für das Layout der Seite zu, statisch oder fluid.<!-- \index{statisch} --><!-- \index{fluid} -->
 
 ![Templates_Edit_Style_admin_Administration](/images/ce4.png)
 

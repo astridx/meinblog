@@ -18,9 +18,18 @@ tags:
   - Cassiopeia
 ---
 
-In this tutorial I describe the first steps on the way to the birth of my first child template. I made this start on the basis of the standard template Cassiopeia.
 
-Since Joomla 4.1 it is possible to create your own template easily with the Child-Template function. Like a cat at a mouse hole, you can very slowly work your way into template development. It is only necessary to maintain the elements you have added yourself. So it is only mandatory that you are familiar with them. Everything else will continue to be kept up to date by the Joomla project.
+
+
+
+
+
+
+
+
+In this tutorial I describe the first steps on the way to the birth of my first child template. I made this start on the basis of the standard template Cassiopeia.<!-- \index{child template} -->
+
+Since Joomla 4.1 it is possible to create your own template easily with the child template function. Like a cat at a mouse hole, you can very slowly work your way into template development. It is only necessary to maintain the elements you have added yourself. So it is only mandatory that you are familiar with them. Everything else will continue to be kept up to date by the Joomla project.
 
 ### Creating a Child Template
 

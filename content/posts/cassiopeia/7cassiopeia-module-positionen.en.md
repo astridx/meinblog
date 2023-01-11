@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-Already at the first glance at a fresh Joomla 4 installation one of the main innovations becomes visible: The new frontend template called Cassiopeia. But also in the background some things have changed: The module positions of the template have been renamed, so that modules can now be assigned to the corresponding positions more easily and intuitively: A human can understand `sidebar-right` better than `position-7`.
+
+
+
+
+
+
+
+
+
+Already at the first glance at a fresh Joomla 4 installation one of the main innovations becomes visible: The new frontend template called Cassiopeia. But also in the background some things have changed: The module positions of the template have been renamed, so that modules can now be assigned to the corresponding positions more easily and intuitively: A human can understand `sidebar-right` better than `position-7`.<!-- \index{skeleton!module positions} --><!-- \index{module positions} -->
 
 > A module position is a placeholder in a [template](https://docs.joomla.org/Special:MyLanguage/Template). Placeholders specify one or more positions within the template and tell the Joomla application where to display modules associated with a particular position.
 

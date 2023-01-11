@@ -18,6 +18,15 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 ## Should I use Cassiopeia or a 3rd party Joomla template?
 
 Cassiopeia template is the frontend template that is included by default in a Joomla 4 installation. Cassiopeia is a straightforward template. It is responsive. This means it displays content correctly on different devices. It is also accessible.

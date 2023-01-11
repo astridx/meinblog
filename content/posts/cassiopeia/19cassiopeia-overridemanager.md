@@ -19,7 +19,15 @@ tags:
 ---
 
 
-Seit Joomla 4 gibt es den Override Manager[^docs.joomla.org/J4.x:Improved_Override_Management]. Meiner Meinung nach stellt dieser nützliche Werkzeuge zur Verfügung, wenn man sie wie vorgesehen verwendet. 
+
+
+
+
+
+
+
+
+Seit Joomla 4 gibt es den Override Manager[^docs.joomla.org/J4.x:Improved_Override_Management]. Meiner Meinung nach stellt dieser nützliche Werkzeuge zur Verfügung, wenn man sie wie vorgesehen verwendet.<!-- \index{Template Manager} --><!-- \index{Override Manager} --><!-- \index{Diff View} -->
 
 Bei den Werkzeugen handelt es sich konkret um zwei Plugins:
 - Installer - Überschreiben

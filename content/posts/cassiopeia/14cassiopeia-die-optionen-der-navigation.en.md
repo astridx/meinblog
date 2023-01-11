@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-Das Cassiopeia Standardtemplate ist technisch ausgereift. Es bietet alles was man benötigt. Es gibt eine Navigation die aufklappbare Untermenüpunkte bietet, sie ist barrierefrei und passt sich an unterschiedliche Bildschirmbreiten an. Nebenbei kann man die Hauptanwendungsfälle unkompliziert individuell anpassen. Beispielsweise ein horizontales Menü in der Kopf- und Fußzeile der Website. Wie dies funktioniert ist Thema dieses Abschnitts.
+
+
+
+
+
+
+
+
+
+Das Cassiopeia Standardtemplate ist technisch ausgereift. Es bietet alles was man benötigt. Es gibt eine Navigation die aufklappbare Untermenüpunkte bietet, sie ist barrierefrei und passt sich an unterschiedliche Bildschirmbreiten an. Nebenbei kann man die Hauptanwendungsfälle unkompliziert individuell anpassen. Beispielsweise ein horizontales Menü in der Kopf- und Fußzeile der Website. Wie dies funktioniert ist Thema dieses Abschnitts.<!-- \index{navigation!options} -->
 
 ### Ausgangsituation
 

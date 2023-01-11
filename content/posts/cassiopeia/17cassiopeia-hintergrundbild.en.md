@@ -18,7 +18,16 @@ tags:
   - Cassiopeia
 ---
 
-You want to add an image to the background of your Cassiopeia template in Joomla. The image should fill the whole screen at any time. If the website content is either longer or wider than the screen, the image should stay fixed while scrolling. You can achieve this goal by using the file `user.css`. 
+
+
+
+
+
+
+
+
+
+You want to add an image to the background of your Cassiopeia template in Joomla. The image should fill the whole screen at any time. If the website content is either longer or wider than the screen, the image should stay fixed while scrolling. You can achieve this goal by using the file `user.css`. <!-- \index{background image} -->
 
 ### Background image over full screen
 

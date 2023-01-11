@@ -18,6 +18,15 @@ tags:
   - Cassiopeia
 ---
 
+
+
+
+
+
+
+
+
+
 _Favicons_ are the small icons we see in browser tabs. They help to recognise a page when we browse the bookmarks and open tabs in the browser. The integration of favicons changed over time. Some say it has grown historically. Today, favicons offer various additional functions and new ones are added from time to time.<!-- \index{favicon} -->
 
 It is possible to use the file type SVG as a favicon. This is supported by [most modern browsers](https://caniuse.com/#feat=link-icon-svg). To use this new function, you need an SVG file. To ensure that older browsers also display the graphic, an ICO file is also required.

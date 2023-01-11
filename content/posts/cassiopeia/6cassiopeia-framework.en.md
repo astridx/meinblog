@@ -18,12 +18,21 @@ tags:
   - Cassiopeia
 ---
 
-## Cassiopeia Grundgerüst
 
-Das Cassiopeia-Template für _Joomla 4_ hat ein Grundgerüst, das die [Modulpositionen](/cassiopeia-module-positionen)
-ermöglicht und außerdem das Grid-System von Bootstrap für ein responsives Design nutzt. Dieses Grundgerüst unterstützt HTML5 Bereiche wie _header_, _nav_, _main_ und _footer_.
 
-Wenn wir das gesamte PHP aus der Datei `index.php` entfernen, sehen wir das Grundgerüst des Templates wie unten dargestellt. Dies ist für das _statische_ Layout, mit `<body class="site-grid site wrapper-static">`. Dem _fluid_-Layout ist `<body class="site-grid site wrapper-fluid">` zugewiesen, welches es ermöglicht, dass der Body so groß wie die Bildschirmgröße ist und sich proportional verkleinert. Wenn wir die Option _fluid_ unter den [Optionen in Cassiopeia](/cassiopeia-optionen) auswählen, verwendet Joomla PHP-Code, der das "-fluid" an den Klassennamen anzuhängt.
+
+
+
+
+
+
+
+## Cassiopeia skeleton<!-- \index{skeleton} -->
+
+The Cassiopeia template for _Joomla 4_ has a basic skeleton that allows the [module-positions](/cassiopeia-module-positions)
+and also uses Bootstrap's grid system for a responsive design. This basic skeleton supports HTML5 areas such as _header_, _nav_, _main_ and _footer_.
+
+If we remove all the PHP from the `index.php` file, we see the basic skeleton of the template as shown below. This is for the _static_ layout, with `<body class="site-grid site wrapper-static">`. Assigned to the _fluid_ layout is `<body class="site-grid site wrapper-fluid">`, which allows the body to be as large as the screen size and shrink proportionally. If we select the _fluid_ option under the [options in Cassiopeia](/cassiopeia-options), Joomla uses PHP code that appends the text "-fluid" to the class name.
 
 ```
 <!DOCTYPE html>
