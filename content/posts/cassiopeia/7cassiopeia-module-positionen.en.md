@@ -35,7 +35,7 @@ Two positions were added just before Joomla 4 was released. "topbar" provides a 
 
 The following graphic shows the module positions in Cassiopeia as an overview:
 
-![Module positions in Cassiopeia as overview](/images/cassiopeia_module.png)
+![Module positions in Cassiopeia as overview](/images/cassiopeiamodule.png)
 
 The default template of Joomla 4 - Cassiopeia - has a fixed number of default module positions. These positions are displayed in the Position dropdown list when you create or edit individual modules. You edit the modules in the module manager `/administrator/index.php?option=com_modules&view=modules`. The place where a position is displayed within the HTML document of the website is defined in the file `index.php` of a Joomla template. In Cassiopeia this looks as follows for the position `sidebar-right`:
 
