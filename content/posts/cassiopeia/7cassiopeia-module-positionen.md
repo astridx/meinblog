@@ -35,17 +35,17 @@ Zwei Positionen wurden kurz vor Veröffentlichung von Joomla 4 hinzugefügt. "to
 
 Die nachfolgende Grafik zeigt die Modulpositionen in Cassiopeia als Übersicht:
 
-![Modulpositionen in Cassiopeia als Übersicht](images/cassiopeia_module.png)
+![Modulpositionen in Cassiopeia als Übersicht](/images/cassiopeia_module.png)
 
 Das Standard-Template von Joomla 4 - Cassiopeia - hat eine feste Anzahl von Standard-Modul-Positionen. Diese Positionen werden in der Dropdown-Liste Position angezeigt, wenn du einzelne Module erstellst oder bearbeitest. Die Module bearbeitest du im Modul-Manager `/administrator/index.php?option=com_modules&view=modules`. Die Stelle, an der eine Position innerhalb des HTML-Dokumentes der Website dargestellt wird, wird in der Datei `index.php` eines Joomla-Tempates festgelegt. In Cassiopeia sieht das für die Position `sidebar-right` wie folgt aus:
 
-![Modulpositionen in Cassiopeia im Template Manager von Joomla](images/cpmp1.png)
+![Modulpositionen in Cassiopeia im Template Manager von Joomla](/images/cpmp1.png)
 
 Wenn du an dieser Position neue CSS-Stile für Module erstellen möchtest, dann musst du den HTML-Container für diese Position und nicht den Positionsnamen selbst bearbeiten. Der Positionsname erscheint im HTML-Code für die Webseite gar nicht. Wenn du zum Beispiel etwas mit CSS stylen möchtest, das an Position `sidebar-right` platziert wurde, solltest du die Klasse `.container-sidebar-right` mit CSS stylen.
 
 ## Wie werden Positionen in Joomla 4 ins Template integriert?
 
-![Modulpositionen in Cassiopeia integrieren](images/cpmp2.png)
+![Modulpositionen in Cassiopeia integrieren](/images/cpmp2.png)
 
 Damit eine Position in der Dropdown-Liste der Optionen für Position für die einzelnen Module angezeigt wird, muss der Positionsname in der Datei `templateDetails.xml` des Templates angegeben werden. Diese Datei befindet sich im Stammverzeichnis des Cassiopeia-Templates. Also genau unter der Adresse `/templates/cassiopeia/templateDetails.xml`.
 
@@ -70,7 +70,7 @@ Damit eine Position in der Dropdown-Liste der Optionen für Position für die ei
 ...
 ```
 
-![Modulpositionen in der XML Installationsdatei - Manifest](images/cpmp3.png)
+![Modulpositionen in der XML Installationsdatei - Manifest](/images/cpmp3.png)
 
 Damit eine Position auf der Webseite angezeigt wird, muss diese Position in den HTML-Code eingefügt werden. Mit anderen Worten: Der Code muss in den Text eigefügt werden, der die Seite aufbaut -- also in das HTML-Dokument. Dies geschieht in der Datei `index.php`, die sich ebenfalls im Stammverzeichnis des Cassiopeia-Templates befindet. Es muss eine Zeile in der `index.php` vorhanden sein, die die Joomla-API zum Aufrufen dieser Position verwendet.
 
@@ -84,7 +84,7 @@ Innerhalb der Datei `index.php` kann die Position mit einer bedingten Anweisun
 
 Das Attribut `style`, also den Textteil `style="default"` des obigen Beispiels, verwendest du, wenn du Option nutzen möchtest.Zum Beispiel: Wenn die Seitenleiste keinen Hintergrund haben soll, dann ist `style="default"` die richtige Wahl. Möchtest du einen grauen Hintergrund, verwendest du am besten `style="cardGrey"`. Wenn du einen anderen Hintergrund anzeigen möchtest, dann musst du selbst den Code dazu schreiben. Die Datei die du schreiben musst, ist eine Layout-Datei. Diese Dateien werden in Joomla auch `Module Chromes` genannt. Du findest diese im Verzeichnis `/templates/cassiopeia/html/layouts/chromes` .
 
-![Modulpositionen und Module Chromes](images/cpmp4.png)
+![Modulpositionen und Module Chromes](/images/cpmp4.png)
 
 ## Positionen anderer Templates
 
@@ -102,10 +102,10 @@ Hast du oft Problemen mit nicht aktiven Modulpositionen? Dann empfehle ich dir d
 
 Wir können alle in einem Template festgelegten Module anzeigen, indem wir `"tp=1"` im Frontend an die URL anhängen. Zum Beispiel so: `http://www.example.com/index.php?tp=1`.
 
-![Modulpositionen in Cassiopeia](images/cptemplatepositionen2.png)
+![Modulpositionen in Cassiopeia](/images/cptemplatepositionen2.png)
 
 Siehst du die Positionen nicht? Überprüfe die Konfiguraiton: Die Option ist in der globalen Konfiguration deaktivierbar.
 
-![Modulpositionen in Cassiopeia](images/cptemplatepositionen.png)
+![Modulpositionen in Cassiopeia](/images/cptemplatepositionen.png)
 
 <img src="https://vg04.met.vgwort.de/na/fa4a0a767c984db3b20c8b32fef88493" width="1" height="1" alt="">
