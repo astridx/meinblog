@@ -73,9 +73,9 @@ Bei sehr schmalen Bildschirmen füllt der Container immer noch den Bildschirm au
 
 Nachfolgend siehst du eine Seite unter verschiedenen Auflösungen mit der Static-Einstellung. Die Bildschirmbreite beträgt von links nach rechts 575px, 2000px und 1100px. Im mittleren Bild ist zu erkennen, dass die 2000px nicht ausgenutzt werden. Rechts und links ist ein Freiraum. Der Vorteil dieser Einstellung ist, dass sich der Webdesigner darauf verlassen kann, dass die Website nie breiter als 1320px dargestellt wird.
 
-![Cassiopeia Layout-Option static](/images/cp_static.png)
+![Cassiopeia Layout-Option static](/images/cpstatic.png)
 
 Nachfolgend siehst du eine Seite unter verschiedenen Auflösungen mit der Fluid-Einstellung. Die Bildschirmbreite beträgt von links nach rechts 575px, 2000px und 1100px. In jeder Variante wird der vorhandene Platz vollständig genutzt.
 
-![Cassiopeia Layout-Option fluid](/images/cp_fluid.png)
+![Cassiopeia Layout-Option fluid](/images/cpfluid.png)
 <img src="https://vg04.met.vgwort.de/na/7fb43e60955947f8b1771faf3a060d6a" width="1" height="1" alt="">
