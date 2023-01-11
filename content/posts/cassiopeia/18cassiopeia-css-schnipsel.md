@@ -33,7 +33,15 @@ Du möchtest das Cassiopeia Templates in Joomla in der Darstellung geringfügig 
 
 Füge den nachfolgenden Code in die Datei `user.css` ein, wenn es dein Ziel ist, den `Nach-oben-Link` in Cassiopeia so zu konfigurieren, dass dieser immer sichtbar ist und nicht erst am Ende der Seite.<!-- \index{CSS!back to top} --><!-- \index{back to top} --><!-- \index{Nach-oben-Link} -->
 
-```
+```css
 #back-top { position: fixed; }
 ```
+
+### Silbentrennung
+
+
+```css
+```
+
+
 
