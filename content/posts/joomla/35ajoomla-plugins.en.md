@@ -1392,7 +1392,7 @@ PLG_EDITORS-XTD_INDIEWEB_BUTTON_INDIEWEB="IndieWeb Syndications"
 
 PLG_EDITORS-XTD_INDIEWEB="Button - IndieWeb Syndication"
 PLG_EDITORS-XTD_INDIEWEB_XML_DESCRIPTION="Enables a button which allows you to insert the <em>IndieWeb Syndication &hellip;</em> link into an Article.  See Content Plugin Indieweb"
-
+```
 
 ## FAQ about plugins
 

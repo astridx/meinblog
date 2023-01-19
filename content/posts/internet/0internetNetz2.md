@@ -23,7 +23,7 @@ tags:
 
 Wie wird ein Gerät Teil eines Netzwerkes wie dem Internet? 
 
-![Wie wird ein Gerät Teil eines Netzwerkes?](images/1b.png)
+![Wie wird ein Gerät Teil eines Netzwerkes?](/images/1b.png)
 
 Um Teil eines Netzes zu werden, braucht man 
 - eine Hardware-Adresse und 

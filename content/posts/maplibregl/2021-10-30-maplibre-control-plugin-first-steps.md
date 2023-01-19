@@ -57,7 +57,7 @@ Ich baue auf einem einfachen Quickstart auf:
 </html>
 ```
 
-![Eine einfach gehaltene MapLibre Karte](images/maplibreboilerplate1.png)
+![Eine einfach gehaltene MapLibre Karte](/images/maplibreboilerplate1.png)
 
 ## Was ist ein Steuerelement?
 

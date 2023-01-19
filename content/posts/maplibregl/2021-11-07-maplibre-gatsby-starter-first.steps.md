@@ -38,7 +38,7 @@ $ gatsby new gatsby-maplibre-blog
 
 Nachdem du das Projekt erstellt hast, wechsele mittels `cd gatsby-maplibre-blog` in das Projektverzeichnis und rufe `gatsby develop` auf. Als Ergebnis siehst du die folgende Ausgabe unter der URL `http://localhost:8000/` im Browser:
 
-![Ein Bildschirmfoto des Gatsby-Standard-Starters](images/bloggatsby1.png)
+![Ein Bildschirmfoto des Gatsby-Standard-Starters](/images/bloggatsby1.png)
 
 Um etwas aufzuräumen habe ich im Ordner `src` die Dateien `components/layout.js`, `pages/404.js` und `pages/index.js` abgeändert.
 
@@ -124,7 +124,7 @@ mkdir content
 
 Starte an dieser Stelle den Entwicklungsserver neu, um sicherzustellen, dass kein Fehler vorliegt. Führe `gatsby develop` erneut aus. Wenn du keine Fehlermeldungen siehst ist alles gut.
 
-![A screenshot of Gatsby default starter after tidy up](images/bloggatsby2.png)
+![A screenshot of Gatsby default starter after tidy up](/images/bloggatsby2.png)
 
 ## MapLibre GL JS installieren
 
@@ -208,7 +208,7 @@ export default Layout
 
 Starte an dieser Stelle den Entwicklungsserver neu, um sicherzustellen, dass die Karte korrekt angezeigt wird. Führe `gatsby develop` erneut aus. Wenn du die Karte im oberen Bereich siehst ist alles gut.
 
-![Anzeige einer Karte auf der Indexseite](images/bloggatsby3.png)
+![Anzeige einer Karte auf der Indexseite](/images/bloggatsby3.png)
 
 Ich verwende React Hooks - `useRef()` um auf das Map Container DOM Element zuzugreifen. `UseState()`, um das Map-Objekt als Status zu speichern, so dass ich den Wert in anderen Teilen der Komponente verwenden kann, und `UseEffect()`, um das Map-Objekt zu erstellen, wenn die Komponente aktiviert wird. Das leere Abhängigkeits-Array als zweites Argument für `useEffect()` ist wichtig. Wenn du das zweite Argument entfernst, wirst du feststellen, dass die Funktion in eine Endlosschleife gerät. Das liegt daran, dass `useEffect()` immer dann ausgeführt wird, wenn sich der Zustand ändert. Da wir `setMap(map)` innerhalb desselben Hooks verwenden, wird es immer wieder ausgeführt. Durch das leere Array wird der Effekt-Hook nur einmal ausgeführt, wenn die Komponente initialisiert wird. Das ist das was wir erzielen möchten. Uns ist wichtig, dass nur einmal eine neue Map erstellt wird. Danach soll dieselbe Map verwendet werden. Mit `return () => map.remove()` wird aufgeräumt, wenn die Komponente entfernt wird.
 
@@ -339,7 +339,7 @@ const Map = () => {
 export default Map
 ```
 
-![Neu hinzugefügte Marker](images/bloggatsby4.png)
+![Neu hinzugefügte Marker](/images/bloggatsby4.png)
 
 Wir haben jetzt Marker auf der Karte für einen Ort in Spanien, einen Ort in Frankreich und einen in Deutschland. MapLibre bietet sehr nützliche Methoden wie `fitBounds()` und `easeTo()`. Es gibt noch mehr Funktionen und Optionen. Sieh dir die MapLibre Dokumentation an.
 
@@ -599,7 +599,7 @@ exports.wrapPageElement = ({ element, props }) => {
 
 Wenn du nun zwischen den Seiten navigierst, wird die Karte nicht neu geladen. Im nächsten Schritt sorgen wir nun dafür, dass sich der Inhalt der Karte dynamisch an die Eigenschaften des Blogbeitrags anpasst.
 
-![Pages and navigation and no reload](images/bloggatsby5.png)
+![Pages and navigation and no reload](/images/bloggatsby5.png)
 
 ## Die Kartenkomponente für die Verwendung von props anpassen.
 
