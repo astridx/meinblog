@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-tag-js",
-    "path": "/tags/map-box/",
-    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"f351a70e-3da1-58ec-9da2-bef1b19bf84b","fields":{"slug":"/erste-schritte-mit-mapbox-gl-in-react/"},"frontmatter":{"date":"September 16, 2020","title":"Erste Schritte mit Mapbox GL in React","tags":["JavaScript","SPA","Bibliothek","Framework","React","MapBox"],"categories":["Code"]}}}]}},"pageContext":{"tag":"MapBox"}},
-    "staticQueryHashes": ["352937542"]}

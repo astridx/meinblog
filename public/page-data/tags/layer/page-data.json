@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-tag-js",
-    "path": "/tags/layer/",
-    "result": {"data":{"allMarkdownRemark":{"totalCount":2,"edges":[{"node":{"id":"ca3971d5-f25c-5c06-b861-0cbcf90316a9","fields":{"slug":"/maplibregl-show-and-hide-layers/"},"frontmatter":{"date":"May 09, 2021","title":"Maplibre GL - Ebenen ein- und ausblenden","tags":["MaplibreGL","geografische Daten","Geoinformationssystem","JavaScript-Bibliothek","Vektor-Tiles","Karten","Layer","Layer-Switcher"],"categories":["MaplibreGL"]}}},{"node":{"id":"e9ffd15d-f650-5992-a77b-551fcb04d1da","fields":{"slug":"/mapboxgl-show-and-hide-layers/"},"frontmatter":{"date":"October 09, 2020","title":"Mapbox GL - Ebenen ein- und ausblenden","tags":["MapBoxGL","geografische Daten","Geoinformationssystem","JavaScript-Bibliothek","Vektor-Tiles","Karten","Layer","Layer-Switcher"],"categories":["MapboxGL"]}}}]}},"pageContext":{"tag":"Layer"}},
-    "staticQueryHashes": ["352937542"]}

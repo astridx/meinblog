@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-tag-js",
-    "path": "/tags/map-tiler/",
-    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"e6c571de-abec-5d8e-8c5b-4326774132d5","fields":{"slug":"/maplibre-vector-tiles-self-host-world-example/"},"frontmatter":{"date":"November 26, 2022","title":"Selbst gehosteten Karten und VectorTiles von der ganzen Welt erstellen","tags":["geografische Daten","MapTiler","National Earth","Openstreetmap"],"categories":["MapLibre"]}}}]}},"pageContext":{"tag":"MapTiler"}},
-    "staticQueryHashes": ["352937542"]}

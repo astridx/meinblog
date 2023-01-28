@@ -27,7 +27,7 @@ tags:
 
 
 
-Du suchst eine Erweiterung, um ein Boostrap 5 Carousel in Joomla 4 mit Cassiopeia anzuzeigen? 
+Du suchst eine Erweiterung, um ein Boostrap 5 Carousel in Joomla 4 mit Cassiopeia anzuzeigen?  
 
 > Im [Joomla Extensions Directory](https://extensions.joomla.org/)[^extensions.joomla.org/] findest du viele Einträge. Aber die richtige ist nicht dabei. Das Ausprobieren hat viel Zeit gekostet und du überlegst, ob es nicht viel einfacher wäre, selbst die richtige Lösung für dich zu erstellen.
 
@@ -44,7 +44,7 @@ Es gibt drei Dateien, die wir benötigen, um ein Boostrap 5 Carousel über ein J
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_carousel/mod_carousel.php` und fülle diese mit nachfolgendem Code. Diese Datei sorgt dafür, dass alle Rahmenbedingen korrekt gesetzt sind und das Modul sich problemlos in Joomla einfügt.
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/mod_carousel.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/mod_carousel.php
 
 <?php
 defined('_JEXEC') or die;
@@ -68,10 +68,10 @@ Besonderheit hier: Wir integrieren Bootstrap, aber wir laden keine Dateien herun
 
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_carousel/mod_carousel.xml` und fülle diese mit dem nachfolgenden Code. Passe diesen im oberen Bereich an deine Gegebenheiten an. Lösche die Zeile `<folder>language</folder>`, falls du keine Sprachdateien verwendest. 
 
-> Falls du Sprachdateien anlegen magst, kannst du dich an den Dateien in meinem [Repo](https://codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/language/en-GB] orientieren. Mehr Informationen zu Sprachdateien habe ich unter ["Sprachdateien nutzen"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/] geschrieben.
+> Falls du Sprachdateien anlegen magst, kannst du dich an den Dateien in meinem [Repo](https://codeberg.org/astrid/j/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/language/en-GB] orientieren. Mehr Informationen zu Sprachdateien habe ich unter ["Sprachdateien nutzen"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/] geschrieben.
 
 ```xml {numberLines: -2}
-<!-- https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/mod_carousel.xml -->
+<!-- https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/mod_carousel.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" client="site" method="upgrade">
@@ -236,7 +236,7 @@ Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_carousel/mod_car
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_carousel/tmpl/default.php` und fülle diese mit nachfolgendem Code. Diese Datei ist ein Template, welches für die Anzeige im Frontend verantwortlich ist.
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/tmpl/default.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/tmpl/default.php
 
 <?php
 defined('_JEXEC') or die;

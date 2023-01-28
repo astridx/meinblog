@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-tag-js",
-    "path": "/tags/spoofing/",
-    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"cb957b91-19bc-5b10-8158-a345d6d8875d","fields":{"slug":"/en/regeln-fuer-die-kommunikation-im-netz/"},"frontmatter":{"date":"July 08, 2022","title":"Rules for communication between computers on the Internet - Part 1","tags":["IP","Spoofing","Datenübertragung"],"categories":["Internet"]}}}]}},"pageContext":{"tag":"Spoofing"}},
-    "staticQueryHashes": ["352937542"]}

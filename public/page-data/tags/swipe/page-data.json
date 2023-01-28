@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-tag-js",
-    "path": "/tags/swipe/",
-    "result": {"data":{"allMarkdownRemark":{"totalCount":2,"edges":[{"node":{"id":"f1b97605-573d-5670-b662-3cffe01c3c68","fields":{"slug":"/maplibregl-swipe/"},"frontmatter":{"date":"May 06, 2021","title":"Karten mit Mapbox GL vergleichen - Das Plugin Swipe","tags":["MaplibreGL","geografische Daten","Geoinformationssystem","JavaScript-Bibliothek","Vektor-Tiles","Karten","Swipe"],"categories":["MaplibreGL"]}}},{"node":{"id":"ab95c8e7-1d8a-5c59-9a6f-a17561726163","fields":{"slug":"/mapboxgl-swipe/"},"frontmatter":{"date":"October 06, 2020","title":"Karten mit Mapbox GL vergleichen - Das Plugin Swipe","tags":["MapBoxGL","geografische Daten","Geoinformationssystem","JavaScript-Bibliothek","Vektor-Tiles","Karten","Swipe"],"categories":["MapboxGL"]}}}]}},"pageContext":{"tag":"Swipe"}},
-    "staticQueryHashes": ["352937542"]}

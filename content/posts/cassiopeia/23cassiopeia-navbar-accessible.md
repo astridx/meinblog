@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/buecher/joomla-4-cassipeia-anwenden'
 syndication: 
 shortTitle: 'short'
 date: 2022-03-29
-title: 'A11y - ein zugängliches Menü für Cassiopeia oder "Wie erreiche ich es, dass die Navigation mit der Tastatur bedienbar ist?"'
+title: 'A11y - ein zugängliches Menü für Cassiopeia'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-how-to-make-navbar-keyboard-accessible

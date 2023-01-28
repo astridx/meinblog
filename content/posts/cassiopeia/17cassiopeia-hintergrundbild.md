@@ -33,7 +33,7 @@ Du möchtest ein Bild in den Hintergrund deines Cassiopeia Templates in Joomla e
 
 1. Wähle ein Bild als Hintergrundbild aus und speichere dieses unter dem Namen `background.jpg` im Imageverzeichnis deiner Joomla-Installation ab.
 
-Ich verwende das Bild von Pexels[^pixabay.com/de/users/pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1850417] auf Pixabay[^pixabay.com/de/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1850417] als Beispiel.
+Ich verwende das Bild von Pexels[^pixabay.com/de/users/pexels-2286921] auf Pixabay als Beispiel.
 
 2. Erstelle ein paar Beispielbeiträge falls du eine frische Installation zum Ausprobieren wählst. So kannst du später testen, was passiert, wenn du die auf der Website scollst.
 

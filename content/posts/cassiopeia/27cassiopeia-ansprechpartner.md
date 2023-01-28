@@ -38,7 +38,7 @@ Du suchst nach einer Möglichkeit, Ansprechpartner in Joomla 4 mit Cassiopeia an
 Ein Custom Field muss installiert werden. Hierfür benötigen wir ein Installations-Manifest `plugins/fields/contact/contact.xml`.
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/contact.xml
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/contact.xml
 
 <?xml version="1.0" encoding="utf-8" ?>
 <extension type="plugin" group="fields" method="upgrade">
@@ -63,7 +63,7 @@ Ein Custom Field muss installiert werden. Hierfür benötigen wir ein Installati
 
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/contact.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/contact.php
 
 <?php
 use Joomla\CMS\Form\Form;
@@ -86,7 +86,7 @@ class PlgFieldsContact extends \Joomla\Component\Fields\Administrator\Plugin\Fie
 ```
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/tmpl/contact.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/tmpl/contact.php
 
 <?php
 
@@ -199,7 +199,7 @@ try {
 ```
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/params/contact.xml
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/params/contact.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
@@ -218,7 +218,7 @@ try {
 
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/fields/contact.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/fields/contact.php
 
 <?php
 defined('JPATH_PLATFORM') or die;
@@ -263,7 +263,7 @@ class JFormFieldContact extends JFormFieldSQL
 Sprachdateien
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/language/en-GB/plg_fields_contact.ini
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/language/en-GB/plg_fields_contact.ini
 
 PLG_FIELDS_CONTACT="Fields - Contact"
 PLG_FIELDS_CONTACT_XML_DESCRIPTION="This plugin lets you create new fields of type 'contact' in any extensions where custom fields are supported."
@@ -275,7 +275,7 @@ PLG_FIELDS_CONTACT_LABEL="Contact (%s)"
 
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/language/en-GB/plg_fields_contact.sys.ini
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/language/en-GB/plg_fields_contact.sys.ini
 
 PLG_FIELDS_CONTACT="Fields - Contact"
 PLG_FIELDS_CONTACT_XML_DESCRIPTION="This plugin lets you create new fields of type 'contact' in any extensions where custom fields are supported."
@@ -294,7 +294,7 @@ PLG_FIELDS_CONTACT_XML_DESCRIPTION="This plugin lets you create new fields of ty
 ![add a contact person via content plugin - activate the plugin](/images/ansprechpartnerc1.png)
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/loadcontact.xml
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/loadcontact.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="content" method="upgrade">
@@ -317,7 +317,7 @@ PLG_FIELDS_CONTACT_XML_DESCRIPTION="This plugin lets you create new fields of ty
 
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/loadcontact.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/loadcontact.php
 
 <?php
 use Joomla\CMS\Factory;
@@ -379,7 +379,7 @@ class PlgContentLoadcontact extends CMSPlugin
 ```
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/tmpl/default.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/tmpl/default.php
 
 <?php
 use Joomla\CMS\String\PunycodeHelper;
@@ -471,7 +471,7 @@ use Joomla\CMS\String\PunycodeHelper;
 Sprachdateien
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/language/en-GB/plg_content_loadcontact.ini
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/language/en-GB/plg_content_loadcontact.ini
 
 PLG_CONTENT_LOADCONTACT="Content - Load Contact"
 PLG_CONTENT_LOADCONTACT_XML_DESCRIPTION="Within content this plugin loads a Contact by ID, Syntax: {loadcontact 1}. It display contact information (position, address, phone number, etc.) as defined in the contact component. The default layout is a Bootstrap card, but it can be overwritten by a template override."
@@ -480,7 +480,7 @@ PLG_CONTENT_LOADCONTACT_XML_DESCRIPTION="Within content this plugin loads a Cont
 
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/language/en-GB/plg_content_loadcontact.sys.ini
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/language/en-GB/plg_content_loadcontact.sys.ini
 
 PLG_CONTENT_LOADCONTACT="Content - Load Contact"
 PLG_CONTENT_LOADCONTACT_XML_DESCRIPTION="Within content this plugin loads a Contact by ID, Syntax: {loadcontact 1}. It display contact information (position, address, phone number, etc.) as defined in the contact component. The default layout is a Bootstrap card, but it can be overwritten by a template override."

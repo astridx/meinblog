@@ -44,7 +44,7 @@ There are four files we need to display a Gallery via Joomla module.
 In your Joomla 4 installation, create the file `modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.php` and fill it with the following code. This file ensures that all conditions are set correctly and that the module fits into Joomla without any problems.
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.php
 
 <?php
 defined('_JEXEC') or die;
@@ -67,10 +67,10 @@ Special feature here: We the asset file `mod_bootstrap5lightboxgallery/fslightbo
 
 Create the file `modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.xml` in your Joomla 4 installation and fill it with the following code. Adjust the upper part of the code to your needs. Delete the line `<folder>language</folder>` if you don`t use language files. 
 
-> If you like to create language files, you can use the files in my [repo](https://codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/language/en-GB] for orientation. I wrote more information about language files at ["Using language files"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/].
+> If you like to create language files, you can use the files in my [repo](https://codeberg.org/astrid/j/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/language/en-GB] for orientation. I wrote more information about language files at ["Using language files"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/].
 
 ```xml {numberLines: -2}
-<!-- https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.xml -->
+<!-- https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" client="site" method="upgrade">
@@ -177,7 +177,7 @@ Create the file `modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgal
 In your Joomla 4 installation, create the file `modules/mod_bootstrap5lightboxgallery/tmpl/default.php` and fill it with the following code. This file is a template which is responsible for the layout in the frontend.
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/tmpl/default.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/tmpl/default.php
 
 <?php
 defined('_JEXEC') or die;
@@ -228,7 +228,7 @@ Stylesheet for user.css
 
 ### media/mod_bootstrap5lightboxgallery/js/fslightbox.js
 
-Create the directory `media/mod_bootstrap5lightboxgallery`. Create the folder `js` in this directory. In the `js` folder copy the file `fslightbox.js`. You can either use this file from my [repo](https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/media/mod_bootstrap5lightboxgallery/js/fslightbox.js)[^codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/media/mod_bootstrap5lightboxgallery/js/fslightbox.js] or download it from [fslightbox.com](https://fslightbox.com/javascript/download)[^fslightbox.com/javascript/download].
+Create the directory `media/mod_bootstrap5lightboxgallery`. Create the folder `js` in this directory. In the `js` folder copy the file `fslightbox.js`. You can either use this file from my [repo](https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/media/mod_bootstrap5lightboxgallery/js/fslightbox.js)[^codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/media/mod_bootstrap5lightboxgallery/js/fslightbox.js] or download it from [fslightbox.com](https://fslightbox.com/javascript/download)[^fslightbox.com/javascript/download].
 
 ## Anwendung
 

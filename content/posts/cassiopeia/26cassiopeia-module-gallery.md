@@ -44,7 +44,7 @@ Es gibt vier Dateien, die wir benötigen, um ein Boostrap 5 Carousel über ein J
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.php` und fülle diese mit nachfolgendem Code. Diese Datei sorgt dafür, dass alle Rahmenbedingen korrekt gesetzt sind und das Modul sich problemlos in Joomla einfügt.
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.php
 
 <?php
 defined('_JEXEC') or die;
@@ -66,10 +66,10 @@ Besonderheit hier: Wir nutzen die Asset-Datei `mod_bootstrap5lightboxgallery/fsl
 
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.xml` und fülle diese mit dem nachfolgenden Code. Passe diesen im oberen Bereich an deine Gegebenheiten an. Lösche die Zeile `<folder>language</folder>`, falls du keine Sprachdateien verwendest. 
 
-> Falls du Sprachdateien anlegen magst, kannst du dich an den Dateien in meinem [Repo](https://codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/language/en-GB] orientieren. Mehr Informationen zu Sprachdateien habe ich unter ["Sprachdateien nutzen"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/] geschrieben.
+> Falls du Sprachdateien anlegen magst, kannst du dich an den Dateien in meinem [Repo](https://codeberg.org/astrid/j/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/language/en-GB] orientieren. Mehr Informationen zu Sprachdateien habe ich unter ["Sprachdateien nutzen"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/] geschrieben.
 
 ```xml {numberLines: -2}
-<!-- https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.xml -->
+<!-- https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/mod_bootstrap5lightboxgallery.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" client="site" method="upgrade">
@@ -176,7 +176,7 @@ Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_bootstrap5lightb
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_bootstrap5lightboxgallery/tmpl/default.php` und fülle diese mit nachfolgendem Code. Diese Datei ist ein Template, welches für die Anzeige im Frontend verantwortlich ist.
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/tmpl/default.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_bootstrap5lightboxgallery/tmpl/default.php
 
 <?php
 defined('_JEXEC') or die;
@@ -227,7 +227,7 @@ Stylesheet for user.css
 
 ### media/mod_bootstrap5lightboxgallery/js/fslightbox.js
 
-Erstelle das Verzeichnis `media/mod_bootstrap5lightboxgallery`. Lege in diesem Verzeichnis den Ordner `js` an. Kopiere in den `js`-Ordner die Datei `fslightbox.js`. Diese Datei kannst du entweder aus meinem [Repo](https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/media/mod_bootstrap5lightboxgallery/js/fslightbox.js)[^codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/media/mod_bootstrap5lightboxgallery/js/fslightbox.js] verwenden oder von [fslightbox.com](https://fslightbox.com/javascript/download)[^fslightbox.com/javascript/download] herunterladen.
+Erstelle das Verzeichnis `media/mod_bootstrap5lightboxgallery`. Lege in diesem Verzeichnis den Ordner `js` an. Kopiere in den `js`-Ordner die Datei `fslightbox.js`. Diese Datei kannst du entweder aus meinem [Repo](https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/media/mod_bootstrap5lightboxgallery/js/fslightbox.js)[^codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/media/mod_bootstrap5lightboxgallery/js/fslightbox.js] verwenden oder von [fslightbox.com](https://fslightbox.com/javascript/download)[^fslightbox.com/javascript/download] herunterladen.
 
 ## Anwendung
 

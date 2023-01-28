@@ -33,7 +33,7 @@ You want to add an image to the background of your Cassiopeia template in Joomla
 
 1. choose an image as background image and save it under the name `background.jpg` in the image directory of your Joomla installation.
 
-I use the image from Pexels[^pixabay.com/en/users/pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1850417] on Pixabay[^pixabay. com/en/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1850417] as an example.
+I use the image from Pexels[^pixabay.com/en/users/pexels-2286921] on Pixabay as an example.
 
 2. create a few sample posts in case you choose a fresh installation to try out. That way you can test later what happens when you scroll them on the site.
 

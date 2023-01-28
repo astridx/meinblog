@@ -40,7 +40,7 @@ Es gibt drei Dateien, die wir benötigen, um ein Boostrap 5 Akkordeon über ein 
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_agaccordion/mod_agaccordion.php` und fülle diese mit nachfolgendem Code. Diese Datei sorgt dafür, dass alle Rahmenbedingen korrekt gesetzt sind und das Modul sich problemlos in Joomla einfügt.
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/mod_agaccordion.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/mod_agaccordion.php
 
 <?php
 
@@ -62,10 +62,10 @@ Besonderheit hier: Wir integrieren Bootstrap, aber wir laden keine Dateien herun
 
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_agaccordion/mod_agaccordion.xml` und fülle diese mit dem nachfolgenden Code. Passe diesen im oberen Bereich an deine Gegebenheiten an. Lösche die Zeile `<folder>language</folder>`, falls du keine Sprachdateien verwendest. 
 
-> Falls du Sprachdateien anlegen magst, kannst du dich an den Dateien in meinem [Repo](https://codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/language/en-GB] orientieren. Mehr Informationen zu Sprachdateien habe ich unter ["Sprachdateien nutzen"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/] geschrieben.
+> Falls du Sprachdateien anlegen magst, kannst du dich an den Dateien in meinem [Repo](https://codeberg.org/astrid/j/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/language/en-GB] orientieren. Mehr Informationen zu Sprachdateien habe ich unter ["Sprachdateien nutzen"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/] geschrieben.
 
 ```xml {numberLines: -2}
-<!-- https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/mod_agaccordion.xml -->
+<!-- https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/mod_agaccordion.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" client="site" method="upgrade">
@@ -168,7 +168,7 @@ Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_agaccordion/tmpl
 
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/git/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/tmpl/default.php
+// https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_agaccordion/tmpl/default.php
 
 <?php
 defined('_JEXEC') or die;

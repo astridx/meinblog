@@ -31,7 +31,7 @@ Cassiopia is a Bootstrap 5 template. But the navigation works with MetisMenu. If
 
 I created an override which adds the essential Bootstrap classes and attributes.
 
-> You can find the Bootstrap documentation at [getbootstrap.com/docs/](https://getbootstrap.com/docs)[https://getbootstrap.com/docs/].
+> You can find the Bootstrap documentation at [getbootstrap.com/docs/](https://getbootstrap.com/docs)[^https://getbootstrap.com/docs/].
 
 
 ## Embed Bootstrap

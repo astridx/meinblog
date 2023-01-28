@@ -31,7 +31,7 @@ Cassiopia ist ein Bootstrap 5 Template. Aber die Navigation arbeitet mit MetisMe
 
 Ich habe ein Override erstellt, welches die wesentlichen Bootstrap Klassen und Attribute ergänzt.
 
-> Die Bootstrap Dokumentation findest du unter der Adresse [getbootstrap.com/docs/](https://getbootstrap.com/docs)[https://getbootstrap.com/docs/].
+> Die Bootstrap Dokumentation findest du unter der Adresse [getbootstrap.com/docs](https://getbootstrap.com/docs)[^https://getbootstrap.com/docs/].
 
 ## Bootstrap einbinden
 

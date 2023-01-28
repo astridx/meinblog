@@ -115,6 +115,8 @@ Other people can read and understand the information you publish on your website
 
 Using a plugin, I added [h-card](https://microformats.org/wiki/h-card) and [h-entry](http://microformats.org/wiki/h-entry) as hidden HTML elements to the content of the Joomla website. Unfortunately, the content is duplicated, but this ensures that the design of the template is not touched. The other way round, my template does not depend on a template positioning the content inside a certain HTML element in a possible override. It may be necessary to add the CSS class `hidden` to the template. The Joomla default template Cassiopeia comes with this class out of the box.
 
+Specifically, I insert the following code snippet via plugin as hidden text into the HTML document:
+
 ```php
 $row->text = $row->text . '<article class="hidden h-entry">
 <h1 class="p-name">' . $row->title . '</h1>

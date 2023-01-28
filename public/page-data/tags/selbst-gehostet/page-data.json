@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-tag-js",
-    "path": "/tags/selbst-gehostet/",
-    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"93cc555d-691c-59ea-a7d7-57f99ee751ce","fields":{"slug":"/maplibre-vector-tiles-self-host-own-font-glyphs/"},"frontmatter":{"date":"November 25, 2022","title":"Selbst gehostete Vector-Tiles mit eigener Schriftart - Glyphs - Benutzerdefinierte Glyphen erstellen","tags":["geografische Daten","Vector Kacheln","Selbst gehostet","Openstreetmap"],"categories":["MapLibre"]}}}]}},"pageContext":{"tag":"Selbst gehostet"}},
-    "staticQueryHashes": ["352937542"]}

@@ -110,9 +110,11 @@ Falls du E-Mails mit `rel=me` verwendest, ist erforderlich das Plugin _Inhalt �
 
 Andere Menschen können die Informationen lesen und verstehen, die du auf deiner Website veröffentlichst. Durch Hinzufügen von CSS-Klasse zum HTML-Code können Maschinen diese ebenfalls auswerten und interpretieren. Nützlich ist dies beispeislweise für Dinge wie [Feedback](https://indieweb.org/reply-context), [Kommentare](https://indieweb.org/comment) oder [Event-RSVPs](https://indieweb.org/rsvp).
 
-Per Content Plugin habe ich [h-card](https://microformats.org/wiki/h-card) und [h-entry](http://microformats.org/wiki/h-entry) als verstecktes HTML-Element zum Content der Joomla Website hinzugefügt. So ist zwar der Inhalt dupliziert. Dafür ist sichergestellt, dass das Design des Templates nicht angetastet wird. Umgekehrt ist mein Template nicht darauf angewiesen, dass ein Template in einem eventuellen Override den Content innerhalb eines besimmten HTML-Elementes positioniert. Unter Umständen muss die CSS-Klasse `hidden` im Template ergänzt werden. Das Joomla Standard-Template-Cassiopeia verfüg von Hause aus über diese Klasse.
-
 ##### Meine Vorgehensweise
+
+Mit einem Plugin habe ich [h-card](https://microformats.org/wiki/h-card) und [h-entry](http://microformats.org/wiki/h-entry) als versteckte HTML-Elemente in den Inhalt der Joomla-Website eingefügt. Leider wird der Inhalt dupliziert, aber dadurch wird das Design des Template nicht beeinträchtigt. Umgekehrt ist mein Template nicht davon abhängig, dass ein Template den Inhalt innerhalb eines bestimmten HTML-Elements in einem möglichen Override positioniert. Es kann notwendig sein, die CSS-Klasse `hidden` zur Vorlage hinzuzufügen. Die Joomla-Standardvorlage Cassiopeia enthält diese Klasse bereits von Haus aus.
+
+Konkret füge ich den folgenden Codeschnipsel per Plugin als versteckten Text in das HTML-Dokument ein:
 
 ```php
 $row->text = $row->text . '<article class="hidden h-entry">
