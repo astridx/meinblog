@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/tags/a-11-y/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":2,"edges":[{"node":{"id":"fbb24500-c31d-5308-bf3e-7357c77941b6","fields":{"slug":"/en/cassiopeia-how-to-make-navbar-keyboard-accessible/"},"frontmatter":{"date":"March 29, 2022","title":"A11y - an accessible menu for Cassiopeia","tags":["Template","Joomla","Cassiopeia","A11y"],"categories":["Cassiopeia"]}}},{"node":{"id":"395240e6-626c-59b7-8a4f-d344e8e2079e","fields":{"slug":"/cassiopeia-how-to-make-navbar-keyboard-accessible/"},"frontmatter":{"date":"March 29, 2022","title":"A11y - ein zugängliches Menü für Cassiopeia","tags":["Template","Joomla","Cassiopeia","A11y"],"categories":["Cassiopeia"]}}}]}},"pageContext":{"tag":"A11y"}},
+    "staticQueryHashes": ["352937542"]}

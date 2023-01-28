@@ -27,11 +27,11 @@ tags:
 
 
 
-Du suchst eine Erweiterung, um ein Boostrap 5 Accordion in Joomla 4 mit Cassiopeia anzuzeigen? Im [Joomla Extensions Directory](https://extensions.joomla.org/)[^extensions.joomla.org/] findest du viele Einträge. Aber die richtige ist nicht dabei. Das Ausprobieren hat viel Zeit gekostet und du überlegst, ob es nicht viel einfacher wäre, selbst die richtige Lösung für dich zu erstellen. Dann ist mein erster Entwurf vielleicht ein Anfang für dich. Beginne mit meinen wenigen Dateien. Dann hast du eine gute Basis, um selbst Änderungen vorzunehmen. Es gibt dann nicht mehr die vielen Optionen, die oft für Verwirrung sorgen. Aber du hast genau das, was du brauchst.
+Du suchst eine Erweiterung, um ein Boostrap 5 Accordion in Joomla 4 mit Cassiopeia anzuzeigen? Im [Joomla Extensions Directory](https://extensions.joomla.org/)[^extensions.joomla.org/] findest du viele Einträge. Aber die passende Erweiterung ist nicht dabei. Das Ausprobieren hat viel Zeit gekostet und du überlegst, ob es nicht viel einfacher wäre, selbst die richtige Lösung für dich zu erstellen. Dann ist mein erster Entwurf vielleicht ein Anfang für dich. Beginne mit meinen wenigen Dateien. So hast du eine gute Basis, um selbst Änderungen vorzunehmen. Es gibt dann nicht mehr die vielen Optionen, die oft für Verwirrung sorgen. Aber du hast genau das, was du brauchst.
 
 ## Dateien
 
-Es gibt drei Dateien, die wir benötigen, um ein Boostrap 5 Akkordeon über ein Joomla-Modul anzuzeigen. 
+Es gibt im wesentlichen drei Dateien, die wir benötigen, um ein Boostrap 5 Akkordeon über ein Joomla-Modul anzuzeigen. 
 
 > Eventuell werden noch Dateien für die Sprachübersetzung hinzugefügt. Wenn du die Erweiterung für dich selbst schreibst und genau weißt, dass du sie nur in deiner eigenen einsprachigen Installation verwenden möchtest, kannst du statt der Sprachstrings auch die eigentlichen Texte für die Ausgabe verwenden. Weitere Informationen zu diesem Thema findest du später beim Besprechen des Installationsmanifests in der Datei `modules/mod_agaccordion/mod_agaccordion.xml`.
 
@@ -87,80 +87,86 @@ Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_agaccordion/mod_
 
 	<config>
 		<fields name="params">
-			<fieldset name="options" label="COM_MODULES_BASIC_FIELDSET_LABEL">
-			<field
-				name="agaccordion"
-				type="subform"
-				label="TPL_CASSIOPEIA_AGACCORDION_HEADERIMAGE_IMAGE_LABEL"
-				multiple="true"
-				layout="joomla.form.field.subform.repeatable"
-				>
-				<form>
-					<field
-						name="heading"
-						type="text"
-						filter="raw"
-						label="TPL_CASSIOPEIA_AGACCORDION_HEADERIMAGE_IMAGE_HEADING_LABEL"
-					/>
-					<field
-						name="text"
-						type="textarea"
-						filter="raw"
-						label="TPL_CASSIOPEIA_AGACCORDION_HEADERIMAGE_IMAGE_TEXT_LABEL"
-					/>
-				</form>
-			</field>				
-			</fieldset>
-			<fieldset name="advanced">
-				<field
-					name="layout"
-					type="modulelayout"
-					label="JFIELD_ALT_LAYOUT_LABEL"
-					class="form-select"
-					validate="moduleLayout"
-				/>
+<fieldset name="options" label="COM_MODULES_BASIC_FIELDSET_LABEL">
+<field
+	name="agaccordion"
+	type="subform"
+	label="TPL_CASSIOPEIA_AGACCORDION_HEADERIMAGE_IMAGE_LABEL"
+	multiple="true"
+	layout="joomla.form.field.subform.repeatable"
+	>
+	<form>
+		<field
+			name="heading"
+			type="text"
+			filter="raw"
+			label="TPL_CASSIOPEIA_AGACCORDION_HEADERIMAGE_IMAGE_HEADING_LABEL"
+	/>
 
-				<field
-					name="moduleclass_sfx"
-					type="textarea"
-					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
-					rows="3"
-					validate="CssIdentifier"
-				/>
+	<field
+		name="text"
+		type="editor"
+		default=""
+		buttons="true"
+		hide="pagebreak,readmore"
+		label="TPL_CASSIOPEIA_AGACCORDION_HEADERIMAGE_IMAGE_TEXT_LABEL"
+		filter="safehtml"
+	/>
+	</form>
+</field>				
+</fieldset>
+<fieldset name="advanced">
+	<field
+		name="layout"
+		type="modulelayout"
+		label="JFIELD_ALT_LAYOUT_LABEL"
+		class="form-select"
+		validate="moduleLayout"
+	/>
 
-				<field
-					name="cache"
-					type="list"
-					label="COM_MODULES_FIELD_CACHING_LABEL"
-					default="1"
-					filter="integer"
-					validate="options"
-					>
-					<option value="1">JGLOBAL_USE_GLOBAL</option>
-					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
-				</field>
+	<field
+		name="moduleclass_sfx"
+		type="textarea"
+		label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+		rows="3"
+		validate="CssIdentifier"
+	/>
 
-				<field
-					name="cache_time"
-					type="number"
-					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
-					default="900"
-					filter="integer"
-				/>
+	<field
+		name="cache"
+		type="list"
+		label="COM_MODULES_FIELD_CACHING_LABEL"
+		default="1"
+		filter="integer"
+		validate="options"
+		>
+		<option value="1">JGLOBAL_USE_GLOBAL</option>
+		<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+	</field>
 
-				<field
-					name="cachemode"
-					type="hidden"
-					default="static"
-					>
-					<option value="static"></option>
-				</field>
-			</fieldset>
+	<field
+		name="cache_time"
+		type="number"
+		label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+		default="900"
+		filter="integer"
+	/>
+
+	<field
+		name="cachemode"
+		type="hidden"
+		default="static"
+		>
+		<option value="static"></option>
+	</field>
+</fieldset>
 		</fields>
 	</config>
 </extension>
 
 ```
+
+> Über den Editor des Formularfeldes `type="editor"` kann man Bilder über die Schaltflächen einfügen, so wie man es von Beiträgen her kennt. Es gibt einen bekannten Fehler. Die Inhalte werden alle im ersten Editor eingefügt. Momentan muss man diese dann von dort in den korrekten Editor kopieren. Es gibt aber schon einen [Lösungsansatz](https://github.com/joomla/joomla-cms/pull/39449)[^github.com/joomla/joomla-cms/pull/39449].
 
 ### modules/mod_agaccordion/tmpl/default.php
 

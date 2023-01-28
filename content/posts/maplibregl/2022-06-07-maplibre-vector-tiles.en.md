@@ -235,6 +235,8 @@ Edit the path to the tiles in the file `srv/www/tileserver-php/rlp/metadata.json
 }
 ```
 
+> Note that if you have changed the example to show a different area, you must change the coordinates in all places. In this file, the variable `bounds` must be adjusted.
+
 If you are using the Apache web server, everything is now set. Open the url to `tileserver.php` and look at your map. In my case this is the URL `https://localhost/tileserver-php/tileserver.php`. You see the raw version of the lines and points. The function test has been passed.
 
 ![Tileserver PHP](/images/maplibrevector1.png)

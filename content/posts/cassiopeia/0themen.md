@@ -48,3 +48,4 @@ tags:
 26. [Gallerie in Cassiopeia](/cassiopeia-module-gallery)
 27. [Einen Ansprechpartner anzeigen](/cassiopeia-ansprechpartner)
 28. [Die Liste der Kontakte in einer Kategorie per Override getalten](/cassiopeia-override-kontaktliste)
+29. [TinyMCE Template](/cassiopeia-tiny-mce-template)

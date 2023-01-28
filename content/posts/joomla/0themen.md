@@ -57,7 +57,7 @@ Alle englischen und deutschen Texte dieser Reihe sind als [PDF oder E-Pub](https
 1. [Zugriff auf das Dashboard](/joomla-dashboard-fuer-deine-erweiterung)
 1. [Tags](/joomla-tags)
 
-## Plugin und Komponente
+## Plugin
 
 1. [Webservices inklusive Plugin - Unterstützen der Joomla-API](/joomla-webservices)
 1. [Plugins](/joomla-plugins)
@@ -84,8 +84,11 @@ Alle englischen und deutschen Texte dieser Reihe sind als [PDF oder E-Pub](https
 
 1. [Paket - Mehrere Erweiterungen zusammen packen](/joomla-paket-alles-zusammen)
 
-## Update Server und Change Log
+## Dies und Das
 
 1. [Joomla Update und Change Log einrichten](/joomla-update-und-change-logeinrichten)
+1. [Forular Felder](/joomla-exkurs-form-fields)
+1. [Softwaretestmethoden mit Cypress](/joomla-exkurs-testen-mit-cypress)
+
 
 <img src="https://vg07.met.vgwort.de/na/3bf9c3835a25499cbc5d6bf7fd825627" width="1" height="1" alt="">

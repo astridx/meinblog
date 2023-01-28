@@ -101,13 +101,17 @@ Create the file `modules/mod_agaccordion/mod_agaccordion.xml` in your Joomla 4 i
 						type="text"
 						filter="raw"
 						label="TPL_CASSIOPEIA_AGACCORDION_HEADERIMAGE_IMAGE_HEADING_LABEL"
-					/>
-					<field
-						name="text"
-						type="textarea"
-						filter="raw"
-						label="TPL_CASSIOPEIA_AGACCORDION_HEADERIMAGE_IMAGE_TEXT_LABEL"
-					/>
+				/>
+
+				<field
+					name="text"
+					type="editor"
+					default=""
+					buttons="true"
+					hide="pagebreak,readmore"
+					label="TPL_CASSIOPEIA_AGACCORDION_HEADERIMAGE_IMAGE_TEXT_LABEL"
+					filter="safehtml"
+				/>
 				</form>
 			</field>				
 			</fieldset>
@@ -161,6 +165,9 @@ Create the file `modules/mod_agaccordion/mod_agaccordion.xml` in your Joomla 4 i
 </extension>
 
 ```
+
+> The editor of the form field `type="editor"` can be used to insert images via the buttons, as you know it from articles. There is a known error. The contents are all inserted in the first editor. At the moment you have to copy them from there into the correct editor. But there is already a [solution](https://github.com/joomla/joomla-cms/pull/39449)[^github.com/joomla/joomla-cms/pull/39449].
+
 ### modules/mod_agaccordion/tmpl/default.php
 
 In your Joomla 4 installation, create the file `modules/mod_agaccordion/tmpl/default.php` and fill it with the following code. This file is a template which is responsible for the layout in the frontend.

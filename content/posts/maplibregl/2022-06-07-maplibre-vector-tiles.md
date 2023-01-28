@@ -233,6 +233,7 @@ Passe den Pfad zu den Tiles in der Datei `srv/www/tileserver-php/rlp/metadata.js
 ...
 }
 ```
+> Hinweis: Wenn du das Beispiel geändert hast, um einen anderen Bereich zu zeigen, musst du die Koordinaten an allen Stellen ändern. In dieser Datei ist es notwendig, die Variablen bounds anzupassen.
 
 Wenn du den Apache-Webserver verwendest, ist jetzt alles eingestellt. Öffne die Url zur `tileserver.php` und schau dir deine Karte an. In meinem Fall ist dies die URL `https://localhost/tileserver-php/tileserver.php`. Du siehst die rohe Version der Linien und Punkte. Der Funktionstest ist bestanden.
 

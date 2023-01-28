@@ -33,8 +33,6 @@ You are looking for a way to display contact persons in Joomla 4 with Cassiopeia
 
 ## Custom Field
 
-![add a contact person via custom field - activate the plugin](/images/ansprechpartnerf1.png)
-
 A custom field must be installed. For this we need an installation manifest `plugins/fields/contact/contact.xml`.
 
 ```php {numberLines: -2}
@@ -61,6 +59,7 @@ A custom field must be installed. For this we need an installation manifest `plu
 
 ```
 
+Next, we implement the plugin file. This ensures that the custom field inherits from the Joomla class `\Joomla\Component\Fields\Administrator\Plugin\FieldsPlugin`. In this way, it offers all the necessary interfaces and is correctly integrated into Joomla.
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/contact.php
@@ -84,6 +83,8 @@ class PlgFieldsContact extends \Joomla\Component\Fields\Administrator\Plugin\Fie
 }
 
 ```
+
+The template file organises the display in the frontend.
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/tmpl/contact.php
@@ -198,6 +199,8 @@ try {
 
 ```
 
+Per XML file implements additional parameters for the backend view.
+
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/params/contact.xml
 
@@ -216,6 +219,7 @@ try {
 
 ```
 
+Now we come to the actual field. We are not inventing the wheel. We can extend the SQL field.
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/fields/contact.php
@@ -260,7 +264,9 @@ class JFormFieldContact extends JFormFieldSQL
 
 ```
 
-Sprachdateien
+Last but not least, we offer files that simplify translation into different languages.
+
+> I wrote more information about language files at ["Using language files"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/].
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/fields/contact/language/en-GB/plg_fields_contact.ini
@@ -282,15 +288,29 @@ PLG_FIELDS_CONTACT_XML_DESCRIPTION="This plugin lets you create new fields of ty
 
 ```
 
+Now all files are ready. You can pack the files for the Custom Field into an installation file and install them. If you have never done this before, you can also copy the files yourself into a Joomla website and install them via Discover. You can see exactly where you have to copy the files by the path where I saved them when I developed them. This name is always above the source code.
+
+It is important that the Custom Field is activated after the installation.
+
+![add a contact person via custom field - activate the plugin](/images/ansprechpartnerf1.png)
+
+When creating a custom field in the Joomla backend, the types of all activated plugins are offered.
+
 ![add a contact person via custom field - create custom field](/images/ansprechpartnerf2.png)
 
+Beim Anlegen eines Artikels kann der Kontakt nun über das Custom Field Formular Feld ausgewählt werden.
+
+Ein Custom Field ist nicht auf die Erweiterung com_content beschränkt. Es kann in jeder Komponente verwendet werden, die Custom Fields unterstützt.
+
 ![add a contact person via custom field - fill custom field in backend](/images/ansprechpartnerf3.png)
+
+Das nachfolgende Bild zeigt die Anzeige des Custom Fields im Frontend, falls die Anzeige nicht per Override verändert wurde.
 
 ![add a contact person via custom field - view of custom field in frontend](/images/ansprechpartnerf4.png)
 
 ## Content Plugin
 
-![add a contact person via content plugin - activate the plugin](/images/ansprechpartnerc1.png)
+A content plugin must also be installed. Therefore, we also start here with the installation manifest.
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/loadcontact.xml
@@ -467,7 +487,9 @@ use Joomla\CMS\String\PunycodeHelper;
 
 ```
 
-Sprachdateien
+Last but not least, we offer files that simplify translation into different languages.
+
+> I wrote more information about language files at ["Using language files"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/].
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/plugins/content/loadcontact/language/en-GB/plg_content_loadcontact.ini
@@ -485,6 +507,7 @@ PLG_CONTENT_LOADCONTACT="Content - Load Contact"
 PLG_CONTENT_LOADCONTACT_XML_DESCRIPTION="Within content this plugin loads a Contact by ID, Syntax: {loadcontact 1}. It display contact information (position, address, phone number, etc.) as defined in the contact component. The default layout is a Bootstrap card, but it can be overwritten by a template override."
 
 ```
+![add a contact person via content plugin - activate the plugin](/images/ansprechpartnerc1.png)
 
 ![add a contact person via content plugin - use code in content](/images/ansprechpartnerc2.png)
 

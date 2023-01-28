@@ -29,9 +29,9 @@ tags:
 
 Du suchst eine Erweiterung, um ein Boostrap 5 Carousel in Joomla 4 mit Cassiopeia anzuzeigen?  
 
-> Im [Joomla Extensions Directory](https://extensions.joomla.org/)[^extensions.joomla.org/] findest du viele Einträge. Aber die richtige ist nicht dabei. Das Ausprobieren hat viel Zeit gekostet und du überlegst, ob es nicht viel einfacher wäre, selbst die richtige Lösung für dich zu erstellen.
+> Im [Joomla Extensions Directory](https://extensions.joomla.org/)[^extensions.joomla.org/] findest du viele Einträge. Aber der richtige ist nicht dabei. Das Ausprobieren hat viel Zeit gekostet und du überlegst, ob es nicht viel einfacher wäre, selbst die passende Lösung für dich zu erstellen.
 
-Dann ist mein erster Entwurf vielleicht ein Anfang für dich. Beginne mit meinen wenigen Dateien. Dann hast du eine gute Basis, um selbst Änderungen vorzunehmen. Es gibt dann nicht mehr die vielen Optionen, die oft für Verwirrung sorgen. Aber du hast genau das, was du brauchst.
+Dann ist mein erster Entwurf vielleicht ein Anfang für dich. Beginne mit meinen wenigen Dateien. Dann hast du eine gute Basis, um selbst Änderungen vorzunehmen. Es gibt dann nicht mehr die vielen Optionen, die oft für Verwirrung sorgen. Aber: Du hast genau das, was du brauchst.
 
 ## Dateien
 
@@ -41,7 +41,7 @@ Es gibt drei Dateien, die wir benötigen, um ein Boostrap 5 Carousel über ein J
 
 ### modules/mod_carousel/mod_carousel.php
 
-Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_carousel/mod_carousel.php` und fülle diese mit nachfolgendem Code. Diese Datei sorgt dafür, dass alle Rahmenbedingen korrekt gesetzt sind und das Modul sich problemlos in Joomla einfügt.
+Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_carousel/mod_carousel.php` und fülle diese mit dem nachfolgenden Code. Diese Datei sorgt dafür, dass alle Rahmenbedingen korrekt gesetzt sind und das Modul sich problemlos in Joomla einfügt.
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/mod_carousel.php
@@ -53,22 +53,20 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Factory;
 
 // Bootstrap already registered in media/vendor/joomla.asset.json
-if ($params->get('loadBootstrap')) {
-	$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
-	$wa->useScript('bootstrap.carousel');
-}
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+$wa->useScript('bootstrap.carousel');
 
 require ModuleHelper::getLayoutPath('mod_carousel', $params->get('layout', 'default'));
 
 ```
 
-Besonderheit hier: Wir integrieren Bootstrap, aber wir laden keine Dateien herunter. Bootstrap ist bereits in Joomla 4 per `media/vendor/joomla.asset.json` registriert. Wir machen den Zugriff via [Joomla WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets)[^docs.joomla.org/J4.x:Web_Assets].
+Besonderheit hier: Wir integrieren Bootstrap via `$wa->useScript('bootstrap.carousel');`, aber wir laden keine Dateien herunter. Bootstrap ist bereits in Joomla 4 per `media/vendor/joomla.asset.json` registriert. Wir machen den Zugriff via [Joomla WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets)[^docs.joomla.org/J4.x:Web_Assets].
 
 ### modules/mod_carousel/mod_carousel.xml
 
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_carousel/mod_carousel.xml` und fülle diese mit dem nachfolgenden Code. Passe diesen im oberen Bereich an deine Gegebenheiten an. Lösche die Zeile `<folder>language</folder>`, falls du keine Sprachdateien verwendest. 
 
-> Falls du Sprachdateien anlegen magst, kannst du dich an den Dateien in meinem [Repo](https://codeberg.org/astrid/j/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/language/en-GB] orientieren. Mehr Informationen zu Sprachdateien habe ich unter ["Sprachdateien nutzen"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/] geschrieben.
+> Falls du Sprachdateien anlegen magst, kannst du dich an den Dateien in meinem [Repo](https://codeberg.org/astrid/j/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/language/en-GB)[^codeberg.org/astrid/git/src/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/language/en-GB] orientieren. Mit Sprachstring meine ich Texte wie "MOD_CAROUSEL_XML_DESCRIPTION". Mehr Informationen zu Sprachdateien habe ich unter ["Sprachdateien nutzen"](https://blog.astrid-guenther.de/sprachdateien-nutzen/)[^blog.astrid-guenther.de/sprachdateien-nutzen/] geschrieben.
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j/raw/branch/main/pkg_agpledges/j4/pkg_agpledges/src/modules/mod_carousel/mod_carousel.xml -->
@@ -93,144 +91,178 @@ Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_carousel/mod_car
 
 	<config>
 		<fields name="params">
-			<fieldset name="options" label="COM_MODULES_BASIC_FIELDSET_LABEL">
-				<field
-					name="onlyHomepage"
-					type="list"
-					label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_LABEL"
-					default="1"
-					description="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_DESC"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-					name="loadBootstrap"
-					type="list"
-					label="TPL_CASSIOPEIA_CAROUSEL_ONLYONEIMAGE_LABEL"
-					default="1"
-					description="TPL_CASSIOPEIA_CAROUSEL_ONLYONEIMAGE_DESC"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-					name="showTextOnImage"
-					type="list"
-					label="TPL_CASSIOPEIA_CAROUSEL_SHOWTEXTONIMAGE_LABEL"
-					default="1"
-					description="TPL_CASSIOPEIA_CAROUSEL_SHOWTEXTONIMAGE_DESC"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-					name="bigText"
-					type="list"
-					label="TPL_CASSIOPEIA_CAROUSEL_BIGTEXT_LABEL"
-					default="1"
-					description="TPL_CASSIOPEIA_CAROUSEL_BIGTEXT_DESC"
-					showon="showTextOnImage:1"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field 
-					name="minheight" 
-					type="integer" 
-					default="200" 
-					label="TPL_CASSIOPEIA_CAROUSEL_MINHEIGHT_LABEL" 
-					description="TPL_CASSIOPEIA_CAROUSEL_MINHEIGHT_DESC" 
-					first="50" 
-					last="500" 
-					step="1" 
-				/>
-			</fieldset>
-			<fieldset name="images">
-				<field
-					name="carouselimages"
-					type="subform"
-					label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_LABEL"
-					description="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_DESC" 
-					multiple="true"
-					layout="joomla.form.field.subform.repeatable"
-					>
-					<form>
-						<field
-							name="file"
-							type="media"
-							label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_FILE_LABEL"
-						/>
-						<field
-							name="heading"
-							type="textarea"
-							filter="raw"
-							label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_HEADING_LABEL"
-						/>
-						<field
-							name="text"
-							type="textarea"
-							filter="raw"
-							label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_TEXT_LABEL"
-						/>
-						<field
-							name="link"
-							type="text"
-							label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_LINK_LABEL"
-						/>
-					</form>
-				</field>				
-			</fieldset>
-			<fieldset name="advanced">
-				<field
-					name="layout"
-					type="modulelayout"
-					label="JFIELD_ALT_LAYOUT_LABEL"
-					class="form-select"
-					validate="moduleLayout"
-				/>
+<fieldset name="options" label="COM_MODULES_BASIC_FIELDSET_LABEL">
+	<field
+		name="onlyHomepage"
+		type="list"
+		label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_LABEL"
+		default="1"
+		description="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_DESC"
+		>
+		<option value="0">JNO</option>
+		<option value="1">JYES</option>
+	</field>
+	<field
+		name="showTextOnImage"
+		type="list"
+		label="TPL_CASSIOPEIA_CAROUSEL_SHOWTEXTONIMAGE_LABEL"
+		default="1"
+		description="TPL_CASSIOPEIA_CAROUSEL_SHOWTEXTONIMAGE_DESC"
+		>
+		<option value="0">JNO</option>
+		<option value="1">JYES</option>
+	</field>
+	<field
+		name="bigText"
+		type="list"
+		label="TPL_CASSIOPEIA_CAROUSEL_BIGTEXT_LABEL"
+		default="1"
+		description="TPL_CASSIOPEIA_CAROUSEL_BIGTEXT_DESC"
+		showon="showTextOnImage:1"
+		>
+		<option value="0">JNO</option>
+		<option value="1">JYES</option>
+	</field>
+	<field 
+		name="minheight" 
+		type="integer" 
+		default="200" 
+		label="TPL_CASSIOPEIA_CAROUSEL_MINHEIGHT_LABEL" 
+		description="TPL_CASSIOPEIA_CAROUSEL_MINHEIGHT_DESC" 
+		first="50" 
+		last="500" 
+		step="1" 
+	/>
+	<field 
+		name="hideTextAt" 
+		type="integer" 
+		default="1200" 
+		label="TPL_CASSIOPEIA_CAROUSEL_HIDETEXTAT_LABEL" 
+		description="TPL_CASSIOPEIA_CAROUSEL_HIDETEXTAT_DESC" 
+		first="50" 
+		last="5000" 
+		step="100" 
+	/>
+	<field 
+		name="hideImageAt" 
+		type="integer" 
+		default="768" 
+		label="TPL_CASSIOPEIA_CAROUSEL_HIDEIMAGEAT_LABEL" 
+		description="TPL_CASSIOPEIA_CAROUSEL_HIDEIMAGEAT_DESC" 
+		first="50" 
+		last="5000" 
+		step="100" 
+	/>
+	<field
+		name="optionalCSS"
+		type="textarea"
+		filter="raw"
+		default="" 
+		label="TPL_CASSIOPEIA_CAROUSEL_OPTIONALCSS_LABEL"
+		description="TPL_CASSIOPEIA_CAROUSEL_OPTIONALCSS_DEX"
+	/>
+</fieldset>
+<fieldset name="images">
+	<field
+		name="carouselimages"
+		type="subform"
+		label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_LABEL"
+		description="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_DESC" 
+		multiple="true"
+		layout="joomla.form.field.subform.repeatable"
+		>
+		<form>
+			<field
+				name="file"
+				type="media"
+				label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_FILE_LABEL"
+			/>
+			<field
+				name="fileup768"
+				type="media"
+				label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_FILE_BIG_SCREEN_768_LABEL"
+			/>
+			<field
+				name="heading"
+				type="textarea"
+				filter="raw"
+				label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_HEADING_LABEL"
+			/>
+			<field
+				name="text"
+				type="textarea"
+				filter="raw"
+				label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_TEXT_LABEL"
+			/>
+			<field
+				name="link"
+				type="text"
+				label="TPL_CASSIOPEIA_CAROUSEL_HEADERIMAGE_IMAGE_LINK_LABEL"
+			/>
+		</form>
+	</field>				
+</fieldset>
+<fieldset name="advanced">
+	<field
+		name="layout"
+		type="modulelayout"
+		label="JFIELD_ALT_LAYOUT_LABEL"
+		class="form-select"
+		validate="moduleLayout"
+	/>
 
-				<field
-					name="moduleclass_sfx"
-					type="textarea"
-					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
-					rows="3"
-					validate="CssIdentifier"
-				/>
+	<field
+		name="moduleclass_sfx"
+		type="textarea"
+		label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+		rows="3"
+		validate="CssIdentifier"
+	/>
 
-				<field
-					name="cache"
-					type="list"
-					label="COM_MODULES_FIELD_CACHING_LABEL"
-					default="1"
-					filter="integer"
-					validate="options"
-					>
-					<option value="1">JGLOBAL_USE_GLOBAL</option>
-					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
-				</field>
+	<field
+		name="cache"
+		type="list"
+		label="COM_MODULES_FIELD_CACHING_LABEL"
+		default="1"
+		filter="integer"
+		validate="options"
+		>
+		<option value="1">JGLOBAL_USE_GLOBAL</option>
+		<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+	</field>
 
-				<field
-					name="cache_time"
-					type="number"
-					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
-					default="900"
-					filter="integer"
-				/>
+	<field
+		name="cache_time"
+		type="number"
+		label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+		default="900"
+		filter="integer"
+	/>
 
-				<field
-					name="cachemode"
-					type="hidden"
-					default="static"
-					>
-					<option value="static"></option>
-				</field>
-			</fieldset>
+	<field
+		name="cachemode"
+		type="hidden"
+		default="static"
+		>
+		<option value="static"></option>
+	</field>
+</fieldset>
 		</fields>
 	</config>
 </extension>
 
 ```
+
+Die Variablen `hideTextAt` und `hideImageAt` ermöglichen es, den Slider ab einer selbst konfigurierbaren Bildschirmbreite gar nicht anzuzeigen. Die Konfigurationsmöglichkeit findet man später im Backend.
+
+Die Variable `optionalCSS` lässt einfache CSS-Anpassungen unkompliziert zu. Wir fügen diese später via `<style>`-Element im Template `default.php` ein. Das ist nicht die [übersichtlichste](https://www.mediaevent.de/css/css-einbinden.html)[^mediaevent.de/css/css-einbinden.html] und performanteste Vorgehensweise. Ideal ist es, wenn alle Styles in einer einzigen komprimierten CSS-Datei geladen werden. Aber der ideale Weg ist häufig der aufwendigste und die hier gezeigte ist in meinen Augen für viele Anwendungsfälle ein guter Kompromiss. 
+
+Die Images integrieren wir mit einem Feld vom Typ `subform`. So ist die Anzahl der Bilder variable. Mehr Informationen zum Feld vom Typ `subform` findest du in der Joomla Dokumentation(https://docs.joomla.org/Subform_form_field_type)[^docs.joomla.org/Subform_form_field_type].
+
+> Wir fügen das Fieldset `<fieldset name="advanced">` hinzu, um Standardfunktionen nutzen zu können. Du musst dich nicht selbst um den Cache, optionale Layouts und CSS-Suffixe kümmern. Jedes Modul verwendet Joomla-Kernfunktionen, wenn diese Variablen gesetzt sind. 
+
+Der nächste Abschnitt zeigt, wie die Variablen konkret eingesetzt werden.
+
 ### modules/mod_carousel/tmpl/default.php
 
 Erstelle in deiner Joomla 4 Installation die Datei `modules/mod_carousel/tmpl/default.php` und fülle diese mit nachfolgendem Code. Diese Datei ist ein Template, welches für die Anzeige im Frontend verantwortlich ist.
@@ -313,6 +345,9 @@ Stylesheet for user.css
 -->
 
 <style>
+
+<?php echo $params->get('optionalCSS', ''); ?>
+
 <?php foreach ($params->get('carouselimages') as $key => $carouselimage) :
 	?>.bg-<?php echo str_replace("carouselimages", "", $key) ?> {
 	background-image: url("<?php echo Uri::root(); ?><?php echo $carouselimage->file; ?>");
@@ -334,13 +369,23 @@ Stylesheet for user.css
 	background-size: cover;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1200px) {
+<?php if ($carouselimage->fileup768 != '') : ?>
+@media only screen and (min-width: 768px) {
+	<?php foreach ($params->get('carouselimages') as $key => $carouselimage) :?>
+		.bg-<?php echo str_replace("carouselimages", "", $key) ?> {
+			background-image: url("<?php echo Uri::root(); ?><?php echo $carouselimage->fileup768; ?>");
+		}
+	<?php endforeach; ?>
+}
+<?php endif; ?>
+
+@media only screen and (min-width: <?php echo $params->get('hideImageAt', 768); ?>px) and (max-width: <?php echo $params->get('hideTextAt', 1200); ?>px) {
 	.carousel-caption {
 		display: none;
 	}
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: <?php echo $params->get('hideImageAt', 768); ?>px) {
 	#<?php echo $modId;
 
 	?> {
@@ -356,7 +401,7 @@ Stylesheet for user.css
 
 ## Anwendung
 
-Wir haben die Dateien direkt in der Joomla-Installation erstellt. Wir haben kein Installationspaket erzeugt. Joomla bietet für diese Fälle eine alternative Installationsmethode - die Joomla Kernfunktion Discover. Die Funktion findet man im Systemmenü. Klicke im Administrationsbereich in der linken Navigation auf System und suche dann im Bereich Install auf der rechten Seite den Eintrag Entdecken. Klicke diesen an und führe die Discover-Installation durch. 
+Wir haben die Dateien direkt in der Joomla-Installation erstellt. Es wurde der Einfachheit halber kein Installationspaket erzeugt. Joomla bietet für diese Fälle eine alternative Installationsmethode - die Joomla Kernfunktion Discover oder Entdecken. Die Funktion findet man über das Systemmenü. Klicke im Administrationsbereich in der linken Navigation auf `System` und suche dann im Bereich `Install` auf der rechten Seite den Eintrag `Entdecken`. Klicke diesen an und führe die `Discover`-Installation durch. 
 
 ![Installation des Modules mod_carousel](/images/discover.png)
 
@@ -383,7 +428,7 @@ https://www.rapidtables.com/convert/color/index.html
 
 https://stackoverflow.com/questions/40010597/how-do-i-apply-opacity-to-a-css-color-variable
 
-
+https://www.mediaevent.de/css/css-einbinden.html
 
 https://www.w3schools.com/bootstrap/bootstrap_carousel.asp
 

@@ -84,8 +84,10 @@ All English and German texts of this set are available as [PDF or E-Pub](https:/
 
 1. [Package - Packing several extensions together](/en/joomla-paket-alles-zusammen)
 
-## Update and ChangeLog
+## This and that
 
 1. [Joomla update and change log setup](/en/joomla-update-und-change-logeinrichten)
+1. [Forular Felder](/en/joomla-exkurs-form-fields)
+1. [Softwaretestmethoden mit Cypress](/en/joomla-exkurs-testen-mit-cypress)
 
 <img src="https://vg07.met.vgwort.de/na/b94ec25a021449c9972d261378cc8955" width="1" height="1" alt="">
