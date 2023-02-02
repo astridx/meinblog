@@ -52,7 +52,7 @@ The code with which the assignment of a parameter is calculated, was for a long 
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/18.0.0.sql
 
 In order to create the `params` column in the database where the parameters are stored when the component is updated, we need the SQL file `administrator/components/com_foos/sql/updates/mysql/18.0.0.sql`.
 
@@ -123,7 +123,7 @@ In the form we use to edit an element, we add the `params` field. So `show_name`
 > In Joomla there is the possibility to set the parmeter to the value [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F). The benefit is that when you configure it, it shows what is set globally. Use `useglobal="true"` like [/administrator/components/com_contact/forms/contact.xml](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).<!-- \index{parameter!useglobal} --><!-- \index{useglobal!parameter} -->
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 To create the column where the parameters will be stored during a new installation, we add a line to the SQL file `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
 

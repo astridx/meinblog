@@ -42,7 +42,7 @@ Das Kapitel ist eines der umfangreichsten in dieser Serie. Dafür deckt es alle 
 Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Datenbanktabelle hinzu. Bei einer Aktualisierung der Komponente ist das Skript `15.0.0.sql` dasjenige, welches für Version 15.0.0. ausgeführt wird.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/15.0.0.sql
 
 [administrator/components/com_foos/sql/updates/mysql/15.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql)
 
@@ -305,9 +305,9 @@ class AssociationsHelper extends AssociationExtensionHelper
 
 Die Hilfsdatei `AssociationsHelper.php` ist die Schnittstelle zur Komponente Sprachverknüpfungen `com_associations`. In ihr konfigurieren wir die Angaben, die für unsere Komponente spezifisch sind. Ist dies erledigt, übernehmen die Joomla eigenen Routinen und wir erfinden das Rad nicht neu.
 
-> Achtung: Ich hatte es schon geschrieben: Die Klasse `AssociationsHelper.php` gibt es im Frontend und im Backend: `src/components/com_foos/src/Helper/AssociationHelper.php` und `src/` `administrator` `/components/com_foos/src/Helper/AssociationHelper.php`. Die Datei für das Backend hatten wir vorher schon angesehen.
+> Achtung: Ich hatte es schon geschrieben: Die Klasse `AssociationsHelper.php` gibt es im Frontend und im Backend: `src/components/com_foos/src/Helper/AssociationHelper.php` und `src/` `administrator` `/components/com_foos/src/Helper/AssociationHelper.php`. Die Datei für das Backend hatten wir vorher schon angesehen. Hier behandeln wir nun die für das Frontend.
 
-[components/com_foos/src/Helper/AssociationHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/Helper/AssociationHelper.php)
+[components/com_foos/src/Helper/AssociationHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/components/com_foos/src/Helper/AssociationHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/components/com_foos/src/Helper/AssociationHelper.php
@@ -575,7 +575,7 @@ Im Provider registrieren wir unseren `AssociationsHelper` als Service der `Assoc
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 

@@ -36,7 +36,7 @@ Your view in the administration area usually does not contain only static text. 
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 We create a file that contains SQL statements for creating the database table<!-- \index{database} -->. So that these statements are called, we add the name of the file later in the manifest.
 
@@ -65,7 +65,7 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 > Read in the preface of this tutorial what exactly the prefix `#__` means, if you are unfamiliar with it.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/uninstall.mysql.utf8.sql
+#### administrator/components/com_foos/sql/uninstall.mysql.utf8.sql
 
 So that Joomla does not contain unnecessary data in case of uninstallation, we simultaneously create a file that contains the SQL command to delete the database table. This automatically executed when uninstalling.
 

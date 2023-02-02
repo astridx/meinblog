@@ -63,7 +63,7 @@ First, we set all possible permissions in an XML file. Each component can define
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/10.0.0.sql
 
 Joomla stores the permissions in the database. Regarding the database, only changes are relevant during a Joomla update. We enter these in the file `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql`, here this is specifically `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. This file is only called during an update. In case of a new installation the database will be set up correctly via the main file `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
 
@@ -160,7 +160,7 @@ We extend the form for creating a new Foo item with the possibility to set permi
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 The SQL script for a new installation of the component is also extended with the necessary fields. In this way we ensure that the database is also completely set up for a new installation.
 

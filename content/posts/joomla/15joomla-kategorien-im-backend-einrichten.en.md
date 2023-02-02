@@ -38,7 +38,7 @@ Almost every website divides its content into categories. Joomla offers this use
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/12.0.0.sql
 
 We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database. To do this, we create the file `administrator/components/com_foos/sql/updates/mysql/12.0.0.sql` and enter the necessary SQL statement in it. We choose the name because we are currently working on version 12 of our extension.
 
@@ -274,7 +274,7 @@ In the service provider we register the interface `CategoryFactoryInterface`. It
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 In order to create the table column in which the category of a Foo element is stored during a new installation, we add the necessary SQL command in the SQL file that is called during the installation.
 

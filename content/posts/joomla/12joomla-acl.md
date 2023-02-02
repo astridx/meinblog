@@ -63,7 +63,7 @@ Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest. Jed
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/10.0.0.sql
 
 Die Berechtigungen speichert Joomla in der Datenbank. Bezüglich der Datenbank sind bei einem Joomla Update lediglich Änderungen relevant. Diese tragen wir in die Datei `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql` ein, in unserem Fall ist dies konkret die Datei `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. Diese Datei wird ausschließlich bei einer Aktualisierung aufgerufen. Bei einer neuen Installation wird die Datenbank über die Hauptdatei `administrator/components/com_foos/sql/install.mysql.utf8.sql` sofort korrekt eingerichtet.
 
@@ -160,7 +160,7 @@ Das Formular zum Erstellen eines neuen Foo-Items erweitern wir um die Möglichke
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 Das SQL-Skript für eine neue Installation der Komponente wird ebenfalls um die notwendigen Felder erweitert. So stellen wir sicher, dass die Datenbank bei einer neuen Installation ebenfalls vollständig eingerichtet wird.
 

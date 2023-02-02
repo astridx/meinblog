@@ -38,11 +38,11 @@ Mithilfe der Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auft
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/21.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/21.0.0.sql
 
 Wie alle Eigenschaften eines Foo-Elementes, wird der Checkout-Zustand in der Datenbank gespeichert. Wir legen zwei Spalten an. Nachfolgend siehst du das Skript, welches bei einer Joomla-Aktualisierung aufgerufen wird.
 
-[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/updates/mysql/21.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
@@ -87,7 +87,7 @@ Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir ver
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 Die Datenbankänderungen, die wir oben für die Aktualisierung in der separaten SQL-Datei eingetragen haben, ergänzen wir im SQL-Skript, welches bei einer neuen Installation aufgerufen wird.
 

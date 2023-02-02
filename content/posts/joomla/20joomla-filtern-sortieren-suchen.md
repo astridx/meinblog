@@ -155,7 +155,7 @@ Als erstes erstellen wir das Formular über das die Filter gesetzt werden.
 > `featured` ist hier der Vollständigkeit halber als Filterfeld aufgenommen, obwohl wir das in der Erweiterung bisher nicht unterstützen.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
 
 Im Falle eines Updates deiner Komponente, fügt die Datei `16.0.0.sql` eine Spalte zur Speicherung der Reihenfolge hinzu.
 
@@ -194,7 +194,7 @@ Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird, ergä
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 Im Falle einer neuen Installation, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Reihenfolge hinzu.
 

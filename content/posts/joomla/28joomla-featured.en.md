@@ -38,7 +38,7 @@ Some items are special and for them there is a special attribute in Joomla: `fea
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/24.0.0.sql
 
 You already know this. We store the property `featured` in the database, so we extend the database table by one column. We do this in the file `24.0.0.sql`.
 
@@ -673,7 +673,7 @@ We extend the form with which an element is created or changed by the field for 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 In the case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the property `featured`.
 

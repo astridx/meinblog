@@ -42,7 +42,7 @@ The chapter is one of the most extensive in this series. For that it covers all 
 So that the language is saved to the element, we add a column to the database table. When updating the component, the script `15.0.0.sql` is the one that is executed for version 15.0.0.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/15.0.0.sql
 
 [administrator/components/com_foos/sql/updates/mysql/15.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql)
 
@@ -306,9 +306,9 @@ class AssociationsHelper extends AssociationExtensionHelper
 
 The `AssociationsHelper.php` helper file is the interface to the `com_associations` language associations component. In it we configure the information that is specific to our component. Once this is done, Joomla's own routines take over and we don't reinvent the wheel.
 
-> Attention: I had already written it: The class `AssociationsHelper.php` exists in the frontend and in the backend: `src/components/com_foos/src/Helper/AssociationHelper.php` and `src/` `administrator` `/components/com_foos/src/Helper/AssociationHelper.php`. We had already looked at the file for the backend before.
+> Attention: I had already written it: The class `AssociationsHelper.php` exists in the frontend and in the backend: `src/components/com_foos/src/Helper/AssociationHelper.php` and `src/` `administrator` `/components/com_foos/src/Helper/AssociationHelper.php`. We had already looked at the file for the backend before. Now we look at the frontend file.
 
-[components/com_foos/src/Helper/AssociationHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/Helper/AssociationHelper.php)
+[components/com_foos/src/Helper/AssociationHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/components/com_foos/src/Helper/AssociationHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/components/com_foos/src/Helper/AssociationHelper.php
@@ -576,7 +576,7 @@ In the provider we register our `AssociationsHelper` as a service that implement
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 [administrator/components/com_foos//install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 

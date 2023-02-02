@@ -55,7 +55,7 @@ Der Code mit dem die Belegung eines Parameters berechnet wird, war lange Zeit un
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/18.0.0.sql
 
 Damit bei einer Aktualisierung der Komponente die Spalte `params` in der Datenbank erstellt wird, in welcher die Parameter gespeichert werden, benötigen wir die SQL-Datei `administrator/components/com_foos/sql/updates/mysql/18.0.0.sql`.
 
@@ -126,7 +126,7 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params
 > In Joomla gibt es die Möglichkeit, den Parmeter auf den Wert [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F) zu setzen. Der Vorteil ist, dass beim Konfigurien angezeigt wird, was global eingestellt ist. Verwende dazu `useglobal="true"` wie [/administrator/components/com_contact/forms/contact.xml](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).<!-- \index{Parameter!useglobal} --><!-- \index{useglobal!Parameter} -->
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die SQL-Datei `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
 

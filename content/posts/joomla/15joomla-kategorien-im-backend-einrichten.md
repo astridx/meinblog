@@ -38,7 +38,7 @@ Fast jede Website unterteilt ihre Inhalte in Kategorien. Joomla bietet dieses n�
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/12.0.0.sql
 
 Wir speichern die Daten, die zur Einordnung eines Elementes in eine Kategorie notwendig sind, in der Datenbank. Im Falle einer Aktualisierung ist es deshalb wichtig, die Datenbank um eine Spalte zu erweitern. Hierzu legen wir die Datei `administrator/components/com_foos/sql/updates/mysql/12.0.0.sql` an und tragen in sie das notwendige SQL-Statement ein. Den Namen wählen wir, weil wir gerade an Version 12 unserer Erweiterung arbeiten.
 
@@ -274,7 +274,7 @@ Im Service Provider registrieren wir die Schnittstelle `CategoryFactoryInterface
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 Damit bei einer Neuinstallation die Tabellenspalte angelegt wird, in der die Kategorie eines Foo-Elements gespeichert wird, fügen wir in der SQL-Datei die bei der Installation aufgerufen wird, den erforderlichen SQL-Befehl hinzu.
 

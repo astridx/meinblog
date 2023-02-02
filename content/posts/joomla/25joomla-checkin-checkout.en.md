@@ -38,11 +38,11 @@ The checkout function avoids unexpected results that occur when two users edit t
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/21.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/21.0.0.sql
 
 Like all properties of a Foo element, the checkout state is stored in the database. We create two columns. Below you can see the script that is called during a Joomla update.
 
-[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/updates/mysql/21.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
@@ -87,7 +87,7 @@ In the form we add the fields for saving the state. We hide them with the attrib
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 We add the database changes that we entered above for the update in the separate SQL file to the SQL script that is called during a new installation.
 

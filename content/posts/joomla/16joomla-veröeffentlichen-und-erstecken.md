@@ -42,7 +42,7 @@ Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente h
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/13.0.0.sql
 
 Im Falle eines Updates, wird die Datenbank mithilfe der Datei `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql` auf den neuesten Stand für Version 13 gebracht. Konkret werden Spalten für das Speichern der Daten zur Veröffentlichung eingefügt.
 
@@ -185,7 +185,7 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 `administrator/components/com_foos/sql/install.mysql.utf8.sql` wird im Falle einer neuen Installation verwendet, um die Datenbank anzulegen. Deshalb ergänzen wir hier die notwendigen Informationen. In der Datei `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql` hatten wir diese schon ergänzt. Diese Datei wird lediglich bei einer Aktualisierung angewendet.
 

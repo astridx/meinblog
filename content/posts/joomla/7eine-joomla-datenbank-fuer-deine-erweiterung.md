@@ -36,7 +36,7 @@ Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statisch
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle<!-- \index{Datenbank} --> enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen der Datei später im Manifest ein.
 
@@ -65,7 +65,7 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 > Lies im Vorwort dieses Tutorials, was genau das Präfix `#__` bedeutet, falls dir dieses unbekannt ist.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/uninstall.mysql.utf8.sql
+#### administrator/components/com_foos/sql/uninstall.mysql.utf8.sql
 
 Damit Joomla im Falle einer Deinstallation keine unnötigen Daten enthält, erstellen wir eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet. Diese wird beim Deinstallieren automatisch ausgeführt.
 

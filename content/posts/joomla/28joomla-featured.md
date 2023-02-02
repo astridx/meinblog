@@ -38,7 +38,7 @@ Manche Items sind etwas Besonderes und für sie gibt es in Joomla ein spezielles
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/24.0.0.sql
 
 Du kennst das schon. Wir speichern die Eigenschaft `featured` in der Datenbank, deshalb erweitern wir die Datenbanktabelle um eine Spalte. Dies erledigen wir in der Datei `24.0.0.sql`.
 
@@ -673,7 +673,7 @@ Wir erweitern das Formular, mit dem ein Element angelegt oder geändert wird, um
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 Im Falle einer neuen Installation, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Eigenschaft `featured` hinzu.
 

@@ -43,7 +43,7 @@ If you worked with Joomla, you know it from other components: Items have a statu
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/13.0.0.sql
 
 In case of an update, the database is updated to the latest version for version 13 using the file `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql`. Specifically, columns are added for saving the data for publication.
 
@@ -187,7 +187,7 @@ Three fields are added to the form. One, in which the status is set and two, thr
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 `administrator/components/com_foos/sql/install.mysql.utf8.sql` is used in the case of a new installation to create the database. Therefore, we add the necessary information here. We had already added this in the file `administrator/components/com_foos/sql/updates/mysql/13.0.0.sql`. This file is only used during an update.
 

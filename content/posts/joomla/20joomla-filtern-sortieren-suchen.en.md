@@ -155,7 +155,7 @@ First, we create the form through which the filters will be set.
 > `featured` is included here as a filter field for the sake of completeness, although we do not support this in the extension yet.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql
+#### administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
 
 In case of an update of your component, the file `16.0.0.sql` adds a column to store the sequence.
 
@@ -194,7 +194,7 @@ The form used to create or modify an element is extended with a field for specif
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ sql/install.mysql.utf8.sql
+#### administrator/components/com_foos/sql/install.mysql.utf8.sql
 
 In case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the order.
 
