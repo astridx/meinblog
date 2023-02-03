@@ -320,4 +320,268 @@ With the standard template Protostar in Joomla 3, it was possible to display con
 ```
 
 ![Add CSS styles in Template Manger - website in frame](/images/logo9.png)
+
+
+## Sticky Header
+
+Do you want to use the Sticky Header option of the Cassiopeia template? Is it important to you to fix the menu in the upper area? 
+
+With the approach I suggested in this post, the banner would also remain fixed when you scroll the page. This is usually not intentional. Especially on narrow displays, there remains too little space for the main content. 
+
+If you are thinking about a solution to this problem, I suggest placing the banner outside the `<head>` element. The `<head>` element is the one that is fixed in Cassiopeia when the option is activated. For this, it is necessary to create a new position. Because the latter requires a change in the file 'templates/cassiopeia/index.php', precautions must be taken to ensure that the change is not overwritten when Joomla is updated. You have to create your own template by copying Cassiopeia, for example. Or you can work with a child template. 
+
+To be more specific, I made the following changes to place the banner outside the `<head>` element. I have created the position `banner_over_header` to be placed before the `<head>` element. For this I have entered the following code snippet in my `index.php` before the `<head>` element. 
+
+```php
+    <div class="site-grid">
+        <?php if ($this->countModules('banner_over_header', true)) : ?>
+            <div class="container-banner full-width">
+                <jdoc:include type="modules" name="banner_over_header" style="none" />
+            </div>
+        <?php endif; ?>
+    </div>
+```
+
+For better orientation, I am inserting the first part of the file in full below. This way you can see exactly where the code is placed.
+
+```php
+<?php
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
+
+/** @var Joomla\CMS\Document\HtmlDocument $this */
+
+$app = Factory::getApplication();
+$wa  = $this->getWebAssetManager();
+
+// Browsers support SVG favicons
+$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
+$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
+
+// Detecting Active Variables
+$option   = $app->input->getCmd('option', '');
+$view     = $app->input->getCmd('view', '');
+$layout   = $app->input->getCmd('layout', '');
+$task     = $app->input->getCmd('task', '');
+$itemid   = $app->input->getCmd('Itemid', '');
+$sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
+$menu     = $app->getMenu()->getActive();
+$pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
+
+// Color Theme
+$paramsColorName = $this->params->get('colorName', 'colors_standard');
+$assetColorName  = 'theme.' . $paramsColorName;
+$wa->registerAndUseStyle($assetColorName, 'media/templates/site/cassiopeia/css/global/' . $paramsColorName . '.css');
+
+// Use a font scheme if set in the template style options
+$paramsFontScheme = $this->params->get('useFontScheme', false);
+$fontStyles       = '';
+
+if ($paramsFontScheme) {
+    if (stripos($paramsFontScheme, 'https://') === 0) {
+        $this->getPreloadManager()->preconnect('https://fonts.googleapis.com/', ['crossorigin' => 'anonymous']);
+        $this->getPreloadManager()->preconnect('https://fonts.gstatic.com/', ['crossorigin' => 'anonymous']);
+        $this->getPreloadManager()->preload($paramsFontScheme, ['as' => 'style', 'crossorigin' => 'anonymous']);
+        $wa->registerAndUseStyle('fontscheme.current', $paramsFontScheme, [], ['media' => 'print', 'rel' => 'lazy-stylesheet', 'onload' => 'this.media=\'all\'', 'crossorigin' => 'anonymous']);
+
+        if (preg_match_all('/family=([^?:]*):/i', $paramsFontScheme, $matches) > 0) {
+            $fontStyles = '--cassiopeia-font-family-body: "' . str_replace('+', ' ', $matches[1][0]) . '", sans-serif;
+			--cassiopeia-font-family-headings: "' . str_replace('+', ' ', isset($matches[1][1]) ? $matches[1][1] : $matches[1][0]) . '", sans-serif;
+			--cassiopeia-font-weight-normal: 400;
+			--cassiopeia-font-weight-headings: 700;';
+        }
+    } else {
+        $wa->registerAndUseStyle('fontscheme.current', $paramsFontScheme, ['version' => 'auto'], ['media' => 'print', 'rel' => 'lazy-stylesheet', 'onload' => 'this.media=\'all\'']);
+        $this->getPreloadManager()->preload($wa->getAsset('style', 'fontscheme.current')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+    }
+}
+
+// Enable assets
+$wa->usePreset('template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'ltr'))
+    ->useStyle('template.active.language')
+    ->useStyle('template.user')
+    ->useScript('template.user')
+    ->addInlineStyle(":root {
+		--hue: 214;
+		--template-bg-light: #f0f4fb;
+		--template-text-dark: #495057;
+		--template-text-light: #ffffff;
+		--template-link-color: #2a69b8;
+		--template-special-color: #001B4C;
+		$fontStyles
+	}");
+
+// Override 'template.active' asset to set correct ltr/rtl dependency
+$wa->registerStyle('template.active', '', [], [], ['template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'ltr')]);
+
+// Logo file or site title param
+if ($this->params->get('logoFile')) {
+    $logo = '<img src="' . Uri::root(true) . '/' . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
+} elseif ($this->params->get('siteTitle')) {
+    $logo = '<span title="' . $sitename . '">' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
+} else {
+    $logo = HTMLHelper::_('image', 'logo.svg', $sitename, ['class' => 'logo d-inline-block'], true, 0);
+}
+
+$hasClass = '';
+
+if ($this->countModules('sidebar-left', true)) {
+    $hasClass .= ' has-sidebar-left';
+}
+
+if ($this->countModules('sidebar-right', true)) {
+    $hasClass .= ' has-sidebar-right';
+}
+
+// Container
+$wrapper = $this->params->get('fluidContainer') ? 'wrapper-fluid' : 'wrapper-static';
+
+$this->setMetaData('viewport', 'width=device-width, initial-scale=1');
+
+$stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
+
+// Defer fontawesome for increased performance. Once the page is loaded javascript changes it to a stylesheet.
+$wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
+?>
+<!DOCTYPE html>
+<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+<head>
+    <jdoc:include type="metas" />
+    <jdoc:include type="styles" />
+    <jdoc:include type="scripts" />
+</head>
+
+<body class="site <?php echo $option
+    . ' ' . $wrapper
+    . ' view-' . $view
+    . ($layout ? ' layout-' . $layout : ' no-layout')
+    . ($task ? ' task-' . $task : ' no-task')
+    . ($itemid ? ' itemid-' . $itemid : '')
+    . ($pageclass ? ' ' . $pageclass : '')
+    . $hasClass
+    . ($this->direction == 'rtl' ? ' rtl' : '');
+?>">
+
+    <div class="site-grid">
+        <?php if ($this->countModules('banner_over_header', true)) : ?>
+            <div class="container-banner full-width">
+                <jdoc:include type="modules" name="banner_over_header" style="none" />
+            </div>
+        <?php endif; ?>
+    </div>
+
+    <header class="header container-header full-width<?php echo $stickyHeader ? ' ' . $stickyHeader : ''; ?>">
+
+        <?php if ($this->countModules('topbar')) : ?>
+            <div class="container-topbar">
+            <jdoc:include type="modules" name="topbar" style="none" />
+            </div>
+        <?php endif; ?>
+
+        <?php if ($this->countModules('below-top')) : ?>
+            <div class="grid-child container-below-top">
+                <jdoc:include type="modules" name="below-top" style="none" />
+            </div>
+        <?php endif; ?>
+
+        <?php if ($this->params->get('brand', 1)) : ?>
+            <div class="grid-child">
+                <div class="navbar-brand">
+                    <a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
+                        <?php echo $logo; ?>
+                    </a>
+                    <?php if ($this->params->get('siteDescription')) : ?>
+                        <div class="site-description"><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($this->countModules('menu', true) || $this->countModules('search', true)) : ?>
+            <div class="grid-child container-nav">
+                <?php if ($this->countModules('menu', true)) : ?>
+                    <jdoc:include type="modules" name="menu" style="none" />
+                <?php endif; ?>
+                <?php if ($this->countModules('search', true)) : ?>
+                    <div class="container-search">
+                        <jdoc:include type="modules" name="search" style="none" />
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+    </header>
+    ...
+ ```
+
+Last but not least, I added the position in the XML file `/templates/cassiopeia/templateDetails.xml`.
+
+```xml
+	<positions>
+		<position>banner_over_header</position>
+  ...
+	</positions>
+```
+
+The following is a larger code excerpt for better orientation.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" client="site">
+	<name>cassiopeia</name>
+	<version>1.0</version>
+	<creationDate>2017-02</creationDate>
+	<author>Joomla! Project</author>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<copyright>(C) 2017 Open Source Matters, Inc.</copyright>
+	<description>TPL_CASSIOPEIA_XML_DESCRIPTION</description>
+	<inheritable>1</inheritable>
+	<files>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>index.php</filename>
+		<filename>joomla.asset.json</filename>
+		<filename>offline.php</filename>
+		<filename>templateDetails.xml</filename>
+		<folder>html</folder>
+	</files>
+	<media destination="templates/site/cassiopeia" folder="media">
+		<folder>js</folder>
+		<folder>css</folder>
+		<folder>scss</folder>
+		<folder>images</folder>
+	</media>
+	<positions>
+		<position>banner_over_header</position>
+		<position>topbar</position>
+		<position>below-top</position>
+		<position>menu</position>
+		<position>search</position>
+		<position>banner</position>
+		<position>top-a</position>
+		<position>top-b</position>
+		<position>main-top</position>
+		<position>main-bottom</position>
+		<position>breadcrumbs</position>
+		<position>sidebar-left</position>
+		<position>sidebar-right</position>
+		<position>bottom-a</position>
+		<position>bottom-b</position>
+		<position>footer</position>
+		<position>debug</position>
+	</positions>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/tpl_cassiopeia.ini</language>
+		<language tag="en-GB">en-GB/tpl_cassiopeia.sys.ini</language>
+	</languages>
+  ...
+```
+
+If you now select the position 'banner_over_header' in the module in which the banner is inserted and save everything, the banner is no longer fixed in the frontend view.  
+
 <img src="https://vg04.met.vgwort.de/na/eaf19cdac93d4795b72e0393939281cb" width="1" height="1" alt="">

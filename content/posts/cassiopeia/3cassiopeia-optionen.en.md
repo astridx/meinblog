@@ -389,9 +389,17 @@ Das Cassiopeia Template bietet die Möglichkeit, einen Pfeil im unteren Bereich 
 
 ![Cassiopeia Frontend Back-to-top-Link](/images/c23.png)
 
-## Registerkarte Menüs zuordnen
+### Registerkarte Menüs zuordnen
 
 ![Edit Template Style in Backend](/images/c5.png)
 
 Wenn wir für verschiedene Seiten unterschiedliche Templaten verwenden möchten, können wir hier die Seiten auswählen. Natürlich müssen die Seiten bereits in den Menüs vorhanden sein, bevor wir etwas auswählen. Wenn deine Seiten Teil eines Kategorie-Blogs oder einer Kategorie-Liste und kein separater Menüpunkt sind, werden die einzelnen Unterseiten in dieser Liste nicht angezeigt.
+
+## Options in views
+
+### Blog Layout - Kategorie Blog
+
+Das Blog Layout für die Ansicht einer Kategorie wurde mit [18319](https://github.com/joomla/joomla-cms/pull/18319)[^github.com/joomla/joomla-cms/pull/18319] in Joomla 4 integriert und ist hier sehr gut beschrieben.
+
+
 <img src="https://vg04.met.vgwort.de/na/8be019b2d0344ce2aa236f90f7f636ef" width="1" height="1" alt="">
