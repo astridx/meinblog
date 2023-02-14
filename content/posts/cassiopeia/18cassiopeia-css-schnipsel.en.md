@@ -82,3 +82,5 @@ In the child template or in a copy of Cassiopeia, you can load the file `media/t
 ```php
 $wa->registerAndUseStyle('template.custom', 'custom.css', ['weight' => '500', 'dependencies' => ['template.active','template.active.language']]);
 ```
+
+> There is a `weight` option. This is a mechanism for sorting the order of the assets. In the file `/libraries/src/WebAsset/WebAssetManager.php` you will find the method `calculateOrderOfActiveAssets()` which refers to [Kahn's_algorithm](https://en.wikipedia.org/wiki/Topological_sorting#Kahn.27s_algorithm)

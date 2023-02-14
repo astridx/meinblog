@@ -4,8 +4,8 @@ set: ''
 booklink: ''
 syndication: 
 shortTitle: 'short'
-date: 2023-02-03
-title: 'Zentrale und dezentrale soziale Netze'
+date: 2023-02-10
+title: 'Making the Joomla website an ActivityPub server'
 template: post
 thumbnail: '../../thumbnails/worldinternet.png'
 slug: soziale-netze-joomla
@@ -27,116 +27,771 @@ tags:
 
 
 
-# Making the Joomla website an ActivityPub server and being an independent participant in Fediverse - a start
+# Turning the Joomla website into an ActivityPub server and being an independent participant in the Fediverse - a start.
 
-## Fediverse, ActivityPub, IndieWeb - and Joomla
+This article has two parts. In the first part, I summarise what the terms Fediverse and ActivityPub means. In the second part, I briefly describe what I have implemented to make a Joomla website support the ActivityPub protocol and allow a Mastodon user to follow a Joomla website user.
 
-I don't know exactly when I first heard about Fediverse. I mean it was this post(https://blog.novatrend.ch/2021/06/21/mastodon-pixelfed-unter-ios-die-charmante-alternative-zu-twitter-instagram/) from my bookmarks. I found it exciting. But I did not get stuck. When at the beginning of the year 2022 the big excitement about Elon Musk and Twitter began, I was surprised that in the Joomla community many had never heard the terms Fediverse, ActivityPub or IndieWeb. After all, these are mostly people with an affinity for technology. I admit that I had heard all the terms before, but I can't really define them. I wanted to change that and maybe it interests the one or other Joomlaner likewise. Also, I feel quite comfortable in Fediverse by now and would like to advertise this a bit.
+## TLDR and FAQ
 
+1. why Fediverse or IndieWeb for a website? 
+
+A website owner wants their website to be able to network with other websites.
+
+2. Why would someone want his website to do that?
+
+He wants his content to be easily found by others. He wants his content to be linked to content on other websites without publishing it directly on one of these websites. This means that he still has full control over the content on his website and that he can share it with others, regardless of the platform. Wouldn't it be desirable if a Maston user could follow and like blog posts on a Joomla site?
+
+3. it is still not clear to me why this is important.
+
+If a major social network changes so that you no longer want to be a part of it, or if it closes down, you lose your followers and your content. Experience shows that after such events, many users switch to other platforms. This means a lot of work for many users, and usually something is lost in the process. This does not have to be the case. Use the federated web and control your content yourself.
+
+## Fediverse and ActivityPub
+
+I don't remember exactly when I first discovered something about Fediverse. I found it interesting. But I didn't get stuck. When the big excitement about Elon Musk and Twitter started in the spring of 2022, I was surprised that many in the Joomla community had never heard the terms Fediverse, ActivityPub or IndieWeb. After all, these are mostly tech-savvy people. The difference between centralised and decentralised services was clear to very few. I often heard the phrase: "Mastodon is the new Twitter". I admit that I have heard all these terms before, but I could not define them exactly. I wanted to change that and maybe it will be interesting for one or the other Joomlaner. Besides, I feel quite comfortable in the Fediverse by now and would like to do a little advertising for it.
 
 ### The Fediverse
 
-**Fediverse** refers to a network of federated, mutually independent social networks, microblogging services, and web pages for online publication or data hosting. The concept began in 2008 with [GNU Social](https://en.wikipedia.org/wiki/GNU_social) and continued in 2016 with [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)) and the Communication Protocol defined in 2018 by the World Wide Web (W3C) *[ActivityPub](https://en.wikipedia.org/wiki/ActivityPub)*.
+> The fediverse (a portmanteau of "federation" and "universe") is an ensemble of federated (i.e. interconnected) servers that are used for web publishing (i.e. social networking, microblogging, blogging, or websites) and file hosting, but which, while independently hosted, can communicate with each other. On different servers (technically instances), users can create so-called identities. These identities are able to communicate over the boundaries of the instances because the software running on the servers supports one or more communication protocols that follow an open standard. As an identity on the fediverse, users are able to post text and other media, or to follow posts by other identities. - [Wikipedia](https://en.wikipedia.org/wiki/Fediverse)
 
+That sounds complicated. But it is not. The most important points are
 
-> The fediverse (a portmanteau of "federation" and "universe") is an ensemble of federated (i.e. interconnected) servers that are used for web publishing (i.e. social networking, microblogging, blogging, or websites) and file hosting, but which, while independently hosted, can communicate with each other. On different servers (instances), users can create so-called identities. These identities are able to communicate over the boundaries of the instances because the software running on the servers supports one or more communication protocols which follow an open standard. As an identity on the fediverse, users are able to post text and other media, or to follow posts by other identities. - [Wikipedia](https://en.wikipedia.org/wiki/Fediverse)
+- federated servers 
+- hosted independently 
+- can communicate with each other.
 
+So basically, people can run their own servers. Users can create an account and they can communicate with any other server because they have agreed on rules or a standard.
 
-
-All right, that's a lot of theory. Let's break down the definition.
-
-> interconnected servers [...] that are hosted independently [...] can communicate with each other.
-
-So basically people run their own servers, but they can communicate with each other because they have agreed on rules or a standard.
-
-> [...] create so-called identities
-
-so, create an account
-
-> These identities can communicate [...]
-
-but this account is recognized by other servers.
-
-This means the Fediverse is not centrally organized like Twitter. It is more like email servers. You can create a `@community.joomla.org`, a `@gmail.com` or your own account like `@astrid-guenther.de`. 
+This means that Fediverse is not centrally organised. It's more like an email server where you can create a `@community.joomla.org` on a Joomla server, a `@gmail.com` on a Google Gmail server or your own account like `@astrid-guenther.de`. 
 
 This has advantages:
 
-1. you can host your own server and thus control your data.
-2. you can be part of a community that has as strict or loose rules as you want.
+1. You can choose a community that has as strict or as loose rules as you like.
+2. If you do not find a community that suits your needs, you can build it yourself. It is possible for you to host your own server and thus keep control over your data and regulations.
 
-There are many Fediverse services. The most popular is [mastodon] (https://joinmastodon.org/). Mastodon is similar to Twitter in its application, while offering different instances. So you can have an account at [https://fimidi.com](https://fimidi.com) or [https://mastodon.social](https://mastodon.social) or something else entirely. No matter what you use, you can communicate with it.
+#### There are many Fediverse services.
 
+The most popular Fediverse service is [Mastodon](https://joinmastodon.org/). Mastodon is similar to Twitter in its look and feel, but offers different instances. You can thus have an account at 
 
+- [social.joomla.org](https://social.joomla.org), 
+- [fimidi.com](https://fimidi.com), 
+- [mastodon.social](https://mastodon.social) 
+- or something else. 
 
+Regardless of which service you use, you can communicate with everyone else who has agreed on rules and standards.
 
-There is not only Mastodon. In general, federation can be used for something like a YouTube clone like [PeerTube](https://joinpeertube.org/), audio streaming like [Funkwhale](https://funkwhale.audio/), Instagram clone like [PixelFed](https://pixelfed.org/), event planning like [Gath.io](https://gath.io/), and many other things. Among many other things could be a CMSs. [Wordpress](https://de.wordpress.org/plugins/activitypub/) and [Drupal](https://www.drupal.org/project/activitypub) for example. More on that later. The key point is that an identity can be used for each of these systems, and the server you use can choose who to partner with. If you host the server yourself, you decide. Specifically, this means the following:
+The federation can be used for 
 
-- The server in the Fediverse is censorship resistant.
+- something like a YouTube clone [PeerTube](https://joinpeertube.org/), 
+- Audio streaming [Funkwhale](https://funkwhale.audio/), 
+- Instagram clone [PixelFed](https://pixelfed.org/), 
+- event scheduling [Gath.io](https://gath.io/), 
+- and much else. 
 
-- The Fediverse allows you to join a community that doesn't allow things you don't like
+Under "much else" could fall a CMS. [Wordpress](https://de.wordpress.org/plugins/activitypub/) and [Drupal](https://www.drupal.org/project/activitypub) for example. More on this later. 
 
-- Services in the Fediverse let you control your data as much as you want.
+The point is that an identity can be used for each of these systems, and you and the server you use can choose who to talk to and who to ignore. If you host the server yourself, you decide. Specifically, this means the following:
 
-That sounds contrary. How can something be censorship resistant, but still have communities with rules? Well, the key word here is communities, and they are plural. These communities are still separate, they just join together *if* they want to.
+- Fediverse servers are censorship resistant.
+- The Fediverse offers you to join a community that doesn't allow things you don't like. If you don't find the community that suits your needs, you can build it yourself.
+- With Fediverse services, you can control your data as much as you want.
 
-If an instance is home to people discussing things you and your community don't care about, you won't join. You can post the most awesome Joomla news on your server. A garden community will share little content with you. There are certainly malicious participants in Fediverse, just like in real life. It is possible for for the "bad" people to exchange on one instance without censorship. This is a problem point for many, but it is much better than the central alternative.
+*Censorship resistant* and *Communities with rules*? At first glance, this sounds conflicting. The important point is that everything is plural. It is not about one community. It is about many different communities. These communities communicate with each other. But only if they want to. If you think the rules of one community are censorship, you have the option of joining a community with looser rules.
+
+If an instance is home to people discussing things you don't care about, you won't join it. You can post the most awesome Joomla news on your server. A garden community will share little content with you. There are certainly malicious participants in Fediverse, just like in real life and centrally organised social networks. It is possible for the *malicious* people to share their content on their own instances without censorship. That for many a problem point, but it is better than the alternative in my eyes.
+
+That sounds good. But how is that supposed to work? I mentioned earlier that you need rules and standards to make it all work. This brings us to ActivityPub.
 
 ### ActivityPub
 
-> ActivityPub is a decentralized social networking protocol based on the [ActivityStreams 2.0](https://www.w3.org/TR/activitystreams-core/) data format. ActivityPub is an official W3C recommended standard published by the [W3C Social Web Working Group](https://www.w3.org/wiki/Socialwg). It provides a client to server API for creating, updating and deleting content, as well as a federated server to server API for delivering notifications and subscribing to content. - [activitypub.rocks](https://activitypub.rocks/)
+> Enter ActivityPub! ActivityPub is a decentralized social networking protocol based on the [ActivityStreams 2.0](https://www.w3.org/TR/activitystreams-core/) data format. ActivityPub is an official W3C recommended standard published by the [W3C Social Web Working Group](https://www.w3.org/wiki/Socialwg). It provides a client to server API for creating, updating and deleting content, as well as a federated server to server API for delivering notifications and subscribing to content. __Sounds exciting? Dive in!__ - [activitypub.rocks](https://activitypub.rocks/)
 
-Sounds exciting? No! But it is useful!
+Sounds exciting? No! But it is useful! That's why we're diving in. 
 
-It is a way for services and websites to communicate with each other. It's a part of the federation mentioned above. Basically, it's a pledge about how things federate, the protocol or the rules.
+Basically, it's a pledge about how things are connected to each other. So the protocol or rules by which services and websites communicate with each other.
 
-This is more understandable with an example from everyday life. When people talk to each other, you use language. The conversation is the federation. The grammar rules and vocabulary is ActivityPub.
+An example from everyday life makes this more understandable. When people communicate with each other, they exchange information. The federation is the language. The grammar rules and vocabulary are comparable to the ActivityPub protocol.
 
-### The IndieWeb 
+> Do ActivityPub and Federation necessarily belong together? No! Federation refers to the concept of connecting and interacting multiple separate systems or networks so that they effectively work together as a single, larger system. ActivityPub is not mandatory for this. There are other protocols and technologies that can be used for communication and interaction in decentralised networks. However, ActivityPub has established itself as a standard and is supported by many platforms in the Fediverse.
 
-> The IndieWeb is a [people](https://indieweb.org/people)-focused alternative to the "corporate web". - [indieweb.org](https://indieweb.org/)
+In my research on Federation and ActivityPub, I kept coming across the term *IndieWeb*. (IndieWeb)(https://indieweb.org/) and Fediverse are based on the same idea. But they are [not the same](https://socialhub.activitypub.rocks/t/fediverse-vs-indieweb/2638). 
 
-Honestly, that says everything and nothing. The description also fits the Fediverse, so what's the difference? Let's take a closer look below.
+## Joomla as ActivityPub server step by step
 
-#### You are better connected
+I have been connecting my [Joomla test blog](https://ug-mayen.de/en/joomla-blog-en/174-joomla-and-activitypub) to Fediverse for the last few weeks. Maybe sharing my experience with this project will be an inspiration for other Joomla developers. Let's get to the implementation details.
 
-Your articles and status updates can go [to all services](https://indieweb.org/POSSE), not just one, so you can connect with everyone. Even replies and likes on other services can [be redirected back to your website](https://indieweb.org/backfeed), so they're all in one place.
+### Webfinger
+
+What happens if you enter a handle, e.g. `@joomla_test_blog@ug-mayen.de` into the search bar in a Mastodon client? Ideally, of course, someone else has already searched for this handle and the Mastodon server already knows about it and has everything in its cache. If this is not the case, some requests are triggered.
+
+First, the Webfinger protocol is used. The server calls the following address in our example:
+
+```
+https://ug-mayen.de/.well-known/webfinger?resource=acct:@joomla_test_blog@ug-mayen.de
+```
+
+It should be answered with a JSON string like this:
+
+```
+{
+   "subject":"acct:joomla_test_blog@ug-mayen.de",
+   "aliases":[
+      "https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json"
+   ],
+   "links":[
+      {
+         "rel":"self",
+         "type":"application\/activity+json",
+         "href":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json"
+      }
+   ]
+}
+```
+
+> What is JSON? [JSON](https://www.json.org/), or JavaScript Object Notation, is a minimal, readable format for structuring data. It is mainly used to transfer data between a server and a web application as an alternative to XML.
+
+So that's the first part I had to implement. The return of a JSON. So I integrated a component `com_activitypubs` with a JSON view `components/com_activitypubs/src/View/Webfinger/JsonView.php` into my Joomla installation and added a system plugin `plugins/system/activitypub/activitypub.php` for redirecting the URL `https://example.org/.well-known/webfinger`.
+
+> You may have read the term webfinger before. [Name/Finger](https://www.rfc-editor.org/rfc/rfc742) is one of the first internet protocols. It dates back to 1971 and was intended to make it possible to obtain information about users on other computers. At that time, when the *Internet* had few users, this was thought to be a good idea. I wonder about the name Webfinger, so I looked it up: The term "finger" has a definition of "snitch" or "identify". At least that's what I gather from the [Wikipedia article](https://en.wikipedia.org/wiki/Finger_(protocol)) and the [Mastodon documentation](https://docs.joinmastodon.org/spec/webfinger/).
+
+The next code snippet shows my first steps in implementing the JSON view. 
+
+```php
+// components/com_activitypubs/src/View/Webfinger/JsonView.php
+namespace ActivitypubNamespace\Component\Activitypubs\Site\View\Webfinger;
+...
+class JsonView extends AbstractView
+{
+    ...
+    public function display($tpl = null): void
+    {
+        $app = Factory::getApplication();
+        $params = $app->getParams();
+
+        $this->handle = $params->get('handle');
+        $this->data = $this->getWebfingerData();
+        $this->response = json_encode($this->data);
+
+     		header('Content-Type: application/ld+json; profile="https://www.w3.org/ns/activitystreams"');
+        echo json_encode($this->data);
+
+        Factory::getApplication()->close();
+    }
 
 
-That's a rewrite for when you post something on your own website, it should automatically post links to all those linked websites. Your website should also automatically pull responses from all of those things.
+	protected function getWebfingerData(): array
+	{
+		$uri = Uri::base();
 
-In addition, in terms of the indie web, it's important to be independent. This means that large corporate websites, in terms of decentralization are not desired.
+		return [
+			'subject' => 'acct:' . $this->handle . '@' . Uri::getInstance()->toString(['host']),
+			'aliases' => [
+				$uri . 'index.php?option=com_activitypubs&view=Profil&format=json'
+			],
+			'links' => [
+				[
+					'rel' => 'self',
+					'type' => 'application/activity+json',
+					'href' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json'
+				]
+			]
+		];
+	}
+}
+```
 
-### FAQ
+> As far as I know, it is not possible to implement a view directly under the address `https://example.org/.well-known/webfinger` with a Joomla extension. My first thought was to redirect this address via `.htaccess`. I then decided to use a system plugin. On the one hand, no knowledge of the web server configuration and the syntax of the file `.htaccess` is required for the installation. In addition, this solution is more flexible and customisable.
 
-1. Why would i want my website in Fediverse or IndieWeb?
+For the sake of simplicity and because there is only one user on my blog, I set the handle by parameter in this proof of concept. I had planned to replace the parameter later with the username of the matching Joomla author. A [discussion](https://github.com/pfefferle/wordpress-activitypub/issues/28) in the Github repository of the Activitypub plugin for WordPress showed me that this step is more complex.
 
-You want your website to be able to interact with other websites.
+> Why didn't I use the Joomla API? The view class `Joomla\CMS\MVC\View\JsonApiView` is meant for generating [json:api](https://jsonapi.org/) compliant output. For my custom JSON (https://www.json.org/), I think I need to use the `Joomla\CMS\MVC\View\JsonView` class instead.
 
-2. Why would I want my website to be able to do that?
+The next step is to forward the url `https://ug-mayen.de/.well-known/webfinger?resource=acct:@joomla_test_blog@ug-mayen.de` to my just implemented view `https://ug-mayen.de/index.php/component/activitypubs/?view=Webfinger&format=json`. The following code snippet shows my approach with the system plugin.
 
-You want your content to connect with content on other websites without publishing directly to any of those places. This means that you still have full control over that site, plus you can share it with others, regardless of platform.
+```php
+ // plugins/system/activitypub/activitypub.php
+...
+class PlgSystemActivitypub extends CMSPlugin
+{
+	...
+	public function onAfterInitialise()
+	{
+		$uriI = Uri::getInstance();
+		$host = $uriI->toString(['host']);
+		$path = $uriI->toString(['path']);
+		$query = $uriI->toString(['query']);
 
-3. Are ActivityPub and Federation the same thing?
+		if ($this->app->isClient('site')
+			&& str_contains(Uri::getInstance()->toString(['path']), '.well-known/webfinger')
+		){
+			Log::add($host . '-' . $path . '-' . $query, Log::DEBUG, 'plg_system_activitypubs');
 
-ActivityPub and Federation are becoming more and more synonymous. However, they are actually not the same thing. Federation stands for union or connection. ActivityPub regulates this federation. ActivityPub has the disadvantage that you have to follow rules. ActivityPub has the advantage that you can rely on rules.
+			if (str_starts_with($query, '?')) {
+				$url = 'index.php/component/activitypubs' . $query . '&view=Webfinger&format=json';
+			} else {
+				$url = 'index.php/component/activitypubs/?view=Webfinger&format=json';
+			}
+			Factory::getApplication()->redirect($url);
+		}
+	}
+}
 
-4. I'm still confused.
+```
 
-If a big social network like Twitter, Facebook or Instagramm gets shut down, you lose your followers and your content. For some platforms, it's not a matter of "if" but "when." Such events are usually followed by a flight to a variety of different platforms, where you inevitably lose some people because you have to decide which one to stay on. It's happened before. But it doesn't have to happen again. Use the federated web. Ideally, you'll use the federated web, where you can rely on rules.
+No I was curious. I tried to find `@joomla_test_blog@ug-mayen.de` via search GUI of my home Mastodon server fimidi.com. Unfortunately without success at first. Also somehow understandable, Mastodon doesn't know anything about `@joomla_test_blog@ug-mayen.de` yet. All information, such as the display name, the avatar, the profile description and everything else, has nothing to do with WebFinger. Webfinger only ensures that this account exists. This further information is all in a different file. This file can be found in the 'links' section of the WebFinger response. It is the link to `'self'` or the user profile. In my case the link to the user profile is `$uri . 'index.php?option=com_activitypubs&view=Profil&format=json'`. The response to this profile link looks something like this:
+
+```json
+{
+   "@context":[
+      "https:\/\/www.w3.org\/ns\/activitystreams",
+      "https:\/\/w3id.org\/security\/v1"
+   ],
+   "id":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json",
+   "type":"Person",
+   "preferredUsername":"joomla_test_blog",
+   "name":"joomla_test_blog",
+   "manuallyApprovesFollowers":false,
+   "discoverable":true,
+   "inbox":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Inbox&format=json",
+   "outbox":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Outbox&format=json",
+   "followers":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Followers&format=json",
+   "following":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Following&format=json",
+   "publicKey":{
+      "id":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json#main",
+      "owner":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json",
+      "publicKeyPem":"-----BEGIN PUBLIC KEY-----\r\nMIIB...QAB\r\n-----END PUBLIC KEY-----"
+   },
+   "summary":"<p>A blog of Joomla! users who live in the Mayen region. Here we do not only inform. We also like to test out new things on this website.<\/p>\r\n<p>Ein Blog von Joomla!-Benutzern, die in der Region Mayen leben. Hier informieren wir nicht nur. Wir testen auch gerne neue Dinge auf dieser Website aus.<\/p>",
+   "url":"https:\/\/ug-mayen.de\/",
+   "publishedDate":"2023-01-12T00:00:00Z",
+   "icon":{
+      "type":"Image",
+      "url":"https:\/\/ug-mayen.de\/images\/maennchen.png#joomlaImage:\/\/local-images\/maennchen.png?width=141&height=130"
+   },
+}
+```
+
+> Tip: When searching for a user on a Mastodon server, use the URL of the profile `$uri . 'index.php?option=com_activitypubs&view=Profil&format=json'` instead of the handle `@joomla_test_blog@ug-mayen.de` if possible. Mastodon uses the cache to search for the handle. If you use the URL of the profile, it will be called directly and the profile will be loaded with the latest version.
+
+So next I created a route for the user profile based on the ActivityPub log. Again, I output the data directly in a JSON view.
+
+```php
+namespace ActivitypubNamespace\Component\Activitypubs\Site\View\Profil;
+...
+class JsonView extends AbstractView
+{
+...
+    public function display($tpl = null): void
+    {
+        $app = Factory::getApplication();
+        $params = $app->getParams();
+
+        $this->handle = $params->get('handle');
+    	  $this->public_key = $params->get('public');
+		  $this->summary = $params->get('summary');
+		  $this->icon = $params->get('icon');
+
+        $this->data = $this->getProfilData();
+        Log::add(Text::_('COM_ACTIVITYPUBS_PROFIL') . ': ' . json_encode($this->data), Log::DEBUG, 'com_activitypubs');
+        $this->response = json_encode($this->data);
+
+		  header('Content-Type: application/ld+json; profile="https://www.w3.org/ns/activitystreams"');
+        echo json_encode($this->data);
+
+        Factory::getApplication()->close();
+    }
 
 
+	protected function getProfilData(): array
+	{
+		$uri = Uri::base();	
+		
+		return [
+			'@context' => ['https://www.w3.org/ns/activitystreams', 'https://w3id.org/security/v1'],
+			'id' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json',
+
+			'type' => 'Person',
+			'preferredUsername' => $this->handle,
+			'name' => $this->handle,
+
+			'manuallyApprovesFollowers' => false,
+			'discoverable' => true,
+			'inbox' => $uri . 'index.php?option=com_activitypubs&view=Inbox&format=json',
+			'outbox' => $uri . 'index.php?option=com_activitypubs&view=Outbox&format=json',
+			'followers' => $uri . 'index.php?option=com_activitypubs&view=Followers&format=json',
+			'following' => $uri . 'index.php?option=com_activitypubs&view=Following&format=json',
+
+			'publicKey' => [
+				'id' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json' . '#main',
+				'owner' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json',
+				'publicKeyPem' => $this->public_key
+			],
+			'summary' => $this->summary,
+			'url' => $uri,
+			'publishedDate' => '2023-01-12T00:00:00Z',
+			'icon' => [
+				'type' => 'Image',
+				'mediaType' => 'image/png',
+				'url' => $uri . $this->icon
+			],
+		];
+	}
+}
+```
+
+The proof: It worked, I could find my account in the Mastodon search of fimidi.com and even click on it. But when I clicked on `follow', nothing happened yet. 
+
+> For the sake of completeness: There are other important data in the profile: Besides the `inbox` and the `publicKey`, which we will look at next, there are some other links in the profile, e.g. `followers` and `followings`, which each return a list of followers and followings. In addition, there is the 'outbox', which ideally contains all the activities that the user has triggered.
+
+#### Excursus: CURL
+
+Testing the output with [CURL](https://curl.haxx.se/) is possible. What is CURL? CURL is used in command lines or scripts to transfer data.
+
+```
+$ curl -L 'https://ug-mayen.de/.well-known/webfinger?resource=acct:@joomla_test_blog@ug-mayen.de'
+{"subject":"acct:joomla_test_blog@ug-mayen.de","aliases":["https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json"],"links":[{"rel":"self","type":"application\/activity+json","href":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json"}]}
+```
+
+or
+
+```
+$ curl -L 'https://ug-mayen.de/index.php/component/activitypubs/?view=Webfinger&format=json'
+{"subject":"acct:joomla_test_blog@ug-mayen.de","aliases":["https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json"],"links":[{"rel":"self","type":"application\/activity+json","href":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json"}]}
+```
+
+What is jq? [jq](https://stedolan.github.io/jq/) is a tool that makes the output of JSON more user-friendly. Ubuntu users see [wiki.ubuntuusers.de/jq](https://wiki.ubuntuusers.de/jq).
 
 
+```
+$ curl -L 'https://ug-mayen.de/index.php/component/activitypubs/?view=Webfinger&format=json' | jq .
+{
+  "subject": "acct:joomla_test_blog@ug-mayen.de",
+  "aliases": [
+    "https://ug-mayen.de/index.php?option=com_activitypubs&view=Profil&format=json"
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://ug-mayen.de/index.php?option=com_activitypubs&view=Profil&format=json"
+    }
+  ]
+}
+```
 
-## Joomla
-man kann plugin Gsoc
-jemand hat sich bereit erklärt einen Server einzurichten.
-meine deutsche Version verlinken 
+### The Follow Flow
+
+#### Follow
+
+In this example, the actor `https://fimidi.com/users/astrid` wants to follow the user with the user profile `https://ug-mayen.de/index.php?option=com_activitypubs&view=Profil&format=json`.
+
+When actor `https://fimidi.com/users/astrid` clicks on "Follow" in his Mastodon GUI, the server `fimidi.com/` sends an activity of the type "Follow" to the server of the account you want to follow. In our case to `ug-mayen.de/`.
+
+```
+{
+   "@context":"https://www.w3.org/ns/activitystreams",
+   "id":"https://fimidi.com/63a59186-c186-4190-995c-0adbcb4984cb",
+   "type":"Follow",
+   "actor":"https://fimidi.com/users/astrid",
+   "object":"https://ug-mayen.de/index.php?option=com_activitypubs&view=Profil&format=json"
+}
+```
+
+But where exactly does the server send this activity? To find out, let's take another look at the user profile we referred to in the last step. Besides the name, some URLs are also stored there. These links are important for the ActivityPub communication.
+
+What we need now is the "Inbox". The URL specified there should be an endpoint that accepts a matching JSON payload via POST. Since Joomla can easily handle JSON payloads via POST, I insert the following code into my display controller. Using `$this->data = (array) json_decode($this->input->json->getRaw(), true);` I store the POST data in the variable `$this->data`.
+
+```php
+namespace ActivitypubNamespace\Component\Activitypubs\Site\Controller;
+...
+class DisplayController extends BaseController
+{
+...
+	public function display($cachable = false, $urlparams = [])
+	{
+		
+		$view = $this->input->getString('view');
+      ...
+ 		if ($view == 'Inbox') {
+			$this->data = (array) json_decode($this->input->json->getRaw(), true);
+
+			switch ($this->data['type']) {
+				case 'Follow':
+					$element = new \stdClass();
+					$element->name = $this->data['type'];
+					$element->wert = $this->data['actor'];
+					$element->zuordnung = $this->data['object'];
+					$element->debug = '';
+					$db->insertObject('#__activitypubs_details', $element);
+		
+					$this->sendFollowAccept();
+
+					break;
+            ...   
+
+			$this->response = '{"success": true}';
+		}
+		
+		header('Content-Type: application/ld+json; profile="https://www.w3.org/ns/activitystreams"');
+
+		echo $this->response;
+
+		Factory::getApplication()->close();
+      ...
+	}
+```
+
+Now I have to accept the "Follow" by sending back an "Accept" activity via POST. This is where it gets complicated, because all requests have to be signed and saved. 
+
+Let's start step by step. I do this in the function `$this->sendFollowAccept();`. First, I create the JSON code for this activity. 
+
+```json
+{
+   "@context":"https:\/\/www.w3.org\/ns\/activitystreams",
+   "id":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json&id=63e37628f3341",
+   "type":"Accept",
+   "actor":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json",
+   "object":{
+      "@context":"https:\/\/www.w3.org\/ns\/activitystreams",
+      "id":"https:\/\/fimidi.com\/63a59186-c186-4190-995c-0adbcb4984cb",
+      "type":"Follow",
+      "actor":"https:\/\/fimidi.com\/users\/astrid",
+      "object":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json"
+   }
+}
+```
+
+After that I sign it and send it via CURL to the server of the user who wants to follow me. I do this in the function `sendFollowAccept()`. This is my code:
+
+```php
+   ...
+	protected function sendFollowAccept(): void
+	{
+		$uri = Uri::base();
+
+		$data = [
+			'@context' => 'https://www.w3.org/ns/activitystreams',
+			'id' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json&id=' . uniqid(),
+			'type' => 'Accept',
+			'actor' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json',
+			'object' => $this->data
+		];
+		$data = json_encode($data);
+
+		$date = gmdate('D, d M Y H:i:s T', time());
+		$digest = HttpSignatureHelper::digest($data);
+		$actor = ActorHelper::fromActorString($this->data['actor']);
+
+		$signature = HttpSignatureHelper::sign(
+			$this->private_key,
+			$actor->inbox,
+			$actor->host,
+			$date,
+			$digest
+		);
+
+		$signatureHeader = sprintf(
+			'keyId="%s",headers="(request-target) host date digest",signature="%s"',
+			$uri . 'index.php?option=com_activitypubs&view=Profil&format=json' . '#main',
+			base64_encode($signature)
+		);
+
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, sprintf('https://%s%s', $actor->host, $actor->inbox));
+
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+		$headers = [
+			'Content-Type: application/activity+json',
+			'Date: ' . $date,
+			'Signature: ' . $signatureHeader,
+			'Digest: ' . $digest
+		];
+
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_exec($ch);
+		curl_close($ch);
+	}
+   ...
+```
+
+> Excursus: What is a digest? A digest is a short fixed-length representation of a larger piece of data, such as a message or a file. The process of creating a digest is called "hashing." A hash function takes an input (or "message") and returns a fixed-length string of bytes, which is typically a unique representation of the input data. This fixed-length output is called a "hash" or "digest." Digests are used in many areas of computer science, including digital signatures, data integrity, and indexing data in databases. They are also used to identify duplicates in large data sets and to quickly compare large files to determine if they are identical. In cryptography, digests are used to ensure the integrity of a message or file by detecting any changes made to the original data. For example, a digest of a message can be created and then transmitted along with the message. The recipient can then calculate the digest of the received message and compare it with the transmitted digest. If the two digests match, the recipient can be confident that the message has not been altered during transmission.
+
+#### Further explanations
+
+I had a bit of a hard time creating the signature. Therefore, the following explanation may be helpful and time-saving for interested Joomla developers. Basically, you create a text string that looks something like this:
+
+```
+(request-target): post /users/astrid/inbox
+host: fimidi.com
+date: Thu, 09 Feb 2023 09:53:16 GMT
+digest: SHA-256=/qqi8j+GFlSGSFzLIOVlsLgegS6+3CwN9tkBULflgLM=
+```
+
+This can then be signed with `openssl_sign`. I created the `$signature` in the helper class `HttpSignatureHelper`.
+
+Then I add the `$signature` as a base 64 string in the signature header. As a reminder, I had created the signature header in the `sendFollowAccept()` function with the following code:
+
+```php
+...
+$signatureHeader = sprintf(
+   'keyId="%s",headers="(request-target) host date digest",signature="%s"',
+   $uri . 'index.php?option=com_activitypubs&view=Profil&format=json' . '#main',
+   base64_encode($signature)
+...
+```
+
+This command creates a header in the pattern of the code snippet below.
+
+```
+keyId="https://ug-mayen.de/index.php?option=com_activitypubs&view=Profil&format=json#main",headers="(request-target) host date digest",signature="NP6EymeuvQw/jgXeLVPvKb5O5Bfd7u0wCiCxjXKhDo51oJ82nZKRIe3L8gdvNF6IVcJqTI6LEvc7hR4naMcZE01LnZDEtbXM2Ci8ociSdwiwjduAunbBptU3Bc0H5rBDs+ZvCJF4zTIqPYCdHTMhU9uAcdeF5Znk6ZNO5GkcTUgszhNXjHOIyoWgjhLkkQtSuVXEUggOAfcyIgMm+xSKQjZnQVas88gXE0l6CGAln12oVjLaa0HE8WwuIDNe6IYO3T3YMoSGKqOaFRTw21Dbm27ymEFAJB0o4XSnP95cneqpSpMkc/3j2xdJmaLZkw9D3/RQJxShhy/linx+rPikXQ=="
+```
+
+It is important that the public key linked in the signature header is also present and that the target server can access it. In my case, it is in the `public key` field of the user profile mentioned above.
+
+Once you have all the components together, i.e. WebFinger and the user profile response, plus something that can process and respond to requests to the Inbox, you are ready to go. You have a simple Joomla Fediverse subscriber to follow!
+
+#### Undo a Follow Request
+
+The activity to undo a follow request looks like the following code snippet if the actor `https://fimidi.com/users/astrid` does not want to follow the profile `https://ug-mayen.de/index.php?option=com_activitypubs&view=Profil&format=json` anymore.
+
+```
+{
+   "@context":"https://www.w3.org/ns/activitystreams",
+   "id":"https://fimidi.com/users/astrid#follows/7646/undo",
+   "type":"Undo",
+   "actor":"https://fimidi.com/users/astrid",
+   "object":{
+      "id":"https://fimidi.com/6c3f6346-c623-4d6c-9975-a3e63bb0ceb0",
+      "type":"Follow",
+      "actor":"https://fimidi.com/users/astrid",
+      "object":"https://ug-mayen.de/index.php?option=com_activitypubs&view=Profil&format=json"
+   }
+}
+```
+
+This highlights a point that needs to be considered from a security perspective. If I do not support the activity "Undo" on my server, then it is not possible for a user to undo his follow-up request. He would always see my new posts in his inbox. To prevent this, he would have to block me.
+
+#### Excursus: HTTP Signature, ActivityPub and Mastodon
+
+To be sure that a follow request really comes from the person who sent it, you have to verify it. One possibility is: cryptography! [Asymmetric Encryption] (https://de.wikipedia.org/wiki/Asymmetrisches_Kryptosystem), to be precise.
+
+The ActivityPub specification does not require that appropriate signatures be used here, but recommends it. Mastodon uses a [`Signature`-HTTP header](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures).
+
+The header consists of a link to the public key, a list of HTTP headers used to create the signature, and of course the signature itself, as a base64 string.
+
+In addition to the signature, Mastodon requires a "digest" header in the request. This contains, as explained above, a hash of the payload, i.e. the JSON object. The `digest` is also part of the signature, so it is not only ensured that the request comes from the right person, but also that the content has not been changed.
+
+How can you create a key pair? You can use [openssl](https://wiki.openssl.org/index.php/Command_Line_Elliptic_Curve_Operations#Generating_EC_Keys_and_Parameters).
+
+```
+openssl genrsa -out private.pem 2048
+openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+```
+
+### Toot like an elephant your Joomla contributions into the Fediverse
+
+Now let's move on to creating a toot when a new blogpost is published! There are a few little pitfalls here too.
+
+What does an activity look like that you send on its way in the Fediverse? 
+
+I'll show you with a concrete example: When I saved the blogpost [joomla-5](https://ug-mayen.de/joomla-blog-de/189-joomla-5-was-erwartet-uns), the following JSON was sent to the inbox of the followers:
+
+```json
+{
+   "@context":"https:\/\/www.w3.org\/ns\/activitystreams",
+   "id":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json&id=63e4cf993bd90",
+   "type":"Create",
+   "actor":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json",
+   "to":[
+      "https:\/\/www.w3.org\/ns\/activitystreams#Public"
+   ],
+   "cc":[
+      "https:\/\/fimidi.com\/users\/astrid",
+      "..."
+   ],
+   "object":{
+      "@context":{
+         "@language":"de"
+      },
+      "id":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json&id=189",
+      "type":"Note",
+      ...
+      "summary":"Joomla! 5 - Was erwartet uns?",
+      "published":"2023-02-08T01:23:19+00:00",
+      "updated":"2023-02-09T10:48:57+00:00",
+      "attributedTo":"https:\/\/ug-mayen.de\/index.php?option=com_activitypubs&view=Profil&format=json",
+      "to":[
+         "https:\/\/www.w3.org\/ns\/activitystreams#Public"
+      ],
+      "cc":[
+         "https:\/\/fimidi.com\/users\/astrid",
+         "..."
+      ],
+      "content":"<h1>Joomla! 5<\/h1>\r\n<p style=\"text-align: justify;\">Gerade bin ...<p>"
+   }
+}
+```
+
+> Are you wondering at this point? A request for every follower? Is that efficient? It's not quite that bad in the end, ActivityPub also has the concept of a shared inbox and Mastodon also implements it that way. You only have to send once to an server "to" and use "cc" for every follower.
+
+Now one step is missing: Of course, I don't just have to generate signatures on my Joomla server for all the requests I send. We just had that with the sending of the Foller-Accept. Of course, I also have to verify the signature for everything that lands in an other inbox. Verifying a signature works very similarly to creating it. You create your plaintext according to the given pattern, except that you now use the headers from the request.
+
+> Excursus: Signing and verifying: Signing refers to the process of creating a digital signature that can be used to authenticate the origin and integrity of a message or document. A digital signature is created by applying a mathematical algorithm to the content of the message or document and a private key known only to the signer. The resulting signature is sent with the message or document so that the recipient can verify that the message or document has not been tampered with and comes from the specified sender. Verification, on the other hand, refers to the process of checking the authenticity and integrity of a digitally signed message or document. This involves using the recipient's public key to apply the same mathematical algorithm to the signature and content of the message or document. If the result of the verification process matches expectations, the recipient can be sure that the message or document has not been manipulated and originates from the specified sender.
+
+For sending new articles to an other inbox I wrote the content plugin `plugins/content/activitypub/activitypub.php`.
+
+```php
+// plugins/content/activitypub/activitypub.php
+...
+class PlgContentActivitypub extends CMSPlugin
+{
+...
+	public function onContentAfterSave($context, $article, $isNew)
+	{
+
+		switch ($article->state) {
+			case 1:
+				$this->safeRequest($activitypubs_params, $article, 'Create');
+				break;
+            ...
+			default:
+				break;
+		}
+		
+		return true;
+	}
+
+	public function onContentAfterDelete($context, $article)
+	{
+      ...
+	}
+
+	public function onContentChangeState($context, $pks, $value)
+	{
+        ...
+		}
+
+		return true;
+	}
+
+	public function safeRequest($activitypubs_params, $article, $action)
+	{
+
+		// Todo: Create Model
+		$db = Factory::getDbo();
+		$followers = [];
+
+		$query = $db->getQuery(true);
+		$query->select($db->quoteName('wert'))
+		->from($db->quoteName('#__activitypubs_details'))
+		->where(
+			[
+				$db->quoteName('name') . ' = "Follow"',
+			]
+		);
+		$followers = $db->setQuery($query)->loadAssocList();
 
 
+		// Todo: Create Helper
+		$groupedByHost = [];
+		foreach ($followers as $follower) {
+			$actor = ActorHelper::fromActorString(trim($follower['wert']));
+			$host = $actor->host;
+
+			if (empty($groupedByHost[$host])) {
+				$groupedByHost[$host] = [
+					'host' => $host,
+					'inbox' => $actor->sharedInbox,
+					'followers' => []
+				];
+			}
+
+			$groupedByHost[$host]['followers'][] = $actor->actor;
+		}
+
+		$content_to_send = $article->introtext;
+      ...
+
+		foreach ($groupedByHost as $host) {
+			$data = [
+				'@context' => 'https://www.w3.org/ns/activitystreams',
+				'id' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json&id=' . uniqid(),
+				'type' => $action ,
+				'actor' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json',
+				'to' => ['https://www.w3.org/ns/activitystreams#Public'],
+				'cc' => $host['followers'],
+				'object' => [
+					'@context' => $context,
+					'id' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json&id=' . $article->id,
+					'type' => 'Note',
+					'url' => $perma_url,
+					'edited' => $edited,
+					'summary' => $article->title,
+					'published' => $published,
+					'updated' => $updated,
+               ...
+					'attributedTo' => $uri . 'index.php?option=com_activitypubs&view=Profil&format=json',
+					'to' => ['https://www.w3.org/ns/activitystreams#Public'],
+					'cc' => $host['followers'],
+					'content' => $content_to_send
+				],
+			];
+
+			$data = json_encode($data);
+
+			$date = gmdate('D, d M Y H:i:s T', time());
+			$digest = HttpSignatureHelper::digest($data);
+		
+			$signature = HttpSignatureHelper::sign(
+				$private_key,
+				$host['inbox'],
+				$host['host'],
+				$date,
+				$digest
+			);
+		 
+			$signatureHeader = sprintf(
+				'keyId="%s",headers="(request-target) host date digest",signature="%s"',
+				$uri . 'index.php?option=com_activitypubs&view=Profil&format=json' . '#main',
+				base64_encode($signature)
+			);
+		
+			$ch = curl_init();
+
+			$serverinbox = sprintf('https://%s%s/', $host['host'], $host['inbox']);
+		
+			curl_setopt($ch, CURLOPT_URL, $serverinbox);
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+			$headers = [
+				'Content-Type: application/activity+json',
+				'Date: ' . $date,
+				'Signature: ' . $signatureHeader,
+				'Digest: ' . $digest
+			];
+		
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+         curl_exec($ch);
+			curl_close($ch);
+		}
+	}
+}
+
+```
 
 
-## Links
+## Final thoughts
+
+You can now follow the blog `https://ug-mayen.de/joomla-blog-de` via the handle `@joomla_test_blog@ug-mayen.de` and new posts will land in each follower's inbox.  That was my goal. 
+
+But there are still a lot of features missing to support all ActivityPub activities. Also, I have only tested with one Mastodon user. I have left out the other Fediverse services so far.
+
+I don't know yet if I will continue to work on the extensions. Up to this point it has been an interesting experience for me.
+
+## Further Links
 
 https://opguides.info/other/fediverse/
 https://briefs.video/videos/why-the-indieweb/

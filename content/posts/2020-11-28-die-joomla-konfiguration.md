@@ -4,7 +4,7 @@ set: ''
 booklink: ''
 syndication:
 shortTitle: 'short'
-date: 2020-11-28
+date: 2023-01-14
 title: 'Die Joomla Konfiguration configuration.php'
 template: post
 thumbnail: '../thumbnails/joomla.png'
@@ -26,7 +26,7 @@ Dies ist keine umfassende Anleitung, sondern eine allgemeine Referenz zum besser
 
 ## Speicherort der Datei configuration.php
 
-![tutuploadsLocation.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsLocation.png)
+![tutuploadsLocation.png](https://www.joomlashack.com/images/stories/tutuploadsLocation.png)
 
 Die Datei configuration.php befindet sich im Stammverzeichnis deiner Joomla-Installation. Wenn es sich im Hauptverzeichnis befindet, würde der Pfad dazu ungefähr so aussehen:
 
@@ -46,7 +46,7 @@ Wir werden die Datei Zeile für Zeile durchgehen.
 
 ## Site Einstellungen
 
-![tutuploadsSite_Settings.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsSite_Settings.png)
+![tutuploadsSite_Settings.png](https://www.joomlashack.com/images/stories/tutuploadsSite_Settings.png)
 
 - **\$offline**: Bei Einstellung auf "0" ist die Site online. Auf "1" gesetzt, ist die Site offline
 - **\$offline_message**: Du kannst diesen Wert beliebig ändern.
@@ -57,7 +57,7 @@ Wir werden die Datei Zeile für Zeile durchgehen.
 
 ## Debug Einstellungen
 
-![tutuploadsDebug_Settings.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsDebug_Settings.png)
+![tutuploadsDebug_Settings.png](https://www.joomlashack.com/images/stories/tutuploadsDebug_Settings.png)
 
 - **\$debug**: "0" ist off. "1" ist on.
 - **\$debug_lang**: "0" ist off. "1" ist on.
@@ -69,7 +69,7 @@ Wir werden die Datei Zeile für Zeile durchgehen.
 
 ## Datenbank Einstellungen
 
-![tutuploadsData_Base_Settings.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsData_Base_Settings.png)
+![tutuploadsData_Base_Settings.png](https://www.joomlashack.com/images/stories/tutuploadsData_Base_Settings.png)
 
 - **\$dbtype**: "mysqli" oder "mysql"
 - **\$host**: "localhost" auf vielen Servern, nicht auf allen.
@@ -97,9 +97,9 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ## Assorted extra features
 
-![tutuploadsmedia_1323186823566.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsmedia_1323186823566.png)
+![tutuploadsmedia_1323186823566.png](https://www.joomlashack.com/images/stories/tutuploadsmedia_1323186823566.png)
 
-- **\$live_site**: Die tatsächliche URL der Site, zum Beispiel - https://example.org (es sei denn, die Site befindet sich in einem Unterverzeichnis)
+- **\$live_site**: In den neuesten Joomla-Versionen sollte dieser Parameter leer bleiben. Es kann vorkommen, dass du einen Wert eingeben musst. Wenn du eine Url weiterleitest, musst du die tatsächliche Url zur Live-Site in diese Zeile eintragen. Oder wenn du eine Kopie einer Website zum Testen und Ändern erstellst. Ich habe zum Beispiel eine Testseite unter https://dashhelp.com/joomla17, die eine Kopie meiner Hauptseite ist. Ich musste diese Zeile in der Datei configuration.php auf der Kopie ändern. Du bekommst eine Fehlermeldung, dass die Seite nicht gefunden wurde, wenn dies nicht auf "https://yourdomain.com/directory" oder im Falle einer Subdomain "https://subdomain.yourdomain.com" gesetzt ist. Joomla benutzt diese Url, um relative Pfade zu erstellen. Es ist wichtig, dies auf Test-Sites zu überprüfen.
 - **\$secret:**: NICHT ÄNDERN
 - **\$gzip**: "0" ist aus; "1" ist eingeschaltet.
 - **\$error_reporting**: "-1" ist für produktive Websites passend, da so nur wichtige Fehler angezeigt werden.
@@ -113,7 +113,7 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ## FTP Einstellungen
 
-![tutuploadsmedia_1323192679184.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsmedia_1323192679184.png)
+![tutuploadsmedia_1323192679184.png](https://www.joomlashack.com/images/stories/tutuploadsmedia_1323192679184.png)
 
 - **\$ftp_host:**: "127.0.0.1" ist die Standard-IP für localhost. Ihr Server kann anders sein.
 - **\$ftp_port:** "21" ist die normale Standardeinstellung. Wende dich an deinen Hoster, wenn du Fragen hast.
@@ -124,7 +124,7 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ## Time Zone Einstellungen
 
-![tutuploadsLocale__Time_Zone__Settings.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsLocale__Time_Zone__Settings.png)
+![tutuploadsLocale__Time_Zone__Settings.png](https://www.joomlashack.com/images/stories/tutuploadsLocale__Time_Zone__Settings.png)
 
 - **\$offset**: default is UTC
   **\$offset_user** : default is UTC
@@ -136,7 +136,7 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ## Email Einstellungen
 
-![tutuploadsEmail_Settings.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsEmail_Settings.png)
+![tutuploadsEmail_Settings.png](https://www.joomlashack.com/images/stories/tutuploadsEmail_Settings.png)
 
 - **\$mailer:** "mail" verwendet die PHP-Mail-Funktion; "sendmail" verwendet SMTP-Mail auf dem Server.
 - **\$mailfrom:** Absender in der E-Mail, die von Joomla gesendet wird.
@@ -150,7 +150,7 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ## Log Einstellungen
 
-![tutuploadsmedia_1323186985799.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsmedia_1323186985799.png)
+![tutuploadsmedia_1323186985799.png](https://www.joomlashack.com/images/stories/tutuploadsmedia_1323186985799.png)
 
 - **\$log_path:** ''//home/username/public_html/j/logs';';
 - **\$tmp_path:** '//home/username/public_html/tmp';
@@ -162,7 +162,7 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ## Cache Einstellungen
 
-![tutuploadsCache_Settings.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsCache_Settings.png)
+![tutuploadsCache_Settings.png](https://www.joomlashack.com/images/stories/tutuploadsCache_Settings.png)
 
 - **\$caching :** "0" is off; "1" Conservative setting; "2" Progressive Setting
 - **\$cache_handler** : "file" full cacheing; "cachelite" lite cacheing
@@ -176,7 +176,7 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ## Metadata Einstellungen
 
-![tutuploadsMeta_Data_Settings.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsMeta_Data_Settings.png)
+![tutuploadsMeta_Data_Settings.png](https://www.joomlashack.com/images/stories/tutuploadsMeta_Data_Settings.png)
 
 - **\$MetaDesc** : Create a text description for SEO.\
 - **\$MetaKeys** : Insert keywords separated by a comma.\
@@ -194,7 +194,7 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ## SEO Einstellungen (Search Engine Optimization)
 
-![tutuploadsSEO_Settings__Search_Engine_Optimization_.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsSEO_Settings__Search_Engine_Optimization_.png)
+![tutuploadsSEO_Settings__Search_Engine_Optimization_.png](https://www.joomlashack.com/images/stories/tutuploadsSEO_Settings__Search_Engine_Optimization_.png)
 
 - **\$sef**: "0" ist nein; "1" ist ja
 - **\$sef_rewrite**: "0" ist nein; "1" ist ja
@@ -211,7 +211,7 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ## Session Einstellungen
 
-![tutuploadsSession_Settings.png](https://375222-1174565-raikfcquaxqncofqfm.stackpathdns.com/images/stories/tutuploadsSession_Settings.png)
+![tutuploadsSession_Settings.png](https://www.joomlashack.com/images/stories/tutuploadsSession_Settings.png)
 
 - **\$lifetime**: eine ganze Zahl, die Minuten angibt.
   **\$session_handler** : "database" oder "none"

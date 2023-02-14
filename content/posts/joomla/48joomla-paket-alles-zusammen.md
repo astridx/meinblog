@@ -125,6 +125,8 @@ Das Manifest kennst du schon. Im Falle eines Paketes gibt es hier wenig Neues. I
 
 2. Erstelle für jede Erweiterung ein ZIP-Archiv
 
+> Wie erstellt man eine installierbare Zip-Datei für jede Erweiterung? Wenn du dieses Tutorial durchgearbeitet hast, dann verfügst du über alle Dateien. Wenn du die Dateien nicht selbst erstellen möchtest, findest du sie alle in Zweig 42 des Repository für Beispieldateien, der unter diesem Link [codeberg.org/astrid/j4examplecode/src/branch/t42](https://codeberg.org/astrid/j4examplecode/src/branch/t42) zu finden ist. Du kannst den Inhalt dieses Zweigs als Zip-Datei herunterladen. Es handelt sich jedoch nicht um eine Installations-Zip-Datei. Du musst diese Datei selbst für jede Erweiterung separat erstellen. Im Grunde kannst du die Dateien für jede Erweiterung in ein Verzeichnis kopieren und sie mit einem Packprogramm deiner Wahl zusammenpacken. Die Ordnerstruktur sollte dabei gleich bleiben. Lediglich die Installations-XML-Datei und ein eventuelles Installationsskript müssen in das Stammverzeichnis der Zip-Datei kopiert werden, sofern sie nicht bereits dort gespeichert sind. 
+
 3. Erstelle ein ZIP Archiv das alle ZIP-Dateien und die Dateien dieses Kapitels enthält.
 
 4. Installiere das in Punkt 3 erstellt ZIP in Joomla.

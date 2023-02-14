@@ -454,7 +454,7 @@ Die Beschreibung der Komponente wird bei der Installation angezeigt und, wenn du
 <blockquote>
 <p>Wofür steht <code class="language-text">__BUMP_VERSION__</code> oder <code class="language-text">__DEPLOY_VERSION__</code>? Manchmal sieht man seltsame Texte wie diesen in einem <em>DocBlock</em>. Zum Beispiel im <a href="https://github.com/joomla/joomla-cms/pull/27712/files">PR 27712</a>[^github.com/joomla/joomla-cms/pull/27712/files]. In Joomla setzen wir <code class="language-text">__DEPLOY_VERSION__</code> an die Stelle der Versionsnummer einer von uns neu erstellten Methode. Da wir nicht wissen, in welcher Version dieser neue Code in Joomla akzeptiert wird, können wir keine reale Versionsnummer verwenden. Wenn der neue Code zum Kern hinzugefügt wird, wird dieser seltsame String automatisch durch die aktuelle Versionsnummer ersetzt. In anderen Systemen ist <code class="language-text">__BUMP_VERSION__</code> üblich. Ich verwende hier ebenfalls <code class="language-text">__BUMP_VERSION__</code>.<!-- \index{DEPLOY VERSION} --><!-- \index{BUMP VERSION} --></p>
 </blockquote>
-<p>Wie du DocBlocks für Joomla erstellst, erklären die Joomla Codierungsstandards<!-- \index{Codierungsstandards} --> unter <a href="https://developer.joomla.org/coding-standards/docblocks.html">developer.joomla.org/ coding-standards/docblocks.html</a> und der Pull Request <a href="https://github.com/joomla/joomla-cms/pull/31504">github.com/joomla/joomla-cms/ pull/31504</a>.</p>
+<p>Wie du DocBlocks für Joomla erstellst, erklären die Joomla Codierungsstandards<!-- \index{Codierungsstandards} --> unter <a href="https://developer.joomla.org/coding-standards/docblocks.html">developer.joomla.org/ coding-standards/docblocks.html</a>.</p>
 <blockquote>
 <p>Vor jeder Klasse und vor jeder Funktion wird ein DocBlock eingefügt. Der gesamte Code enthält DocBlock-Kommentare, die es automatisierten Tools erleichtern, eine Dokumentation zu generieren. Zusätzlich hilft ein DocBlock IDEs, die Code-Vervollständigung bereitzustellen. Und manchmal ist der Kommentar für Programmierer hilfreich. Ich drucke die Dokumentarblöcke hier nicht weiter ab. In den Code-Beispielen auf Github sind die DocBlocks weiterhin vorhanden.</p>
 </blockquote>
@@ -794,9 +794,6 @@ Die Beschreibung der Komponente wird bei der Installation angezeigt und, wenn du
       />
   </a>
     </span></p>
-<blockquote>
-<p>In früheren Joomla-Versionen wurde am Ende der Installation der Text im Backend ausgegeben, der mit dem Befehl <code class="language-text">echo Text::_('...')</code> in das Installationsskript eingefügt ist. Seit Joomla 4 geschieht dies nicht mehr ohne Weiteres. Weitere Informationen sind auf <a href="https://github.com/joomla/joomla-cms/issues/36343">Github</a>[^github.com/joomla/joomla-cms/issues/36343] verfügbar.</p>
-</blockquote>
 <p>Bis hierhin war das kein Hexenwerk. Wir haben eine solide Grundlage für die weiteren Schritte.
 <img src="https://vg08.met.vgwort.de/na/91a964b14e904ded9ad45011c0ad492c" width="1" height="1" alt=""></p>
 <style class="grvsc-styles">

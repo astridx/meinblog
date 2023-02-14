@@ -125,6 +125,8 @@ You already know the manifest. In the case of a package, there is little new her
 
 2. create a ZIP file for each extension.
 
+> How do you create an installable zip file for each extension? If you have worked through this tutorial, then you have all the files. If you don't want to create the files yourself, you can find them all in Branch 42 of the sample files repository, which is this link [codeberg.org/astrid/j4examplecode/src/branch/t42](https://codeberg.org/astrid/j4examplecode/src/branch/t42). You can download the contents of this branch 42 as a zip file. However, it is not an installation zip. You have to create it yourself for each extension separately. Basically, you can copy the files for each extension into a directory and pack them together with the packing programme of your choice. The folder structure should remain the same. Only the installation XML file and a possible installation script must be copied into the root directory of the zip file, if they are not already stored there. 
+
 3. create a ZIP that contains all ZIP files and the files of this chapter.
 
 4. install the ZIP created in point 3 in Joomla.

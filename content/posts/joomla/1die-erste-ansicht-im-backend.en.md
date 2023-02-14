@@ -471,7 +471,7 @@ Let's create the _DisplayController_. As always, we first create the _DocBlock_<
 
 > What does `__BUMP_VERSION__` or `__DEPLOY_VERSION__` stand for? Sometimes you see strange text like this in a _DocBlock_. For example in [PR 27712](https://github.com/joomla/joomla-cms/pull/27712/files)[^github.com/joomla/joomla-cms/pull/27712/files]. In Joomla, we put `__DEPLOY_VERSION__` in place of the version number of a new method we create. Since we don't know in which version this new code will be accepted in Joomla, we can't use a real version number. When the new code is added to the core, this strange string is automatically replaced with the current version number. In other systems `__BUMP_VERSION__` is common. I use `__BUMP_VERSION__` here as well.<!-- \index{DEPLOY VERSION} --><!-- \index{BUMP VERSION} -->
 
-How to create DocBlocks for Joomla is explained in the Joomla coding standards<!-- \index{coding standards} --> at [developer.joomla.org/ coding-standards/docblocks.html](https://developer.joomla.org/coding-standards/docblocks.html) and the pull request [github.com/joomla/joomla-cms/ pull/31504](https://github.com/joomla/joomla-cms/pull/31504).
+How to create DocBlocks for Joomla is explained in the Joomla coding standards<!-- \index{coding standards} --> at [developer.joomla.org/ coding-standards/docblocks.html](https://developer.joomla.org/coding-standards/docblocks.html).
 
 > A DocBlock is displayed before each class and before each function. All code contains DocBlock comments, which make it easier for automated tools to generate documentation. In addition it helps some IDEs to provide code completion. And sometimes the comment is helpful for programmers. I don't print the documentary blocks further here. In the code examples on Github, the DocBlocks are still present.
 
@@ -764,8 +764,6 @@ Everything is new. There are no changed files yet.
 4. next test if you get the view for your component without errors.
 
 ![The first view in the backend](/images/j4x1x3.png)
-
-> In previous Joomla versions, the text was output in the backend at the end of the installation, which is inserted into the installation script with the command `echo Text::_('...')`. Since Joomla 4, this no longer happens without further ado. More information is available on [Github](https://github.com/joomla/joomla-cms/issues/36343)[^github.com/joomla/joomla-cms/issues/36343].
 
 Up to this point, it wasn't rocket science. We have a solid basis for the next steps.
 <img src="https://vg08.met.vgwort.de/na/91a964b14e904ded9ad45011c0ad492c" width="1" height="1" alt="">

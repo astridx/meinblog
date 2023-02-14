@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/buecher/joomla-4-cassipeia-anwenden'
 syndication:
 shortTitle: 'short'
 date: 2022-03-02
-title: 'Joomla Standardtemplate Cassiopeia - CSS Schnipsel'
+title: 'Joomla Standardtemplate Cassiopeia - CSS Schnipsel und WebAssetManager'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-css-schnipsel
@@ -27,7 +27,9 @@ tags:
 
 
 
-Du möchtest das Cassiopeia Templates in Joomla in der Darstellung geringfügig abändern? Dieses Ziel kann mithilfe der Datei `user.css` erreicht werden. In diesem Beitrag findest du Codeschnipsel für unkomplizierte Anwendungsfälle. 
+## CSS
+
+Du möchtest das Cassiopeia Templates in Joomla in der Darstellung geringfügig abändern? Dieses Ziel kann mithilfe der Datei `user.css` erreicht werden. In diesem Teil findest du Codeschnipsel für unkomplizierte Anwendungsfälle.<!-- \index{CSS} -->
 
 ### Den Nach-oben-Link in Cassiopeia so konfigurieren, dass dieser immer sichtbar ist
 
@@ -37,7 +39,7 @@ Füge den nachfolgenden Code in die Datei `user.css` ein, wenn es dein Ziel ist,
 #back-top { position: fixed; }
 ```
 
-### Silbentrennung
+### Silbentrennung<!-- \index{CSS!Silbentrennung} -->
 
 #### Normale Silbentrennung
 
@@ -63,5 +65,23 @@ body {
 }
 ```
 
+## WebAssetManager
 
+Du hast ein Child Template oder eine Kopie von Cassiopeia angelegt und möchtest umfangreichere CSS-Änderungen vornehmen?<!-- \index{WebAssetManager} -->
+
+> Die Dokumentation zum WebAssetManager findest du unter [docs.joomla.org](https://docs.joomla.org/J4.x:Web_Assets)[^docs.joomla.org/J4.x:Web_Assets]
+
+### joomla.asset.json
+
+Du hast ein Childtemplate angelegt und möchtest die Datei `templates/cassiopeia/joomla.asset.json` verändern. Du kannst diese überschreiben. Wenn dein Template `cassiopeia_child` heißt, dann überschreibt die Datei `templates/cassiopeia_child/joomla.asset.json` mit `templates/cassiopeia/joomla.asset.json`.
+
+### Zusätzliche CSS-Dateien laden
+
+Im Childtemplate oder in einer Kopie von Cassiopeia, kannst du über den nachfolgenden Befehl die Datei `media/templates/site/cassiopeia_child/css/custom.css` laden. Trage den Befehl in der Datei `index.php` des kopierten oder erbenden Templates ein. 
+
+```php
+$wa->registerAndUseStyle('template.custom', 'custom.css', ['weight' => '500', 'dependencies' => ['template.active','template.active.language']]);
+```
+
+> Es gibt eine Option `weight`. Dies ist ein Mechanismus zur Sortierung der Reihenfolge der Assets. In der Datei `/libraries/src/WebAsset/WebAssetManager.php` findest du die Methode `calculateOrderOfActiveAssets()`, die sich auf [Kahn's_algorithm](https://en.wikipedia.org/wiki/Topological_sorting#Kahn.27s_algorithm) bezieht.
 
