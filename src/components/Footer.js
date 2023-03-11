@@ -14,7 +14,7 @@ export const Footer = () => {
           >
             Paypal
           </a>
-          <small> or via IBAN: DE96 5001 0517 5416 BIC: INGDDEFFXXX</small>
+          <small> or via IBAN: DE96 5001 0517 5416 5987 47 BIC: INGDDEFFXXX</small>
         </nav>
 
         <hr />
