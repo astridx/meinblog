@@ -541,7 +541,7 @@ We create a field through which an author selects the language link. This is the
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ services/provider.php
+#### administrator/components/com_foos/services/provider.php
 
 In the provider we register our `AssociationsHelper` as a service that implements `AssociationExtensionInterface`[^libraries/src/association/associationextensioninterface.php]. This way we ensure that all necessary functions are inherited into our component and are thus available.
 
@@ -594,7 +594,7 @@ In order for the language to be saved to the element, we add a column in the dat
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 In FoosComponent we add `AssociationServiceInterface` and `AssociationServiceTrait` so that everything necessary is implemented in our extension.
 
@@ -847,7 +847,7 @@ In the model of the list, besides adding the language information, it is importa
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Service/HTML/AdministratorService.php
+#### administrator/components/com_foos/src/Service/HTML/AdministratorService.php
 
 We implement the `association` service in `AdministratorService.php`. Via the ID the function returns the HTML markup for editing the language links.<!-- \index{service!administrator} -->
 

@@ -36,7 +36,7 @@ There are several reasons for allowing a user to edit in the frontend. For one t
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Service/HTML/Icon.php
+#### administrator/components/com_foos/src/Service/HTML/Icon.php
 
 The following file contains all the information needed to display an icon used to open the edit in the frontend - provided the viewer is allowed to edit.
 
@@ -1152,7 +1152,7 @@ Last but not least we need the file `components/com_foos/tmpl/form/edit.xml` to 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 In the file `administrator/components/com_foos/src/Extension/FoosComponent.php` we register the icon. In other words, we make the icon known to Joomla.
 

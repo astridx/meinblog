@@ -540,7 +540,7 @@ Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Di
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ services/provider.php
+#### administrator/components/com_foos/services/provider.php
 
 Im Provider registrieren wir unseren `AssociationsHelper` als Service der `AssociationExtensionInterface`[^libraries/src/association/associationextensioninterface.php] implementiert. So stellen wir sicher, dass alle notwendigen Funktionen in unsere Komponente vererbt werden und so vorhanden sind.
 
@@ -593,7 +593,7 @@ Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte in der Da
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationServiceTrait`, so das alles Notwendige in unserer Erweiterung implementiert ist.
 
@@ -840,7 +840,7 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Service/HTML/AdministratorService.php
+#### administrator/components/com_foos/src/Service/HTML/AdministratorService.php
 
 Wir implementieren den Service `association` in `AdministratorService.php`. Über die ID gibt die Funktion das HTML-Markup zum Bearbeiten der Sprachverknüpfungen zurück.<!-- \index{Service!Administrator} -->
 

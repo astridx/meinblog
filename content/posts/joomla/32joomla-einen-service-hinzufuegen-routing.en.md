@@ -343,7 +343,7 @@ class Router extends RouterView
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ services/provider.php
+#### administrator/components/com_foos/services/provider.php
 
 In the service provider we register the service.
 
@@ -380,7 +380,7 @@ In the service provider we register the service.
 The lines `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Component\\Foos'))` and `$component->setRouterFactory ($container->get(RouterFactoryInterface::class))` are added.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 We implement `RouterServiceInterface` and use `RouterServiceTrait` so that these files are available.
 

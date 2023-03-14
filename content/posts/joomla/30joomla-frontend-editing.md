@@ -36,7 +36,7 @@ Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu erm�
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Service/HTML/Icon.php
+#### administrator/components/com_foos/src/Service/HTML/Icon.php
 
 Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearbeitung geöffnet wird, im Frontend anzuzeigen - vorausgesetzt, der Betrachter darf bearbeiten.
 
@@ -1152,7 +1152,7 @@ Zu guter Letzt benötigen wir die Datei `components/com_foos/tmpl/form/edit.xml`
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 In der Datei `administrator/components/com_foos/src/Extension/FoosComponent.php` registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla bekannt.
 

@@ -343,7 +343,7 @@ class Router extends RouterView
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ services/provider.php
+#### administrator/components/com_foos/services/provider.php
 
 Im Service Provider registrieren wir den Service.
 
@@ -380,7 +380,7 @@ Im Service Provider registrieren wir den Service.
 Die Zeilen `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Component\\Foos'))` und `$component->setRouterFactory ($container->get(RouterFactoryInterface::class))` kommen hinzu.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien zur Verfügung stehen.
 

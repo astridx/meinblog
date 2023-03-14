@@ -383,7 +383,7 @@ The `postflight` function is called after the component has been installed, disc
 > Do you want to know exactly when which method is called? Then have a look at the file `/libraries/src/Installer/InstallerAdapter.php`. The commands `$this->triggerManifestScript('');` will start the execution of the related method. For example, the `postflight` function is triggered via `$this->triggerManifestScript('postflight');`. See [Potential backward compatibility issues in Joomla 4](https://docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries)[^docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries].
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ services/provider.php
+#### administrator/components/com_foos/services/provider.php
 
 `provider.php` is used to implement the component services. Via an interface, the component class defines which services it provides. A dependency injection container or DI container is used for this. To register, `ComponentDispatcherFactory` and `MVCFactory` are mandatory for each component. Registering `CategoryFactory` is at this place optional, we need `CategoryFactory` when we integrate categories later. Using `provider.php` it is possible to introduce new services without breaking backwards compatibility (BC). If you are not familiar with the concept of DI Container but would like to learn more, you can find explanations and some examples in the following links:<!-- \index{DI Container} -->
 
@@ -559,11 +559,11 @@ class DisplayController extends BaseController
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 `FoosComponent.php` is the code for booting the extension. It is the first file that is called when Joomla loads the component. Boot' is the function to set up the environment of the extension, such as registering new classes. For more information, see the pull request [github.com/joomla/joomla-cms/pull/20217](https://github.com/joomla/joomla-cms/pull/20217). In the following we will expand the file `FoosComponent.php`.
 
-[administrator/components/com_foos/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php
@@ -621,11 +621,11 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Service/HTML/AdministratorService.php
+#### administrator/components/com_foos/src/Service/HTML/AdministratorService.php
 
 Although we are developing the code for a minimal component, some administrator files are needed. The file `AdministratorService.php` will be used later to add functions like multilingualism or main entries/featured. At the moment we do not need these functions. But we are already preparing everything here.
 
-[administrator/components/com_foos/service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php

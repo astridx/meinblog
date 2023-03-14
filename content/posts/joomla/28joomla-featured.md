@@ -883,7 +883,7 @@ Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Dat
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Service/HTML/AdministratorService.php
+#### administrator/components/com_foos/src/Service/HTML/AdministratorService.php
 
 Im `AdministratorService.php` machen wir es möglich, die Belegung der Eigenschaft auch in der Übersichtsliste zu verändern. Ein Klick auf das Stern-Symbol schaltet den Wert um.<!-- \index{Service!Administrator} -->
 

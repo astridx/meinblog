@@ -248,7 +248,7 @@ Damit zu Beginn schon eine Kategorie vorhanden ist, ergänzen wir das Skript, we
 <!-- \index{Alias} -->
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ services/provider.php
+#### administrator/components/com_foos/services/provider.php
 
 Im Service Provider registrieren wir die Schnittstelle `CategoryFactoryInterface`. Es ist nicht notwendig, `CategoryFactory Interface` selbst zu erstellen. Wir nutzen die Joomla eigene Funktionen.
 
@@ -290,7 +290,7 @@ Damit bei einer Neuinstallation die Tabellenspalte angelegt wird, in der die Kat
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Extension/FoosComponent.php
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 Zusätzlich sind in der Komponentenklasse Implementierungen erforderlich, um die Joomla eigenen Funktionen zu verwenden. Die Methode `countItems` ist notwendig, damit in der Kategorieansicht eine Übersicht über zugeordnete Items erscheint. Die Methode `getTableNameForSection` sorgt dafür, dass immer die richtige Datenbanktabelle abgefragt wird.
 

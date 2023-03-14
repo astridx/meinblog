@@ -5,7 +5,7 @@ booklink: ''
 syndication:
 shortTitle: 'short'
 date: 2022-12-06
-title: 'Mastodon mit docker-lamp loakl installieren und testen'
+title: 'Mastodon mit docker-lamp local installieren und testen'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-docker-lamp-mastodon

@@ -214,7 +214,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ services/provider.php
+#### administrator/components/com_foos/services/provider.php
 
 Previously it was not necessary to set the `MVC factory` in `provider.php`, now it is required. Otherwise you will see the following error message or you will be forced to program the connection to the database yourself: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{service!provider} -->
 
