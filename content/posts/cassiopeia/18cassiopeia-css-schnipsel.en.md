@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-using-cassiopeia'
 syndication:
 shortTitle: 'short'
 date: 2022-03-02
-title: 'Joomla Standard Template Cassiopeia - CSS Snippets and WebAssetManager'
+title: 'Joomla Standard Template Cassiopeia - CSS Snippets, WebAssetManager and useful Settings'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/cassiopeia-css-schnipsel
@@ -84,3 +84,16 @@ $wa->registerAndUseStyle('template.custom', 'custom.css', ['weight' => '500', 'd
 ```
 
 > There is a `weight` option. This is a mechanism for sorting the order of the assets. In the file `/libraries/src/WebAsset/WebAssetManager.php` you will find the method `calculateOrderOfActiveAssets()` which refers to [Kahn's_algorithm](https://en.wikipedia.org/wiki/Topological_sorting#Kahn.27s_algorithm)
+
+## Settings
+
+### Frontend Editing
+
+#### The Images and Links tab for frontend editing<!-- \index{frontend editing!images and links} -->
+
+Joomla 4 allows authorized users to edit articles from the frontend. But by default, you don't see the "Images and Links" tab on the frontend editing. How to reach the display?
+
+- In the Joomla 4 administrator dashboard, go to "System" > "Setup" > "Global Configuration."
+- Click on "Articles" in the left column.
+- In the article options, click the "Edit Layout" tab and then click "Display". 
+- After saving, the "Images and Links" tab will be displayed in the frontend editing.

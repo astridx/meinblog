@@ -5,7 +5,7 @@ booklink: 'https://astrid-guenther.de/buecher/joomla-4-cassipeia-anwenden'
 syndication:
 shortTitle: 'short'
 date: 2022-03-02
-title: 'Joomla Standardtemplate Cassiopeia - CSS Schnipsel und WebAssetManager'
+title: 'Joomla Standardtemplate Cassiopeia - CSS Schnipsel, WebAssetManager und nützliche Einstellungen'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-css-schnipsel
@@ -85,3 +85,14 @@ $wa->registerAndUseStyle('template.custom', 'custom.css', ['weight' => '500', 'd
 
 > Es gibt eine Option `weight`. Dies ist ein Mechanismus zur Sortierung der Reihenfolge der Assets. In der Datei `/libraries/src/WebAsset/WebAssetManager.php` findest du die Methode `calculateOrderOfActiveAssets()`, die sich auf [Kahn's_algorithm](https://en.wikipedia.org/wiki/Topological_sorting#Kahn.27s_algorithm) bezieht.
 
+## Einstellungen
+
+### Frontend Editing
+
+#### Die Registerkarte "Bilder und Links" für die Bearbeitung im Frontend<!-- \index{Frontendbearbeitung!Bilder und Links} -->
+
+Joomla 4 erlaubt autorisierten Benutzern, Artikel vom Frontend aus zu bearbeiten. Aber standardmäßig sieht man die Registerkarte "Bilder und Links" nicht bei der Frontendbearbeitung. Wie erreicht man die Anzeige?
+- Wechsele im Joomla 4 Administrator-Dashboard zu "System" > "Einrichtung" > "Globale Konfiguration".
+- Klicke auf "Artikel" in der linken Spalte.
+- Klicke in den Artikeloptionen auf die Registerkarte "Layout bearbeiten" und dann auf "Anzeigen". 
+- Nach dem Speichern wird der Tabulator "Bilder und Links" bei der Frontendbearbeitung angezeigt.

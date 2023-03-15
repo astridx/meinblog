@@ -289,7 +289,7 @@ In the file `templateDetails.xml` the module positions are usually created and i
 
 ```
 
-> To ensure that the XML data belonging to the template is always loaded, the following is mandatory: The parameter `name` in the XML file and the name of the template directory must match. Both times, `facile` should be used in our example with the correct upper and lower case. Later, this also applies to the folder in the folder under `media`. Why this is so can be seen, for example, in the function `parseXMLTemplateFile` in the file `administrator/components/com_templates/src/Helper/TemplatesHelper.php`. <!-- \index{Template|XML} -->
+> To ensure that the XML data belonging to the template is always loaded, the following is mandatory: The parameter `name` in the XML file and the name of the template directory must match. Both times, `facile` should be used in our example with the correct upper and lower case. Later, this also applies to the folder in the folder under `media`. Why this is so can be seen, for example, in the function `parseXMLTemplateFile` in the file `administrator/components/com_templates/src/Helper/TemplatesHelper.php`. <!-- \index{Template!XML} -->
 
 What does this code mean exactly? XML documents should start with an [XML declaration](https://en.wikipedia.org/wiki/XHTML#XML_declaration)[^en.wikipedia.org/wiki/xhtml#xml_declaration], but they don't have to. We create the declaration and specify XML version and charset (utf-8) here `<?xml version="1.0" encoding="utf-8"?>`.
 
