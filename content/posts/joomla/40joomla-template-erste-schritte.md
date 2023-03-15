@@ -289,6 +289,10 @@ In der Datei `templateDetails.xml` werden in der Regel die Modulpositionen angel
 
 ```
 
+> Um sicherzustellen, dass die zum Template gehörenden XML-Daten immer geladen werden, ist folgendes zwingend erforderlich: Der Parameter `name` in der XML-Datei und der Name des Template-Verzeichnisses müssen übereinstimmen. Beide Male sollte in unserem Beispiel `facile` mit der entsprechenden Groß- und Kleinschreibung verwendet werden. Später gilt dies auch für den Ordner im Verzeichnis unter `media`. Warum das so ist, sieht man zum Beispiel an der Funktion `parseXMLTemplateFile` in der Datei `administrator/components/com_templates/src/Helper/TemplatesHelper.php`. <!-- \index{Template|XML} -->
+
+Hier werden die [tt]$template->xmldata[/tt] erstellt: https://github.com/joomla/joomla-cms/blob/ef06fa21435a4937b7df19d084f35affa517e677/administrator/components/com_templates/src/Service/HTML/Templates.php#L51
+
 Was bedeutet dieser Code genau? XML-Dokumente sollten mit einer [XML-Deklaration](https://de.wikipedia.org/wiki/XML-Deklaration)[^de.wikipedia.org/wiki/xml-deklaration] beginnen, sie müssen es jedoch nicht. Wir erzeugen die Deklaration und legen hier XML-Version und Zeichensatz (utf-8) fest `<?xml version="1.0" encoding="utf-8"?>`.
 
 Der weitere Teil der `templateDetails.xml` enthält Informationen für die Installation. Der Typ ist im Falle eines Templates `template`. Die `method="upgrade"` erlaubt es, das Template zu einem späteren Zeitpunkt über eine frühere Version zu installieren.

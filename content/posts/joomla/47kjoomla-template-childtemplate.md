@@ -186,6 +186,8 @@ Die Speicherorte der Mediendateien wurden geändert. Damit dies bei der Installa
  		<position>below-top</position>
 ```
 
+Wenn du Probleme hast und die Schaltfläche weiterhin das Kopieren und nicht das Vererben anbietet, stelle sicher, dass die korreten XML-Daten geladen sind. Das Folgende ist zwingend erforderlich: Der Parameter `name` in der XML-Datei und der Name des Template-Verzeichnisses müssen übereinstimmen. Beide Male sollte in unserem Beispiel `facile` mit der richtigen Groß- und Kleinschreibung verwendet werden. 
+
 ## Teste dein Joomla-Template
 
 1. Installiere dein Template in Joomla Version 4, um es zu testen: Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation. Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla passt bei der Installation die Datenbank für dich an.

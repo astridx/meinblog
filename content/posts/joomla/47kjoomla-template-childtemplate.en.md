@@ -186,6 +186,8 @@ The locations of the media files have been changed. To ensure that this is recog
  		<position>below-top</position>
 ```
 
+If you have problems and the button still offers to copy and not inherit, make sure that the correct XML data is loaded. The following is mandatory: The parameter `name` in the XML file and the name of the template directory must match. Both times `facile` should be used in our example with the correct upper and lower case. 
+
 ## Test your Joomla template
 
 1. Install your template in Joomla version 4 to test it: Copy the files in the `templates` folder into the `templates` folder of your Joomla 4 installation. Install your template as described in part one after copying all files. Joomla will adjust the database for you during the installation.
