@@ -49,3 +49,4 @@ tags:
 27. [Einen Ansprechpartner anzeigen](/cassiopeia-ansprechpartner)
 28. [Die Liste der Kontakte in einer Kategorie per Override getalten](/cassiopeia-override-kontaktliste)
 29. [TinyMCE Template](/cassiopeia-tiny-mce-template)
+30. [TinyMCE Template](/cassiopeia-footer)

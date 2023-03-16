@@ -50,3 +50,4 @@ tags:
 27. [Show a contact person](/en/cassiopeia-ansprechpartner)
 28. [Show a contact person](/en/cassiopeia-override-kontaktliste)
 29. [TinyMCE Template](/en/cassiopeia-tiny-mce-template)
+30. [TinyMCE Template](/en/cassiopeia-footer)

@@ -65,6 +65,16 @@ body {
 }
 ```
 
+#### Module auf Positionen untereinander darstellen
+
+Bei den [Modulpositionen](https://blog.astrid-guenther.de/cassiopeia-module-positionen/)[^blog.astrid-guenther.de/cassiopeia-module-positionen/] in Cassiopeia ist `display: flex` definiert. Deswegen werden die Module nebeneinander platziert. Wenn du in der Datei `/media/templates/site/cassiopeia/css/user.css` folgenden Code einfügst, werden die Module der Position `bottom-b` untereinander angezeigt.
+
+```css
+.container-bottom-b {
+  display: block;
+}
+```
+
 ## WebAssetManager
 
 Du hast ein Child Template oder eine Kopie von Cassiopeia angelegt und möchtest umfangreichere CSS-Änderungen vornehmen?<!-- \index{WebAssetManager} -->
@@ -91,7 +101,7 @@ $wa->registerAndUseStyle('template.custom', 'custom.css', ['weight' => '500', 'd
 
 #### Die Registerkarte "Bilder und Links" für die Bearbeitung im Frontend<!-- \index{Frontendbearbeitung!Bilder und Links} -->
 
-Joomla 4 erlaubt autorisierten Benutzern, Artikel vom Frontend aus zu bearbeiten. Aber standardmäßig sieht man die Registerkarte "Bilder und Links" nicht bei der Frontendbearbeitung. Wie erreicht man die Anzeige?
+Joomla 4 erlaubt autorisierten Benutzern, Artikel vom Frontend aus zu bearbeiten. Aber: standardmäßig sieht man die Registerkarte "Bilder und Links" nicht bei der Frontendbearbeitung. Wie erreicht man die Anzeige?
 - Wechsele im Joomla 4 Administrator-Dashboard zu "System" > "Einrichtung" > "Globale Konfiguration".
 - Klicke auf "Artikel" in der linken Spalte.
 - Klicke in den Artikeloptionen auf die Registerkarte "Layout bearbeiten" und dann auf "Anzeigen". 

@@ -65,6 +65,16 @@ body {
 }
 ```
 
+#### Display modules on positions below each other
+
+For the [module positions](https://blog.astrid-guenther.de/cassiopeia-module-positionen/)[^blog.astrid-guenther.de/cassiopeia-module-positionen/] in Cassiopeia `display: flex` is defined. That's why the modules are placed side by side. If you insert the following code in the file `/media/templates/site/cassiopeia/css/user.css`, the modules of the position `bottom-b` will be displayed below each other.
+
+```css
+.container-bottom-b {
+  display: block;
+}
+```
+
 ## WebAssetManager
 
 You have created a child template or a copy of Cassiopeia and want to make more extensive CSS changes?<!-- \index{WebAssetManager} -->

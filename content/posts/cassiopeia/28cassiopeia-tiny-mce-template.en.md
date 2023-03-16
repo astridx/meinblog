@@ -8,7 +8,7 @@ date: 2023-01-29
 title: 'Joomla 4 Cassiopeia - TinyMCE Template'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
-slug: cassiopeia-tiny-mce-template
+slug: en/cassiopeia-tiny-mce-template
 langKey: en
 categories:
   - Cassiopeia
