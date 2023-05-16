@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-07-29
+date: 2023-05-12
 title: 'Eine Joomla-Datenbank-Tabelle für deine Erweiterung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `#__foos_details`;
 > Vielleicht denkst du weiter und fragst dich schon jetzt, wie du potentielle zukünftige Datenbankänderungen handhabst. Was ist notwendig, um in einer späteren Version neben dem Namen auch den Vornamen zu speichern. SQL-Updates sind in Joomla namensbasiert. Genau bedeutet das: Für jede Version der Komponente ist eine Datei anzulegen, deren Name aus der Versionsnummer und der Dateiendung `.sql` besteht, falls sich Datenbankinhalte ändern. Praktisch wirst du dies im weiteren Verlauf dieses Tutorials erleben.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 Als nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns selbst um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an. Spezifisch sind beispielsweise die Namen der Datenbanktabelle und der Spalten.
 
@@ -194,7 +194,7 @@ Der mit Pluszeichen markierte Eintrag im Installationsmanifest bewirkt, dass die
 
 ##### Aktualisierungen<!-- \index{Datenbank!Aktualisierung} -->
 
-Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapitels bezüglich Aktualisierung vorweg. Wenn sich etwas ändert, reicht es aus, in der Datenbank nur die Änderungen vorzunehmen. Dabei sollte darauf geachtet werden, dass bestehende Daten nicht tangiert werden. Die Neuerungen speicherst du für jede Version deiner Erweiterung in einer separaten Datei ab. Das Verzeichnis, in dem die Dateien für die Aktualisierungen abzulegen sind, schreibst du in das `<update>`-Tag.
+Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapitels bezüglich Aktualisierung vorweg. Wenn sich in der Struktur der Datenban etwas ändert, reicht es aus, nur die Änderungen vorzunehmen. Dabei sollte darauf geachtet werden, dass bestehende Daten nicht tangiert werden. Die Neuerungen speicherst du für jede Version deiner Erweiterung in einer separaten Datei ab. Das Verzeichnis, in dem die Dateien für die Aktualisierungen abzulegen sind, schreibst du in das `<update>`-Tag.
 
 ```xml
   ...
@@ -216,7 +216,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 <!-- prettier-ignore -->
 #### administrator/components/com_foos/services/provider.php
 
-Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu setzten, jetzt ist es erforderlich. Andernfalls siehst du die folgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{Service!Provider} -->
+Bisher war es nicht notwendig die `MVCFactory` in der Datei `provider.php` zu setzten, jetzt ist es erforderlich. Andernfalls siehst du die folgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{Service!Provider} -->
 
 [administrator/components/com_foos/services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/services/provider.php)
 
@@ -239,7 +239,7 @@ Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu s
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 In der View sammeln wir am Ende alle Elemente. Hierzu rufen wir die Methode `$this->get('Items')` des Models auf:
 
@@ -266,7 +266,7 @@ In der View sammeln wir am Ende alle Elemente. Hierzu rufen wir die Methode `$th
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife, die alle Elemente durchläuft.
 

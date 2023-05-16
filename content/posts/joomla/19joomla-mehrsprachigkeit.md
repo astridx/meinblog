@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Mehrsprachigkeit - Multilinguale Sprachverknüpfungen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -505,7 +505,7 @@ abstract class RouteHelper
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Dies ist das Feld `name="language"`. Damit Joomla dieses Feld findet, fügen wir den Pfad in der Form `addfieldprefix= "FooNamespace\Component\Foos\Administrator\Field"` als Parameter im `<fieldset>` ein.
 
@@ -626,7 +626,7 @@ In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationSer
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Field/Modal/FooField.php
+#### administrator/components/com_foos/src/Field/Modal/FooField.php
 
 Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-Element mithilfe eines Popups auszuwählen. Jetzt verwenden wir es wieder, um eine Sprachverknüpfung zu selektieren. Damit nur die passenden Sprachen angezeigt werden, erweitern wir die URL um die Sprachinformation.
 
@@ -654,7 +654,7 @@ Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-El
 > Verwirren dich die Zeichen [`&#8212;`](https://unicode-table.com/de/2014/)[^unicode-table.com/de/2014/] oder [`&amp;`](https://unicode-table.com/de/0026/)[^unicode-table.com/de/0026/]? Die sind ganz harmlos. `&#8212;` ist nichts weiter als ein [Gedankenstrich](https://de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich)[de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich] `-`. `&amp;` steht für das kaufmännische Und-Zeichen `&`. In HTML steht letzteres für den Beginn einer Entity-Referenz. Somit ist es ein besonderes Zeichen. Wenn du ein solches Zeichen in einem Text nutzt der aus sicherheitsgründen überprüft wird, sollten du die kodierte Entität `&amp;` verwenden - mehr Technisches auf [w3c.org](https://www.w3.org/TR/xhtml1/guidelines.html#C_12)[^w3.org/tr/xhtml1/guidelines.html#c_12]. Beim Gedankenstrich `-` nutzen wir [Unicode](https://de.wikipedia.org/wiki/Unicode)[^de.wikipedia.org/wiki/unicode]. Ziel ist in diesem Fall, die Verwendung unterschiedlicher und inkompatibler Kodierungen in verschiedenen Ländern oder Kulturkreisen zu vereinheitlichen.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/src/Model/FooModel.php
 
 Das Model `administrator/components/com_foos/src/Model/FooModel.php`, mit dem Daten eines Elementes berechnet werden, passen wir bezüglich der Sprache an. Dabei spielen `getItem` und `preprocessForm` die wesentliche Rolle.
 
@@ -744,7 +744,7 @@ protected function loadFormData()
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 > Achtung: `FooModel.php` ist das Model welches die Daten für ein Element berechnet. `FoosModel.php` - beachte das `s` - ist das Model der Listenansicht - es behandelt Daten für eine Gruppe von Elementen.
 
@@ -914,7 +914,7 @@ Wir implementieren den Service `association` in `AdministratorService.php`. Übe
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foo/HtmlView.php
+#### administrator/components/com_foos/src/View/Foo/HtmlView.php
 
 Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht ist, setzen wir den Wert des Sprachauswahlfeldes und schützte es vor Schreibzugriff. Außerdem sind nur Kategorien dieser Sprache auswählbar.
 
@@ -941,7 +941,7 @@ Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nicht um eine Modalansicht oder ein Popup handelt. Falls die Ansicht modal ist, verwirren Toolbar und Sidebar. In dem Fall filtern wir die Items automatisch nach der gerade aktiven Sprache.
 
@@ -979,7 +979,7 @@ Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nich
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur Angabe der Sprache ein. Dazu verwenden wir das Layout `administrator/components/com_foos/tmpl/foo/edit_associations.php`, das wir zuvor in diesem Teil erstellten.
 
@@ -1038,7 +1038,7 @@ In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur A
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 In der Übersicht zur Komponenten im Administrationsbereich ergänzen wir Spalten, um die Sprachinformationen anzuzeigen. Diese Spalten zeigen wir lediglich an, wenn es erforderlich ist. Dies ist der Fall, wenn Sprachverknüpfungen und Mehrsprachigkeit aktiviert sind. Um dies herauszufinden nutzen wir die Joomla eigene Funktionen `Associations::isEnabled()` und `Multilanguage::isEnabled()`.
 

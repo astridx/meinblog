@@ -38,7 +38,7 @@ Wir nutzen bereits Layouts. Das Empty-State-Layout (`administrator/components/co
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/withhead.php
+#### components/com_foos/tmpl/foo/withhead.php
 
 [components/com_foos/tmpl/foo/withhead.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.php)
 
@@ -67,7 +67,7 @@ echo $this->item->event->afterDisplayContent;
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/withhead.xml
+#### components/com_foos/tmpl/foo/withhead.xml
 
 [components/com_foos/tmpl/foo/withhead.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withhead.xml)
 
@@ -103,7 +103,7 @@ echo $this->item->event->afterDisplayContent;
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/withheadandfoot.php
+#### components/com_foos/tmpl/foo/withheadandfoot.php
 
 [components/com_foos/tmpl/foo/withheadandfoot.php](https://codeberg.org/astrid/j4examplecode/src/branch/t20/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
@@ -137,7 +137,7 @@ echo $this->item->event->afterDisplayContent;
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 

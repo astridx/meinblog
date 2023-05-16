@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Publish and Unpublish / Hide'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -62,7 +62,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Controller/FoosController.php
+#### administrator/components/com_foos/src/Controller/FoosController.php
 
 Now Joomla needs the class `AdminController`. Therefore, we create the class `FoosController`, which inherits from `AdminController`. At the moment, `FoosController` does not contain any implementations of its own. The controller only calls methods of the parent class.
 
@@ -135,7 +135,7 @@ class FoosController extends AdminController
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Three fields are added to the form. One, in which the status is set and two, through which a scheduled publication is achieved with the help of a calendar.
 
@@ -234,7 +234,7 @@ The component class receives the new function 'getStateColumnForSection'. This i
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 We extend the model so that the information about the status is retrieved from the database when the list view is created for the backend.
 
@@ -253,7 +253,7 @@ We extend the model so that the information about the status is retrieved from t
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Table/FooTable.php
+#### administrator/components/com_foos/src/Table/FooTable.php
 
 In the file `administrator/components/com_foos/src/Table/FooTable.php`, which manages the database table, we add checks. This way we make sure that no impossible data is stored.
 
@@ -305,7 +305,7 @@ We need `store($updateNulls = true)` because the parent class `Table` sets the v
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 In the form for editing an element, we make sure that the new fields are rendered.
 
@@ -324,7 +324,7 @@ In the form for editing an element, we make sure that the new fields are rendere
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 Finally, we add to the overview list in the backend. We create a column for displaying the publication status.
 

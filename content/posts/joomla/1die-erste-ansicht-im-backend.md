@@ -459,7 +459,7 @@ return new class implements ServiceProviderInterface
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Controller/DisplayController.php
+#### administrator/components/com_foos/src/Controller/DisplayController.php
 
 Die Datei `DisplayController.php`<!-- \index{DisplayController (Backend)} --> ist der Einstiegspunkt für den Model-View-Controller-Teil des Administrationsbereichs der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen.
 
@@ -655,7 +655,7 @@ class AdministratorService
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 Die Ansicht `administrator/components/com_foos/src/View/Foos/HtmlView.php` definiert Objekte (Symbolleiste, Titel) und ruft das Modell (Daten) auf. Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird lediglich ein statischer Text angezeigt. Dies ändert sich bald! Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beteiligt ist beispielsweise der Controller, der die Ansicht aufruft. Den Controller erstellten wir im aktuellen Kapitel weiter vorne. In einem späteren Kapitel kommt das Modell hinzu, welches die Daten vorbereitet.
 
@@ -708,7 +708,7 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 Die Datei `default.php` ist das Template zum Rendern der Ansicht. Man erkennt diese weiterhin am Verzeichnisnamen `tmpl`. In ihr befindet sich der Text, den wir anzeigen. Im Moment betreiben wir den ganze Aufwand für die Ausgabe des Textes "Hello Foos".
 

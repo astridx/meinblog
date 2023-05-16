@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-07-31
+date: 2023-05-16
 title: 'Konfiguration'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -89,7 +89,7 @@ Die Ergänzung in der Datei `foos.xml` stellt sicher, dass die Datei `config.xml
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 Die Zeile `$toolbar->preferences('com_foos');` sorgt dafür, dass im Administrationsbereich rechts oben die Schaltfäche `Optionen` eingefügt wird. So ist die Konfiguration später im Backend unkompliziert erreichbar.
 
@@ -134,7 +134,7 @@ Die `populateState`-Methode stellt sicher, dass das `State`-Objekt korrekt befü
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 Zum Schluss ersetzen wir `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. Wir zeigen das Label nur an, wenn im Status der Parameter auf `true` oder `1` gesetzt ist.
 

@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-06
+date: 2022-08-05
 title: 'Add a Service - Routing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

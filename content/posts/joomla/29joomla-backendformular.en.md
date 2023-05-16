@@ -42,7 +42,7 @@ Nothing new
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 We replace the previously rudimentary form fields. The result is a view that resembles the normal Joomla extensions.
 

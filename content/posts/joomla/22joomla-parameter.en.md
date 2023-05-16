@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-02
+date: 2023-05-17
 title: 'Parameters'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -80,10 +80,11 @@ In the configuration, the parameter is saved to set a default value. We add a fi
 +
 +		<field
 +			name="show_name"
-+			type="radio"
++			type="list"
 +			label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
 +			default="1"
-+			layout="joomla.form.field.radio.switcher"
++     		class="form-select-color-state"
++    		validate="options"
 +			>
 +			<option value="0">JHIDE</option>
 +			<option value="1">JSHOW</option>
@@ -94,7 +95,7 @@ In the configuration, the parameter is saved to set a default value. We add a fi
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 In the form we use to edit an element, we add the `params` field. So `show_name` is also configurable for a single element.
 
@@ -111,6 +112,8 @@ In the form we use to edit an element, we add the `params` field. So `show_name`
 +				type="list"
 +				label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
 +				useglobal="true"
++     			class="form-select-color-state"
++    			validate="options"
 +			>
 +				<option value="0">JHIDE</option>
 +				<option value="1">JSHOW</option>
@@ -139,7 +142,7 @@ To create the column where the parameters will be stored during a new installati
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Table/FooTable.php
+#### administrator/components/com_foos/src/Table/FooTable.php
 
 In the class that handels the table, we make sure that the parameters are stored in the correct form. We use the [registry design pattern](https://martinfowler.com/eaaCatalog/registry.html)[^martinfowler.com/eaacatalog/registry.html]. <!-- \index{design pattern!Registy} --> This uses the ability to override properties [in PHP](http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members). We add properties using
 
@@ -179,6 +182,38 @@ $foo = $registry->foo;
  		return parent::store($updateNulls);
  	}
  }
+```
+
+
+
+
+<!-- prettier-ignore -->
+#### components/com_foos/src/Model/Foo/FooModel.php
+
+<!-- todo Model is now modified too -->
+
+[components/com_foos/src/Model/Foo/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/src/Model/Foo/FooModel.php)
+
+```php {diff}
+ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+ use Joomla\CMS\Language\Text;
++use Joomla\CMS\Application\SiteApplication;
++use Joomla\CMS\Component\ComponentHelper;
++use Joomla\Registry\Registry;
+ 
+ /**
+  * Foo model for the Joomla Foos component.
+class FooModel extends BaseDatabaseModel
+                                        throw new \Exception(Text::_('COM_FOOS_ERROR_FOO_NOT_FOUND'), 404);
+                                }
+ 
++                               $registry = new Registry($data->params);
++
++                               $data->params = clone $this->getState('params');
++                               $data->params->merge($registry);
++
+                                $this->_item[$pk] = $data;
+
 ```
 
 <!-- prettier-ignore -->
@@ -235,7 +270,7 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 At the end we use the parameter when handling the display in the template `components/com_foos/tmpl/foo/default.php`. If there is the parameter and it is set that the name should be displayed `if ($this->item->params->get('show_name'))`, then the name will be displayed. The label `$this->params->get('show_foo_name_label')` will also be displayed only in that case:
 
@@ -261,7 +296,7 @@ At the end we use the parameter when handling the display in the template `compo
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.xml
+#### components/com_foos/tmpl/foo/default.xml
 
 [components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/tmpl/foo/default.xml)
 

@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-02
+date: 2023-05-17
 title: 'Filter, Sort, Search'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -36,7 +36,7 @@ Filtering, sorting and searching - now we organize the Joomla 4 component! Jooml
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/filter_foos.xml
+#### administrator/components/com_foos/forms/filter_foos.xml
 
 First, we create the form through which the filters will be set.
 
@@ -171,7 +171,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 The form used to create or modify an element is extended with a field for specifying the order.
 
@@ -211,7 +211,7 @@ In case of a new installation, the script in the file `install.mysql.utf8.sql` c
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 There are a lot of changes in the model for the list. In the constructor we first save the filter fields to the configuration.
 
@@ -335,7 +335,7 @@ In the `getListQuery()` method we adjust the database query to respect the filte
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 The view loads the filter form `src/administrator/components/com_foos/forms/foo.xml`, which is displayed in the upper area. Besides we add here the check if the active user is allowed to perform actions.
 
@@ -423,7 +423,7 @@ The view loads the filter form `src/administrator/components/com_foos/forms/foo.
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 The code below shows all the essentials for using `searchtools` in the list view of the backend.
 In the case of the header, I replaced `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?>` with `<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'access_level', $listDirn, $listOrder); ?>`. This way the header of the table is marked with a small arrow when a sort is active in a column.
@@ -557,7 +557,7 @@ was introduced to Joomla 4.2 via PR 36591[^github.com/joomla/joomla-cms/pull/365
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/modal.php
+#### administrator/components/com_foos/tmpl/foos/modal.php
 
 Icons show us if a column is sorted and in which direction. To make the sorting clear to someone who doesn't see these markers, we add a `<caption>` element. This is not displayed, it is read out.
 

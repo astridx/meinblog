@@ -27,7 +27,7 @@ tags:
 
 
 
-## Sollte ich Cassiopeia oder eine Joomla-Vorlage eines Drittanbieters verwenden?
+## Sollte ich Cassiopeia oder ein Joomla Template eines Drittanbieters verwenden?
 
 Das Cassiopeia Template ist das Frontend-Template, das standardmäßig in einer Joomla 4-Installation enthalten ist. Cassiopeia ist eine unkomplizierte Vorlage. Es ist responsiv. Das bedeutet, dass es den Inhalt auf verschiedenen Geräten korrekt anzeigt. Außerdem ist es barrierefrei.
 
@@ -93,5 +93,7 @@ Informiere dich, bevor du Templates von Drittanbietern installierst.
 - Gibt es Support für das Template?
 - Gibt es ein Forum zur Klärung etwaiger Probleme?
 - Wird der Anbieter des Templates das Template an neue Versionen von Joomla anpassen?
+
+> Wer war Cassiopeia? Cassiopeia war eine Figur aus der griechischen Mythologie. Sie war die Königin von Äthiopien und die Frau von König Cepheus. Cassiopeia war für ihre Schönheit und ihre Arroganz bekannt. Eines Tages rühmte sie sich, dass ihre Schönheit größer sei als die der Meeresnymphe Nereiden, was diese sehr erzürnte. Als Strafe für ihre Überheblichkeit wurde Cassiopeia von Poseidon dazu verurteilt, an den Himmel gekettet zu werden und dort für immer als Sternbild zu erscheinen. Das Sternbild, das ihren Namen trägt, ist eine der markantesten Sternformationen am Nachthimmel und sieht aus wie der Buchstabe "W" oder "M", je nachdem, aus welchem Winkel man es betrachtet.
 
 <img src="https://vg04.met.vgwort.de/na/9f0eb5b645a94bca8af59b83e00c9f19" width="1" height="1" alt="">

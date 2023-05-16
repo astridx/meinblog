@@ -45,7 +45,7 @@ tags:
 22. [Bootstrap 5 Navbar in Cassiopeia](/en/cassiopeia-how-to-make-navbar-bootstrap)
 23. [Accessible navigation in Cassiopeia](/en/cassiopeia-how-to-make-navbar-keyboard-accessible)
 24. [Bootstap 5 Accordion in Cassiopeia](/en/cassiopeia-module-accordion)
-25. [Bootstap 5 Accordion in Cassiopeia](/en/cassiopeia-module-carousel)
+25. [Bootstap 5 Carousel in Cassiopeia](/en/cassiopeia-module-carousel)
 26. [Gallery in Cassiopeia](/en/cassiopeia-module-gallery)
 27. [Show a contact person](/en/cassiopeia-ansprechpartner)
 28. [Show a contact person](/en/cassiopeia-override-kontaktliste)

@@ -77,6 +77,8 @@ Das Standard-Styling für das Cassiopeia Template hat keinen Rand. Kopfzeile, Na
 
 ### Sidebar
 
+Links und rechts vom Hauptinhalt befinden sich Seitenleisten. Diese werden beide nach unten verschoben, wenn die Anzeigegröße kleiner als 992 Pixel ist.
+
 ```
 ...
 	<?php if ($this->countModules('sidebar-right', true)) : ?>
@@ -87,5 +89,4 @@ Das Standard-Styling für das Cassiopeia Template hat keinen Rand. Kopfzeile, Na
 ...
 ```
 
-Wir können dies testen, indem wir die Größe des Bildschirmfensters verringern.
 <img src="https://vg04.met.vgwort.de/na/ff44e27f52c04ba1be1abbff38ccff47" width="1" height="1" alt="">

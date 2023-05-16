@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Kategorien im Backend einrichten'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -100,7 +100,7 @@ Der Eintrag `<menu link="option=com_ categories&amp;extension=com_foos"` bewirkt
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Das Formular, mit dem ein Foo-Item angelegt wird, ergänzen wir um ein Auswahlfeld mit passenden Kategorien. Wir nutzen hierzu das Joomla eigene Feld `categoryedit`. Beachte die Zeile `extension="com_foos"`. Diese bewirkt, dass ausschließlich Kategorien angezeigt werden, die zur Komponente `com_foos` gehören.
 
@@ -338,7 +338,7 @@ Zusätzlich sind in der Komponentenklasse Implementierungen erforderlich, um die
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 Im Model fügen wir bei der Datenbankabfrage die Tabelle hinzu, in der Joomla Kategorien speichert. So werden im Administrationsbereich bei Auswahl einer Kategorie nur die zu dieser gehörenden Elemente angezeigt.
 
@@ -371,7 +371,7 @@ Im Model fügen wir bei der Datenbankabfrage die Tabelle hinzu, in der Joomla Ka
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 Das Formular zum Editieren eines Elements ergänzen wir um das Kategorie-Feld. Es wird mithilfe der Angaben im XML-Formular `administrator/components/com_foos/forms/foo.xml` gerendert, welches wir vorher hier im Kapitel bearbeitet haben.
 
@@ -389,7 +389,7 @@ Das Formular zum Editieren eines Elements ergänzen wir um das Kategorie-Feld. E
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 In der Übersichtstabelle der Ansicht im Backend fügen wir eine Spalte für die Anzeige der Kategorie hinzu.
 

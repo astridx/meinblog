@@ -293,7 +293,7 @@ Eine Liste von Foos: `curl -X GET /api/index.php/v1/foos`
 Ein einzelnes Foo-Element: `curl -X GET /api/index.php/v1/foos/{foo_id}`  
 Lösche ein Foo Element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
-Bei den nachfolgenden Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin (Base64: YWRtaW46YWRtaW4=)`, lauten. Ändere diese Angaben gegebenenfalls.
+Bei den nachfolgenden Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `adminadminadmin (Base64: YWRtaW5hZG1pbmFkbWluOmFkbWluYWRtaW5hZG1pbg==)`, lauten. Ändere diese Angaben gegebenenfalls.
 
 ### curl.haxx.de
 
@@ -304,7 +304,7 @@ Nutzt du [Curl](https://curl.haxx.se/)[^curl.haxx.se]? Die folgende Abfrage list
 ```
 curl --location --request GET 'http://localhost/joomla-cms4/api/index.php/v1/foos' \
 --header 'Accept: application/vnd.api+json' \
---header 'Authorization: Basic YWRtaW46YWRtaW4='
+--header 'Authorization: Basic YWRtaW5hZG1pbmFkbWluOmFkbWluYWRtaW5hZG1pbg=='
 ```
 
 Das Ausgabeformat ist JSON und sieht beispielsweise wie folgt aus:
@@ -352,8 +352,24 @@ Das Ausgabeformat ist JSON und sieht beispielsweise wie folgt aus:
 Das Mitgeben der Anmeldeinformationen ist zwingend. Zusammen sieht der Aufruf in einer Konsole wie folgt aus:
 
 ```
-$ curl -X GET http://localhost/t30j4dev/api/index.php/v1/foos --header 'Accept: application/vnd.api+json' --header 'Authorization: Basic YWRtaW46YWRtaW4='
-{"links":{"self":"http:\/\/localhost\/t30j4dev\/api\/index.php\/v1\/foos"},"data":[{"type":"foos","id":"2","attributes":{"id":"2","name":"Astrid","catid":"0"}},{"type":"foos","id":"3","attributes":{"id":"3","name":"Elmar","catid":"0"}},{"type":"foos","id":"1","attributes":{"id":"1","name":"Nina","catid":"0"}}],"meta":{"total-pages":1}}
+$ curl -X GET -H 'Authorization: Basic YWRtaW5hZG1pbmFkbWluOmFkbWluYWRtaW5hZG1pbg==' -i 'http://localhost/joomla-cms4/api/index.php/v1/foos'
+HTTP/1.1 200 OK
+Date: Tue, 16 May 2023 20:34:34 GMT
+Server: Apache/2.4.54 (Unix) OpenSSL/1.1.1o
+x-frame-options: SAMEORIGIN
+referrer-policy: strict-origin-when-cross-origin
+cross-origin-opener-policy: same-origin
+X-Powered-By: JoomlaAPI/1.0
+Expires: Wed, 17 Aug 2005 00:00:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Upgrade: h2,h2c
+Connection: Upgrade
+Last-Modified: Tue, 16 May 2023 20:34:34 GMT
+Transfer-Encoding: chunked
+Content-Type: application/vnd.api+json; charset=utf-8
+
+{"links":{"self":"http:\/\/localhost\/joomla-cms\/api\/index.php\/v1\/foos"},"data":[{"type":"foos","id":"2","attributes":{"id":2,"name":"Astrid","catid":8}},{"type":"foos","id":"3","attributes":{"id":3,"name":"Elmar","catid":0}},{"type":"foos","id":"1","attributes":{"id":1,"name":"Nina","catid":0}}],"meta":{"total-pages":1}}
 ```
 
 ### postman.com
@@ -364,7 +380,7 @@ Nutzt du postman.com? Dann ist meine [Kollektion](https://github.com/astridx/boi
 
 #### Firefox Addon
 
-Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^addons.mozilla.org/en-us/firefox/addon/restclient] in Firefox.
+Ich nutze gerne [dieses Addon](https://addons.mozilla.org/de/firefox/addon/restclient/)[^addons.mozilla.org/de/firefox/addon/restclient] in Firefox.
 
 ## Links
 

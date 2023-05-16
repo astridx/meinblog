@@ -232,7 +232,7 @@ class Icon
 <!-- \index{slug} -->
 
 <!-- prettier-ignore -->
-#### components/com_foos/ forms/foo.xml
+#### components/com_foos/forms/foo.xml
 
 We adapt the XML file that Joomla uses to build the form.
 
@@ -1046,7 +1046,7 @@ instead of this
 If the authorisation check fails, you are immediately redirected to the registration form.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/form/edit.php
+#### components/com_foos/tmpl/form/edit.php
 
 As a template, `components/com_foos/tmpl/form/edit.php` ensures that the form is already displayed in the frontend.
 
@@ -1124,7 +1124,7 @@ $this->useCoreUI = true;
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/form/edit.xml
+#### components/com_foos/tmpl/form/edit.xml
 
 Last but not least we need the file `components/com_foos/tmpl/form/edit.xml` to create the menu item.
 
@@ -1161,7 +1161,7 @@ In the file `administrator/components/com_foos/src/Extension/FoosComponent.php` 
 ```php {diff}
  defined('JPATH_PLATFORM') or die;
 
-+use Joomla\CMS\Application\SiteApplication;
++use Joomla\CMS\Application\UserFactoryInterface;
  use Joomla\CMS\Association\AssociationServiceInterface;
  use Joomla\CMS\Association\AssociationServiceTrait;
  use Joomla\CMS\Categories\CategoryServiceInterface;
@@ -1177,7 +1177,7 @@ In the file `administrator/components/com_foos/src/Extension/FoosComponent.php` 
  	public function boot(ContainerInterface $container)
  	{
  		$this->getRegistry()->register('foosadministrator', new AdministratorService);
-+		$this->getRegistry()->register('fooicon', new Icon($container->get(SiteApplication::class)));
++		$this->getRegistry()->register('fooicon', new Icon($container->get(UserFactoryInterface::class)));
  	}
 
  	/**
@@ -1185,7 +1185,7 @@ In the file `administrator/components/com_foos/src/Extension/FoosComponent.php` 
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 We extend the template for the view: If you are allowed to edit the element `if ($canEdit)`, then you see the icon to open the form.
 

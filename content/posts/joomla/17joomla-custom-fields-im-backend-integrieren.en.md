@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Integrate Custom Fields in Backend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -143,7 +143,7 @@ In the navigation menu on the left in the Joomla administration area we add two 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/src/Model/FooModel.php
 
 The form through which a Foo element can be edited now has tabs. To ensure that the data is not lost within the session when switching between tabs, we change the `loadFormData()` method in the file `administrator/components/com_foos/src/Model/FooModel.php`. It is not necessary that we cache data ourselves. The method `$app->getUserState()` does this for us. At the same time we make sure that a default value is set for the category if a new element is loaded and therefore `$this->getState('foo.id') == 0` equals `true`.
 
@@ -172,7 +172,7 @@ The form through which a Foo element can be edited now has tabs. To ensure that 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 To make editing the custom fields work the same way as in Joomla's own extensions, we use UiTab[^libraries/src/html/helpers/uitab.php]. `$this->useCoreUI = true;` ensures that the Helper[^layouts/joomla/edit/params.php#l20] flexibly provides the correct tab implementation.
 

@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-07-31
+date: 2023-05-16
 title: 'Configuration'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -36,7 +36,7 @@ Are there things you plan to offer configurable? Then this part is important for
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ config.xml
+#### administrator/components/com_foos/config.xml
 
 We add the `config.xml` file. This implements the configuration parameters. In this XML file you can use all [standard form field types](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] as usual or implement your own types analogous to the already created modal field FieldFoo.
 
@@ -89,7 +89,7 @@ The addition in the `foos.xml` file ensures that the `config.xml` file is copied
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 The line `$toolbar->preferences('com_foos');` ensures that the button `Options' is inserted at the top of the administration area. This way, the configuration is easily accessible later in the backend.
 
@@ -134,7 +134,7 @@ The `populateState` method ensures that the `State` object is correctly filled a
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 Finally, we replace `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. We only show the label if in the status the parameter is set to `true` or `1`.
 

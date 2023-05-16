@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-07-22
+date: 2023-05-11
 title: 'Den Menüpunkt mit einer Variablen erweitern'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -122,7 +122,7 @@ Mögliche Datentypen für die Filterung sind:
 Soweit, so gut. Es fehlt noch die Möglichkeit, den Wert für `show_text` beim Menüpunkt im Backend zu konfigurieren. Diese implementieren wir jetzt in der Datei `default.xml`.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.xml
+#### components/com_foos/tmpl/foo/default.xml
 
 Du bietest in deiner Erweiterung die Möglichkeit einen Wert beim Menüpunkt zu speichern, indem du die XML-Datei um ein Inputelement erweiterst. Der nachfolgende Code zeigt dir, wie du ein Eingabefeld für Text hinzufügst.
 

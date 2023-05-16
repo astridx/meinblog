@@ -31,6 +31,23 @@ tags:
 
 Du möchtest das Cassiopeia Templates in Joomla in der Darstellung geringfügig abändern? Dieses Ziel kann mithilfe der Datei `user.css` erreicht werden. In diesem Teil findest du Codeschnipsel für unkomplizierte Anwendungsfälle.<!-- \index{CSS} -->
 
+### Linke Seiteleiste auf schmalen Displays oberhalb des Hauptinhalts anzeigen
+
+Auf Bildschirmen, die schmaler als 992px sind, werden die Module der linken Seitenleiste unterhalb des Inhalts angezeigt. Mit dem folgenden Codeschnipsel kann man sie vor dem Hauptinhalt erscheinen lassen.
+
+```css
+@supports (display: grid) {
+    .site-grid {
+        grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". side-l side-l side-l side-l ." ". comp comp comp comp ." ". side-r side-r side-r side-r ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
+   }
+   @media (min-width: 992px) {
+    .site-grid {
+      grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". side-l comp comp side-r ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
+    }
+  }
+}
+```
+
 ### Den Nach-oben-Link in Cassiopeia so konfigurieren, dass dieser immer sichtbar ist
 
 Füge den nachfolgenden Code in die Datei `user.css` ein, wenn es dein Ziel ist, den `Nach-oben-Link` in Cassiopeia so zu konfigurieren, dass dieser immer sichtbar ist und nicht erst am Ende der Seite.<!-- \index{CSS!back to top} --><!-- \index{back to top} --><!-- \index{Nach-oben-Link} -->

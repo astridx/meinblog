@@ -4,8 +4,8 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2021-01-12
-title: 'Modules - Namespace and Helper'
+date: 2023-05-16
+title: 'Modules - Parameter'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-module-parameter
@@ -46,13 +46,13 @@ In this part, only files have been changed. There are no new files.
 #### Module
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ language/en-GB/en-GB.mod_foo.ini
+##### modules/mod_foo/language/en-GB/mod_foo.ini
 
 The labelling of the parameter in the backend should adapt to the active language. For this reason we use the language file.
 
 > Are you wondering about the prefix `COM_` in `COM_MODULES_FOOPARAMS_FIELDSET_LABEL`? The language string is automatically created by Joomla because a fieldset called `fooparams` is added.
 
-[modules/mod_foo/ language/en-GB/en-GB.mod_foo.ini](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+[modules/mod_foo/ language/en-GB/mod_foo.ini](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/mod_foo.ini)
 
 ```php {diff}
 MOD_FOO="[PROJECT_NAME]"
@@ -63,22 +63,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.php
-
-In the module's initial file `modules/mod_foo/ mod_foo.php`, we check which value the parameter is set to and store it in a variable. This way, uncomplicated access is possible later.
-
-[modules/mod_foo/ mod_foo.php](https://codeberg.org/astrid/j4examplecode/src/branch/183694b03393699bf3af10f5dd0207188a97cb31/src/modules/mod_foo/mod_foo.php)
-
-```php {diff}
-$test  = FooHelper::getText();
-
-+$url = $params->get('domain');
-+
- require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
-```
-
-<!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.xml
+##### modules/mod_foo/mod_foo.xml
 
 In the manifest we add the new parameter so that it is editable in the Joomla backend.
 
@@ -111,7 +96,7 @@ In addition to the parameters that a developer inserts into his module, there ar
 ![Joomla Module Parameters](/images/j4x38x1.png)
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/tmpl/default.php
+##### modules/mod_foo/tmpl/default.php
 
 In the module's own template file, we can now access the value of the parameter. In the following example, we output the value as text. Usually a parameter is used in a more complex way, for example within control structures such as if-statements or loops.
 
@@ -124,6 +109,45 @@ In the module's own template file, we can now access the value of the parameter.
 
 -echo '[PROJECT_NAME]' . $test;
 +echo '[PROJECT_NAME]' . $test . '<br />' . $url;
+
+```
+
+<!-- prettier-ignore -->
+##### modules/mod_foo/src/Dispatcher/Dispatcher.php
+
+The `Dispatcher` collects the variables that we can use later in the module layout `tmpl/default.php`. Here we see add the parameter.
+
+```php {diff}
+
+     {
+         $data = parent::getLayoutData();
+ 
+-        $data['text'] = $this->getHelperFactory()->getHelper('FooHelper')->getText();
++        $data['text'] = $this->getHelperFactory()->getHelper('FooHelper')->getText($data['params']);
+ 
+         return $data;
+     }
+```
+
+<!-- prettier-ignore -->
+##### modules/mod_foo/src/Helper/FooHelper.php
+
+```php {diff}
+ namespace FooNamespace\Module\Foo\Site\Helper;
+ 
++use Joomla\Registry\Registry;
++
+ \defined('_JEXEC') or die;
+ 
+-       public function getText()
++       public function getText(Registry $params)
+        {
+-               return ' FooHelpertest';
++               $url = $params->get('domain', '-');
++
++               return ' FooHelpertest: ' . $url;
+        }
+ }
 
 ```
 

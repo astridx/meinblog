@@ -180,6 +180,8 @@ Via System Plugin schreibe ich die notwendigen Informationen in den `head` der W
 <link rel="pingback" href="https://webmention.io/username/xmlrpc" />
 ```
 
+<!-- todo, nur in html laden. -->
+
 ###### Task Plugin
 
 Via Task Plugin hole ich einmal täglich Webmentions von `https://webmention.io` ab und speichere sie in einer Datei. Hierfür ist ein Token `https://webmention.io`  erforderlich, welches ich per Parameter in den Einstellungen zum Plugin einfüge.

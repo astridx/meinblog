@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-07-21
+date: 2023-05-10
 title: 'The M in MVC: Model'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -121,7 +121,7 @@ We get the data of the model in the view with `$this->msg = $this->get('Msg');`.
 > You may be confused by the call `$this->get('Msg');` as I was when I first started using Joomla. The method in the model is called `getMsg()`, but we call it here via `get('Msg')`. Somehow that doesn't fit. If you have dealt with object oriented programming before, you are tempted to call it via `getMsg()`. If you are using Joomla, you will have an easier time using things the way they are prepared. You call [Getter](https://en.wikipedia.org/wiki/Mutator_method)[^en.wikipedia.org/wiki/mutator_method] in the model via the method `get()` with the appropriate parameter.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 We output the data via the template. Here, everything will be packed into HTML tags later.
 

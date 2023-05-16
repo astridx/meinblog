@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-07-13
+date: 2023-03-29
 title: 'Die erste Ansicht im Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -112,7 +112,7 @@ class DisplayController extends BaseController
 
 Im Moment ist die Ansicht unserer Komponente einfach gehalten. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!
 
-Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellten wir vorher im aktuellen Kapitel. Später kommt ein spezielles Modell hinzu, welches die Daten vorbereitet. Momentan nutzen wir das Model der Elternklassen, weil wir auf Joomla Standard aufbauen. Die Datei `HtmlView.php` ruft das vererbte Modell auf, um die Daten für die Ansicht vorzubereiten.
+Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellten wir vorher im aktuellen Kapitel. Später kommt ein spezielles Modell hinzu, welches die Daten vorbereitet. Momentan nutzen wir das Model der Elternklassen, weil wir auf Joomla Standard aufbauen. Die Elternklasse `BaseHtmlView` von `HtmlView.php` arbeitet mit dem Joomla-Standardmodell zusammen, um die Daten für die Ansicht aufzubereiten. Es ist noch nicht nötig, das an dieser Stelle selbst zu codieren. Der folgende kurze Codeschnipsel reicht aus, um eine Anzeige im Frontend zu generieren.
 
 [components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/View/Foo/HtmlView.php)
 
@@ -158,18 +158,18 @@ class HtmlView extends BaseHtmlView
 
 ##### Protokollierung und Fehlersuche
 
-Die Joomla-Protokollierung bietet die Möglichkeit, Meldungen in einer Datei und auf dem Bildschirm zu protokollieren. Bei der Anzeige Computer-Bildschirm findest du diese innerhalb der Joomla-Debug-Konsole<!-- \index{Debug Konsole} --><!-- \index{Logging} --><!-- \index{Protokollierung} --><!-- \index{Fehlersuche} --> am unteren Rand der Webseite, wenn das Debugging aktiv ist. Diese Funktion ist beim Entwickeln unter Umständen hilfreich, deshalb erwähne ich sie hier. Der Eintrag `Log::add('Log me.', Log::DEBUG);` bewirkt eine Zeile in der Logdatei. Wichtig ist dabei, dass im Kopf der Datei mit `use Joomla\CMS\Log\Log;` die notwendigen Funktionen geladen werden. Die nachfolgenden Bilder zeigt, wo die Protokollierung im Joomla Backend eingestellt wird und die Debuganzeige aktiviert wird.
+Die Joomla-Protokollierung bietet die Möglichkeit, Meldungen in einer Datei und auf dem Bildschirm zu protokollieren. Bei der Anzeige am Computer-Bildschirm findest du diese innerhalb der Joomla-Debug-Konsole<!-- \index{Debug Konsole} --><!-- \index{Logging} --><!-- \index{Protokollierung} --><!-- \index{Fehlersuche} --> am unteren Rand der Webseite, wenn das Debugging aktiv ist. Diese Funktion ist beim Entwickeln unter Umständen hilfreich, deshalb erwähne ich sie hier. Der Eintrag `Log::add('Log me.', Log::DEBUG);` bewirkt eine Zeile in der Logdatei. Wichtig ist dabei, dass im Kopf der Datei mit `use Joomla\CMS\Log\Log;` die notwendigen Funktionen geladen werden. Die nachfolgenden Bilder zeigt, wo die Protokollierung im Joomla Backend eingestellt wird und die Debuganzeige aktiviert wird.
 
 ![Einstellungen zur Protokollierung im Joomal Backend](/images/j4x3x2.png)
 
 ![Aktivierung der Debug Anzeige im Joomal Backend](/images/j4x3x2a.png)
 
-> Wir nutzen die Datei hier nicht, nur weil es passt ein Hinweis: Die Datei `libraries/src/Log/DelegatingPsrLogger.php` wird in Joomla 5 final und kann nicht weiter überschrieben werden. Siehe PR 39134[^github.com/joomla/joomla-cms/pull/39134].
+> Wir nutzen die Datei hier nicht. Vielleicht schaust du aber schon über den Tellerrand. Deshalb hier ein Hinweis: Die Datei `libraries/src/Log/DelegatingPsrLogger.php` wird in Joomla 5 final und kann nicht weiter überschrieben werden. Siehe PR 39134[^github.com/joomla/joomla-cms/pull/39134].
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
-Die Datei `components/com_foos/ tmpl/foo/default.php` beinhaltet den Text, welchen wir anzeigen. Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier ebenfalls zu.
+Die Datei `components/com_foos/tmpl/foo/default.php` beinhaltet den Text, welchen wir anzeigen. Alles was ich im Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier ebenfalls zu.
 
 [components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
 
@@ -220,7 +220,7 @@ Diese Datei war nur ein Behelf und sie wird nun gelöscht.
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere am Ende deine Komponente in Joomla Version 4, um sie zu testen. Führe eine neue Installation durch. Dies ist erforderlich, da die neuen Dateien im Frontend sonst nicht erkannt werden. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut. Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla richtet Während der Installation die Namespaces im Frontend für dich ein.
+1. Installiere am Ende deine Komponente in Joomla Version 4, um sie zu testen. Führe eine neue Installation durch. Dies ist erforderlich, da die neuen Dateien im Frontend sonst nicht erkannt werden. Vor der Neuinstallation kann man auch versuchen, ob es ausreicht die Datei `/joomla-cms/administrator/cache/autoload_psr4.php` zu löschen. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut. Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla richtet Während der Installation die Namespaces im Frontend für dich ein.
 
 2. Öffne dann in einem Browser die Adresse `JOOMLA4/index.php?option=com_foos&view=foo`. Du siehst die eben erstelle Frontend-Ansicht.
 

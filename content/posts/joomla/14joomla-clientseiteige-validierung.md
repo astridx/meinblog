@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Clientseitige Validierung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -103,7 +103,7 @@ Im Installationsmanifest fügen wir `<filename>joomla.asset.json</filename>` ein
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 Der Eintrag `->useScript('com_foos.admin-foos-letter');` sorgt dafür, dass die JavaScript-Datei `media/com_foos/js/admin-foos-letter.js`, welche für das Prüfen zuständig ist, über den [Webasset-Manager](https://docs.joomla.org/J4.x:Web_Assets/de) anwendbar ist. Dazu werden wird sie später in diesem Kapitel über die Datei `joomla.asset.json` registrieren.
 
@@ -123,7 +123,7 @@ Der Eintrag `->useScript('com_foos.admin-foos-letter');` sorgt dafür, dass die 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Wir ergänzen `class="validate-letter"`, damit Joomla weiß, welche CSS-Klasse zu prüfen ist. Diese Klasse setzt Joomla beim Anlegen des Feldes. Überzeuge dich selbst davon, indem du das Formular im Backend öffnest und dir den Quellcode ansiehst.
 

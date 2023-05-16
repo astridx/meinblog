@@ -36,7 +36,7 @@ Extensive Joomla Core extensions have a dashboard in which related functions are
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ presets/foos.xml
+#### administrator/components/com_foos/presets/foos.xml
 
 In the file `administrator/components/com_foos/presets/foos.xml` we define what is displayed on the dashboard by default.
 

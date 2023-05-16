@@ -36,7 +36,7 @@ Umfangreiche Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zus
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ presets/foos.xml
+#### administrator/components/com_foos/presets/foos.xml
 
 In der Datei `administrator/components/com_foos/presets/foos.xml` legen wir fest, was standardmäßig auf dem Dashboard angezeigt wird.
 

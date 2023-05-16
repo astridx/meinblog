@@ -31,6 +31,23 @@ tags:
 
 You would like to slightly change the display of the Cassiopeia templates in Joomla? This can be achieved with the help of the file `user.css`. In this article you will find code snippets for uncomplicated use cases. <!-- \index{CSS} -->
 
+### Show left sidebar on small displays above main content
+
+On a small screen (e.g. smartphone) the modules of the left sidebar are displayed below the content. With the following code snippet you can make them appear in front of the main content.
+
+```css
+@supports (display: grid) {
+    .site-grid {
+        grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". side-l side-l side-l side-l ." ". comp comp comp comp ." ". side-r side-r side-r side-r ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
+   }
+   @media (min-width: 992px) {
+    .site-grid {
+      grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". side-l comp comp side-r ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
+    }
+  }
+}
+```
+
 ### Configure the up link in Cassiopeia so that it is always visible
 
 Add the following code to the `user.css` file if your goal is to configure the `up-link` in Cassiopeia so that it is always visible and not only at the end of the page.<!-- \index{CSS!back to top} --><!-- \index{back to top} -->

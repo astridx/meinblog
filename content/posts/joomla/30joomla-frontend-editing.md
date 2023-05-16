@@ -232,7 +232,7 @@ class Icon
 <!-- \index{slug} -->
 
 <!-- prettier-ignore -->
-#### components/com_foos/ forms/foo.xml
+#### components/com_foos/forms/foo.xml
 
 Wir passen die XML Datei an, die Joomla verwendet, um das Formular aufzubauen.
 
@@ -1046,7 +1046,7 @@ anstelle dieses
 einfügst, erfolgt bei einer fehlgeschlagenen Berechtigungsprüfung unmittelbar eine Weiterleitung zum Anmeldeformular.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/form/edit.php
+#### components/com_foos/tmpl/form/edit.php
 
 `components/com_foos/tmpl/form/edit.php` sorgt als Template dafür, dass das Formular schon im Frontend angezeigt wird.
 
@@ -1124,7 +1124,7 @@ $this->useCoreUI = true;
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/form/edit.xml
+#### components/com_foos/tmpl/form/edit.xml
 
 Zu guter Letzt benötigen wir die Datei `components/com_foos/tmpl/form/edit.xml`, um den Menüpunkt zu erstellen.
 
@@ -1161,7 +1161,7 @@ In der Datei `administrator/components/com_foos/src/Extension/FoosComponent.php`
 ```php {diff}
  defined('JPATH_PLATFORM') or die;
 
-+use Joomla\CMS\Application\SiteApplication;
++use Joomla\CMS\Application\UserFactoryInterface;
  use Joomla\CMS\Association\AssociationServiceInterface;
  use Joomla\CMS\Association\AssociationServiceTrait;
  use Joomla\CMS\Categories\CategoryServiceInterface;
@@ -1177,7 +1177,7 @@ In der Datei `administrator/components/com_foos/src/Extension/FoosComponent.php`
  	public function boot(ContainerInterface $container)
  	{
  		$this->getRegistry()->register('foosadministrator', new AdministratorService);
-+		$this->getRegistry()->register('fooicon', new Icon($container->get(SiteApplication::class)));
++		$this->getRegistry()->register('fooicon', new Icon($container->get(UserFactoryInterface::class)));
  	}
 
  	/**
@@ -1185,7 +1185,7 @@ In der Datei `administrator/components/com_foos/src/Extension/FoosComponent.php`
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 Wir erweitern das Template für die Ansicht: Wenn man das Element bearbeiten darf `if ($canEdit)`, dann sieht man das Icon zum Öffnen des Formulares.
 

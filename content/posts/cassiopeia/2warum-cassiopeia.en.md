@@ -92,4 +92,6 @@ Inform yourself before installing 3rd party templates.
 - Is there a forum to resolve any issues?
 - Will the template provider keep up with new versions of Joomla?
 
+> Who was Cassiopeia? Cassiopeia was a character from Greek mythology. She was the queen of Ethiopia and the wife of King Cepheus. Cassiopeia was known for her beauty and her arrogance. One day she boasted that her beauty was greater than that of the sea nymph Nereids, which angered her greatly. As punishment for her arrogance, Cassiopeia was condemned by Poseidon to be chained to the sky and to appear there forever as a constellation. The constellation that bears her name is one of the most prominent star formations in the night sky and looks like the letter "W" or "M", depending on the angle from which you look at it.
+
 <img src="https://vg04.met.vgwort.de/na/ce472b7ad61e43d783051d994e6a865e" width="1" height="1" alt="">

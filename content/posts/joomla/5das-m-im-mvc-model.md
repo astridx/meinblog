@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-07-21
+date: 2023-05-10
 title: 'Das M im MVC: Model'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -121,7 +121,7 @@ Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg
 > Unter Umständen verwirrt dich der Aufruf `$this->get('Msg');` genauso wie mich, als ich Joomla das erste Mal nutzte. Die Methode im Model heißt `getMsg()`, wir rufen sie hier aber über `get('Msg')` auf. Das passt irgendwie nicht. Wenn du dich vorher schon mit objektorientierter Programmierung befasst hast, dann bist du versucht, den Aufruf über `getMsg()` zu tätigen. Verwendest du Joomla, hast du es leichter, wenn du die Dinge so nutzt, wie es vorbereitet ist. [Getter](https://de.wikipedia.org/w/index.php?title=Zugriffsfunktion&oldid=196247734)[^de.wikipedia.org/wiki/zugriffsfunktion] im Model rufst du über die Methode `get()` mit dem entsprechenden Parameter auf.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 Über das Template geben wir die Daten aus. Hier wird später alles in HTML-Tags verpackt.
 

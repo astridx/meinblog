@@ -453,7 +453,7 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/featured/default.php
+#### components/com_foos/tmpl/featured/default.php
 
 Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in der Datei `default.php` implementieren.
 
@@ -499,7 +499,7 @@ Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in de
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/featured/default.xml
+#### components/com_foos/tmpl/featured/default.xml
 
 Die Datei `components/com_foos/tmpl/featured/default.xml` benötigen wir, damit im Frontend die Anzeige der `featured` Elemente über einen Menüpunkt möglich ist.
 
@@ -560,7 +560,7 @@ Die Datei `components/com_foos/tmpl/featured/default.xml` benötigen wir, damit 
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/featured/default_items.php
+#### components/com_foos/tmpl/featured/default_items.php
 
 In der Datei `default.php` nutzen wir die Anweisung `<?php echo $this->loadTemplate('items'); ?>`. So halten wir das Template übersichtlich. Alles was ein Element betrifft, wird über das Untertemplate `default_items.php` in `default.php` eingefügt.
 
@@ -645,7 +645,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Wir erweitern das Formular, mit dem ein Element angelegt oder geändert wird, um das Feld zur Festlegung der Eigenschaft `featured`.
 
@@ -689,7 +689,7 @@ Im Falle einer neuen Installation, wird über das Skript in der Datei `install.m
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Controller/FoosController.php
+#### administrator/components/com_foos/src/Controller/FoosController.php
 
 Wir implementieren die Logik mit der wir die Eigenschaft `featured` setzen in der Funktion `featured()` im `FoosController`.
 
@@ -766,7 +766,7 @@ Wir implementieren die Logik mit der wir die Eigenschaft `featured` setzen in de
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/src/Model/FooModel.php
 
 Im Model eines Elementes implementieren wir die Methode, mit der die Belegung der Eigenschaft (Daten) `featured` gespeichert und verändert wird.
 
@@ -834,7 +834,7 @@ Im Model eines Elementes implementieren wir die Methode, mit der die Belegung de
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Datenbankabfrage.
 
@@ -933,7 +933,7 @@ Im `AdministratorService.php` machen wir es möglich, die Belegung der Eigenscha
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 Wir ergänzen die Werkzeugleiste. `featured` soll auch hier über eine Aktion bearbeitbar sein.
 
@@ -959,7 +959,7 @@ Wir ergänzen die Werkzeugleiste. `featured` soll auch hier über eine Aktion be
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 Im Formular `administrator/components/com_foos/tmpl/foo/edit.php` zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, der mithilfe der XML-Datei ein Feld erstellt.
 
@@ -976,7 +976,7 @@ Im Formular `administrator/components/com_foos/tmpl/foo/edit.php` zum Anlegen od
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 In der Übersicht aller Elemente im Backend in der Datei `administrator/components/com_foos/tmpl/foos/default.php` fügen wir eine Spalte ein, in der der Zustand mit einem ausgefüllten oder leeren Stern angezeigt wird und per Klick geändert werden kann. Die Datei `HTMLHelper` übernimmt die meister Arbeit für uns.
 

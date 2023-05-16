@@ -87,7 +87,7 @@ Alle englischen und deutschen Texte dieser Reihe sind als [PDF oder E-Pub](https
 ## Dies und Das
 
 1. [Joomla Update und Change Log einrichten](/joomla-update-und-change-logeinrichten)
-1. [Forular Felder](/joomla-exkurs-form-fields)
+1. [Formular Felder](/joomla-exkurs-form-fields)
 1. [Softwaretestmethoden mit Cypress](/joomla-exkurs-testen-mit-cypress)
 
 

@@ -40,7 +40,7 @@ Es kommt keine neue Dateien hinzu.
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 Wir haben keine speziellen Wünsche. Um die Standard Paginierung anzuzeigen, reichen mehr oder weniger zwei Zeilen. In der View rufst du
 `$this->pagination = $this->get('Pagination');` auf, um die Variable `$this->pagination` zu setzen.
@@ -68,7 +68,7 @@ Wir haben keine speziellen Wünsche. Um die Standard Paginierung anzuzeigen, rei
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 Im Template nutzen wir die Methode `getListFooter` der Variable `$this->pagination`. Das war alles!
 

@@ -4,14 +4,14 @@ set: ''
 booklink: ''
 syndication:
 shortTitle: 'short'
-date: 2022-11-21
-title: 'Selbst gehosteten Karten und VectorTiles mit Tilemaker erstellen'
+date: 2023-23-08
+title: 'Tile Server mit renderd'
 template: post
 thumbnail: '../../thumbnails/maplibre.png'
-slug: maplibre-vector-tiles-self-host
+slug: tile-server-with-renderd
 langKey: de
 categories:
-  - MapLibre
+  - TileServer
 tags:
   - geografische Daten
   - Tilemaker
@@ -19,169 +19,142 @@ tags:
 ---
 
 
-This page describes how to install, setup and configure all the necessary software to operate your own tile server. These step-by-step instructions were written for [Ubuntu Linux](https://en.wikipedia.org/wiki/Ubuntu) [22.04](http://www.releases.ubuntu.com/22.04/) (Jammy Jellyfish).
-
-## Software installation
 
 
-The OSM tile server stack is a collection of programs and libraries that work together to create a tile server. As so often with OpenStreetMap, there are many ways to achieve this goal and nearly all of the components have alternatives that have various specific advantages and disadvantages. This tutorial describes the most standard version that is similar to that used on the main OpenStreetMap.org tile servers.
 
-It consists of 5 main components: mod_tile, renderd, mapnik, osm2pgsql and a postgresql/postgis database. Mod_tile is an apache module that serves cached tiles and decides which tiles need re-rendering - either because they are not yet cached or because they are outdated. Renderd provides a priority queueing system for different sorts of requests to manage and smooth out the load from rendering requests. Mapnik is the software library that does the actual rendering and is used by renderd.
 
-Thanks to the work done by the Debian and Ubuntu maintainers to incorporate the latest versions of these packages into Ubuntu 22.04, these instructions are somewhat shorter than previous versions.
 
-These instructions are have been written and tested against a newly-installed Ubuntu 22.04 server. If you have got other versions of some software already installed (perhaps you upgraded from an earlier version, or you set up some PPAs to load from) then you may need to make some adjustments.
 
-In order to build these components, a variety of dependencies need to be installed first.
 
-This guide assumes that you run everything from a non-root user via "sudo". Don't try and do everything below as root; it won't work.
+
+Dieser Text beschreibt meine Schritte bei der Einrichtung eines eigenen Kachelservers, welche ich unter [Ubuntu Linux](https://en.wikipedia.org/wiki/Ubuntu) [22.04](http://www.releases.ubuntu.com/22.04/) (Jammy Jellyfish) im April 2023 tätigte.
+
+## Software-Installation
+
+Der OSM-Kachelserver-Stack ist eine Sammlung von Programmen und Bibliotheken, die zusammenarbeiten, um einen Kachelserver zu erstellen. Wie so oft gibt es viele Möglichkeiten, dieses Ziel zu erreichen Dieses Tutorial beschreibt die Standardversion.
+
+Sie besteht aus 5 Hauptkomponenten: 
+- `mod_tile`, 
+- `renderd`, 
+- `mapnik`, 
+- `osm2pgsql` und einer 
+- `postgresql/postgis` 
+Datenbank. 
+
+- `Mod_tile` ist ein Apache-Modul, das zwischengespeicherte Kacheln bedient und entscheidet, welche Kacheln neu gerendert werden müssen - entweder weil sie noch nicht zwischengespeichert sind oder weil sie veraltet sind. 
+- `Renderd` bietet ein Prioritäts-Warteschlangensystem für verschiedene Arten von Anfragen, um die Last von Rendering-Anfragen zu verwalten und zu glätten.
+- `Mapnik` ist die Softwarebibliothek, die das eigentliche Rendering durchführt und von Renderd verwendet wird.
+
+Um diese Komponenten zu bauen, müssen zunächst eine Reihe von Abhängigkeiten installiert werden. Ich habe alle Schritte mit einem Nicht-Root-Benutzer über `sudo` ausgefüht.
 
 ```
 sudo apt update
 sudo apt upgrade
-```
-
-
-```
-$ tail /etc/passwd
-nm-openvpn:x:120:126:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
-saned:x:121:128::/var/lib/saned:/usr/sbin/nologin
-colord:x:122:129:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
-geoclue:x:123:130::/var/lib/geoclue:/usr/sbin/nologin
-pulse:x:124:131:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
-gnome-initial-setup:x:125:65534::/run/gnome-initial-setup/:/bin/false
-hplip:x:126:7:HPLIP system user,,,:/run/hplip:/bin/false
-gdm:x:127:133:Gnome Display Manager:/var/lib/gdm3:/bin/false
-astrid:x:1000:1000:Astrid,,,:/home/astrid:/bin/bash
-fwupd-refresh:x:128:136:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
-```
-
-
-```
-sudo apt install screen locate libapache2-mod-tile renderd git tar unzip wget bzip2 apache2 lua5.1 mapnik-utils python3-mapnik python3-psycopg2 python3-yaml gdal-bin npm fonts-noto-cjk fonts-noto-hinted fonts-noto-unhinted fonts-unifont fonts-hanazono postgresql postgresql-contrib postgis postgresql-14-postgis-3 postgresql-14-postgis-3-scripts osm2pgsql net-tools curl
+sudo apt install screen locate libapache2-mod-tile renderd git tar 
+unzip wget bzip2 apache2 lua5.1 mapnik-utils python3-mapnik python3-psycopg2 python3-yaml gdal-bin npm fonts-noto-cjk fonts-noto-hinted fonts-noto-unhinted fonts-unifont fonts-hanazono postgresql postgresql-contrib postgis postgresql-14-postgis-3 postgresql-14-postgis-3-scripts osm2pgsql net-tools curl
 
 ```
 
-At this point, a couple of new accounts have been added. You can see them with "tail /etc/passwd". "postgres" is used for managing the databases that we use to hold data for rendering. "_renderd" is used for the renderd daemon, and we'll need to make sure lots of the commands below are run as that user.
+Zu diesem Zeitpunkt sind bereits einige neue Konten hinzugefügt worden. Du kannst sie mit `tail /etc/passwd` sehen. `postgres` wird für die Verwaltung der Datenbanken verwendet, in denen wir die Daten für das Rendering speichern. `_renderd` wird für den renderd-Daemon verwendet, und wir müssen sicherstellen, dass viele der folgenden Befehle mit diesem Benutzer ausgeführt werden.
+
+Nun muss eine `Postgis`-Datenbank erstellt werden. Die Standardeinstellungen verschiedener Programme gehen davon aus, dass die Datenbank gis heißt. Beachte, dass `_renderd` mit dem Benutzer übereinstimmt, unter dem der renderd-Daemon laufen wird.
 
 ```
-$ tail /etc/passwd
-colord:x:122:129:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
-geoclue:x:123:130::/var/lib/geoclue:/usr/sbin/nologin
-pulse:x:124:131:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
-gnome-initial-setup:x:125:65534::/run/gnome-initial-setup/:/bin/false
-hplip:x:126:7:HPLIP system user,,,:/run/hplip:/bin/false
-gdm:x:127:133:Gnome Display Manager:/var/lib/gdm3:/bin/false
-astrid:x:1000:1000:Astrid,,,:/home/astrid:/bin/bash
-fwupd-refresh:x:128:136:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
-postgres:x:129:137:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
-_renderd:x:130:138:renderd daemon,,,:/nonexistent:/usr/sbin/nologin
+sudo -u postgres -i
+createuser _renderd
+createdb -E UTF8 -O _renderd gis
 
 ```
 
-Now you need to create a postgis database. The defaults of various programs assume the database is called gis and we will use the same convention in this tutorial, although this is not necessary. Note that "_renderd" below matches the user that the renderd daemon will run from.
+Als Benutzer "Postgres" richtet man PostGIS auf der PostgreSQL-Datenbank ein:
 
 ```
-$ sudo -u postgres -i
-[sudo] Passwort für astrid: 
-postgres@astrid-virtual-machine:~$ createuser _renderd
-postgres@astrid-virtual-machine:~$ createdb -E UTF8 -O _renderd gis
-
+psql
 
 ```
 
-While still working as the "postgres" user, set up PostGIS on the PostgreSQL database:
+Dies öffnet die Eingabeaufforderung `postgres=#`.
 
 ```
-$ psql
-psql (14.5 (Ubuntu 14.5-0ubuntu0.22.04.1))
-Type "help" for help.
-
-postgres=# 
-
+\c gis
 
 ```
 
-(that'll put you at a "postgres=#" prompt)
+Es sollte die Meldung `You are now connected to database 'gis' as user 'postgres'` erscheinen.
+
+Nun benötige ich zwei Erweiterungen. Zum einen postgis und hstore. Letzter nutzt man üblicherweise zum Importieren von Openstreetmap-Daten.
 
 ```
-postgres=# \c gis
-You are now connected to database "gis" as user "postgres".
-gis=# 
+CREATE EXTENSION postgis;
 
-```
-
-(it'll answer "You are now connected to database 'gis' as user 'postgres'".)
-
-```
-gis=# CREATE EXTENSION postgis;
-CREATE EXTENSION
-gis=# 
-
+CREATE EXTENSION hstore;
 
 ```
 
-(it'll answer CREATE EXTENSION)
+Die Antwort auf die `CREATE` Befehl sollte beide Male `CREATE EXTENSION`sein.
 
 ```
-gis=# CREATE EXTENSION hstore;
-CREATE EXTENSION
-gis=# 
-
+ALTER TABLE geometry_columns OWNER TO _renderd;
 
 ```
 
-(it'll answer CREATE EXTENSION)
+Die Antwort auf den Befehl ist ALTER TABLE.
 
 ```
-gis=# ALTER TABLE geometry_columns OWNER TO _renderd;
-ALTER TABLE
-gis=# 
-
+ALTER TABLE spatial_ref_sys OWNER TO _renderd;
 
 ```
 
 (it'll answer ALTER TABLE)
 
 ```
-gis=# ALTER TABLE spatial_ref_sys OWNER TO _renderd;
-ALTER TABLE
-gis=# 
-```
-
-(it'll answer ALTER TABLE)
-
-```
-gis=# \q
-postgres@astrid-virtual-machine:~$ 
-exit
+\q
 
 ```
 
 (it'll exit psql and go back to a normal Linux prompt)
 
 ```
-$ exit
-Abgemeldet
-$ 
-
+exit
 
 ```
 
-(to exit back to be the user that we were before we did "sudo -u postgres -i" above)
+(to exit back to be the user that we were before we did `sudo -u postgres -i` above)
 
-### Mapnik
+```
+astrid@astrid-virtual-machine:~$ sudo -u postgres -i
+postgres@astrid-virtual-machine:~$ createuser _renderd
+postgres@astrid-virtual-machine:~$ createdb -E UTF8 -O _renderd gis
+postgres@astrid-virtual-machine:~$ psql
+psql (14.7 (Ubuntu 14.7-0ubuntu0.22.04.1))
+Type "help" for help.
+
+postgres=# \c gis
+You are now connected to database "gis" as user "postgres".
+gis=# CREATE EXTENSION postgis;
+CREATE EXTENSION
+gis=# CREATE EXTENSION hstore;
+CREATE EXTENSION
+gis=# ALTER TABLE geometry_columns OWNER TO _renderd;
+ALTER TABLE
+gis=# ALTER TABLE spatial_ref_sys OWNER TO _renderd;
+ALTER TABLE
+gis=# \q
+postgres@astrid-virtual-machine:~$ exit
+Abgemeldet
+```
+
+Die Datenbank ist nun zum Importieren der Openstreetmap-Daten eingerichtet. Zuvor installieren wir allerdings den Kartenstil.
+
+## Mapnik
 
 
 Mapnik was installed above. We'll check that it has been installed correctly by doing this:
 
 ```
-$ python3
-Python 3.10.6 (main, Nov  2 2022, 18:53:38) [GCC 11.3.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
+python3
 >>> import mapnik
->>> 
-
+>>>
 
 ```
 
@@ -189,50 +162,33 @@ If python replies with the second chevron prompt »> and without errors, then M
 
 ```
 >>> quit()
-$ 
 
 ```
 
 ## Stylesheet configuration
 
-
 Now that all of the necessary software is installed, you will need to download and configure a stylesheet.
 
-The style we'll use here is the one that use by the "standard" map on the openstreetmap.org website. It's chosen because it's well documented, and should work anywhere in the world (including in places with non-latin placenames). There are a couple of downsides though - it's very much a compromise designed to work globally, and it's quite complicated to understand and modify, should you need to do that.
+The style we'll use here is the one that use by the `standard` map on the openstreetmap.org website. It's chosen because it's well documented, and should work anywhere in the world (including in places with non-latin placenames). There are a couple of downsides though - it's very much a compromise designed to work globally, and it's quite complicated to understand and modify, should you need to do that.
 
-The home of "OpenStreetMap Carto" on the web is https://github.com/gravitystorm/openstreetmap-carto/ and it has it's own installation instructions at https://github.com/gravitystorm/openstreetmap-carto/blob/master/INSTALL.md , although we'll cover everything that needs to be done here.
+The home of `OpenStreetMap Carto` on the web is https://github.com/gravitystorm/openstreetmap-carto/ and it has it's own installation instructions at https://github.com/gravitystorm/openstreetmap-carto/blob/master/INSTALL.md , although we'll cover everything that needs to be done here.
 
-Here we're assuming that we're storing the stylesheet details in a directory below "src" below the home directory of whichever non-root user account you are using; we'll change access so that the "_renderd" user can access it below.
+Here we're assuming that we're storing the stylesheet details in a directory below `src` below the home directory of whichever non-root user account you are using; we'll change access so that the `_renderd` user can access it below.
 
 ```
-$ mkdir src
-astrid@astrid-virtual-machine:~$ cd src/
-astrid@astrid-virtual-machine:~/src$ git clone https://github.com/gravitystorm/openstreetmap-carto
-Klone nach 'openstreetmap-carto' …
-remote: Enumerating objects: 17805, done.
-remote: Counting objects: 100% (38/38), done.
-remote: Compressing objects: 100% (31/31), done.
-remote: Total 17805 (delta 17), reused 22 (delta 7), pack-reused 17767
-Empfange Objekte: 100% (17805/17805), 16.63 MiB | 297.00 KiB/s, fertig.
-Löse Unterschiede auf: 100% (12328/12328), fertig.
-astrid@astrid-virtual-machine:~/src$ cd openstreetmap-carto/
-astrid@astrid-virtual-machine:~/src/openstreetmap-carto$ 
-
+mkdir ~/src
+cd ~/src
+git clone https://github.com/gravitystorm/openstreetmap-carto
+cd openstreetmap-carto
 
 ```
 
-Next, we'll install a suitable version of the "carto" compiler.
+Next, we'll install a suitable version of the `carto` compiler. 
+Der Kartenstil liegt im Format mml vor. Dieser muss fpr Mapnik in XML umgewandelt werden. 
 
 ```
-$ sudo npm install -g carto
-[sudo] Passwort für astrid: 
-
-added 64 packages, and audited 65 packages in 12s
-
-astrid@astrid-virtual-machine:~/src/openstreetmap-carto$ carto -v
-1.2.0
-astrid@astrid-virtual-machine:~/src/openstreetmap-carto$ 
-
+sudo npm install -g carto
+carto -v
 
 ```
 
@@ -252,20 +208,21 @@ carto project.mml > mapnik.xml
 
 You now have a Mapnik XML stylesheet at /home/youruseraccount/src/openstreetmap-carto/mapnik.xml .
 
-### Loading data
+## Loading data
 
-Initially, we'll load only a small amount of test data. Other download locations are available, but "download.geofabrik.de" has a wide range of options. In this example we'll download the data for Azerbaijan, which is currently about 32Mb.
 
-Browse to https://download.geofabrik.de/asia/azerbaijan.html and note the "This file was last modified" date (e.g. "2022-04-22T20:21:40Z"). We'll need that later if we want to update the database with people's subsequent changes to OpenStreetMap. Download it as follows:
+Initially, we'll load only a small amount of test data. Other download locations are available, but `download.geofabrik.de` has a wide range of options. In this example we'll download the data for Azerbaijan, which is currently about 32Mb.
+
+Browse to https://download.geofabrik.de/asia/azerbaijan.html and note the `This file was last modified` date (e.g. `2022-04-22T20:21:40Z`). We'll need that later if we want to update the database with people's subsequent changes to OpenStreetMap. Download it as follows:
 
 ```
 mkdir ~/data
 cd ~/data
-wget https://download.geofabrik.de/asia/azerbaijan-latest.osm.pbf
+wget https://download.geofabrik.de/europe/germany/brandenburg-latest.osm.pbf
 
 ```
 
-Next, we need to make sure that the "_renderd" user can access the stylesheet. In order to do this it needs access to wherever you downloaded it, and by default it won't have access to your home directory. If it's in "src" below your user account then
+Next, we need to make sure that the `_renderd` user can access the stylesheet. In order to do this it needs access to wherever you downloaded it, and by default it won't have access to your home directory. If it's in `src` below your user account then
 
 ```
 chmod o+rx ~
@@ -274,12 +231,51 @@ chmod o+rx ~
 
 will work. If you don't want to do this you can move it and amend references to the file locations in subsequent commands.
 
-The following command will insert the OpenStreetMap data you downloaded earlier into the database. This step is very disk I/O intensive; importing the full planet might take many hours, days or weeks depending on the hardware. For smaller extracts the import time is much faster accordingly, and you may need to experiment with different -C values to fit within your machine's available memory. Note that the "_renderd" user is used for this process.
+The following command will insert the OpenStreetMap data you downloaded earlier into the database. This step is very disk I/O intensive; importing the full planet might take many hours, days or weeks depending on the hardware. For smaller extracts the import time is much faster accordingly, and you may need to experiment with different -C values to fit within your machine's available memory. Note that the `_renderd` user is used for this process.
 
 ```
-sudo -u _renderd osm2pgsql -d gis --create --slim  -G --hstore --tag-transform-script ~/src/openstreetmap-carto/openstreetmap-carto.lua -C 2500 --number-processes 1 -S ~/src/openstreetmap-carto/openstreetmap-carto.style ~/data/azerbaijan-latest.osm.pbf
+sudo -u _renderd osm2pgsql -d gis --create --slim  -G --hstore --tag-transform-script ~/src/openstreetmap-carto/openstreetmap-carto.lua -C 2500 --number-processes 1 -S ~/src/openstreetmap-carto/openstreetmap-carto.style ~/data/brandenburg-latest.osm.pbf
 
-$ sudo -u _renderd osm2pgsql -d gis --create --slim  -G --hstore --tag-transform-script ~/src/openstreetmap-carto/openstreetmap-carto.lua -C 2500 --number-processes 1 -S ~/src/openstreetmap-carto/openstreetmap-carto.style ./dachsenhausen.osm.pbf
+
+data$ sudo -u _renderd osm2pgsql -d gis --create --slim  -G --hstore --tag-transform-script ~/src/openstreetmap-carto/openstreetmap-carto.lua -C 2500 --number-processes 1 -S ~/src/openstreetmap-carto/openstreetmap-carto.style ~/data/brandenburg-latest.osm.pbf
+[sudo] Passwort für astrid: 
+2023-04-09 22:06:20  osm2pgsql version 1.6.0
+2023-04-09 22:06:20  Database version: 14.7 (Ubuntu 14.7-0ubuntu0.22.04.1)
+2023-04-09 22:06:20  PostGIS version: 3.2
+2023-04-09 22:06:20  Setting up table 'planet_osm_point'
+2023-04-09 22:06:20  Setting up table 'planet_osm_line'
+2023-04-09 22:06:20  Setting up table 'planet_osm_polygon'
+2023-04-09 22:06:20  Setting up table 'planet_osm_roads'
+                                                                                  2023-04-09 22:16:03  Reading input files done in 583s (9m 43s).
+2023-04-09 22:16:03    Processed 23293091 nodes in 142s (2m 22s) - 164k/s
+2023-04-09 22:16:03    Processed 3801216 ways in 376s (6m 16s) - 10k/s
+2023-04-09 22:16:03    Processed 50869 relations in 65s (1m 5s) - 783/s
+2023-04-09 22:16:04  Clustering table 'planet_osm_point' by geometry...
+2023-04-09 22:16:20  Creating geometry index on table 'planet_osm_point'...
+2023-04-09 22:16:46  Creating osm_id index on table 'planet_osm_point'...
+2023-04-09 22:16:48  Analyzing table 'planet_osm_point'...
+2023-04-09 22:16:48  Clustering table 'planet_osm_line' by geometry...
+2023-04-09 22:17:28  Creating geometry index on table 'planet_osm_line'...
+2023-04-09 22:18:47  Creating osm_id index on table 'planet_osm_line'...
+2023-04-09 22:19:01  Analyzing table 'planet_osm_line'...
+2023-04-09 22:19:02  Clustering table 'planet_osm_polygon' by geometry...
+2023-04-09 22:21:41  Creating geometry index on table 'planet_osm_polygon'...
+2023-04-09 22:23:37  Creating osm_id index on table 'planet_osm_polygon'...
+2023-04-09 22:23:48  Analyzing table 'planet_osm_polygon'...
+2023-04-09 22:23:50  Clustering table 'planet_osm_roads' by geometry...
+2023-04-09 22:23:52  Creating geometry index on table 'planet_osm_roads'...
+2023-04-09 22:23:54  Creating osm_id index on table 'planet_osm_roads'...
+2023-04-09 22:23:54  Analyzing table 'planet_osm_roads'...
+2023-04-09 22:23:55  Done postprocessing on table 'planet_osm_nodes' in 0s
+2023-04-09 22:23:55  Building index on table 'planet_osm_ways'
+2023-04-09 22:30:16  Done postprocessing on table 'planet_osm_ways' in 381s (6m 21s)
+2023-04-09 22:30:16  Building index on table 'planet_osm_rels'
+2023-04-09 22:30:20  Done postprocessing on table 'planet_osm_rels' in 3s
+2023-04-09 22:30:20  All postprocessing on table 'planet_osm_point' done in 44s.
+2023-04-09 22:30:20  All postprocessing on table 'planet_osm_line' done in 134s (2m 14s).
+2023-04-09 22:30:20  All postprocessing on table 'planet_osm_polygon' done in 287s (4m 47s).
+2023-04-09 22:30:20  All postprocessing on table 'planet_osm_roads' done in 5s.
+2023-04-09 22:30:20  osm2pgsql took 1440s (24m 0s) overall.
 
 ```
 
@@ -290,7 +286,7 @@ It's worth explaining a little bit about what those options mean:
 
 ```
 
-The database to work with ("gis" used to be the default; now it must be specified).
+The database to work with (`gis` used to be the default; now it must be specified).
 
 ```
 --create
@@ -304,7 +300,7 @@ Load data into an empty database rather than trying to append to an existing one
 
 ```
 
-osm2pgsql can use different table layouts; "slim" tables works for rendering.
+osm2pgsql can use different table layouts; `slim` tables works for rendering.
 
 ```
 -G
@@ -346,54 +342,57 @@ Use 1 CPU. If you have more cores available you can use more.
 
 ```
 
-Create the database columns in this file (actually these are unchanged from "openstreetmap-carto")
+Create the database columns in this file (actually these are unchanged from `openstreetmap-carto`)
 
 The final argument is the data file to load.
 
-That command will complete with something like "osm2pgsql took 163s (2m 43s) overall".
+That command will complete with something like `osm2pgsql took 163s (2m 43s) overall`.
 
-#### Creating indexes
+## Creating indexes
 
-Since version v5.3.0, some extra indexes now need to be [applied manually](https://github.com/gravitystorm/openstreetmap-carto/blob/master/CHANGELOG.md#v530---2021-01-28):
 
 ```
 cd ~/src/openstreetmap-carto/
 sudo -u _renderd psql -d gis -f indexes.sql
-CREATE INDEX
-...
-CREATE INDEX
+
 ```
 
-It should respond with "CREATE INDEX" 14 timesmkdir data.
+It should respond with `CREATE INDEX` 16 times.
 
-### Shapefile download
+## Shapefile download
 
 Although most of the data used to create the map is directly from the OpenStreetMap data file that you downloaded above, some shapefiles for things like low-zoom country boundaries are still needed. To download and index these, using the same account as we used previously:
 
 ```
-$ cd ~/src/openstreetmap-carto/
-$ mkdir data
-$ sudo chown _renderd data
+cd ~/src/openstreetmap-carto/
+mkdir data
+sudo chown _renderd data
+sudo -u _renderd scripts/get-external-data.py
 
-$ sudo -u _renderd scripts/get-external-data.py
+
+
+$ cd ~/src/openstreetmap-carto/
+mkdir data
+sudo chown _renderd data
+sudo -u _renderd scripts/get-external-data.py
 INFO:root:Starting load of external data into database
 INFO:root:Checking table simplified_water_polygons
-INFO:root:  Download complete (23732870 bytes)
+INFO:root:  Download complete (23763980 bytes)
 INFO:root:  Decompressing file
 INFO:root:  Importing into database
 INFO:root:  Import complete
 INFO:root:Checking table water_polygons
-INFO:root:  Download complete (817822786 bytes)
+INFO:root:  Download complete (830487145 bytes)
 INFO:root:  Decompressing file
 INFO:root:  Importing into database
 INFO:root:  Import complete
 INFO:root:Checking table icesheet_polygons
-INFO:root:  Download complete (52620264 bytes)
+INFO:root:  Download complete (52622167 bytes)
 INFO:root:  Decompressing file
 INFO:root:  Importing into database
 INFO:root:  Import complete
 INFO:root:Checking table icesheet_outlines
-INFO:root:  Download complete (53290977 bytes)
+INFO:root:  Download complete (53289544 bytes)
 INFO:root:  Decompressing file
 INFO:root:  Importing into database
 INFO:root:  Import complete
@@ -405,10 +404,9 @@ INFO:root:  Import complete
 
 ```
 
-This process involves a sizable download and may take some time - not much will appear on the screen when it is running. Some data will go directly into the database, and some will go into a "data" directory below "openstreetmap-carto". If there is a problem here then the Natural Earth data may have moved - look at [this issue](https://github.com/nvkelso/natural-earth-vector/issues/581#issuecomment-913988101) and other issues at Natural Earth for more details. If you need to change the Natural Earth download location your copy of [this file](https://github.com/gravitystorm/openstreetmap-carto/blob/master/external-data.yml) is the one to edit.
+This process involves a sizable download and may take some time - not much will appear on the screen when it is running. Some data will go directly into the database, and some will go into a `data` directory below `openstreetmap-carto`. If there is a problem here then the Natural Earth data may have moved - look at [this issue](https://github.com/nvkelso/natural-earth-vector/issues/581#issuecomment-913988101) and other issues at Natural Earth for more details. If you need to change the Natural Earth download location your copy of [this file](https://github.com/gravitystorm/openstreetmap-carto/blob/master/external-data.yml) is the one to edit.
 
-### Fonts
-
+## Fonts
 
 In version v5.6.0 and above of Carto, fonts need to be installed manually:
 
@@ -418,14 +416,14 @@ scripts/get-fonts.sh
 
 ```
 
-Our test data area (Dachsenhausen) was chosen both because it was a small area and because some place names in that region have names containing non-latin characters.
+Our test data area (Azerbaijan) was chosen both because it was a small area and because some place names in that region have names containing non-latin characters.
 
-### Setting up your webserver
+## Setting up your webserver
 
-#### Configure renderd
+Configure renderd
+-----------------
 
-
-The config file for "renderd" on Ubuntu 22.04 is "/etc/renderd.conf". Edit that with a text editor such as nano:
+The config file for `renderd` on Ubuntu 22.04 is `/etc/renderd.conf`. Edit that with a text editor such as nano:
 
 ```
 sudo nano /etc/renderd.conf
@@ -437,25 +435,25 @@ Add a section like the following at the end:
 ```
 [s2o]
 URI=/hot/
-XML=/home/yourUser/src/openstreetmap-carto/mapnik.xml
+XML=/home/astrid/src/openstreetmap-carto/mapnik.xml
 HOST=localhost
 TILESIZE=256
 MAXZOOM=20
 
 ```
 
-The location of the XML file "/home/yourUser/src/openstreetmap-carto/mapnik.xml" will need to be changed to the actual location on your system. You can change "[s2o]" and "URI=/hot/" as well if you like. If you want to render more than one set of tiles from one server you can - just add another section like "[s2o]" with a different name referring to a different map style. If you want it to refer to a different database to the default "gis" you can, but that's out of the scope of this document. If you've only got 2Gb or so of memory you'll also want to reduce "num_threads" to 2. "URI=/hot/" was chosen so that the tiles generated here can more easily be used in place of the HOT tile layer at OpenStreetMap.org. You can use something else here, but "/hot/" is as good as anything.
+The location of the XML file `/home/accountname/src/openstreetmap-carto/mapnik.xml` will need to be changed to the actual location on your system. You can change `[s2o]` and `URI=/hot/` as well if you like. If you want to render more than one set of tiles from one server you can - just add another section like `[s2o]` with a different name referring to a different map style. If you want it to refer to a different database to the default `gis` you can, but that's out of the scope of this document. If you've only got 2Gb or so of memory you'll also want to reduce `num_threads` to 2. `URI=/hot/` was chosen so that the tiles generated here can more easily be used in place of the HOT tile layer at OpenStreetMap.org. You can use something else here, but `/hot/` is as good as anything.
 
-When this guide was first written, the version of Mapnik provided by Ubuntu 22.04 was 3.1, and the "plugins_dir" setting in the "[mapnik]" part of the file was "/usr/lib/mapnik/3.1/input". That "3.1" may change again in the future. If an error occurs when trying to render tiles such as this:
+When this guide was first written, the version of Mapnik provided by Ubuntu 22.04 was 3.1, and the `plugins_dir` setting in the `[mapnik]` part of the file was `/usr/lib/mapnik/3.1/input`. That `3.1` may change again in the future. If an error occurs when trying to render tiles such as this:
 
 ```
 An error occurred while loading the map layer 's2o': Could not create datasource for type: 'postgis' (no datasource plugin directories have been successfully registered)  encountered during parsing of layer 'landcover-low-zoom'
 
 ```
 
-then look in "/usr/lib/mapnik" and see what version directories there are, and also look in "/usr/lib/mapnik/(version)/input" to make sure that a file "postgis.input" exists there.
+then look in `/usr/lib/mapnik` and see what version directories there are, and also look in `/usr/lib/mapnik/(version)/input` to make sure that a file `postgis.input` exists there.
 
-#### Making sure that you can see debug messages
+### Making sure that you can see debug messages
 
 It'd be really useful at this point to be able to see the output from the tile rendering process, including any errors. By default with recent mod_tile versions, this is turned off. To turn it on:
 
@@ -471,7 +469,7 @@ Environment=G_MESSAGES_DEBUG=all
 
 ```
 
-after "[Service]". Then:
+after `[Service]`. Then:
 
 ```
 sudo systemctl daemon-reload
@@ -480,10 +478,9 @@ sudo systemctl restart apache2
 
 ```
 
-#### Configuring Apache
+## Configuring Apache
 
-
-If you look at /var/log/syslog, you should see messages from the "renderd" service. There will initially be some font warnings - don't worry about those for now. Next:
+If you look at /var/log/syslog, you should see messages from the `renderd` service. There will initially be some font warnings - don't worry about those for now. Next:
 
 ```
 sudo /etc/init.d/apache2 restart
@@ -493,84 +490,584 @@ sudo /etc/init.d/apache2 restart
 In syslog you should see a message like:
 
 ```
-$ sudo gedit syslog
-
-Nov 22 19:01:34 astrid-virtual-machine apachectl[41516]: [Tue Nov 22 19:01:34.581463 2022] [tile:notice] [pid 41516:tid 140083061688192] Loading tile config s2o at /hot/ for zooms 0 - 20 from tile directory /var/cache/renderd/tiles with extension .png and mime type image/png
+Apr 23 11:14:10 servername apachectl[2031]: [Sat Apr 23 11:14:10.190678 2022] [tile:notice] [pid 2031:tid 140608477239168] Loading tile config s2o at /hot/ for zooms 0 - 20 from tile directory /var/cache/renderd/tiles with extension .png and mime type image/png
 
 ```
 
-Next, point a web browser at "http://yourserveripaddress/index.html" (change yourserveripaddress to your actual server address). You should see "Apache2 Ubuntu Default Page".
+Next, point a web browser at `http://localhost/index.html` (change yourserveripaddress to your actual server address). You should see `Apache2 Ubuntu Default Page`.
 
-If you don't know what IP address it will have been assigned you can likely use "ifconfig" to find out - if the network configuration is not too complicated it'll probably be the "inet addr" that is not "127.0.0.1"). If you're using a server at a hosting provider then it's likely that your server's internal address will be different to the external address that has been allocated to you, but that external IP address will have already been sent to you and it'll probably be the one that you're accessing the server on currently.
+If you don't know what IP address it will have been assigned you can likely use `ifconfig` to find out - if the network configuration is not too complicated it'll probably be the `inet addr` that is not `127.0.0.1`). If you're using a server at a hosting provider then it's likely that your server's internal address will be different to the external address that has been allocated to you, but that external IP address will have already been sent to you and it'll probably be the one that you're accessing the server on currently.
 
-Note that this is just the "http" (port 80) site - you'll need to do a little bit more Apache configuration if you want to enable https, but that's out of the scope of these instructions. However, if you use "Let's Encrypt" to issue certificates then the process of setting that up can also configure the Apache HTTPS site as well.
+Note that this is just the `http` (port 80) site - you'll need to do a little bit more Apache configuration if you want to enable https, but that's out of the scope of these instructions. However, if you use `Let's Encrypt` to issue certificates then the process of setting that up can also configure the Apache HTTPS site as well.
 
 Next, point a web browser at: http://yourserveripaddress/hot/0/0/0.png
 
-You'll need to edit that of course if you changed "URI=/hot/" above. You should see a small map of the world. If you don't, investigate the errors that it displays. These will most likely be permissions errors or perhaps related to accidentally missing some steps from the instructions above. If you don't get a tile and get other errors again save the full output in a pastebin and ask a question about the problem somewhere like help.openstreetmap.org.
+You'll need to edit that of course if you changed `URI=/hot/` above. You should see a small map of the world. If you don't, investigate the errors that it displays. These will most likely be permissions errors or perhaps related to accidentally missing some steps from the instructions above. If you don't get a tile and get other errors again save the full output in a pastebin and ask a question about the problem somewhere like help.openstreetmap.org.
 
-### Viewing tiles
+Viewing tiles
+=============
 
-
-In order to see tiles, we'll cheat and use an html file "sample_leaflet.html" that allows you to view a very simple map. To obtain this:
+In order to see tiles, we'll cheat and use an html file `sample_leaflet.html` that allows you to view a very simple map. To obtain this:
 
 ```
 cd /var/www/html
 sudo wget https://raw.githubusercontent.com/SomeoneElseOSM/mod_tile/switch2osm/extra/sample_leaflet.html
 sudo nano sample_leaflet.html
-```
 
 ```
-<!DOCTYPE html>
-<html style="height:100%;margin:0;padding:0;">
-<title>Leaflet page with tiles from localhost</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.3/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-hash@0.2.1/leaflet-hash.js"></script>
-<style type="text/css">
-.leaflet-tile-container { pointer-events: auto; }
-</style>
-</head>
-<body style="height:100%;margin:0;padding:0;">
-<div id="map" style="height:100%"></div>
-<script>
-//<![CDATA[
-var map = L.map('map').setView([40.36629, 49.83335], 18);
 
-L.tileLayer('http://127.0.0.1/hot/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 21,
-    maxNativeZoom: 20
-}).addTo(map);
-
-
-var hash = L.hash(map)
-//]]>
-</script>
-</body>
-</html>
-```
-
-Edit so that the IP address matches yourserveraddress rather than just saying "127.0.0.1". That should allow you to access this server from others. Then browse to "http://yourserveraddress/sample_leaflet.html".
+Edit so that the IP address matches yourserveraddress rather than just saying `127.0.0.1`. That should allow you to access this server from others. Then browse to `http://yourserveraddress/sample_leaflet.html`.
 
 The initial map display will take a little while. You'll be able to zoom in and out, but depending on server speed some tiles may initially display as grey because they can't be rendered in time for the browser. However, once done they'll be ready for the next time that they are needed. If you look in /var/log/syslog you should see requests for tiles, so to see these as they are requested, from an ssh connection do:
 
 ```
-$ sudo tail -f /var/log/syslog | grep " TILE "
-Nov 22 19:57:47 astrid-virtual-machine renderd[42693]: START TILE s2o 3 0-7 0-7, new metatile
-Nov 22 19:57:48 astrid-virtual-machine renderd[42693]: DONE TILE s2o 3 0-7 0-7 in 1.128 seconds
-
+tail -f /var/log/syslog | grep ` TILE `
 
 ```
 
-(note the spaces around "TILE" there)
+(note the spaces around `TILE` there)
 
 That will show a line every time a tile is requested, and one every time rendering of one is completed.
 
-If desired, you can increase the setting "ModTileMissingRequestTimeout" in "/etc/apache2/conf-available/renderd.conf" from 10 seconds to perhaps 30 or 60, in order to wait longer for tiles to be rendered in the background before a grey tile is given to the user. Make sure you "sudo service renderd restart" and "sudo service apache2 restart" after changing it.
+If desired, you can increase the setting `ModTileMissingRequestTimeout` in `/etc/apache2/conf-available/renderd.conf` from 10 seconds to perhaps 30 or 60, in order to wait longer for tiles to be rendered in the background before a grey tile is given to the user. Make sure you `sudo service renderd restart` and `sudo service apache2 restart` after changing it.
 
 Congratulations. Head over to the [using tiles](https://switch2osm.github.io/using-tiles/) section to create a map that uses your new tile server.
+
+
+
+
+
+
+## Tirex
+
+```
+cd ~/src/openstreetmap-carto
+git clone https://github.com/openstreetmap/tirex.git
+cd tirex
+
+
+
+
+sudo apt install devscripts dh-apache2 libboost-program-options-dev libipc-sharelite-perl libmapnik-dev
+
+```
+
+```
+debuild -b -rfakeroot -us -uc
+
+~/src/openstreetmap-carto/tirex$ debuild -b -rfakeroot -us -uc
+ dpkg-buildpackage -rfakeroot -us -uc -ui -b
+dpkg-buildpackage: Information: Quellpaket tirex
+dpkg-buildpackage: Information: Quellversion 0.8.0-pre
+dpkg-buildpackage: Information: Quelldistribution unstable
+dpkg-buildpackage: Information: Quelle geändert durch Frederik Ramm <ramm@geofabrik.de>
+ dpkg-source --before-build .
+dpkg-buildpackage: Information: Host-Architektur amd64
+ fakeroot debian/rules clean
+dh clean --with apache2
+   dh_auto_clean
+	make -j2 clean
+make[1]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird betreten
+make -f Makefile.perl clean
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird betreten
+rm -f \
+  Tirex.bso Tirex.def \
+  Tirex.exp Tirex.x \
+   blib/arch/auto/Tirex/extralibs.all \
+  blib/arch/auto/Tirex/extralibs.ld Makefile.perl.aperl \
+  *.a *.o \
+  *perl.core MYMETA.json \
+  MYMETA.yml blibdirs.ts \
+  core core.*perl.*.? \
+  core.[0-9] core.[0-9][0-9] \
+  core.[0-9][0-9][0-9] core.[0-9][0-9][0-9][0-9] \
+  core.[0-9][0-9][0-9][0-9][0-9] libTirex.def \
+  mon.out perl \
+  perl perl.exe \
+  perlmain.c pm_to_blib \
+  pm_to_blib.ts so_locations \
+  tmon.out 
+rm -rf \
+  blib 
+mv Makefile.perl Makefile.perl.old > /dev/null 2>&1
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird verlassen
+cd backend-mapnik; make DESTDIR= clean
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex/backend-mapnik“ wird betreten
+rm -f backend-mapnik *.o
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex/backend-mapnik“ wird verlassen
+rm -f Makefile.perl
+rm -f Makefile.perl.old
+rm -f build-stamp
+rm -f configure-stamp
+rm -rf blib
+make[1]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird verlassen
+   dh_clean
+ debian/rules build
+dh build --with apache2
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure
+	/usr/bin/perl Makefile.PL INSTALLDIRS=vendor "OPTIMIZE=-g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" "LD=x86_64-linux-gnu-gcc -g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -flto=auto -Wl,-z,relro -Wl,-z,now"
+Generating a Unix-style Makefile.perl
+Writing Makefile.perl for Tirex
+Writing MYMETA.yml and MYMETA.json
+   dh_auto_build
+	make -j2
+make[1]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird betreten
+cd backend-mapnik; make -w -j2 --jobserver-auth=3,4
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex/backend-mapnik“ wird betreten
+make[2]: warning: -j2 forced in submake: resetting jobserver mode.
+g++ `mapnik-config --cflags` -g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -pedantic -Wredundant-decls -Wdisabled-optimization -Wctor-dtor-privacy -Wnon-virtual-dtor -Woverloaded-virtual -Wsign-promo -Wold-style-cast -Wdate-time -D_FORTIFY_SOURCE=2  -c -o renderd.o renderd.cc
+g++ `mapnik-config --cflags` -g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -pedantic -Wredundant-decls -Wdisabled-optimization -Wctor-dtor-privacy -Wnon-virtual-dtor -Woverloaded-virtual -Wsign-promo -Wold-style-cast -Wdate-time -D_FORTIFY_SOURCE=2  -c -o metatilehandler.o metatilehandler.cc
+g++ `mapnik-config --cflags` -g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -pedantic -Wredundant-decls -Wdisabled-optimization -Wctor-dtor-privacy -Wnon-virtual-dtor -Woverloaded-virtual -Wsign-promo -Wold-style-cast -Wdate-time -D_FORTIFY_SOURCE=2  -c -o networklistener.o networklistener.cc
+metatilehandler.cc: In member function ‘MetatileHandler::handleRequest(NetworkRequest const*)’:
+metatilehandler.cc:182:45: warning: ‘%d’ directive output may be truncated writing between 1 and 11 bytes into a region of size between 0 and 4095 [-Wformat-truncation=]
+  182 |         snprintf(tmpfilename, PATH_MAX, "%s.%d.tmp", metafilename, getpid());
+      |                                             ^~
+In file included from /usr/include/stdio.h:894,
+                 from /usr/include/c++/11/cstdio:42,
+                 from /usr/include/c++/11/ext/string_conversions.h:43,
+                 from /usr/include/c++/11/bits/basic_string.h:6608,
+                 from /usr/include/c++/11/string:55,
+                 from metatilehandler.h:21,
+                 from metatilehandler.cc:10:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:71:35: note: ‘__snprintf_chk’ output between 7 and 4112 bytes into a destination of size 4096
+   71 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   72 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+g++ `mapnik-config --cflags` -g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -pedantic -Wredundant-decls -Wdisabled-optimization -Wctor-dtor-privacy -Wnon-virtual-dtor -Woverloaded-virtual -Wsign-promo -Wold-style-cast -Wdate-time -D_FORTIFY_SOURCE=2  -c -o networkmessage.o networkmessage.cc
+g++ `mapnik-config --cflags` -g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -pedantic -Wredundant-decls -Wdisabled-optimization -Wctor-dtor-privacy -Wnon-virtual-dtor -Woverloaded-virtual -Wsign-promo -Wold-style-cast -Wdate-time -D_FORTIFY_SOURCE=2  -c -o networkrequest.o networkrequest.cc
+g++ `mapnik-config --cflags` -g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -pedantic -Wredundant-decls -Wdisabled-optimization -Wctor-dtor-privacy -Wnon-virtual-dtor -Woverloaded-virtual -Wsign-promo -Wold-style-cast -Wdate-time -D_FORTIFY_SOURCE=2  -c -o networkresponse.o networkresponse.cc
+g++ `mapnik-config --cflags` -g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -pedantic -Wredundant-decls -Wdisabled-optimization -Wctor-dtor-privacy -Wnon-virtual-dtor -Woverloaded-virtual -Wsign-promo -Wold-style-cast -Wdate-time -D_FORTIFY_SOURCE=2  -c -o debuggable.o debuggable.cc
+g++ `mapnik-config --cflags` -g -O2 -ffile-prefix-map=/home/astrid/src/openstreetmap-carto/tirex=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -pedantic -Wredundant-decls -Wdisabled-optimization -Wctor-dtor-privacy -Wnon-virtual-dtor -Woverloaded-virtual -Wsign-promo -Wold-style-cast -Wdate-time -D_FORTIFY_SOURCE=2  -c -o requesthandler.o requesthandler.cc
+g++ -o backend-mapnik renderd.o metatilehandler.o networklistener.o networkmessage.o networkrequest.o networkresponse.o debuggable.o requesthandler.o `mapnik-config --libs --ldflags --dep-libs`
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex/backend-mapnik“ wird verlassen
+make -f Makefile.perl
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird betreten
+cp lib/Tirex/Source/ModTile.pm blib/lib/Tirex/Source/ModTile.pm
+cp lib/Tirex/Source/Test.pm blib/lib/Tirex/Source/Test.pm
+cp lib/Tirex/Munin/Tiledir/Diskusage.pm blib/lib/Tirex/Munin/Tiledir/Diskusage.pm
+cp lib/Tirex/Backend/OpenSeaMap.pm blib/lib/Tirex/Backend/OpenSeaMap.pm
+cp lib/Tirex/Source.pm blib/lib/Tirex/Source.pm
+cp lib/Tirex/Backend/WMS.pm blib/lib/Tirex/Backend/WMS.pm
+cp lib/Tirex/Metatile.pm blib/lib/Tirex/Metatile.pm
+cp lib/Tirex/Munin/Status/QueuedRequests.pm blib/lib/Tirex/Munin/Status/QueuedRequests.pm
+cp lib/Tirex/Munin/Status/ActiveRequests.pm blib/lib/Tirex/Munin/Status/ActiveRequests.pm
+cp lib/Tirex/Zoomrange.pm blib/lib/Tirex/Zoomrange.pm
+cp lib/Tirex/Metatiles/Range.pm blib/lib/Tirex/Metatiles/Range.pm
+cp lib/Tirex/Munin/Tiledir/Tileage.pm blib/lib/Tirex/Munin/Tiledir/Tileage.pm
+cp lib/Tirex.pm blib/lib/Tirex.pm
+cp lib/Tirex/Manager/RenderingJobs.pm blib/lib/Tirex/Manager/RenderingJobs.pm
+cp lib/Tirex/Munin/Tiledir/Tilecount.pm blib/lib/Tirex/Munin/Tiledir/Tilecount.pm
+cp lib/Tirex/Job.pm blib/lib/Tirex/Job.pm
+cp lib/Tirex/Config.pm blib/lib/Tirex/Config.pm
+cp lib/Tirex/Munin/Status/QueuedRequestsAge.pm blib/lib/Tirex/Munin/Status/QueuedRequestsAge.pm
+cp lib/Tirex/Status.pm blib/lib/Tirex/Status.pm
+cp lib/Tirex/Renderer.pm blib/lib/Tirex/Renderer.pm
+cp lib/Tirex/Munin/Tiledir.pm blib/lib/Tirex/Munin/Tiledir.pm
+cp lib/Tirex/Queue.pm blib/lib/Tirex/Queue.pm
+cp lib/Tirex/Manager/Test.pm blib/lib/Tirex/Manager/Test.pm
+cp lib/Tirex/Backend.pm blib/lib/Tirex/Backend.pm
+cp lib/Tirex/Message.pm blib/lib/Tirex/Message.pm
+cp lib/Tirex/Manager.pm blib/lib/Tirex/Manager.pm
+cp lib/Tirex/Map.pm blib/lib/Tirex/Map.pm
+cp lib/Tirex/Backend/TMS.pm blib/lib/Tirex/Backend/TMS.pm
+cp lib/Tirex/Manager/Bucket.pm blib/lib/Tirex/Manager/Bucket.pm
+cp lib/Tirex/Munin/Status/RenderTime.pm blib/lib/Tirex/Munin/Status/RenderTime.pm
+cp lib/Tirex/Backend/Test.pm blib/lib/Tirex/Backend/Test.pm
+cp lib/Tirex/Backend/Mapserver.pm blib/lib/Tirex/Backend/Mapserver.pm
+cp lib/Tirex/Munin/Status/RequestsRendered.pm blib/lib/Tirex/Munin/Status/RequestsRendered.pm
+cp lib/Tirex/Munin.pm blib/lib/Tirex/Munin.pm
+cp lib/Tirex/PrioQueue.pm blib/lib/Tirex/PrioQueue.pm
+cp lib/Tirex/Source/Command.pm blib/lib/Tirex/Source/Command.pm
+cp lib/Tirex/Munin/Status.pm blib/lib/Tirex/Munin/Status.pm
+Manifying 34 pod documents
+Manifying 3 pod documents
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird verlassen
+make[1]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird verlassen
+   dh_auto_test
+	make -j2 check TEST_VERBOSE=1
+make[1]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird betreten
+podchecker bin/*
+bin/tirex-backend-manager pod syntax OK.
+bin/tirex-batch pod syntax OK.
+bin/tirex-check-config pod syntax OK.
+bin/tirex-master pod syntax OK.
+bin/tirex-rendering-control pod syntax OK.
+bin/tirex-send pod syntax OK.
+bin/tirex-status pod syntax OK.
+bin/tirex-syncd pod syntax OK.
+bin/tirex-tiledir-check pod syntax OK.
+bin/tirex-tiledir-stat pod syntax OK.
+find lib -type f -name \*.pm | sort | xargs podchecker
+lib/Tirex/Backend/Mapserver.pm pod syntax OK.
+lib/Tirex/Backend/OpenSeaMap.pm pod syntax OK.
+lib/Tirex/Backend.pm pod syntax OK.
+lib/Tirex/Backend/Test.pm pod syntax OK.
+lib/Tirex/Backend/TMS.pm pod syntax OK.
+lib/Tirex/Backend/WMS.pm pod syntax OK.
+lib/Tirex/Config.pm pod syntax OK.
+lib/Tirex/Job.pm pod syntax OK.
+lib/Tirex/Manager/Bucket.pm pod syntax OK.
+lib/Tirex/Manager.pm pod syntax OK.
+lib/Tirex/Manager/RenderingJobs.pm pod syntax OK.
+lib/Tirex/Manager/Test.pm pod syntax OK.
+lib/Tirex/Map.pm pod syntax OK.
+lib/Tirex/Message.pm pod syntax OK.
+lib/Tirex/Metatile.pm pod syntax OK.
+lib/Tirex/Metatiles/Range.pm pod syntax OK.
+lib/Tirex/Munin.pm pod syntax OK.
+lib/Tirex/Munin/Status/ActiveRequests.pm pod syntax OK.
+lib/Tirex/Munin/Status.pm pod syntax OK.
+lib/Tirex/Munin/Status/QueuedRequestsAge.pm pod syntax OK.
+lib/Tirex/Munin/Status/QueuedRequests.pm pod syntax OK.
+lib/Tirex/Munin/Status/RenderTime.pm pod syntax OK.
+lib/Tirex/Munin/Status/RequestsRendered.pm pod syntax OK.
+lib/Tirex/Munin/Tiledir/Diskusage.pm pod syntax OK.
+lib/Tirex/Munin/Tiledir.pm pod syntax OK.
+lib/Tirex/Munin/Tiledir/Tileage.pm pod syntax OK.
+lib/Tirex/Munin/Tiledir/Tilecount.pm pod syntax OK.
+lib/Tirex.pm pod syntax OK.
+lib/Tirex/PrioQueue.pm pod syntax OK.
+lib/Tirex/Queue.pm pod syntax OK.
+lib/Tirex/Renderer.pm pod syntax OK.
+lib/Tirex/Source/Command.pm pod syntax OK.
+lib/Tirex/Source/ModTile.pm pod syntax OK.
+lib/Tirex/Source.pm pod syntax OK.
+lib/Tirex/Source/Test.pm pod syntax OK.
+lib/Tirex/Status.pm pod syntax OK.
+lib/Tirex/Zoomrange.pm pod syntax OK.
+make[1]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird verlassen
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary --with apache2
+   dh_testroot
+   dh_prep
+   dh_installdirs
+   debian/rules override_dh_auto_install
+make[1]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird betreten
+dh_auto_install --destdir=debian/tmp -- install-all
+	make -j2 install DESTDIR=/home/astrid/src/openstreetmap-carto/tirex/debian/tmp AM_UPDATE_INFO_DIR=no install-all
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird betreten
+cd backend-mapnik; make -w -j2 --jobserver-auth=3,4
+install -m 755 -g root -o root -d                              /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/tirex
+make[3]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex/backend-mapnik“ wird betreten
+make[3]: warning: -j2 forced in submake: resetting jobserver mode.
+install -m 755 -g root -o root -d                              /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/tirex/example-map
+make[3]: „backend-mapnik“ ist bereits aktuell.
+make[3]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex/backend-mapnik“ wird verlassen
+make -f Makefile.perl
+install -m 644 -g root -o root example-map/example.xml         /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/tirex/example-map
+install -m 644 -g root -o root example-map/ocean.*             /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/tirex/example-map
+make[3]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird betreten
+install -m 644 -g root -o root example-map/README              /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/tirex/example-map
+install -m 755 -g root -o root -d                              /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/mapnik
+install -m 644 -g root -o root example-map/mapnik-example.conf /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/mapnik/example.conf
+install -m 755 -g root -o root -d                              /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/munin/plugins
+install -m 755 -g root -o root munin/*                         /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/munin/plugins
+install -m 755 -g root -o root -d                              /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/lib/nagios/plugins
+install -m 755 -g root -o root -d                              /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/nagios/nrpe.d
+install -m 755 -g root -o root nagios/tirex*                   /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/lib/nagios/plugins
+install -m 644 -g root -o root nagios/cfg/*.cfg                /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/nagios/nrpe.d
+Manifying 34 pod documents
+Manifying 3 pod documents
+make[3]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird verlassen
+install -m 755 -g root -o root -d /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/bin/
+for program in bin/*; do \
+    install -m 755 -g root -o root $program /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/bin/; \
+    done
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/libexec
+install -m 755 -g root -o root backends/test                            /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/libexec/tirex-backend-test
+install -m 755 -g root -o root backends/wms                             /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/libexec/tirex-backend-wms
+install -m 755 -g root -o root backends/tms                             /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/libexec/tirex-backend-tms
+install -m 755 -g root -o root backends/mapserver                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/libexec/tirex-backend-mapserver
+install -m 755 -g root -o root backends/openseamap                      /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/libexec/tirex-backend-openseamap
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex
+install -m 644 -g root -o root etc/tirex.conf.dist                      /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/tirex.conf
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/test
+install -m 644 -g root -o root etc/renderer/test.conf.dist              /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/test.conf
+install -m 644 -g root -o root etc/renderer/test/checkerboard.conf.dist /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/test/checkerboard.conf
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/wms
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/tms
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/openseamap
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/mapserver
+install -m 644 -g root -o root etc/renderer/wms.conf.dist               /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/wms.conf
+install -m 644 -g root -o root etc/renderer/tms.conf.dist               /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/tms.conf
+install -m 644 -g root -o root etc/renderer/openseamap.conf.dist        /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/openseamap.conf
+install -m 644 -g root -o root etc/renderer/mapserver.conf.dist         /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/mapserver.conf
+install -m 644 -g root -o root etc/renderer/wms/demowms.conf.dist       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/wms/demowms.conf
+install -m 644 -g root -o root etc/renderer/tms/demotms.conf.dist       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/tms/demotms.conf
+install -m 644 -g root -o root etc/renderer/openseamap/openseamap.conf.dist /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/openseamap/openseamap.conf
+install -m 644 -g root -o root etc/renderer/mapserver/msdemo.conf.dist  /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/mapserver/msdemo.conf
+install -m 644 -g root -o root etc/renderer/mapserver/msdemo.map        /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/mapserver/msdemo.map
+install -m 644 -g root -o root etc/renderer/mapserver/fonts.lst         /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/mapserver/fonts.lst
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/mapnik
+install -m 644 -g root -o root etc/renderer/mapnik.conf.dist            /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/etc/tirex/renderer/mapnik.conf
+install -m 755 -g root -o root -d                                       /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man1/
+for program in bin/*; do \
+        if grep -q "=head" $program; then \
+            pod2man $program > /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man1/`basename $program`.1; \
+        fi; \
+    done
+cd backend-mapnik; make DESTDIR=/home/astrid/src/openstreetmap-carto/tirex/debian/tmp "INSTALLOPTS=-g root -o root" install
+make[3]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex/backend-mapnik“ wird betreten
+install -m 755 -g root -o root backend-mapnik /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/libexec/tirex-backend-mapnik
+make[3]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex/backend-mapnik“ wird verlassen
+make -f Makefile.perl install
+make[3]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird betreten
+Manifying 34 pod documents
+Manifying 3 pod documents
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Map.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Metatile.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Zoomrange.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Renderer.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Source.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Queue.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Backend.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Message.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Manager.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Config.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Status.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Job.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/PrioQueue.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Backend/TMS.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Backend/OpenSeaMap.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Backend/Mapserver.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Backend/Test.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Backend/WMS.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Manager/RenderingJobs.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Manager/Bucket.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Manager/Test.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Metatiles/Range.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Tiledir.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Status.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Tiledir/Diskusage.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Tiledir/Tileage.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Tiledir/Tilecount.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Status/QueuedRequestsAge.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Status/RenderTime.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Status/ActiveRequests.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Status/RequestsRendered.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Munin/Status/QueuedRequests.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Source/ModTile.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Source/Command.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/perl5/Tirex/Source/Test.pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Source::Test.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Backend::TMS.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Tiledir::Tilecount.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Status::ActiveRequests.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Manager.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Zoomrange.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Status::RequestsRendered.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Backend.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Source.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Source::ModTile.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Config.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Backend::WMS.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::PrioQueue.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Metatiles::Range.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Tiledir.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Status::QueuedRequestsAge.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Map.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Manager::Bucket.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Manager::RenderingJobs.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Job.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Backend::Mapserver.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Queue.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Status::RenderTime.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Tiledir::Diskusage.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Status::QueuedRequests.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Tiledir::Tileage.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Message.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Backend::OpenSeaMap.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Metatile.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Status.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Backend::Test.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Munin::Status.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Manager::Test.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Renderer.3pm
+Installing /home/astrid/src/openstreetmap-carto/tirex/debian/tmp/usr/share/man/man3/Tirex::Source::Command.3pm
+make[3]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird verlassen
+make[2]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird verlassen
+make[1]: Verzeichnis „/home/astrid/src/openstreetmap-carto/tirex“ wird verlassen
+   dh_install
+   dh_apache2
+   dh_installdocs
+   dh_installchangelogs
+   dh_installexamples
+   dh_installman
+   dh_installinit
+   dh_installsystemd
+   dh_lintian
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+dh_missing: warning: etc/tirex/renderer/mapnik/example.conf exists in debian/tmp but is not installed to anywhere 
+dh_missing: warning: usr/share/tirex/example-map/README exists in debian/tmp but is not installed to anywhere 
+dh_missing: warning: usr/share/tirex/example-map/example.xml exists in debian/tmp but is not installed to anywhere (related file: "example-map/example.xml")
+dh_missing: warning: usr/share/tirex/example-map/ocean.gpkg exists in debian/tmp but is not installed to anywhere (related file: "example-map/ocean.gpkg")
+
+	While detecting missing files, dh_missing noted some files with a similar name to those
+	that were missing.  This warning /might/ be resolved by replacing references to the
+	missing files with the similarly named ones that dh_missing found - assuming the content
+	is identical.
+
+	As an example, you might want to replace:
+	 * example-map/example.xml
+	with:
+	 * usr/share/tirex/example-map/example.xml
+	in a file in debian/ or as argument to one of the dh_* tools called from debian/rules.
+	(Note it is possible the paths are not used verbatim but instead directories 
+	containing or globs matching them are used instead)
+
+	Alternatively, add the missing file to debian/not-installed if it cannot and should not
+	be used.
+
+	The following debhelper tools have reported what they installed (with files per package)
+	 * dh_install: tirex (30), tirex-backend-mapnik (0), tirex-backend-mapserver (5), tirex-backend-openseamap (0), tirex-backend-wms (3), tirex-example-map (4), tirex-munin-plugin (9), tirex-nagios-plugin (4), tirex-syncd (2)
+	 * dh_installdocs: tirex (0), tirex-backend-mapnik (0), tirex-backend-mapserver (0), tirex-backend-openseamap (0), tirex-backend-wms (0), tirex-example-map (0), tirex-munin-plugin (0), tirex-nagios-plugin (0), tirex-syncd (0)
+	 * dh_installexamples: tirex (9), tirex-backend-mapnik (0), tirex-backend-mapserver (0), tirex-backend-openseamap (0), tirex-backend-wms (0), tirex-example-map (0), tirex-munin-plugin (0), tirex-nagios-plugin (0), tirex-syncd (0)
+	 * dh_installman: tirex (0), tirex-backend-mapnik (0), tirex-backend-mapserver (0), tirex-backend-openseamap (0), tirex-backend-wms (0), tirex-example-map (0), tirex-munin-plugin (0), tirex-nagios-plugin (0), tirex-syncd (0)
+	If the missing files are installed by another tool, please file a bug against it.
+	When filing the report, if the tool is not part of debhelper itself, please reference the
+	"Logging helpers and dh_missing" section from the "PROGRAMMING" guide for debhelper (10.6.3+).
+	  (in the debhelper package: /usr/share/doc/debhelper/PROGRAMMING.gz)
+	Be sure to test with dpkg-buildpackage -A/-B as the results may vary when only a subset is built
+	If the omission is intentional or no other helper can take care of this consider adding the
+	paths to debian/not-installed.
+   dh_dwz
+dwz: debian/tirex/usr/libexec/tirex-backend-mapnik: .debug_info section not present
+   dh_strip
+91938c03c7e6705872c0b66c6ca6aefe74997c83
+   dh_makeshlibs
+   dh_shlibdeps
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: Warnung: Feld Depends von Paket tirex-backend-mapserver: Substitutionsvariable ${shlibs:Depends} verwandt, aber nicht definiert
+dpkg-gencontrol: Warnung: Paket tirex-backend-mapserver: Substitutionsvariable ${perl:Depends} unbenutzt, aber definiert
+dpkg-gencontrol: Warnung: Feld Depends von Paket tirex-backend-mapnik: Substitutionsvariable ${shlibs:Depends} verwandt, aber nicht definiert
+dpkg-gencontrol: Warnung: Feld Depends von Paket tirex-backend-openseamap: Substitutionsvariable ${shlibs:Depends} verwandt, aber nicht definiert
+dpkg-gencontrol: Warnung: Feld Depends von Paket tirex-syncd: Substitutionsvariable ${shlibs:Depends} verwandt, aber nicht definiert
+dpkg-gencontrol: Warnung: Paket tirex-syncd: Substitutionsvariable ${misc:Pre-Depends} unbenutzt, aber definiert
+dpkg-gencontrol: Warnung: Paket tirex-syncd: Substitutionsvariable ${perl:Depends} unbenutzt, aber definiert
+dpkg-gencontrol: Warnung: Feld Depends von Paket tirex-munin-plugin: Substitutionsvariable ${shlibs:Depends} verwandt, aber nicht definiert
+dpkg-gencontrol: Warnung: Paket tirex-munin-plugin: Substitutionsvariable ${perl:Depends} unbenutzt, aber definiert
+dpkg-gencontrol: Warnung: Feld Depends von Paket tirex-nagios-plugin: Substitutionsvariable ${shlibs:Depends} verwandt, aber nicht definiert
+dpkg-gencontrol: Warnung: Paket tirex-nagios-plugin: Substitutionsvariable ${perl:Depends} unbenutzt, aber definiert
+dpkg-gencontrol: Warnung: Feld Depends von Paket tirex-backend-wms: Substitutionsvariable ${shlibs:Depends} verwandt, aber nicht definiert
+dpkg-gencontrol: Warnung: Paket tirex-backend-wms: Substitutionsvariable ${perl:Depends} unbenutzt, aber definiert
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: Paket »tirex« wird in »../tirex_0.8.0-pre_amd64.deb« gebaut.
+dpkg-deb: Paket »tirex-backend-wms« wird in »../tirex-backend-wms_0.8.0-pre_amd64.deb« gebaut.
+dpkg-deb: Paket »tirex-backend-mapserver« wird in »../tirex-backend-mapserver_0.8.0-pre_amd64.deb« gebaut.
+dpkg-deb: Paket »tirex-backend-mapnik« wird in »../tirex-backend-mapnik_0.8.0-pre_amd64.deb« gebaut.
+dpkg-deb: Paket »tirex-dbgsym« wird in »debian/.debhelper/scratch-space/build-tirex/tirex-dbgsym_0.8.0-pre_amd64.deb« gebaut.
+dpkg-deb: Paket »tirex-backend-openseamap« wird in »../tirex-backend-openseamap_0.8.0-pre_amd64.deb« gebaut.
+	Renaming tirex-dbgsym_0.8.0-pre_amd64.deb to tirex-dbgsym_0.8.0-pre_amd64.ddeb
+dpkg-deb: Paket »tirex-example-map« wird in »../tirex-example-map_0.8.0-pre_all.deb« gebaut.
+dpkg-deb: Paket »tirex-syncd« wird in »../tirex-syncd_0.8.0-pre_amd64.deb« gebaut.
+dpkg-deb: Paket »tirex-munin-plugin« wird in »../tirex-munin-plugin_0.8.0-pre_amd64.deb« gebaut.
+dpkg-deb: Paket »tirex-nagios-plugin« wird in »../tirex-nagios-plugin_0.8.0-pre_amd64.deb« gebaut.
+ dpkg-genbuildinfo --build=binary -O../tirex_0.8.0-pre_amd64.buildinfo
+ dpkg-genchanges --build=binary -O../tirex_0.8.0-pre_amd64.changes
+dpkg-genchanges: Information: Binärpaket(e) hochzuladen (kein Quellcode enthalten)
+ dpkg-source --after-build .
+dpkg-buildpackage: Information: Binärpaket(e) hochzuladen (keine Quelle enthalten)
+Now running lintian tirex_0.8.0-pre_amd64.changes ...
+E: tirex changes: bad-distribution-in-changes-file unstable
+E: tirex-syncd: init.d-script-needs-depends-on-lsb-base etc/init.d/tirex-syncd (line 34)
+W: tirex-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/91/938c03c7e6705872c0b66c6ca6aefe74997c83.debug
+W: tirex-dbgsym: elf-error In program headers: Unable to find program interpreter name [usr/lib/debug/.build-id/91/938c03c7e6705872c0b66c6ca6aefe74997c83.debug]
+W: tirex-backend-mapnik: empty-binary-package
+W: tirex-backend-openseamap: empty-binary-package
+W: tirex-syncd: missing-systemd-service-for-init.d-script tirex-syncd [etc/init.d/tirex-syncd]
+W: tirex-syncd: skip-systemd-native-flag-missing-pre-depends (does not satisfy init-system-helpers (>= 1.54~)) [postinst:12]
+W: tirex-syncd: skip-systemd-native-flag-missing-pre-depends (does not satisfy init-system-helpers (>= 1.54~)) [prerm:5]
+N: 3 hints overridden (3 info); 0 unused overrides
+Finished running lintian.
+
+```
+
+```
+cd ..
+
+
+sudo apt install ./tirex_0.8.0-pre_amd64.deb 
+sudo apt install ./tirex-backend-mapnik_0.8.0-pre_amd64.deb
+
+sudo systemctl status tirex-master.service
+sudo systemctl status tirex-backend-manager.service
+```
+
+
+```
+$ sudo apt install ./tirex-example-map_0.8.0-pre_all.deb
+Paketlisten werden gelesen… Fertig
+Abhängigkeitsbaum wird aufgebaut… Fertig
+Statusinformationen werden eingelesen… Fertig
+Hinweis: »tirex-example-map« wird an Stelle von »./tirex-example-map_0.8.0-pre_all.deb« gewählt.
+Die folgenden Pakete wurden automatisch installiert und werden nicht mehr benötigt:
+  chromium-codecs-ffmpeg-extra gstreamer1.0-vaapi i965-va-driver intel-media-va-driver libaacs0 libass9 libavcodec58 libavformat58
+  libavutil56 libbdplus0 libbluray2 libbs2b0 libchromaprint1 libcodec2-1.0 libflashrom1 libflite1 libftdi1-2 libgme0 libgsm1
+  libgstreamer-plugins-bad1.0-0 libigdgmm12 liblilv-0-0 libllvm13 libmfx1 libmysofa1 libnorm1 libopenmpt0 libpgm-5.3-0 libpostproc55
+  librabbitmq4 librubberband2 libserd-0-0 libshine3 libsord-0-0 libsratom-0-0 libsrt1.4-gnutls libssh-gcrypt-4 libswresample3 libswscale5
+  libudfread0 libva-drm2 libva-wayland2 libva-x11-2 libva2 libvdpau1 libvidstab1.1 libxvidcore4 libzimg2 libzmq5 libzvbi-common libzvbi0
+  mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1 pocketsphinx-en-us va-driver-all vdpau-driver-all
+Verwenden Sie »sudo apt autoremove«, um sie zu entfernen.
+Die folgenden zusätzlichen Pakete werden installiert:
+  libjs-leaflet
+Die folgenden NEUEN Pakete werden installiert:
+  libjs-leaflet tirex-example-map
+0 aktualisiert, 2 neu installiert, 0 zu entfernen und 7 nicht aktualisiert.
+Es müssen noch 503 kB von 574 kB an Archiven heruntergeladen werden.
+Nach dieser Operation werden 2.436 kB Plattenplatz zusätzlich benutzt.
+Möchten Sie fortfahren? [J/n] J
+Holen:1 /home/astrid/src/openstreetmap-carto/tirex-example-map_0.8.0-pre_all.deb tirex-example-map all 0.8.0-pre [71,5 kB]
+Holen:2 http://de.archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-leaflet all 1.7.1~dfsg-6 [503 kB]
+Es wurden 503 kB in 1 s geholt (845 kB/s).
+Vormals nicht ausgewähltes Paket libjs-leaflet wird gewählt.
+(Lese Datenbank ... 227991 Dateien und Verzeichnisse sind derzeit installiert.)
+Vorbereitung zum Entpacken von .../libjs-leaflet_1.7.1~dfsg-6_all.deb ...
+Entpacken von libjs-leaflet (1.7.1~dfsg-6) ...
+Vormals nicht ausgewähltes Paket tirex-example-map wird gewählt.
+Vorbereitung zum Entpacken von .../tirex-example-map_0.8.0-pre_all.deb ...
+Entpacken von tirex-example-map (0.8.0-pre) ...
+libjs-leaflet (1.7.1~dfsg-6) wird eingerichtet ...
+tirex-example-map (0.8.0-pre) wird eingerichtet ...
+Check out the tirex example map by visiting:
+ http://localhost/tirex-example-map
+apache2_invoke: Enable configuration tirex-example-map
+```
+
+
+
+https://packages.ubuntu.com/de/focal/all/ttf-dejavu-core/download
+
+```
+sudo apt install ./ttf-dejavu-core_2.37-1_all.deb 
+$ sudo apt install ./tirex-backend-mapserver_0.8.0-pre_amd64.deb 
+
+```
+
+$ sudo apt install ./tirex-backend-mapnik_0.8.0-pre_amd64.deb
+
+
+## Links
+
+https://switch2osm.org/serving-tiles/manually-building-a-tile-server-ubuntu-22-04-lts/
+
 
 <img src="https://vg01.met.vgwort.de/na/4e065e2c4a914741835b939575e6e618" width="1" height="1" alt="">
 <img src="https://vg01.met.vgwort.de/na/a2a9173bcc8749af8a8f1466e24809bb" width="1" height="1" alt="">

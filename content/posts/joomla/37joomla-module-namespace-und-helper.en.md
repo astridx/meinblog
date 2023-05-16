@@ -4,8 +4,8 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2021-01-13
-title: 'Modules - Namespace and Helper'
+date: 2023-05-16
+title: 'Modules - Helper'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-module-namespace-und-helper
@@ -27,7 +27,7 @@ tags:
 
 
 
-We add namespace and helper.<!-- \index{module!helper} --><!-- \index{module!namespace} -->
+We add helper.<!-- \index{module!helper} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t31...t32)[^codeberg.org/astrid/j4examplecode/compare/t31...t32] and copy these changes into your development version.
 
@@ -40,7 +40,7 @@ We add namespace and helper.<!-- \index{module!helper} --><!-- \index{module!nam
 The logic in the module may be complex. Therefore it is good to structure the code clearly. This is done by jnnhelper files. We create these in the directory `Helper`.
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ Helper/FooHelper.php
+##### modules/mod_foo/Helper/FooHelper.php
 
 > I named the file `FooHelper` in general. Good style is to give it a speaking name. Each helper file has a specific task and it should be named after it. For example, the file that loads the latest articles is called `ArticlesLatestHelper`. This way you can see at first sight what is in the file.
 
@@ -90,44 +90,58 @@ class FooHelper
 ### Modified files
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.php
+##### modules/mod_foo/services/provider.php
 
-To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import them using `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Then we call the function `FooHelper::getText()` and store the result in the variable `$test`.
+We add the provider for the helper.
 
 ```php {diff}
- \defined('_JEXEC') or die;
-
- use Joomla\CMS\Helper\ModuleHelper;
-+use FooNamespace\Module\Foo\Site\Helper\FooHelper;
-+
-+$test  = FooHelper::getText();
-
- require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
-```
-
-<!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.xml
-
-We enter the namespace in the manifest. This way it will be registered in Joomla during the installation. We also add the new directory so that it is copied to the right place during installation.
-
-```xml {diff}
- 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
- 	<version>__BUMP_VERSION__</version>
- 	<description>MOD_FOO_XML_DESCRIPTION</description>
+     public function register(Container $container)
+     {
+         $container->registerServiceProvider(new ModuleDispatcherFactory('\\FooNamespace\\Module\\Foo'));
 -
-+	<namespace>FooNamespace\Module\Foo</namespace>
- 	<files>
- 		<filename module="mod_foo">mod_foo.php</filename>
- 		<folder>tmpl</folder>
-+		<folder>Helper</folder>
- 		<folder>language</folder>
- 		<filename>mod_foo.xml</filename>
- 	</files>
++        $container->registerServiceProvider(new HelperFactory('\\FooNamespace\\Module\\Foo\\Site\\Helper'));
++ 
+         $container->registerServiceProvider(new Module());
+     }
+ };
+```
+
+<!-- prettier-ignore -->
+##### modules/mod_foo/src/Dispatcher/Dispatcher.php
+
+The `Dispatcher` collects the variables that we can use later in the module layout `tmpl/default.php`. Here we see how helper files are used.
+
+
+```php {diff}
+
+ namespace FooNamespace\Module\Foo\Site\Dispatcher;
+ 
+ use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
++use Joomla\CMS\Helper\HelperFactoryAwareInterface;
++use Joomla\CMS\Helper\HelperFactoryAwareTrait;
+ 
+ \defined('_JEXEC') or die;
+ 
+
+-class Dispatcher extends AbstractModuleDispatcher
++class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareInterface
+ {
++    use HelperFactoryAwareTrait;
++
+
+     {
+         $data = parent::getLayoutData();
+ 
++        $data['text'] = $this->getHelperFactory()->getHelper('FooHelper')->getText();
++
+         return $data;
+     }
+ }
 
 ```
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/tmpl/default.php
+##### modules/mod_foo/tmpl/default.php
 
 In the layout, we finally access the variable. The logic for calculating the variable value is encapsulated. This keeps the layout clear. We only insert the text `$test` here. If we want to know more about what is behind `$test`, we look in the helper.
 
@@ -135,7 +149,7 @@ In the layout, we finally access the variable. The logic for calculating the var
 \defined('_JEXEC') or die;
 
 -echo '[PROJECT_NAME]';
-+echo '[PROJECT_NAME]' . $test;
++echo '[PROJECT_NAME]' . $text;
 ```
 
 ## Test your Joomla module
@@ -144,11 +158,12 @@ In the layout, we finally access the variable. The logic for calculating the var
 
 Copy the files in the `modules` folder into the `modules` folder of your Joomla 4 installation.
 
-Install your module as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since a file and namespaces have been added, this is necessary.
+Install your module as described in part one, after copying all files.
 
 2. Check whether the text calculated via the function `FooHelper::getText()` is displayed in the frontend.
 
 ## Links
 
 [Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^docs.joomla.org/j4.x:creating_a_simple_module]
+[Private Demo Module](https://github.com/GHSVS-de/mod_demoghsvs)[^github.com/GHSVS-de/mod_demoghsvs]
 <img src="https://vg08.met.vgwort.de/na/dcdcb2f87a6d452abb0a600b37f839a4" width="1" height="1" alt="">

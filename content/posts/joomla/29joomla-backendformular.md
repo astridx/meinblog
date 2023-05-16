@@ -42,7 +42,7 @@ Nichts Neues.
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Es entsteht eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
 

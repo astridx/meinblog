@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-07-15
+date: 2023-03-29
 title: 'A Menu Item'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -27,7 +27,7 @@ tags:
 
 
 
-In this article you will learn how to create a menu item for the frontend view of your component. So it is not necessary that you know the exact URL. Later a modification to [search engine friendly (SEF) URLs](https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs)[^docs.joomla.org/enabling_search_engine_friendly_(sef)_urls/] is possible. As a note, please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{menu item!frontend} -->
+In this article you will learn how to include the ability to create a menu item for the frontend view of your component. So it is not necessary that you know the exact URL. Later a modification to [search engine friendly (SEF) URLs](https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs)[^docs.joomla.org/enabling_search_engine_friendly_(sef)_urls/] is possible. As a note, please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{menu item!frontend} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t2...t3)[^codeberg.org/astrid/j4examplecode/compare/t2...t3] and copy these changes into your development version.
 
@@ -38,7 +38,7 @@ In this article you will learn how to create a menu item for the frontend view o
 The menu item in the frontend works differently than the one in the administration area. We create a separate XML file. Later we will use parameters. But for now we keep it straightforward. We add some language strings for text. Later on, we will see how to translate them.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.xml
+#### components/com_foos/tmpl/foo/default.xml
 
 Create the file `default.xml` under `components/com_foos/tmpl/foo` and add the following code:
 

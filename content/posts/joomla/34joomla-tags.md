@@ -42,7 +42,7 @@ In diesem Kapitel kommen keine Dateien hinzu.
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/filter_foos.xml
+#### administrator/components/com_foos/forms/filter_foos.xml
 
 Das Formular `forms/filter_foos.xml`, über das die Suchwergzeuge verwaltet werden, erhält einen Eintrag für die Schlagwörter.
 
@@ -69,7 +69,7 @@ Das Formular `forms/filter_foos.xml`, über das die Suchwergzeuge verwaltet werd
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Im dem XML-Formular `forms/foo.xml`, welches ein Foo-Item beschreibt, ergänzen wir das Formularfeld, in dem die Informationen zum Tag enthalten sind. Da wir Joomla Standard nutzen, können wir viele vorgefertigte Funktionen Out-of-the-Box nutzen. Beispielsweise sorgt `type="tag"` dafür, dass ein Auswahlfeld mit allen verfügbaren Schlagworten angezeigt wird.
 
@@ -174,7 +174,7 @@ Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/src/Model/FooModel.php
 
 Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein und sorgen dafür, dass die zugehörigen Tags geladen werden.
 
@@ -212,7 +212,7 @@ Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweitern wir das Model der Übersichtsliste. Wir passen dieses bezüglich der Filter und der Datenbankabfrage an.
 
@@ -278,7 +278,7 @@ Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweit
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foo/HtmlView.php
+#### administrator/components/com_foos/src/View/Foo/HtmlView.php
 
 Kurz vor Schluss kümmern wir uns um die Anzeige. In der View stellen wir sicher, dass die zur Sprache passenden Schlagworte geladen werden.
 
@@ -298,7 +298,7 @@ Kurz vor Schluss kümmern wir uns um die Anzeige. In der View stellen wir sicher
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default\_batch\_body.php
+#### administrator/components/com_foos/tmpl/foos/default\_batch\_body.php
 
 Damit die Stapelverarbeitung auch für die Tags nutzbar ist, fügen wir ein Formularfeld ein. Mithilfe dieses Feldes ist es möglich ein Schlagwort auszuwählen, dass allen selektierten Items zugeordnet wird.
 

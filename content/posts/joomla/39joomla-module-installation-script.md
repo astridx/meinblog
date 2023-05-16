@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2021-01-11
+date: 2023-05-16
 title: 'Module - Installationsskript'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -28,6 +28,7 @@ tags:
 
 
 Wir ergänzen in diesem Kapitel ein Installationsskript. Bei den Erklärungen zur Komponente hatte ich beschrieben, wofür du dieses verwendest.<!-- \index{Module!Installationsskript} -->
+<!-- Todo Modulweiterleitung nach Installation-->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t33...t34)[^codeberg.org/astrid/j4examplecode/compare/t33...t34] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -40,7 +41,7 @@ In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu be
 #### Module
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ script.php
+##### modules/mod_foo/script.php
 
 Am Beispiel der Skriptdatei zeige ich, dass Vieles im Falle eines Moduls genauso angewendet wird, wie bei einer Komponente.
 
@@ -195,7 +196,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.xml
+##### modules/mod_foo/mod_foo.xml
 
 Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Installationsroutine weiß, dass sie dieses an die richtige Stelle zu kopieren und aufzurufen hat.
 

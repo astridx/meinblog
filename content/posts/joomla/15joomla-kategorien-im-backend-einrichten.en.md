@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Set Up Categories in Backend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -56,7 +56,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ access.xml
+#### administrator/components/com_foos/access.xml
 
 The entries in the file `access.xml` marked below with a plus sign are necessary to set permissions for the categories. The new code causes the display of a tab for setting user permissions per category in the administration area.
 
@@ -100,7 +100,7 @@ The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a m
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 We add a selection field with matching categories to the form used to create a Foo item. We use the Joomla own field `categoryedit` for this. Note the line `extension="com_foos"`. This ensures that only categories belonging to the component `com_foos` are displayed.
 
@@ -338,7 +338,7 @@ Additionally, implementations are required in the component class to use Joomla'
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### administrator/components/com_foos/src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 In the model we add to the database query the table where Joomla stores categories. Thus, in the administration area, when a category is selected, only the elements belonging to it are displayed.
 
@@ -371,7 +371,7 @@ In the model we add to the database query the table where Joomla stores categori
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 We add the category field to the form for editing an element. It is rendered using the information in the XML form `administrator/components/com_foos/forms/foo.xml`, which we worked on earlier in this chapter.
 
@@ -389,7 +389,7 @@ We add the category field to the form for editing an element. It is rendered usi
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 In the overview table of the view in the backend, we add a column for displaying the category.
 

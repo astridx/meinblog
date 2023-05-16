@@ -58,7 +58,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir verstecken sie mit dem Attribut `hidden`, da sie hier nicht vom Benutzer geändert werden. Joomla setzt die Werte automatisch im Hintergrund.
 
@@ -107,7 +107,7 @@ Die Datenbankänderungen, die wir oben für die Aktualisierung in der separaten 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 Im Model passen wir alles so an, dass die beiden neuen Spalten korrekt geladen werden.
 
@@ -158,7 +158,7 @@ Im Model passen wir alles so an, dass die beiden neuen Spalten korrekt geladen w
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 In die Listenansicht fügen wir keine separate Spalte ein. Beim Namen wird ein Symbol angezeigt, wenn das Element gesperrt ist. Für die Anzeige von diesem wähle ich die Funktion, die Joomla in eigenen Erweiterungen einsetzt: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. Die übernimmt gleichzeitig die Prüfung, ob der Beitrag freigegeben ist oder nicht.
 

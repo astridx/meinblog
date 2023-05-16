@@ -40,7 +40,7 @@ No new files are added.
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 We do not have any special requests. To display the default pagination, more or less two lines are enough. In the view you call
 `$this->pagination = $this->get('Pagination');` to set the variable `$this->pagination`.
@@ -68,7 +68,7 @@ We do not have any special requests. To display the default pagination, more or 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 In the template we use the `getListFooter` method of the variable `$this->pagination`. That was all!
 

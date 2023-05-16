@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Custom Fields (Eigene Felder) im Backend integrieren'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -42,7 +42,7 @@ Wir haben in diesem Teil keine neue Datei erstellt, sondern lediglich Dateien ge
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ access.xml
+#### administrator/components/com_foos/access.xml
 
 In der Datei `administrator/components/com_foos/access.xml` bereiten wir alles dafür vor, die benutzerdefinierten Felder mit Berechtigungen zu versehen. So ist es möglich, dass das Ändern oder das Ansehen eines Feldes nur bestimmten Benutzern erlaubt ist.
 
@@ -143,7 +143,7 @@ Im Navigationsmenü links im Joomla Administrationsbereichs fügen wir zwei Link
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/src/Model/FooModel.php
 
 Das Formular, über das ein Foo-Element editierbar ist, verfügt nun über Tabulatoren. Damit die Daten innerhalb der Session nicht verloren gehen, wenn man zwischen den Tabs wechselt, ändern wir die Methode `loadFormData()` in der Datei `administrator/components/com_foos/src/Model/FooModel.php`. Es ist nicht notwendig, dass wir selbst Daten zwischenspeichern. Die Methode `$app->getUserState()` erledigt dies für uns. Gleichzeitig stellen wir sicher, dass für die Kategorie ein Standardwert gesetzt wird, falls ein neues Element geladen wird und deshalb `$this->getState('foo.id') == 0` gleich `true` ist.
 
@@ -172,7 +172,7 @@ Das Formular, über das ein Foo-Element editierbar ist, verfügt nun über Tabul
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla eigenen Erweiterungen, nutzen wir UiTab[^libraries/src/html/helpers/uitab.php]. `$this->useCoreUI = true;` sorgt dafür, dass der Helper[^layouts/joomla/edit/params.php] flexibel die richtige Tab-Impementierung liefert.
 

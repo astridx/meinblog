@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Client Side Validation'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -103,7 +103,7 @@ In the installation manifest we add `<filename>joomla.asset.json</filename>` so 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 The entry `->useScript('com_foos.admin-foos-letter');` ensures that the JavaScript file `media/com_foos/js/admin-foos-letter.js`, which is responsible for checking, is applicable via the [webasset manager](https://docs.joomla.org/J4.x:Web_Assets). For this purpose, we will register it later in this chapter via the file `joomla.asset.json`.
 
@@ -121,7 +121,7 @@ The entry `->useScript('com_foos.admin-foos-letter');` ensures that the JavaScri
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 We add `class="validate-letter"`, so Joomla knows which CSS class should be checked. Joomla sets this class when creating the field. See for yourself by opening the form in the backend and checking out the source code.
 

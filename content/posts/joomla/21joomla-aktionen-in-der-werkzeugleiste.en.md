@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-02
+date: 2023-05-17
 title: 'Toolbar Actions'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -132,7 +132,7 @@ We add permission checking here. A button is displayed only if the user is autho
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 Here you can see an example of the List View toolbar - the view that gives you an overview of your items. Permission checking has also been added here.
 

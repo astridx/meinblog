@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-07-31
+date: 2023-05-17
 title: 'Server Side Validation'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -42,7 +42,7 @@ This part covers the server-side validation in Joomla 4.
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Rule/LetterRule.php
+#### administrator/components/com_foos/src/Rule/LetterRule.php
 
 The main goal here is not to learn meaningful validation. Rather, I'm showing you how to integrate your rules into Joomla. That's why you see here only a rudimentary example: In the name it is forbidden to insert a number from now on. In concrete terms, this means: _Astrid_ is allowed. _Astrid9_ is not allowed. For this we create the file `LetterRule.php`.
 
@@ -116,7 +116,7 @@ public function test(\SimpleXMLElement $element, $value, $group = null, Registry
 To make Joomla apply the rule in the `LetterRule.php` file to the text field for entering the name, we modify the form file.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` and `validate="Letter"`. The parameter `addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"` ensures that the form searches for rules in the namespace `FooNamespace\Component\Foos\Administrator\Rule` and `validate="Letter"` indicates that the rule `Letter`, i.e. according to Joomla standard the class `LetterRule`, is applied.
 

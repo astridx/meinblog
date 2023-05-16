@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Multilingualism - Multilingual Associations'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -56,7 +56,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Helper/AssociationsHelper.php
+#### administrator/components/com_foos/src/Helper/AssociationsHelper.php
 
 The helper file `AssociationsHelper.php` is the interface to the language associations component `com_associations`. `AssociationsHelper.php` exists in the frontend and the backend - we'll look at the latter first, the frontend version comes later in this chapter.
 
@@ -506,7 +506,7 @@ abstract class RouteHelper
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 We create a field through which an author selects the language link. This is the field `name="language"`. In order for Joomla to find this field, we add the path in the form `addfieldprefix= "FooNamespace\Component\Foos\Administrator\Field"` as a parameter in the `<fieldset>`.
 
@@ -628,7 +628,7 @@ In FoosComponent we add `AssociationServiceInterface` and `AssociationServiceTra
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Field/Modal/FooField.php
+#### administrator/components/com_foos/src/Field/Modal/FooField.php
 
 We previously used the modal to select a Foo item using a popup when creating a menu item. Now we use it again to select a language link. To make sure that only the matching languages are displayed, we extend the URL with the language information.
 
@@ -656,7 +656,7 @@ We previously used the modal to select a Foo item using a popup when creating a 
 > Are you confused by the characters [`&#8212;`](https://unicode-table.com/de/2014/)[^unicode-table.com/en/2014/] or [`&amp;`](https://unicode-table.com/de/0026/)[^unicode-table.com/de/0026/]? They are quite harmless. `&#8212;` is nothing more than a [dash](https://en.wikipedia.org/wiki/Dash#En_dash)[en.wikipedia.org/wiki/Dash#En_dash] `-`. `&amp;` stands for the ampersand character `&`. In HTML, the latter stands for the beginning of an entity reference. Thus it is a special character. If you use such a character in a text that is checked for security reasons, you should use the encoded entity `&amp;` - more technical stuff on [w3c.org](https://www.w3.org/TR/xhtml1/guidelines.html#C_12)[^w3.org/tr/xhtml1/guidelines.html#c_12]. For the dash `-`, we use [Unicode](https://en.wikipedia.org/wiki/Unicode)[^en.wikipedia.org/wiki/unicode]. The goal in this case is to unify the use of different and incompatible encodings in different countries or cultures.
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/src/Model/FooModel.php
 
 We extend the model `administrator/components/com_foos/src/Model/FooModel.php` used to build the data of an item in regard to the language. In this case `getItem` and `preprocessForm` play the essential role.
 
@@ -746,7 +746,7 @@ protected function loadFormData()
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 > Note: `FooModel.php` is the model which calculates the data for an element. `FoosModel.php` - note the `s` - is the list view model - it handles data for a group of elements.
 
@@ -921,7 +921,7 @@ We implement the `association` service in `AdministratorService.php`. Via the ID
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foo/HtmlView.php
+#### administrator/components/com_foos/src/View/Foo/HtmlView.php
 
 If only one language is possible or changing it is not desired, we set the value of the language selection field and protected it from write access. Also, only categories of this language are selectable.
 
@@ -948,7 +948,7 @@ If only one language is possible or changing it is not desired, we set the value
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 The view of the list should contain the sidebar and the toolbar if it is not a modal view or a popup. If the view is modal, the toolbar and sidebar will confuse. In that case we filter the items automatically according to the currently active language.
 
@@ -986,7 +986,7 @@ The view of the list should contain the sidebar and the toolbar if it is not a m
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 In the form for editing an element we add a form field for specifying the language. For this we use the layout `administrator/components/com_foos/tmpl/foo/edit_associations.php` created earlier in this part.
 
@@ -1044,7 +1044,7 @@ In the form for editing an element we add a form field for specifying the langua
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 In the components overview in the administration area, we add columns to display the language information. We display these columns only when it is required. This is the case when language associations and multilingualism are enabled. To find this out we use Joomla's own functions `Associations::isEnabled()` and `Multilanguage::isEnabled()`.
 

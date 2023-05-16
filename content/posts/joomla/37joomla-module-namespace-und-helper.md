@@ -4,8 +4,8 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2021-01-13
-title: 'Module - Namespace und Helper'
+date: 2023-05-16
+title: 'Module - Helper'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-namespace-und-helper
@@ -27,7 +27,7 @@ tags:
 
 
 
-Wir ergänzen Namespace und Helper.<!-- \index{Modul!Helper} --><!-- \index{Modul!Namespace} -->
+Wir ergänzen und Helper.<!-- \index{Modul!Helper} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t31...t32)[^codeberg.org/astrid/j4examplecode/compare/t31...t32] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -40,7 +40,7 @@ Wir ergänzen Namespace und Helper.<!-- \index{Modul!Helper} --><!-- \index{Modu
 Die Logik im Modul ist unter Umständen komplex. Deshalb ist gut, den Code übersichtlich zu strukturieren. Dies geschieht mittels Helper-Dateien. Diese legen wir im Verzeichnis `Helper` an.
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ Helper/FooHelper.php
+##### modules/mod_foo/Helper/FooHelper.php
 
 > Ich habe die Datei allgemein `FooHelper` benannt. Gute Stil ist es, ihr einen sprechenden Namen zu geben. Jede Hilfsdatei hat eine spezielle Aufgabe und nach ihr sollte sie benannt werden. Die Datei, die die neuesten Artikel lädt, heißt beispielsweise `ArticlesLatestHelper`. So erkennt man auf den ersten Blick, was in der Datei steckt.
 
@@ -90,46 +90,57 @@ class FooHelper
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.php
+##### modules/mod_foo/services/provider.php
 
-Um die Inhalte von `FooHelper` im Modul `mod_foo.php` zu nutzen, importieren wir diese mittels `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Anschließden rufen wir die Funktion `FooHelper::getText()` auf und speichern das Ergebnis in der Variablen `$test`.
-
-[modules/mod_foo/ mod_foo.php](https://codeberg.org/astrid/j4examplecode/src/branch/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+We add the provider for the helper.
 
 ```php {diff}
- \defined('_JEXEC') or die;
-
- use Joomla\CMS\Helper\ModuleHelper;
-+use FooNamespace\Module\Foo\Site\Helper\FooHelper;
-+
-+$test  = FooHelper::getText();
-
- require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
-```
-
-<!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.xml
-
-Den Namespace tragen wir ins Manifest ein. So wird dieser bei der Installation in Joomla registriert. Außerdem ergänzen wir das neue Verzeichnis, damit dieses bei einer Installation an die richtige Stelle kopiert wird.
-
-```xml {diff}
- 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
- 	<version>__BUMP_VERSION__</version>
- 	<description>MOD_FOO_XML_DESCRIPTION</description>
+     public function register(Container $container)
+     {
+         $container->registerServiceProvider(new ModuleDispatcherFactory('\\FooNamespace\\Module\\Foo'));
 -
-+	<namespace>FooNamespace\Module\Foo</namespace>
- 	<files>
- 		<filename module="mod_foo">mod_foo.php</filename>
- 		<folder>tmpl</folder>
-+		<folder>Helper</folder>
- 		<folder>language</folder>
- 		<filename>mod_foo.xml</filename>
- 	</files>
++        $container->registerServiceProvider(new HelperFactory('\\FooNamespace\\Module\\Foo\\Site\\Helper'));
++ 
+         $container->registerServiceProvider(new Module());
+     }
+ };
+```
+
+<!-- prettier-ignore -->
+##### modules/mod_foo/src/Dispatcher/Dispatcher.php
+
+Der `Dispatcher` sammelt alle Variablen, um sie später im Layout `tmpl/default.php` zu verwenden. Hier ergänzen wir die Helper-Datei.
+
+```php {diff}
+
+ namespace FooNamespace\Module\Foo\Site\Dispatcher;
+ 
+ use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
++use Joomla\CMS\Helper\HelperFactoryAwareInterface;
++use Joomla\CMS\Helper\HelperFactoryAwareTrait;
+ 
+ \defined('_JEXEC') or die;
+ 
+
+-class Dispatcher extends AbstractModuleDispatcher
++class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareInterface
+ {
++    use HelperFactoryAwareTrait;
++
+
+     {
+         $data = parent::getLayoutData();
+ 
++        $data['text'] = $this->getHelperFactory()->getHelper('FooHelper')->getText();
++
+         return $data;
+     }
+ }
 
 ```
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/tmpl/default.php
+##### modules/mod_foo/tmpl/default.php
 
 Im Layout greifen wir abschließen auf die Variable zu. Die Logik zum Errechnen des Variablenwertes ist gekapselt. So bleibt das Layout übersichtlich. Wir fügen hier lediglich den Texgt `$test` ein. Wenn wir genauer wissen möchten, was hinter `$test` steckt, dann sehen wir im Helper nach.
 
@@ -137,7 +148,7 @@ Im Layout greifen wir abschließen auf die Variable zu. Die Logik zum Errechnen 
 \defined('_JEXEC') or die;
 
 -echo '[PROJECT_NAME]';
-+echo '[PROJECT_NAME]' . $test;
++echo '[PROJECT_NAME]' . $text;
 ```
 
 ## Teste dein Joomla-Module
@@ -146,11 +157,12 @@ Im Layout greifen wir abschließen auf die Variable zu. Die Logik zum Errechnen 
 
 Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 Installation.
 
-Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
+Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
 
 2. Überprüfe, ob der über die Funktion `FooHelper::getText()` errechnete Text im Frontend angezeigt wird.
 
 ## Links
 
 [Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^docs.joomla.org/j4.x:creating_a_simple_module/de]
+[GHSVS Demo Modul](https://github.com/GHSVS-de/mod_demoghsvs)[^github.com/GHSVS-de/mod_demoghsvs]
 <img src="https://vg08.met.vgwort.de/na/5c01f557afd24e3e8c499ba5f1286700" width="1" height="1" alt="">

@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-06
+date: 2022-08-05
 title: 'Einen Service hinzufügen - Routing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

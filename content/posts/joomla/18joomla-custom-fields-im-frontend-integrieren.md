@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Custom Fields (Eigene Felder) im Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -99,7 +99,7 @@ Wunderst du dich, dass wir bei den Ereignis-Methoden
 > Über `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay` werden, neben den eigenen Feldern andere Elemente ausgegeben, die dem jeweiligen Ereignis zugeordnet sind.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 Im Template geben wir die eigenen Felder aus. In unserem Fall ist dieses nicht umfangreich, deshalb schreiben wir alle gespeicherten Texte hintereinander. In einer komplexeren Datei werden die Events an der passenden Stelle eingefügt.
 

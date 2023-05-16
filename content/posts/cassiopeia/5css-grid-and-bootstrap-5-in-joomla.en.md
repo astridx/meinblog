@@ -295,4 +295,4 @@ body .has-sidebar-right .site-grid .container-component {
 The code written above could result in the component area starting with an existing sidebar in the CSS grid column `main-start` and resulting in the layout below:
 
 ![Beispiel-Layout](/images/grid4.png)
-<img src="https://vg04.met.vgwort.de/na/84da832e1e304a59829dc3aa631646c4" width="1" height="1" alt="">
+<img src="https://vg04.met.vgwort.de/na/4e065e2c4a914741835b939575e6e618" width="1" height="1" alt="">

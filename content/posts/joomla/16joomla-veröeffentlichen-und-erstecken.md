@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Veröffentlichen und Verstecken'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -61,7 +61,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Controller/FoosController.php
+#### administrator/components/com_foos/src/Controller/FoosController.php
 
 Jetzt benötigt Joomla die Klasse `AdminController`. Deshalb erstellen wir die Klasse `FoosController`, welche von `AdminController` erbt. `FoosController` enthält momentan keine eigenen Implementierungen. Der Controller ruft lediglich Methoden der Elternklasse auf.
 
@@ -134,7 +134,7 @@ class FoosController extends AdminController
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird und zwei, über die eine terminierte Veröffentlichung mithilfe eines Kalenders erreicht wird.
 
@@ -231,7 +231,7 @@ Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`. Dies
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 Das Model erweitern wir, damit die Informationen über den Status aus der Datenbank abgefragt werden, wenn die Listenansicht für das Backend erstellt wird.
 
@@ -250,7 +250,7 @@ Das Model erweitern wir, damit die Informationen über den Status aus der Datenb
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Table/FooTable.php
+#### administrator/components/com_foos/src/Table/FooTable.php
 
 In der Datei `administrator/components/com_foos/src/Table/FooTable.php`, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. So stellen wir sicher, dass keine unmöglichen Daten gespeichert werden.
 
@@ -301,7 +301,7 @@ In der Datei `administrator/components/com_foos/src/Table/FooTable.php`, die die
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foo/edit.php
+#### administrator/components/com_foos/tmpl/foo/edit.php
 
 Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Felder gerendert werden.
 
@@ -320,7 +320,7 @@ Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Fel
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 Zum Schluss ergänzen wir die Übersichtsliste im Backend. Wir erstellen eine Spalte für die Anzeige des Veröffentlichungsstatus.
 

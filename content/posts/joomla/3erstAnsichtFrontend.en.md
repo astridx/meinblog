@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-07-13
+date: 2023-03-29
 title: 'The First View in the Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -112,7 +112,7 @@ class DisplayController extends BaseController
 
 At the moment, the view of our component is simple. Only a static text is displayed. This will change!
 
-There are several files that work together to generate the view in the frontend. For example, the controller that calls it. We created this earlier in the current chapter. Later on, we will add a special cell model that prepares the data. At the moment we use the model of the parent classes, because we build on Joomla standard. The file `HtmlView.php` calls the inherited model to prepare the data for the view.
+There are several files that work together to generate the view in the frontend. For example, the controller that calls it. We created this earlier in the current chapter. Later on, we will add a special cell model that prepares the data. At the moment we use the model of the parent classes, because we build on Joomla standard. The parent class file `BaseHtmlView` of `HtmlView.php` works together with the Joomla standard model to prepare the data for the view. It is not yet necessary to code that at this point itself. The following short code snippet is sufficient to generate a display in the frontend.
 
 [components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/View/Foo/HtmlView.php)
 
@@ -164,12 +164,12 @@ Joomla logging offers the possibility to log messages in a file and on the scree
 
 ![Activate debugging in the Joomla backend](/images/j4x3x2a.png)
 
-> We do not use the file here, just because it fits a note: The file `libraries/src/Log/DelegatingPsrLogger.php` becomes final in Joomla 5 and cannot be overwritten further. See PR 39134 [^github.com/joomla/joomla-cms/pull/39134].
+> We do not use the file here. But maybe you are already thinking outside the box. Therefore here a hint: The file `libraries/src/Log/DelegatingPsrLogger.php` becomes final in Joomla 5 and cannot be overwritten further. See PR 39134[^github.com/joomla/joomla-cms/pull/39134].
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
-The file `components/com_foos/ tmpl/foo/default.php` contains the text we display. Everything I wrote in the chapter about the _first view in the backend_ also applies here.
+The file `components/com_foos/tmpl/foo/default.php` contains the text we display. Everything I wrote in the chapter about the _first view in the backend_ also applies here.
 
 [components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
 
@@ -220,7 +220,7 @@ This file was only a workaround and it can now be deleted.
 
 ## Test your Joomla component
 
-1. at the end, install your component in Joomla version 4 to test it: Perform a new installation. This is necessary, otherwise the new files will not be recognised in the frontend. To do this, uninstall your previous installation and copy all files again. Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation.
+1. at the end, install your component in Joomla version 4 to test it: Perform a new installation. This is necessary, otherwise the new files will not be recognised in the frontend. Before reinstalling you can also try if it is just enough to delete the file `/joomla-cms/administrator/cache/autoload_psr4.php`. To do this, uninstall your previous installation and copy all files again. Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation.
 
 2. then open the address `JOOMLA4/index.php?option=com_foos&view=foo` in a browser. You will see the frontend view you just created.
 

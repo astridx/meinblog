@@ -42,7 +42,7 @@ No new files.
 ### Modified files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/filter_foos.xml
+#### administrator/components/com_foos/forms/filter_foos.xml
 
 The form through which the search tools are managed receives an entry for the keywords.
 
@@ -69,7 +69,7 @@ The form through which the search tools are managed receives an entry for the ke
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 In the XML form, we add the form field that contains the information about the tag. Since we use Joomla Standard, we can use many ready-made functions out-of-the-box.
 
@@ -176,7 +176,7 @@ In the installation script, we make sure that our extension is recognised as a s
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FooModel.php
+#### administrator/components/com_foos/src/Model/FooModel.php
 
 In the model of the element, we insert the tags into the batch processing batch and ensure that the associated tags are loaded.
 
@@ -214,7 +214,7 @@ In the model of the element, we insert the tags into the batch processing batch 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 We change the model of the overview list of our extension in the backend regarding the filters and the database query.
 
@@ -279,7 +279,7 @@ We change the model of the overview list of our extension in the backend regardi
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foo/HtmlView.php
+#### administrator/components/com_foos/src/View/Foo/HtmlView.php
 
 In the view, we ensure that the keywords matching the language are loaded.
 
@@ -299,7 +299,7 @@ In the view, we ensure that the keywords matching the language are loaded.
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default\_batch\_body.php
+#### administrator/components/com_foos/tmpl/foos/default\_batch\_body.php
 
 So that the batch processing can also be used for the tags, we insert a form field. With the help of this field it is possible to select a keyword that will be assigned to all selected items.
 

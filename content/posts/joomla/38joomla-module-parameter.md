@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2021-01-12
+date: 2023-05-16
 title: 'Module - Parameter'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -44,9 +44,9 @@ In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.
 #### Modul
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ language/en-GB/en-GB.mod_foo.ini
+##### modules/mod_foo/language/en-GB/mod_foo.ini
 
-[modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+[modules/mod_foo/language/en-GB/mod_foo.ini](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/mod_foo.ini)
 
 Die Beschriftung des Parameters im Administrationsbereich soll sich an die aktive Sprache anpassen. Aus diesem Grund nutzen wir die Sprachdatei.
 
@@ -61,22 +61,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.php
-
-In der Einstiegsdatei des Moduls `modules/mod_foo/ mod_foo.php` prüfen wir, auf welchen Wert der Parameter gesetzt ist und speichern ihn in eine Variable. So ist später ein unkompliziertes Zugreifen möglich.
-
-[modules/mod_foo/ mod_foo.php]()
-
-```php {diff}
-$test  = FooHelper::getText();
-
-+$url = $params->get('domain');
-+
- require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
-```
-
-<!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.xml
+##### modules/mod_foo/mod_foo.xml
 
 Im Manifest fügen wir den neuen Paramter hinzu, so dass dieser im Joomla Backend bearbeitbar ist.
 
@@ -109,7 +94,7 @@ Neben den Parametern, die ein Entwickler in sein Modul einfügt, gib es Standard
 ![Joomla Modul Parameter](/images/j4x38x1.png)
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/tmpl/default.php
+##### modules/mod_foo/tmpl/default.php
 
 In der moduleigenen Template-Datei können wir nun auf den Wert des Parameters zugreifen. Im nachfolgenden Beispiel geben wir den Wert als Text aus. Meist wird ein Parameter in einer komplexeren Art verwendet, zum Beispiel innerhalb von Kontrollstrukturen wie If-Anweisungen oder Schleifen.
 
@@ -122,6 +107,45 @@ In der moduleigenen Template-Datei können wir nun auf den Wert des Parameters z
 
 -echo '[PROJECT_NAME]' . $test;
 +echo '[PROJECT_NAME]' . $test . '<br />' . $url;
+
+```
+
+<!-- prettier-ignore -->
+##### modules/mod_foo/src/Dispatcher/Dispatcher.php
+
+Der `Dispatcher` sammelt alle Variablen, um sie später im Layout `tmpl/default.php` zu verwenden. Hier ergänzen wir den Parameter.
+
+```php {diff}
+
+     {
+         $data = parent::getLayoutData();
+ 
+-        $data['text'] = $this->getHelperFactory()->getHelper('FooHelper')->getText();
++        $data['text'] = $this->getHelperFactory()->getHelper('FooHelper')->getText($data['params']);
+ 
+         return $data;
+     }
+```
+
+<!-- prettier-ignore -->
+##### modules/mod_foo/src/Helper/FooHelper.php
+
+```php {diff}
+ namespace FooNamespace\Module\Foo\Site\Helper;
+ 
++use Joomla\Registry\Registry;
++
+ \defined('_JEXEC') or die;
+ 
+-       public function getText()
++       public function getText(Registry $params)
+        {
+-               return ' FooHelpertest';
++               $url = $params->get('domain', '-');
++
++               return ' FooHelpertest: ' . $url;
+        }
+ }
 
 ```
 

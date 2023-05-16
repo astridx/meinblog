@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-07-15
+date: 2023-03-29
 title: 'Ein Menüpunkt'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -27,7 +27,7 @@ tags:
 
 
 
-In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. Später ist eine Umwandlung in [suchmaschinenfreundliche (SEF) URLs](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/de>)[^docs.joomla.org/enabling_search_engine_friendly_(sef)_urls/de] automatisch möglich. Zur Erinnerung: Aktiviere diese Funktion bitte noch nicht. Diese Beispielerweiterung unterstützt SEF noch nicht. Das Joomla-konforme Routing ergänzen wir später.<!-- \index{Menüpunkt!Frontend} -->
+In diesem Beitrag erfährst du, wie man die Möglichkeit einbaut, einen Menüpunkt für die Frontend-Ansicht der Komponente zu erstellen. So ist es nicht notwendig, dass du die genaue URL weißt. Später ist eine Umwandlung in [suchmaschinenfreundliche (SEF) URLs](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/de>)[^docs.joomla.org/enabling_search_engine_friendly_(sef)_urls/de] automatisch möglich. Zur Erinnerung: Aktiviere diese Funktion bitte noch nicht. Diese Beispielerweiterung unterstützt SEF noch nicht. Das Joomla-konforme Routing ergänzen wir später.<!-- \index{Menüpunkt!Frontend} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t2...t3)[^codeberg.org/astrid/j4examplecode/compare/t2...t3] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -35,10 +35,10 @@ In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansich
 
 ### Neue Dateien
 
-Der Menüpunkt im Frontend funktioniert anders, als der im Administrationsbereich. Wir erstellen eine separate XML-Datei. Später nutzen wir Parameter. Im Moment halten wir es unkompliziert. Wir fügen einige Sprachstrings für Texte hinzu. Im weiteren Verlauf werden wir sehen, wie wir diese übersetzen.
+Der Menüpunkt im Frontend funktioniert anders, als der im Administrationsbereich. Wir erstellen eine separate XML-Datei. Später nutzen wir Parameter. Im Moment halten wir es unkompliziert. Wir fügen vorbereitend lediglich einige Sprachstrings für Texte hinzu. Im weiteren Verlauf werden wir sehen, wie wir diese übersetzen.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.xml
+#### components/com_foos/tmpl/foo/default.xml
 
 Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge den folgenden Code hinzu:
 

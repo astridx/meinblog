@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2021-01-11
+date: 2023-05-16
 title: 'Modules - Installation script'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -40,7 +40,7 @@ In this section we will create a script that will be executed on specific events
 #### Module
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ script.php
+##### modules/mod_foo/script.php
 
 Using the example of the script file, I show that many things are applied in the same way in the case of a module as in the case of a component.
 
@@ -195,7 +195,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.xml
+##### modules/mod_foo/mod_foo.xml
 
 Finally, we enter the name of the script file in the manifest so that the installation routine will copy it to the right place and call it.
 

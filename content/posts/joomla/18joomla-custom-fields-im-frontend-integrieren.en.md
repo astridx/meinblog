@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2023-05-17
 title: 'Integrate Custom Fields in Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -99,7 +99,7 @@ although we have not yet explicitly implemented `&$item->params` in the Foo exte
 > Via `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`, in addition to the custom fields, other elements are displayed that are mapped to the related event.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 IIn the template we display our custom fields. In our case, this is not complex, so we write all the stored texts one after the other. In a more complex file, the events are inserted at the correct place.
 

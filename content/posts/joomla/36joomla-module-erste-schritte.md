@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2021-01-14
+date: 2023-05-16
 title: 'Module - Erste Schritte'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -27,7 +27,7 @@ tags:
 
 
 
-Wir erstellen ein Modul. Das ist ein Add-On, welches die Anzeige des eigentlichen Inhalts erweitert. Man verwendet es, wenn ein Inhalt nicht der Hauptinhalt ist und an unterschiedlichen Positionen dargestellt wird. Nebenbei ist es möglich, die Menüpunkte auszuwählen, unter denen das Modul sichtbar ist.<!-- \index{Modul} -->
+Wir erstellen ein Modul. Das ist ein Add-On, welches die Anzeige des eigentlichen Inhalts erweitert. Man verwendet es, wenn ein Inhalt nicht der Hauptinhalt ist und an unterschiedlichen Positionen dargestellt wird. Nebenbei ist es möglich, die Menüpunkte auszuwählen, unter denen das Modul sichtbar ist.<!-- \index{Modul} --><!-- \index{Modul!Namespace} -->
 
 In Joomla gibt es eine Vielzahl von Modulen, an denen ich mich orientiere. Beispielsweise:
 
@@ -35,7 +35,7 @@ In Joomla gibt es eine Vielzahl von Modulen, an denen ich mich orientiere. Beisp
 - Login Formular (mod_login)
 - und viele mehr.
 
-Dieser Abschnitt erklärt, wie du das Grundgerüst für ein simples Modul erstellst. Dieses gibt im ersten Schritt lediglich einen Text aus. Darauf bauen wir im weiteren Verlauf auf.
+Dieser Abschnitt erklärt, wie du das Grundgerüst für ein simples Modul erstellst. Dieses gibt im ersten Schritt lediglich einen Text aus. Darauf bauen wir im weiteren Verlauf auf. Die Struktur der Module wurde in Joomla 4.3 überarbeitet. Ich nutze hier die neue Vorgehensweise. Beim Erarbeiten habe ich mich an dem Core Module `mod_articles_latest` orientiert.
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t30a...t31)[^codeberg.org/astrid/j4examplecode/compare/t30...t31] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -48,24 +48,24 @@ In diesem Abschnitt fügen wir ein Module hinzu. Es gibt einige grundlegende Dat
 #### Module
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ language/en-GB/en-GB.mod_foo.ini
+##### modules/mod_foo/language/en-GB/mod_foo.ini
 
 Diese Datei stellt die Texte der Übersetzung allgemein bereit.
 
 ```xml
-<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/language/en-GB/mod_foo.ini -->
 
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ language/en-GB/en-GB.mod_foo.sys.ini
+##### modules/mod_foo/language/en-GB/mod_foo.sys.ini
 
 Diese Datei stellt die Texte für Menü und Installationsroutine bereit.
 
 ```xml
-<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/language/en-GB/mod_foo.sys.ini -->
 
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
@@ -73,34 +73,32 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.php
+##### modules/mod_foo/services/provider.php
 
-`mod_foo.php` ist der Haupteinstiegspunkt ins Modul. Die Datei führt die Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und ruft das Template auf, in dem die Modulausgabe angezeigt wird.
+`provider.php` ist der Haupteinstiegspunkt ins Modul. Die Datei führt die registriert die Provider, Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und ruft das Template auf, in dem die Modulausgabe angezeigt wird. Die Datei wird in einem neuen Ordner erstellt, der außerhalb des "src"-Verzeichnisses liegt. Dieser Ordner und die Datei müssen in Kleinbuchstaben benannt werden und folgen der neuen Struktur. Der vordefinierte Namespace, der jeweils zwei Rückwärtsstriche vor den Elementen des "Pfads" hat, ist ebenfalls angegeben. Er ist identisch mit dem Master-Namespace des Moduls, der in der Manifest-Datei angegeben ist.
+
+Die use-Zeilen definieren Joomla-Klassen, die im weiteren Code verwendet werden. Es ist wichtig, dass sie vorhanden sind, da sonst Fehlermeldungen angezeigt werden. Joomla lädt die "provider.php" magisch, wenn wir uns an die Konventionen der Grundstruktur halten.
 
 ```php
-// https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/mod_foo.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/services/provider.php
 
-<?php
-/**
- * @package     Joomla.Administrator
- * @subpackage  mod_foo
- *
- * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
-
-\defined('_JEXEC') or die;
-
-use Joomla\CMS\Helper\ModuleHelper;
-
-require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 
 ```
 
-> In Joomla 3x war eine Zeile wie `$ moduleclass_sfx = htmlspecialchars ($ params-> get ('moduleclass_sfx'));` notwendig. Diese Zeile ist nicht mehr erforderlich. Siehe [PR 17447](https://github.com/joomla/joomla-cms/pull/17447).
+<!-- prettier-ignore -->
+##### modules/mod_foo/src/Dispatcher/Dispatcher.php
+
+The `Dispatcher` collects the variables that we can use later in the module layout `tmpl/default.php`. In the next chapter we will see how helper files are used here.
+
+```php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/src/Dispatcher/Dispatcher.php
+
+
+```
+
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/ mod_foo.xml
+##### modules/mod_foo/mod_foo.xml
 
 `mod_foo.xml` definiert die Dateien, die von der Installationsroutine kopiert werden und gibt Konfigurationsparameter für das Modul an. Du kennst dies bereits von den vorher erstellten Erweiterungen.
 
@@ -130,7 +128,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 ```
 
 <!-- prettier-ignore -->
-##### modules/mod\_foo/tmpl/default.php
+##### modules/mod_foo/tmpl/default.php
 
 `default.php` ist das Template. Diese Datei nimmt die von `mod_foo.php` gesammelten Daten und generiert den HTML-Code, der auf der Seite angezeigt wird. `echo '[PROJECT_NAME]';` sorgt dafür, dass der Name des Projekts im Frontend an der Position angezeigt wird, an der das Modul veröffentlicht ist.
 
@@ -188,5 +186,5 @@ Wir haben eine solide Grundlage für die weiteren Schritte in der Entwicklung de
 
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^docs.joomla.org/j4.x:creating_a_simple_module/de]
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^docs.joomla.org/j4.x:creating_a_simple_module/de] - Im Mai 2023 ist hier die Vorgehensweise vor Joomla 4.3 erklärt.
 <img src="https://vg08.met.vgwort.de/na/f21260ecd2d14b93b42a9d7c73dca41c" width="1" height="1" alt="">

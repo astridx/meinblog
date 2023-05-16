@@ -77,6 +77,8 @@ Das Standard-Styling für das Cassiopeia Template hat keinen Rand. Kopfzeile, Na
 
 ### Sidebar
 
+To the left and right of the main content are sidebars. These are both moved down for display sizes narrower than 992px.
+
 ```
 ...
 	<?php if ($this->countModules('sidebar-right', true)) : ?>
@@ -87,5 +89,5 @@ Das Standard-Styling für das Cassiopeia Template hat keinen Rand. Kopfzeile, Na
 ...
 ```
 
-We can test this by reducing the size of the screen window.
+
 <img src="https://vg04.met.vgwort.de/na/2d578b7fdff146ce85215298ffb60664" width="1" height="1" alt="">

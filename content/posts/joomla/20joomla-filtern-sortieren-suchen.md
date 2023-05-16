@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-02
+date: 2023-05-17
 title: 'Filtern, Sortieren, Suchen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -36,7 +36,7 @@ Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Kompon
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/filter_foos.xml
+#### administrator/components/com_foos/forms/filter_foos.xml
 
 Als erstes erstellen wir das Formular über das die Filter gesetzt werden.
 
@@ -171,7 +171,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird, ergänzen wir mit einem Feld zur Festlegung der Reihenfolge.
 
@@ -211,7 +211,7 @@ Im Falle einer neuen Installation, wird über das Skript in der Datei `install.m
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Model/FoosModel.php
+#### administrator/components/com_foos/src/Model/FoosModel.php
 
 Im Model für die Liste gibt es eine Menge Änderungen. Im Konstruktor speichern wir zunächst die Filterfelder in die Konfiguration.
 
@@ -335,7 +335,7 @@ In der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 Die View lädt das Filterformular `src/administrator/components/com_foos/forms/foo.xml`, welches im oberen Bereich angezeigt wird. Nebenbei ergänzen wir hier die Prüfung, ob der aktive Benutzer Aktionen ausführen darf.
 
@@ -422,7 +422,7 @@ Die View lädt das Filterformular `src/administrator/components/com_foos/forms/f
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/default.php
+#### administrator/components/com_foos/tmpl/foos/default.php
 
 Der nachfolgende Code zeigt alles Wesentliche für die Nutzung der `searchtools` in der Listenansicht des Backend.
 Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?>` mit `<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'access_level', $listDirn, $listOrder); ?>` ersetzt. So wird der Kopfbereich der Tabelle mit einem kleinen Pfeil markiert, wenn eine Sortierung in einer Spalte aktiv ist.
@@ -556,7 +556,7 @@ eine an- und abwahl der Spaltenansichten ermöglicht, ist via PR 36591[^github.c
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/modal.php
+#### administrator/components/com_foos/tmpl/foos/modal.php
 
 Icons zeigen uns an, ob und in welche Richtung eine Spalte sortiert ist. Damit die Sortierung für jemanden klar ist, der diese Markierungen nicht sieht, fügen wir ein `<caption>`-Element hinzu. Das wird nicht angezeigt, es wird vorgelesen.
 

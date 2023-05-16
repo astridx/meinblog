@@ -673,7 +673,7 @@ class HtmlView extends CategoryView
 <!-- \index{slug} -->
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/category/default.php
+#### components/com_foos/tmpl/category/default.php
 
 Das wir für die Kategorie-Ansicht ebenfalls ein Template erstellen, ist nicht neu. Wie üblich legen wir die Datei `default.php` im Verzeichnis `components/com_foos/tmpl/category` an. Wir nutzen `joomla.content.category_default`. Diese Layoutdatei findest du unter `layouts/joomla/content/category_default.php`.
 
@@ -706,7 +706,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/category/default.xml
+#### components/com_foos/tmpl/category/default.xml
 
 In order to be able to create a menu item for navigation in the frontend in a user-friendly way, we create the file `components/com_foos/tmpl/category/default.xml`. We have done this here in the text before several times. For example for an element or for the view of the featured entries.
 
@@ -779,7 +779,7 @@ In order to be able to create a menu item for navigation in the frontend in a us
 > Falls dein Element nicht angezeigt wird, liegt es unter Umständen daran, dass du beim Element den Parameter `show_name` auf no gesetzt hast.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/category/default_items.php
+#### components/com_foos/tmpl/category/default_items.php
 
 Damit der Code der Kategorie-Ansicht übersichtlich ist, arbeiten wir mit Layouts. Im Template `components/com_foos/tmpl/category/default.php` verwenden wir das Layout `joomla.content.category_default`. Dieses wiederum setzt das Layout `items` voraus, welches wir in der Datei `components/com_foos/tmpl/category/default_items.php` implementieren. Auf den ersten Blick erscheint dies umständlich. In der Praxis hat es sich bewährt.
 

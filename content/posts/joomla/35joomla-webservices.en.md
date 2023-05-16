@@ -298,7 +298,7 @@ A list of Foos: `curl -X GET /api/index.php/v1/foos`
 A single Foo element: `curl -X GET /api/index.php/v1/foos/{foo_id}`  
 Delete a Foo element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
-For the following examples, I assume that your installation is located at `http://localhost/joomla-cms4` and that your user and password are `admin (Base64: YWRtaW46YWRtaW4=)`. Change this if necessary.
+For the following examples, I assume that your installation is located at `http://localhost/joomla-cms4` and that your user and password are `adminadminadmin (Base64: YWRtaW5hZG1pbmFkbWluOmFkbWluYWRtaW5hZG1pbg==)`. Change this if necessary.
 
 ### curl.haxx.de
 
@@ -309,7 +309,7 @@ Do you use [Curl](https://curl.haxx.se/)? The following query will list all the 
 ```
 curl --location --request GET 'http://localhost/joomla-cms4/api/index.php/v1/foos' \
 --header 'Accept: application/vnd.api+json' \
---header 'Authorization: Basic YWRtaW46YWRtaW4='
+--header 'Authorization: Basic YWRtaW5hZG1pbmFkbWluOmFkbWluYWRtaW5hZG1pbg=='
 ```
 
 The output format is JSON and looks like this:
@@ -356,8 +356,24 @@ The output format is JSON and looks like this:
 Providing the credentials is mandatory. All together the call in a console looks like this:
 
 ```
-$ curl -X GET http://localhost/t30j4dev/api/index.php/v1/foos --header 'Accept: application/vnd.api+json' --header 'Authorization: Basic YWRtaW46YWRtaW4='
-{"links":{"self":"http:\/\/localhost\/t30j4dev\/api\/index.php\/v1\/foos"},"data":[{"type":"foos","id":"2","attributes":{"id":"2","name":"Astrid","catid":"0"}},{"type":"foos","id":"3","attributes":{"id":"3","name":"Elmar","catid":"0"}},{"type":"foos","id":"1","attributes":{"id":"1","name":"Nina","catid":"0"}}],"meta":{"total-pages":1}}
+$ curl -X GET -H 'Authorization: Basic YWRtaW5hZG1pbmFkbWluOmFkbWluYWRtaW5hZG1pbg==' -i 'http://localhost/joomla-cms4/api/index.php/v1/foos'
+HTTP/1.1 200 OK
+Date: Tue, 16 May 2023 20:34:34 GMT
+Server: Apache/2.4.54 (Unix) OpenSSL/1.1.1o
+x-frame-options: SAMEORIGIN
+referrer-policy: strict-origin-when-cross-origin
+cross-origin-opener-policy: same-origin
+X-Powered-By: JoomlaAPI/1.0
+Expires: Wed, 17 Aug 2005 00:00:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Upgrade: h2,h2c
+Connection: Upgrade
+Last-Modified: Tue, 16 May 2023 20:34:34 GMT
+Transfer-Encoding: chunked
+Content-Type: application/vnd.api+json; charset=utf-8
+
+{"links":{"self":"http:\/\/localhost\/joomla-cms\/api\/index.php\/v1\/foos"},"data":[{"type":"foos","id":"2","attributes":{"id":2,"name":"Astrid","catid":8}},{"type":"foos","id":"3","attributes":{"id":3,"name":"Elmar","catid":0}},{"type":"foos","id":"1","attributes":{"id":1,"name":"Nina","catid":0}}],"meta":{"total-pages":1}}
 ```
 
 ### postman.com

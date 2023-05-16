@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-07-29
+date: 2023-05-14
 title: 'Die Daten der Datenbank im Frontend nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -27,7 +27,7 @@ tags:
 
 
 
-Wir haben eine Datenbank, in der die Daten zur Komponente gespeichert werden. Der nächste Schritt ist, die dynamischen Inhalte im Frontend anzuzeigen. In diesem Teil zeige ich dir, wie du den Inhalt eines Elements per Menüpunkt im Frontend anzeigst. Hierzu erstellen wir ein eigenes Formularfeld.<!-- \index{Formularfeld} -->
+Wir haben eine Datenbank, in der die Daten zur Komponente gespeichert werden. Der nächste Schritt ist, die dynamischen Inhalte im Frontend anzuzeigen. In diesem Teil zeige ich dir, wie du den Inhalt eines Elements per Menüpunkt im Frontend anzeigst. Hierzu erstellen wir ein eigenes Formularfeld.<!-- \index{Formularfeld} --><!-- \index{Formularfeld!eigenes erstellen} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t6b...t7)[^codeberg.org/astrid/j4examplecode/compare/t6b...t7] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -36,7 +36,7 @@ Wir haben eine Datenbank, in der die Daten zur Komponente gespeichert werden. De
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Field/Modal/FooField.php
+#### administrator/components/com_foos/src/Field/Modal/FooField.php
 
 Als erstes erstellen wir das Formularfeld, über welches es möglich ist, ein Foo-Element auszuwählen, beziehungsweise abzuwählen. Auf ein vorgefertigtes Feld können wir in diesem Fall nicht zugreifen. Im Wesentlichen implementieren wir die Methoden `getInput` und `getLabel` und wir legen Typ mit `Modal_Foo` fest. Das der Name der Klasse mit dem Wort `Field` beginnt und dass die Klasse im Verzeichnis `Field` gespeichert wird ist nicht zwingend. Es kann aber hilfreich sein, weil es in Joomla-eigenen Erweiterung Standard ist.
 
@@ -279,7 +279,7 @@ Der Name der Funktion muss an beiden Stellen gleich sein!
 > In einer früher Beispielcode-Version zum Feld `FooField` nutzen wir den Webasset Manager nicht. Die notwendigen Änderungen findest du [hier](https://github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9)[^github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9].
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/modal.php
+#### administrator/components/com_foos/tmpl/foos/modal.php
 
 Die Auswahl öffnen wir über das FooField in einem Modal-Fenster. Als Adresse haben wir im Feld `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'` eingefügt. Der nachfolgende Code zeigt dir das Template für dieses Modal-Fenster.
 
@@ -402,7 +402,7 @@ Wir nutzen den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Di
 }
 ```
 
-> Wundern Sie sich, dass ich anstelle von `com_foos/js/admin-foos-modal.js` `com_foos/admin-foos-modal.js` als `uri` schreibe? Meiner Meinung nach ist dies ein verstecktes Geheimnis in Joomla. `js` und `css` Datei, wenn der Pfad nicht [absolut](https://github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/libraries/src/WebAsset/WebAssetItem.php#L349)[^github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/ libraries/src/webasset/webassetitem.php#l349] ist, werden automatisch im Unterverzeichnis `js`, bzw. `css` gesucht. Dies war bereits in [Joomla 3.x](https://docs.joomla.org/Adding_JavaScript/de#Externes_JavaScript)[^docs.joomla.org/adding_javascript/de#external_javascript] der Fall. Im Aufruf `JHtml::_('script', 'com_example/example.js', array('relative' => true));` erwartet Joomla, dass sich die Datei `example.js` unter `media/com_example/example.js` befindet. Du solltest `js` nicht in den Pfad in der Anweisung einschließen. Dieses Verhalten wird vom Web Asset Manager für Skripte und Stile standardmäßig implementiert. Möchtest du einen genaueren Blick darauf werfen? Du findest den Code dafür in der Datei `libraries/src/WebAsset/WebAssetItem.php`.<!-- \index{Webassetmanager!relative} -->
+> Wunderst du dich, dass ich anstelle von `com_foos/js/admin-foos-modal.js` `com_foos/admin-foos-modal.js` als `uri` schreibe? Meiner Meinung nach ist dies ein verstecktes Geheimnis in Joomla. `js` und `css` Datei, wenn der Pfad nicht [absolut](https://github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/libraries/src/WebAsset/WebAssetItem.php#L349)[^github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/ libraries/src/webasset/webassetitem.php#l349] ist, werden automatisch im Unterverzeichnis `js`, bzw. `css` gesucht. Dies war bereits in [Joomla 3.x](https://docs.joomla.org/Adding_JavaScript/de#Externes_JavaScript)[^docs.joomla.org/adding_javascript/de#external_javascript] der Fall. Im Aufruf `JHtml::_('script', 'com_example/example.js', array('relative' => true));` erwartet Joomla, dass sich die Datei `example.js` unter `media/com_example/js/example.js` befindet. Du solltest `js` nicht in den Pfad in der Anweisung einschließen. Dieses Verhalten wird vom Web Asset Manager für Skripte und Stile standardmäßig implementiert. Möchtest du einen genaueren Blick darauf werfen? Du findest den Code dafür in der Datei `libraries/src/WebAsset/WebAssetItem.php`.<!-- \index{Webassetmanager!relative} -->
 
 Für die Medienversion setzt der Web Asset Manager den Standardwert `auto`. Das bedeutet, dass `JHtml::_('script', 'com_example/example.js', array('version' => 'auto'));` standardmäßig aufgerufen wird. Was bedeutet das genau? Die Medienversion wird verwendet, um das erneute Laden von CSS- und JavaScript-Dateien zu steuern. Insbesondere wird die Medienversion bei einer Aktualisierung, Installation oder Deinstallation zurückgesetzt. Der Grund dafür ist, dass Browser CSS- und JS-Dateien im Cache speichern, so dass die folgende Situation eintreten kann 
 1. Ein Benutzer greift auf eine Joomla-Website zu, und die CSS- und JS-Dateien werden im Browser des Benutzers gespeichert. 
@@ -592,7 +592,7 @@ In der View tauschen wir folgerichtig `$this->msg = $this->get('Msg');` gegen `$
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 Die Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Element `item` und dessen Eigenschaft `name` zu. Auf diese Art können wir in Zukunft weitere Eigenschaften flexibel und unkompliziert ergänzen.
 
@@ -609,9 +609,9 @@ Die Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Eleme
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.xml
+#### components/com_foos/tmpl/foo/default.xml
 
-Wir erstellen einen Eintrag in der Datei `default.xml` für das neue Formularfeld. So ermöglichen wir beim Menüpunkt die Auswahl eines Foo-Elementes. Erwähnenswert sind die Einträge `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` und `type="modal_foo"`:
+Wir erstellen einen Eintrag in der Datei `default.xml` für das neue Formularfeld. So ermöglichen wir beim Menüpunkt die Auswahl eines Foo-Elementes. Erwähnenswert sind die Einträge `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` und `type="modal_foo"`:<!-- \index{Formular!addfieldprefix} --><!-- \index{addfieldprefix} -->
 
 [components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.xml)
 
@@ -659,7 +659,7 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
 
 4. Speichere den Menüpunkt.
 
-5. Wechsele anschließend ins Frontend und überzeuge dich davon, dass der Menüpunkt korrekt angelegt ist. Dir wird der Titel des Elements angezeigt, welches du im Administrationsbereich ausgewählt hattest.
+5. Wechsele anschließend ins Frontend und überzeuge dich davon, dass der Menüpunkt korrekt angelegt ist. Dir wird der Name des Elements angezeigt, welches du im Administrationsbereich ausgewählt hattest.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x9x3.png)
 <img src="https://vg08.met.vgwort.de/na/58035fa2fdcc41cc9004f5bc5e42cc5a" width="1" height="1" alt="">

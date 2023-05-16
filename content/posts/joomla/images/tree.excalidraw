@@ -143,7 +143,7 @@
       "boundElementIds": [],
       "fontSize": 36,
       "fontFamily": 3,
-      "text": "├── modules\n│   └── mod_foo\n│       ├── Helper\n│       │   └── FooHelper.php\n│       ├── language\n│       │   └── en-GB\n│       │       ├── en-GB.mod_foo.ini\n│       │       └── en-GB.mod_foo.sys.ini\n│       ├── mod_foo.php\n│       ├── mod_foo.xml\n│       ├── script.php\n│       └── tmpl\n│           └── default.php\n",
+      "text": "├── modules\n│   └── mod_foo\n│       ├── Helper\n│       │   └── FooHelper.php\n│       ├── language\n│       │   └── en-GB\n│       │       ├── mod_foo.ini\n│       │       └── en-GB.mod_foo.sys.ini\n│       ├── mod_foo.php\n│       ├── mod_foo.xml\n│       ├── script.php\n│       └── tmpl\n│           └── default.php\n",
       "baseline": 604,
       "textAlign": "left",
       "verticalAlign": "top"

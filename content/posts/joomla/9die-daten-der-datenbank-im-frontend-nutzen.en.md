@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-07-29
+date: 2023-05-14
 title: 'Using the Database Data in the Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -27,7 +27,7 @@ tags:
 
 
 
-We have a database where the data about the component is stored. The next step is to display the dynamic content in the frontend. In this part, I'll show you how to output the content for an element via menu item. For this we will create our own form field.<!-- \index{Form field} -->
+We have a database where the data about the component is stored. The next step is to display the dynamic content in the frontend. In this part, I'll show you how to output the content for an element via menu item. For this we will create our own form field.<!-- \index{Form field} --><!-- \index{Form field!create own} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t6b...t7)[^codeberg.org/astrid/j4examplecode/compare/t6b...t7] and copy these changes into your development version.
 
@@ -36,7 +36,7 @@ We have a database where the data about the component is stored. The next step i
 ### New files
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Field/Modal/FooField.php
+#### administrator/components/com_foos/src/Field/Modal/FooField.php
 
 First, we create the form field through which it is possible to select or deselect a Foo element. In this case, we cannot access a ready-made field. Basically, we implement the methods `getInput` and `getLabel` and we set the type to `Modal_Foo`. It is not mandatory that the name of the class starts with the word 'Field' and that the class is stored in the directory 'Field'. However, it can be helpful because it is standard in Joomla's own extension.
 
@@ -279,7 +279,7 @@ The name of the function must be the same in both places!
 > In an early sample code version for the field 'FooField' we do not use the Webasset Manager. The necessary changes can be found [here](https://github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9)[^github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9].
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ tmpl/foos/modal.php
+#### administrator/components/com_foos/tmpl/foos/modal.php
 
 We open the selection in a modal window via the FooField. As address we have inserted in the field `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'`. The following code shows you the template for this modal window.
 
@@ -402,7 +402,7 @@ We use the [WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets). This time
 }
 ```
 
-> Are you wondering that instead of `com_foos/js/admin-foos-modal.js` I write `com_foos/admin-foos-modal.js` as `uri`? In my opinion this is a hidden secret in Joomla. `js` and `css` file, if the path is not [absolute](https://github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/libraries/src/WebAsset/WebAssetItem.php#L349)[^github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/ libraries/src/webasset/webassetitem.php#l349], are automatically searched in the subdirectory `js`, respectively `css`. This was already the case in [Joomla 3.x](https://docs.joomla.org/Adding_JavaScript#External_JavaScript)[^docs.joomla.org/adding_javascript#external_javascript]. In the call `JHtml::_('script', 'com_example/example.js', array('relative' => true));` Joomla expects the file `example.js` to be located at `media/com_example/example.js`. You should not include `js` in the path in the statement This behavior is implemented by Web Asset Manager for scripts and styles by default. Want to take a closer look? You can find the code for this in the file `libraries/src/WebAsset/WebAssetItem.php`.<!-- \index{WebAssetManager!relative} -->
+> Are you wondering that instead of `com_foos/js/admin-foos-modal.js` I write `com_foos/admin-foos-modal.js` as `uri`? In my opinion this is a hidden secret in Joomla. `js` and `css` file, if the path is not [absolute](https://github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/libraries/src/WebAsset/WebAssetItem.php#L349)[^github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/ libraries/src/webasset/webassetitem.php#l349], are automatically searched in the subdirectory `js`, respectively `css`. This was already the case in [Joomla 3.x](https://docs.joomla.org/Adding_JavaScript#External_JavaScript)[^docs.joomla.org/adding_javascript#external_javascript]. In the call `JHtml::_('script', 'com_example/example.js', array('relative' => true));` Joomla expects the file `example.js` to be located at `media/com_example/js/example.js`. You should not include `js` in the path in the statement This behavior is implemented by Web Asset Manager for scripts and styles by default. Want to take a closer look? You can find the code for this in the file `libraries/src/WebAsset/WebAssetItem.php`.<!-- \index{WebAssetManager!relative} -->
 
 For the media version the Web Asset Manager sets the default `auto`. This means that `JHtml::_('script', 'com_example/example.js', array('version' => 'auto'));` is called by default. What does this mean exactly? The media version is used to control the new loading of CSS and JavaScript files. Specifically, the media version is reset during an update, installation, or uninstall. The reason for this is that browsers cache CSS and JS files, so the following situation can occur: 
 1. A user accesses a Joomla website, and the CSS and JS files are stored in the user's browser. 
@@ -592,7 +592,7 @@ In the view we consequently replace `$this->msg = $this->get('Msg');` with `$thi
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 We will customize the display of the name in the template. Here we access the `item` element and its `name` property. In this way we can flexibly and easily add new properties in the future.
 
@@ -609,9 +609,9 @@ We will customize the display of the name in the template. Here we access the `i
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.xml
+#### components/com_foos/tmpl/foo/default.xml
 
-We create an entry in the `default.xml` file for the new form field. This way we enable the selection of a Foo element at the menu item. Worth mentioning are the entries `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` and `type="modal_foo"`:
+We create an entry in the `default.xml` file for the new form field. This way we enable the selection of a Foo element at the menu item. Worth mentioning are the entries `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` and `type="modal_foo"`:<!-- \index{form!addfieldprefix} --><!-- \index{addfieldprefix} -->
 
 [components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.xml)
 
@@ -658,7 +658,7 @@ Then click on the `New` button and fill in all the necessary fields. You can fin
 
 4. save the menu item.
 
-5. switch to the frontend and make sure that the menu item is created correctly. You will see the title of the element you selected in the administration area.
+5. switch to the frontend and make sure that the menu item is created correctly. You will see the name of the element you selected in the administration area.
 
 ![Joomla Create a menu item](/images/j4x9x3.png)
 <img src="https://vg08.met.vgwort.de/na/68d12b4bb91e4a72942a461a5a6e1a24" width="1" height="1" alt="">

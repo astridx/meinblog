@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-02
+date: 2023-05-17
 title: 'Aktionen in der Werkzeugleiste'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -42,7 +42,7 @@ Wir ändern in diesem Kapitel lediglich Dateien, es kommt keine neue hinzu.
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foo/HtmlView.php
+#### administrator/components/com_foos/src/View/Foo/HtmlView.php
 
 Der nachfolgende Code zeigt dir, welche Funktionen du beim Erstellen oder Editieren eines Elementes nutzt. Die Klasse ToolbarHelper[^libraries/src/Toolbar/ToolbarHelper.php] bietet eine Menge hilfreicher Funktionen. Beispielweise
 
@@ -133,7 +133,7 @@ Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur 
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/View/Foos/HtmlView.php
+#### administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 Hier siehst du beispielhaft die Werkzeugleiste der Listenansicht - die Ansicht, die dir eine Übersicht über deine Elemente bietet. Die Prüfung von Berechtigungen ist hier ebenfalls hinzugekommen.
 

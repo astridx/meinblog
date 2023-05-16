@@ -4,7 +4,7 @@ set: 'der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
 syndication:
 shortTitle: 'short'
-date: 2022-08-02
+date: 2023-05-17
 title: 'Parameter'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -83,10 +83,11 @@ In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu se
 +
 +		<field
 +			name="show_name"
-+			type="radio"
++			type="list"
 +			label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
 +			default="1"
-+			layout="joomla.form.field.radio.switcher"
++     		class="form-select-color-state"
++    		validate="options"
 +			>
 +			<option value="0">JHIDE</option>
 +			<option value="1">JSHOW</option>
@@ -97,7 +98,7 @@ In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu se
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ forms/foo.xml
+#### administrator/components/com_foos/forms/foo.xml
 
 In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params` hinzu. So ist `show_name` ebenfalls für ein einzelnes Element konfigurierbar.
 
@@ -114,6 +115,8 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params
 +				type="list"
 +				label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
 +				useglobal="true"
++     			class="form-select-color-state"
++    			validate="options"
 +			>
 +				<option value="0">JHIDE</option>
 +				<option value="1">JSHOW</option>
@@ -142,7 +145,7 @@ Damit bei einer neuen Installation die Spalte erstellt wird, in der die Paramete
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/com_foos/ src/Table/FooTable.php
+#### administrator/components/com_foos/src/Table/FooTable.php
 
 In der Klasse, die die Tabelle verwaltet, stellen wir sicher, dass die Parameter in der korrekten Form gespeichert werden. Wir verwenden das [Registry-Entwurfsmuster](<https://de.wikipedia.org/wiki/Registry_(Entwurfsmuster)>)[^de.wikipedia.org/wiki/registry_(entwurfsmuster)]. <!-- \index{Entwurfsmuster!Registy} --> Dieses nutzt die Möglichkeit, Eigenschaften [in PHP zu überschreiben](http://php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members)[^php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members]. Eigenschaften fügen wir mittels
 
@@ -185,6 +188,36 @@ $foo = $registry->foo;
 ```
 
 <!-- prettier-ignore -->
+#### components/com_foos/src/Model/Foo/FooModel.php
+
+<!-- todo Model is now modified too -->
+
+[components/com_foos/src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/src/View/Foo/HtmlView.php)
+
+```php {diff}
+ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+ use Joomla\CMS\Language\Text;
++use Joomla\CMS\Application\SiteApplication;
++use Joomla\CMS\Component\ComponentHelper;
++use Joomla\Registry\Registry;
+ 
+ /**
+  * Foo model for the Joomla Foos component.
+class FooModel extends BaseDatabaseModel
+                                        throw new \Exception(Text::_('COM_FOOS_ERROR_FOO_NOT_FOUND'), 404);
+                                }
+ 
++                               $registry = new Registry($data->params);
++
++                               $data->params = clone $this->getState('params');
++                               $data->params->merge($registry);
++
+                                $this->_item[$pk] = $data;
+
+```
+
+
+<!-- prettier-ignore -->
 #### components/com_foos/src/View/Foo/HtmlView.php
 
 Die View kombiniert die Daten zu den Parametern so, dass die Anzeige passt.
@@ -216,17 +249,23 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
  	{
  		$item = $this->item = $this->get('Item');
 
-+		$state = $this->state = $this->get('State');
-+		$params = $this->params = $state->get('params');
-+		$itemparams = new Registry(json_decode($item->params));
++		$state = $this->get('State');
++		$params = $state->get('params');
 +
-+		$temp = clone $params;
++        $active = $app->getMenu()->getActive();
 +
-+		/**
-+		 * $item->params are the foo params, $temp are the menu item params
-+		 * Merge so that the menu item params take priority
-+		 *
-+		 * $itemparams->merge($temp);
++        if (
++            $active
++            && $active->component == 'com_foos'
++            && isset($active->query['view'], $active->query['id'])
++            && $active->query['view'] == 'foo'
++            && $active->query['id'] == $item->id
++        ) {
++            $item->params->merge($temp);
++        } else {
++            $temp->merge($item->params);
++            $item->params = $temp;
++        }
 +		 */
 +
 +		// Merge so that foo params take priority
@@ -239,7 +278,7 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.php
+#### components/com_foos/tmpl/foo/default.php
 
 Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `components/com_foos/tmpl/foo/default.php`. Wenn es den Parameter gibt und er so gesetzt ist, dass der Name angezeigt werden soll `if ($this->item->params->get('show_name'))`, dann wird der Name angezeigt. Das Label `$this->params->get('show_foo_name_label')` wird ebenfalls nur dann angezeigt:
 
@@ -252,7 +291,7 @@ Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `componen
 -	echo Text::_('COM_FOOS_NAME');
 -}
 +if ($this->item->params->get('show_name')) {
-+	if ($this->params->get('show_foo_name_label')) {
++	if ($this->item->params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
 
@@ -265,7 +304,7 @@ Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `componen
 ```
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.xml
+#### components/com_foos/tmpl/foo/default.xml
 
 [components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/tmpl/foo/default.xml)
 
@@ -280,11 +319,12 @@ Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ei
 +		<fieldset name="basic" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
 +			<field
 +				name="show_name"
-+				type="radio"
++				type="list"
 +				label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
 +				layout="joomla.form.field.radio.switcher"
-+				default="1"
-+				class=""
++  				validate="options"
++ 				useglobal="true"
++  				class="form-select-color-state"
 +				>
 +				<option value="0">JHIDE</option>
 +				<option value="1">JSHOW</option>

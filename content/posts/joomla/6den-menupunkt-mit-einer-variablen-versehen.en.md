@@ -4,7 +4,7 @@ set: 'en/der-weg-zu-joomla4-erweiterungen'
 booklink: 'https://astrid-guenther.de/en/buecher/joomla-4-developing-extensions'
 syndication:
 shortTitle: 'short'
-date: 2022-07-22
+date: 2023-05-11
 title: 'Extend the Menu Item with a Variable'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -122,7 +122,7 @@ Possible data types for filtering are:
 So far, so good. We are still missing the possibility to configure the value for `show_text` at the menu item in the backend. We implement this next in the file `default.xml`.
 
 <!-- prettier-ignore -->
-#### components/com_foos/ tmpl/foo/default.xml
+#### components/com_foos/tmpl/foo/default.xml
 
 In your extension you offer the possibility to save a value at the menu item by extending the XML file with an input element. The following code shows you how to add a text input field.
 

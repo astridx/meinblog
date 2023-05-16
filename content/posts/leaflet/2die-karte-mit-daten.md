@@ -17,6 +17,16 @@ tags:
   - Leaflet
 ---
 
+
+
+
+
+
+
+
+
+
+
 Sie können eine digitale Karte mit Leaflet in ein HTML Dokument einbinden, Sie wissen was geografische Koordinaten sind und wie die Imagedateien für digitale Karten erstellt werden. Darauf aufbauend können wir nun in diesem Kapitel Ihre digitale Karte mit Geodaten füllen.
 
 ## In diesem Kapitel werden wir …
