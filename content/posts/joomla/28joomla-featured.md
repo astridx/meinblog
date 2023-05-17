@@ -141,56 +141,14 @@ class FeaturedModel extends ListModel
 	 */
 	protected function getListQuery()
 	{
-		$user = Factory::getUser();
-		$groups = $user->getAuthorisedViewLevels();
-
 		// Create a new query object.
-		$db    = $this->getDbo();
+		$db = $this->getDatabase();
 		$query = $db->getQuery(true);
 
 		// Select required fields from the categories.
 		$query->select($this->getState('list.select', 'a.*'))
 			->from($db->quoteName('#__foos_details', 'a'))
-			->where($db->quoteName('a.featured') . ' = 1')
-			->whereIn($db->quoteName('a.access'), $groups)
-			->innerJoin($db->quoteName('#__categories', 'c') . ' ON c.id = a.catid')
-			->whereIn($db->quoteName('c.access'), $groups);
-
-		// Filter by category.
-		if ($categoryId = $this->getState('category.id')) {
-			$query->where($db->quoteName('a.catid') . ' = :catid');
-			$query->bind(':catid', $categoryId, ParameterType::INTEGER);
-		}
-
-		$query->select('c.published as cat_published, c.published AS parents_published')
-			->where('c.published = 1');
-
-		// Filter by state
-		$state = $this->getState('filter.published');
-
-		if (is_numeric($state)) {
-			$query->where($db->quoteName('a.published') . ' = :published');
-			$query->bind(':published', $state, ParameterType::INTEGER);
-
-			// Filter by start and end dates.
-			$nowDate = Factory::getDate()->toSql();
-
-			$query->where('(' . $db->quoteName('a.publish_up') .
-				' IS NULL OR ' . $db->quoteName('a.publish_up') . ' <= :publish_up)')
-				->where('(' . $db->quoteName('a.publish_down') .
-					' IS NULL OR ' . $db->quoteName('a.publish_down') . ' >= :publish_down)')
-				->bind(':publish_up', $nowDate)
-				->bind(':publish_down', $nowDate);
-		}
-
-		// Filter by language
-		if ($this->getState('filter.language')) {
-			$language = [Factory::getLanguage()->getTag(), '*'];
-			$query->whereIn($db->quoteName('a.language'), $language, ParameterType::STRING);
-		}
-
-		// Add the list ordering clause.
-		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')) . ' ' . $db->escape($this->getState('list.direction', 'ASC')));
+			->where($db->quoteName('a.featured') . ' = 1');
 
 		return $query;
 	}
@@ -234,16 +192,6 @@ class FeaturedModel extends ListModel
 		}
 
 		$this->setState('list.direction', $listOrder);
-
-		$user = Factory::getUser();
-
-		if ((!$user->authorise('core.edit.state', 'com_foos')) && (!$user->authorise('core.edit', 'com_foos'))) {
-			// Limit to published for people who can't edit or edit.state.
-			$this->setState('filter.published', 1);
-
-			// Filter by start and end dates.
-			$this->setState('filter.publish_date', true);
-		}
 
 		$this->setState('filter.language', Multilanguage::isEnabled());
 
@@ -612,7 +560,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 					</th>
 
 					<th class="item-title">
-						<?php echo HTMLHelper::_('grid.sort', 'COM_FOO_FOO_EMAIL_NAME_LABEL', 'a.name', $listDirn, $listOrder); ?>
+						<?php echo HTMLHelper::_('grid.sort', 'COM_FOO_FOO_NAME_LABEL', 'a.name', $listDirn, $listOrder); ?>
 					</th>
 				</tr>
 			</thead>

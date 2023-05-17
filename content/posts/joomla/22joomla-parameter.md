@@ -42,7 +42,7 @@ Wenn ein Parameter bei den drei Möglichkeiten gesetzt ist, gilt in Joomla stand
 - Danach zieht der Parameter, der für das Item speziell gilt.
 - Die niedrigst Priorität hat der Parameter, der für die Komponente gesetzt ist.
 
-![Parameter-Behandlung in Joomla](/images/parameter.png)
+![Parameter-Behandlung in Joomla](/images/parameterde.png)
 
 Beim Menüpunkt hatten wir schon einen Parameter gesetzt. Für die Komponente gibt es diesen in den Optionen der Konfiguration. Das Item im Speziellen nehmen wir uns in diesem Abschnitt vor.
 

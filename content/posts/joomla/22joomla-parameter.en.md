@@ -39,7 +39,7 @@ Parameters exist for
 - After that, the parameter that applies specifically to the item takes precedence.
 - The parameter that is set for the component has the lowest priority.
 
-![Parameter handling in Joomla](/images/parameter.en.png)
+![Parameter handling in Joomla](/images/parameteren.png)
 
 For the menu item we had already set a parameter. For the component, you can find it in the options of the configuration. We will look at the item in particular in this section.
 

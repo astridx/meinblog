@@ -191,8 +191,8 @@
     },
     {
       "type": "text",
-      "version": 253,
-      "versionNonce": 1112387643,
+      "version": 255,
+      "versionNonce": 1443200364,
       "isDeleted": false,
       "id": "Zx_D3dJbV0Y2GRUzeXyUi",
       "fillStyle": "hachure",
@@ -211,17 +211,17 @@
       "groupIds": [],
       "roundness": null,
       "boundElements": [],
-      "updated": 1684175944887,
+      "updated": 1684300088047,
       "link": null,
       "locked": false,
       "fontSize": 16,
       "fontFamily": 3,
-      "text": "Im Item gesetut?",
+      "text": "Im Item gesetzt?",
       "baseline": 16,
       "textAlign": "center",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Im Item gesetut?"
+      "originalText": "Im Item gesetzt?"
     },
     {
       "type": "text",

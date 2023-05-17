@@ -79,9 +79,9 @@ class FooHelper
 	 *
 	 * @return  array
 	 */
-	public static function getText()
+	public function getText()
 	{
-		return 'FooHelpertest';
+		return ' FooHelpertest';
 	}
 }
 

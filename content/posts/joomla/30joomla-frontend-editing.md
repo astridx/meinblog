@@ -56,175 +56,167 @@ Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearb
 
 namespace FooNamespace\Component\Foos\Administrator\Service\HTML;
 
-\defined('_JEXEC') or die;
-
-use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\User\UserFactoryInterface;
 use FooNamespace\Component\Foos\Site\Helper\RouteHelper;
 use Joomla\Registry\Registry;
+
+\defined('_JEXEC') or die;
 
 /**
  * Content Component HTML Helper
  *
- * @since  __DEPLOY_VERSION__
+ * @since  __BUMP_VERSION__
  */
 class Icon
 {
-	/**
-	 * The application
-	 *
-	 * @var    CMSApplication
-	 *
-	 * @since  __DEPLOY_VERSION__
-	 */
-	private $application;
+    /**
+     * The user factory
+     *
+     * @var    UserFactoryInterface
+     *
+     * @since  __BUMP_VERSION__
+     */
+    private $userFactory;
 
-	/**
-	 * Service constructor
-	 *
-	 * @param   CMSApplication  $application  The application
-	 *
-	 * @since   __DEPLOY_VERSION__
-	 */
-	public function __construct(CMSApplication $application)
-	{
-		$this->application = $application;
-	}
+    /**
+     * Service constructor
+     *
+     * @param   UserFactoryInterface  $userFactory  The userFactory
+     *
+     * @since   __BUMP_VERSION__
+     */
+    public function __construct(UserFactoryInterface $userFactory)
+    {
+        $this->userFactory = $userFactory;
+    }
 
-	/**
-	 * Method to generate a link to the create item page for the given category
-	 *
-	 * @param   object    $category  The category information
-	 * @param   Registry  $params    The item parameters
-	 * @param   array     $attribs   Optional attributes for the link
-	 *
-	 * @return  string  The HTML markup for the create item link
-	 *
-	 * @since  __DEPLOY_VERSION__
-	 */
-	public static function create($category, $params, $attribs = [])
-	{
-		$uri = Uri::getInstance();
+    /**
+     * Method to generate a link to the create item page for the given category
+     *
+     * @param   object    $category  The category information
+     * @param   Registry  $params    The item parameters
+     * @param   array     $attribs   Optional attributes for the link
+     *
+     * @return  string  The HTML markup for the create item link
+     *
+     * @since  __BUMP_VERSION__
+     */
+    public function create($category, $params, $attribs = [])
+    {
+        $uri = Uri::getInstance();
 
-		$url = 'index.php?option=com_foos&task=foo.add&return=' . base64_encode($uri) . '&id=0&catid=' . $category->id;
+        $url = 'index.php?option=com_$foo&task=$foo.add&return=' . base64_encode($uri) . '&id=0&catid=' . $category->id;
 
-		$text = LayoutHelper::render('joomla.content.icons.create', ['params' => $params, 'legacy' => false]);
+        $text = '';
 
-		// Add the button classes to the attribs array
-		if (isset($attribs['class'])) {
-			$attribs['class'] .= ' btn btn-primary';
-		} else {
-			$attribs['class'] = 'btn btn-primary';
-		}
+        if ($params->get('show_icons')) {
+            $text .= '<span class="icon-plus icon-fw" aria-hidden="true"></span>';
+        }
 
-		$button = HTMLHelper::_('link', Route::_($url), $text, $attribs);
+        $text .= Text::_('COM_FOOS_NEW_FOOS');
 
-		$output = '<span class="hasTooltip" title="' . HTMLHelper::_('tooltipText', 'COM_FOOS_CREATE_FOO') . '">' . $button . '</span>';
+        // Add the button classes to the attribs array
+        if (isset($attribs['class'])) {
+            $attribs['class'] .= ' btn btn-primary';
+        } else {
+            $attribs['class'] = 'btn btn-primary';
+        }
 
-		return $output;
-	}
+        $button = HTMLHelper::_('link', Route::_($url), $text, $attribs);
 
-	/**
-	 * Display an edit icon for the foo.
-	 *
-	 * This icon will not display in a popup window, nor if the foo is trashed.
-	 * Edit access checks must be performed in the calling code.
-	 *
-	 * @param   object    $foo  The foo information
-	 * @param   Registry  $params   The item parameters
-	 * @param   array     $attribs  Optional attributes for the link
-	 * @param   boolean   $legacy   True to use legacy images, false to use icomoon based graphic
-	 *
-	 * @return  string   The HTML for the foo edit icon.
-	 *
-	 * @since   __DEPLOY_VERSION__
-	 */
-	public static function edit($foo, $params, $attribs = [], $legacy = false)
-	{
-		$user = Factory::getUser();
-		$uri  = Uri::getInstance();
+        return $button;
+    }
 
-		// Ignore if in a popup window.
-		if ($params && $params->get('popup')) {
-			return '';
-		}
+    /**
+     * Display an edit icon for the $foo.
+     *
+     * This icon will not display in a popup window, nor if the $foo is trashed.
+     * Edit access checks must be performed in the calling code.
+     *
+     * @param   object    $foo  The $foo information
+     * @param   Registry  $params   The item parameters
+     * @param   array     $attribs  Optional attributes for the link
+     * @param   boolean   $legacy   True to use legacy images, false to use icomoon based graphic
+     *
+     * @return  string   The HTML for the $foo edit icon.
+     *
+     * @since   __BUMP_VERSION__
+     */
+    public function edit($foo, $params, $attribs = [], $legacy = false)
+    {
+        $user = Factory::getUser();
+        $uri  = Uri::getInstance();
 
-		// Ignore if the state is negative (trashed).
-		if ($foo->published < 0) {
-			return '';
-		}
+        // Ignore if in a popup window.
+        if ($params && $params->get('popup')) {
+            return '';
+        }
 
-		// Set the link class
-		$attribs['class'] = 'dropdown-item';
+        // Ignore if the state is negative (trashed).
+        if ($foo->published < 0) {
+            return '';
+        }
 
-		// Show checked_out icon if the foo is checked out by a different user
-		if (property_exists($foo, 'checked_out')
-			&& property_exists($foo, 'checked_out_time')
-			&& $foo->checked_out > 0
-			&& $foo->checked_out != $user->get('id')) {
-			$checkoutUser = Factory::getUser($foo->checked_out);
-			$date         = HTMLHelper::_('date', $foo->checked_out_time);
-			$tooltip      = Text::_('JLIB_HTML_CHECKED_OUT') . ' :: ' . Text::sprintf('COM_FOOS_CHECKED_OUT_BY', $checkoutUser->name)
-				. ' <br /> ' . $date;
+        // Show checked_out icon if the $foo is checked out by a different user
+        if (
+            property_exists($foo, 'checked_out')
+            && property_exists($foo, 'checked_out_time')
+            && !is_null($foo->checked_out)
+            && $foo->checked_out !== $user->get('id')
+        ) {
+            $checkoutUser = $this->userFactory->loadUserById($foo->checked_out);
+            $date         = HTMLHelper::_('date', $foo->checked_out_time);
+            $tooltip      = Text::sprintf('COM_FOOS_CHECKED_OUT_BY', $checkoutUser->name)
+                . ' <br> ' . $date;
 
-			$text = LayoutHelper::render('joomla.content.icons.edit_lock', ['tooltip' => $tooltip, 'legacy' => $legacy]);
+            $text = LayoutHelper::render('joomla.content.icons.edit_lock', ['$foo' => $foo, 'tooltip' => $tooltip, 'legacy' => $legacy]);
 
-			$output = HTMLHelper::_('link', '#', $text, $attribs);
+            $attribs['aria-describedby'] = 'edit$foo-' . (int) $foo->id;
+            $output                      = HTMLHelper::_('link', '#', $text, $attribs);
 
-			return $output;
-		}
-
+            return $output;
+        }
+		
 		if (!isset($foo->slug)) {
 			$foo->slug = "";
 		}
 
-		$fooUrl = RouteHelper::getFooRoute($foo->slug, $foo->catid, $foo->language);
-		$url        = $fooUrl . '&task=foo.edit&id=' . $foo->id . '&return=' . base64_encode($uri);
+        $fooUrl = RouteHelper::getFooRoute($foo->slug, $foo->catid, $foo->language);
+        $url = $fooUrl . '&task=$foo.edit&id=' . $foo->id . '&return=' . base64_encode($uri);
 
-		if ($foo->published == 0) {
-			$overlib = Text::_('JUNPUBLISHED');
-		} else {
-			$overlib = Text::_('JPUBLISHED');
-		}
+        if ((int) $foo->published === 0) {
+            $tooltip = Text::_('COM_FOOS_EDIT_UNPUBLISHED_FOOS');
+        } else {
+            $tooltip = Text::_('COM_FOOS_EDIT_PUBLISHED_FOOS');
+        }
 
-		if (!isset($foo->created)) {
-			$date = HTMLHelper::_('date', 'now');
-		} else {
-			$date = HTMLHelper::_('date', $foo->created);
-		}
+        $nowDate = strtotime(Factory::getDate());
+        $icon    = $foo->published ? 'edit' : 'eye-slash';
 
-		if (!isset($created_by_alias) && !isset($foo->created_by)) {
-			$author = '';
-		} else {
-			$author = $foo->created_by_alias ?: Factory::getUser($foo->created_by)->name;
-		}
+        if (
+            ($foo->publish_up !== null && strtotime($foo->publish_up) > $nowDate)
+            || ($foo->publish_down !== null && strtotime($foo->publish_down) < $nowDate)
+        ) {
+            $icon = 'eye-slash';
+        }
 
-		$overlib .= '&lt;br /&gt;';
-		$overlib .= $date;
-		$overlib .= '&lt;br /&gt;';
-		$overlib .= Text::sprintf('COM_FOOS_WRITTEN_BY', htmlspecialchars($author, ENT_COMPAT, 'UTF-8'));
+        $aria_described = 'edit$foo-' . (int) $foo->id;
 
-		$icon = $foo->published ? 'edit' : 'eye-slash';
+        $text = '<span class="icon-' . $icon . '" aria-hidden="true"></span>';
+        $text .= Text::_('JGLOBAL_EDIT');
+        $text .= '<div role="tooltip" id="' . $aria_described . '">' . $tooltip . '</div>';
 
-		if (strtotime($foo->publish_up) > strtotime(Factory::getDate())
-			|| ((strtotime($foo->publish_down) < strtotime(Factory::getDate())) && $foo->publish_down != Factory::getDbo()->getNullDate())) {
-			$icon = 'eye-slash';
-		}
+        $attribs['aria-describedby'] = $aria_described;
+        $output                      = HTMLHelper::_('link', Route::_($url), $text, $attribs);
 
-		$text = '<span class="hasTooltip fa fa-' . $icon . '" title="'
-			. HTMLHelper::tooltipText(Text::_('COM_FOOS_EDIT_FOO'), $overlib, 0, 0) . '"></span> ';
-		$text .= Text::_('JGLOBAL_EDIT');
-
-		$attribs['title'] = Text::_('COM_FOOS_EDIT_FOO');
-		$output           = HTMLHelper::_('link', Route::_($url), $text, $attribs);
-
-		return $output;
-	}
+        return $output;
+    }
 }
 
 ```
@@ -787,21 +779,21 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 	protected function populateState()
 	{
 		$app = Factory::getApplication();
+		$input = $app->getInput();
 
-		// Load state from the request.
-		$pk = $app->input->getInt('id');
+		$pk = $input->getInt('id');
 		$this->setState('foo.id', $pk);
 
-		$this->setState('foo.catid', $app->input->getInt('catid'));
+		$this->setState('foo.catid', $input->getInt('catid'));
 
-		$return = $app->input->get('return', null, 'base64');
+		$return = $input->get('return', '', 'base64');
 		$this->setState('return_page', base64_decode($return));
 
 		// Load the parameters.
 		$params = $app->getParams();
 		$this->setState('params', $params);
 
-		$this->setState('layout', $app->input->getString('layout'));
+		$this->setState('layout', $input->getString('layout'));
 	}
 
 	/**
@@ -964,7 +956,7 @@ class HtmlView extends BaseHtmlView
 		$this->params = $this->state->params;
 
 		// Escape strings for HTML output
-		$this->pageclass_sfx = htmlspecialchars($this->params->get('pageclass_sfx'));
+        $this->pageclass_sfx = htmlspecialchars($this->params->get('pageclass_sfx', ''));
 
 		// Override global params with foo specific params
 		$this->params->merge($this->item->params);

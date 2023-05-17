@@ -82,6 +82,45 @@ The use lines define Joomla classes that will be used in further code. It is imp
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/services/provider.php
 
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  mod_foo
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Extension\Service\Provider\HelperFactory;
+use Joomla\CMS\Extension\Service\Provider\Module;
+use Joomla\CMS\Extension\Service\Provider\ModuleDispatcherFactory;
+use Joomla\DI\Container;
+use Joomla\DI\ServiceProviderInterface;
+
+/**
+ * The foo module service provider.
+ *
+ * @since  __BUMP_VERSION__
+ */
+return new class () implements ServiceProviderInterface {
+    /**
+     * Registers the service provider with a DI container.
+     *
+     * @param   Container  $container  The DI container.
+     *
+     * @return  void
+     *
+     * @since   __BUMP_VERSION__
+     */
+    public function register(Container $container)
+    {
+        $container->registerServiceProvider(new ModuleDispatcherFactory('\\FooNamespace\\Module\\Foo'));
+
+        $container->registerServiceProvider(new Module());
+    }
+};
 
 ```
 
@@ -93,6 +132,42 @@ Der `Dispatcher` sammelt die Variablen, die wir später im Modullayout `tmpl/def
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/src/Dispatcher/Dispatcher.php
 
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  mod_foo
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+namespace FooNamespace\Module\Foo\Site\Dispatcher;
+
+use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
+
+\defined('_JEXEC') or die;
+
+/**
+ * Dispatcher class for mod_foo
+ *
+ * @since  __BUMP_VERSION__
+ */
+class Dispatcher extends AbstractModuleDispatcher
+{
+    /**
+     * Returns the layout data.
+     *
+     * @return  array
+     *
+     * @since   __BUMP_VERSION__
+     */
+    protected function getLayoutData()
+    {
+        $data = parent::getLayoutData();
+
+        return $data;
+    }
+}
 
 ```
 
@@ -116,12 +191,12 @@ Der `Dispatcher` sammelt die Variablen, die wir später im Modullayout `tmpl/def
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<version>__BUMP_VERSION__</version>
 	<description>MOD_FOO_XML_DESCRIPTION</description>
-
+	<namespace path="src">FooNamespace\Module\Foo</namespace>
 	<files>
-		<filename module="mod_foo">mod_foo.php</filename>
+		<folder module="mod_foo">services</folder>
+		<folder>src</folder>
 		<folder>tmpl</folder>
 		<folder>language</folder>
-		<filename>mod_foo.xml</filename>
 	</files>
 </extension>
 

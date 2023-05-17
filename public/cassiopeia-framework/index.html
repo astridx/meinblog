@@ -94,6 +94,7 @@ ermöglicht und außerdem das Grid-System von Bootstrap für ein responsives Des
 <h3 id="body" style="position:relative;"><a href="#body" aria-label="body permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Body</h3>
 <p>Das Standard-Styling für das Cassiopeia Template hat keinen Rand. Kopfzeile, Navigation, Hauptbereich und Footer nehmen die gesamte verfügbare Breites ein. Das Logo befindet sich in der Kopfzeile im <code class="language-text">&lt;header></code>-Tag. <code class="language-text">&lt;body class=".. wrapper-fluid"></code> ist eine Breite von 100% zugewiesen. <code class="language-text">&lt;body class=".. wrapper-static"></code> ist eine Breite auf 1320px begrenzt.</p>
 <h3 id="sidebar" style="position:relative;"><a href="#sidebar" aria-label="sidebar permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sidebar</h3>
+<p>Links und rechts vom Hauptinhalt befinden sich Seitenleisten. Diese werden beide nach unten verschoben, wenn die Anzeigegröße kleiner als 992 Pixel ist.</p>
 <pre class="grvsc-container default-dark" data-language="" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">	&lt;?php if ($this-&gt;countModules(&#39;sidebar-right&#39;, true)) : ?&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">	&lt;div class=&quot;grid-child container-sidebar-right&quot;&gt;</span></span>
@@ -101,8 +102,7 @@ ermöglicht und außerdem das Grid-System von Bootstrap für ein responsives Des
 <span class="grvsc-line"><span class="grvsc-source">	&lt;/div&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">	&lt;?php endif; ?&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
-<p>Wir können dies testen, indem wir die Größe des Bildschirmfensters verringern.
-<img src="https://vg04.met.vgwort.de/na/ff44e27f52c04ba1be1abbff38ccff47" width="1" height="1" alt=""></p>
+<img src="https://vg04.met.vgwort.de/na/ff44e27f52c04ba1be1abbff38ccff47" width="1" height="1" alt="">
 <style class="grvsc-styles">
   .grvsc-container {
     overflow: auto;
