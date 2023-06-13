@@ -1,0 +1,925 @@
+---
+description: 'desc'
+set: 'der-weg-zu-joomla4-erweiterungen'
+booklink: 'https://astrid-guenther.de/buecher/joomla-4-erweiterungen-programmieren'
+syndication:
+shortTitle: 'short'
+date: 2023-06-01
+title: 'End-to-End-Tests mit Joomla! und Cypress'
+template: post
+thumbnail: '../../thumbnails/joomla.png'
+slug: joomla-exkurs-testen-mit-cypress
+langKey: de
+categories:
+  - Joomla
+tags:
+  - CMS
+  - Joomla
+---
+
+
+
+
+
+
+
+
+
+
+
+Automatisierte Tests sind kein ausgefallenes Werkzeug für Softwareentwickler in großen Projekten. Besonders für kleinere Erweiterungen sind automatisierte Tests eine Hilfe, um Probleme frühzeitig zu erkennen. Sie helfen dabei, sicherzustellen, dass Erweiterungen in neueren Joomla-Versionen problemlos funktionieren. Die Joomla Core Entwickler wünschen sich, dass Entwickler von Drittanbieter-Software ihre Erweiterungen testen. So fallen Fehler auf, bevor ein Anwender darauf stößt. Das erfordert viel Zeit und ist eine langweilige Arbeit. Deshalb wird es oft nicht gemacht. Vor allem dann nicht, wenn es manuell vom Menschen bei jedem neuen Release durchgeführt werden muss. Automatische Tests ermöglichen es, die manuellen Schritte für jede Version zu wiederholen, ohne dass ein Mensch die Schritte selbst durchführt. So werden Fehler gefunden, bevor ein Anwender beim Zugriff auf das Echtsystem darauf stößt.<!-- \index{Tests} --><!-- \index{Cypress} -->
+
+> Übrigens: Jeder der sich Cypress ansehen möchte, findet in diesem Text einen guten Einstieg. Man kann Problemstellungen testen, ohne selbst alles installieren und konfigurieren zu müssen. Im Github Repository des Joomla Projektes ist alles fix und fertig. 
+
+## Zu Beginn
+
+> „While it is true that quality cannot be tested in, it is equally evident that without testing it is impossible to develop anything of quality.“
+– [James A. Whittaker]
+
+Bevor ich zuerst auf Codeception und später auf Cypress stieß, hätte ich mir nicht vorstellen können, dass die Barrieren, die mir beim Testen oft im Weg stehen, tatsächlich etwas beiseite geräumt werden. Ich habe viel Zeit mit dem Testen von Software verbracht - und früher noch mehr Zeit damit, mich mit den Problemen zu befassen, die durch einen Mangel an Tests entstanden sind!
+Jetzt bin ich überzeugt, dass Tests, die
+- die möglichst zeitnah zur Programmierung,
+- automatisch,
+- häufig - idealerweise nach jeder Programmänderung
+durchgeführt werden, mehr einbringen als sie kosten. Und mehr noch: Testen kann sogar Spaß machen.
+
+> Es lohnt sich, Testmethoden zu lernen! Testmethoden sind langlebig, denn sie können nicht nur mit jeder Programmiersprache verwendet werden, sondern auch bei fast jeder menschlichen Arbeit. Fast alles, was im Leben wichtig ist, sollte man hin und wieder testen. Testmethoden sind unabhängig von bestimmten Softwarewerkzeugen. Im Gegensatz zu Programmiertechniken oder Programmiersprachen, die oft Modeerscheinungen sind, ist das Wissen, wie man gute Tests aufbaut, zeitlos.
+
+### Wer sollte diesen Text lesen?
+
+Jeder, der glaubt, dass Softwaretests Zeitverschwendung sind, sollte sich diesen Artikel ansehen. Insbesondere möchte ich diejenigen Entwickler einladen, diesen Artikel zu lesen, die schon immer Tests für ihre Software schreiben wollten - es aber aus den verschiedensten Gründen nie getan haben. Cypress könnte ein Weg sein, solche Hindernisse aus dem Weg zu räumen.
+
+#### Etwas Theorie
+
+##### Das magische Dreieck
+
+Das [Magische Dreieck](https://de.wikipedia.org/wiki/Projektmanagement#Stakeholdererwartungen)[^de.wikipedia.org/wiki/Projektmanagement#Stakeholdererwartungen] beschreibt den Zusammenhang zwischen 
+- den Kosten, 
+- der benötigten Zeit und 
+- der leistbaren Qualität. 
+
+Ursprünglich wurde dieser Zusammenhang im Projektmanagement erkannt und beschrieben. Sie haben aber sicher auch schon in anderen Bereichen von diesem Spannungsverhältnis gehört. Es ist bei fast allen betrieblichen Abläufen in einem Unternehmen ein wichtiges Thema. 
+
+Zum Beispiel geht man allgemein davon aus, dass ein höherer Kostenaufwand positive Auswirkungen auf die Qualität und/oder den Fertigstellungstermin – also die Zeit – hat.
+
+![Das magische Dreieck im Projektmanagement – Wenn mehr Geld in das Projekt investiert wird, hat dies positive Auswirkungen auf Qualität und/oder Zeit.](/images/magischesDreieck1.png)
+
+Umgekehrt wird eine Kosteneinsparung zwangsweise die Qualität mindern und/oder die Fertigstellung verzögern.
+
+![Das magische Dreieck im Projektmanagement – Wenn weniger Geld in das Projekt investiert wird, hat dies negative Auswirkungen auf Qualität und/oder Zeit.](/images/magischesDreieck2.png)
+
+Nun kommt die Magie ins Spiel: Wir überwinden den Zusammenhang zwischen Zeit, Kosten und Qualität! Denn auf lange Sicht kann dieser tatsächlich überwunden werden.
+
+> Der Zusammenhang zwischen Zeit, Kosten und Qualität kann auf lange Sicht überwunden werden. 
+
+Vielleicht haben auch Sie einmal in der Praxis selbst erlebt, dass eine Qualitätssenkung langfristig keine Kosteneinsparungen zur Folge hat. Die technische Schuld, die dadurch entsteht, führt oft sogar zu Kostenerhöhungen und zeitlichem Mehraufwand.
+
+![Auf lange Sicht kann der Zusammenhang zwischen Kosten, Zeit und Qualität tatsächlich überwunden werden.](/images/magischesDreieck3.png)
+
+Unter [technischer Schuld](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html)[^martinfowler.com/bliki/TechnicalDebtQuadrant.html] versteht man den Mehraufwand, der bei Änderungen und Erweiterungen von minderwertig programmierter Software im Vergleich zu gut geschriebener Software entsteht. Martin Fowler unterscheidet die folgenden Arten von technischen Schulden: Solche, die man bewusst eingegangen ist, und solche, die man ungewollt eingegangen ist. Außerdem unterscheidet er zwischen vorsichtigen und risikofreudigen technischen Schulden.
+
+![Technical debt](/images/technicaldebtde.png)
+
+##### Kosten und Nutzen
+
+In der Literatur findet man immer wieder niederschmetternde Statistiken über die Erfolgsaussichten von Softwareprojekten. An dem negativen Bild, das bereits in den 1990er Jahren in einer Studie von A.W. Feyhl[^link.springer.com/chapter/10.1007/978-3-322-92018-8_1] festgehalten wurde, hat sich wenig geändert. Hier wurde in einer Analyse von 162 Projekten in 50 Organisationen die Kostenabweichung gegenüber der ursprünglichen Planung ermittelt: 70% der Projekte wiesen eine Kostenabweichung von mindestens 50% auf! Da stimmt doch etwas nicht! Das kann man doch nicht einfach so hinnehmen, oder? Eine Lösung wäre, auf Kostenschätzungen ganz zu verzichten und der Argumentation der #NoEstimates-Bewegung [#NoEstimates movement](https://oikosofyseries.com/no-estimates-book-order)[^oikosofyseries.com/no-estimates-book-order] zu folgen. Diese Bewegung ist der Meinung, dass Kostenschätzungen in einem Softwareprojekt unsinnig sind. Ein Softwareprojekt beinhaltet nach Meinung von #NoEstimates immer die Erstellung von etwas Neuem. Das Neue ist nicht vergleichbar mit bereits vorhandenen Erfahrungen und somit nicht vorhersehbar. Je mehr Erfahrungen ich sammle, desto mehr komme ich zu dem Schluss, dass extreme Ansichten nicht gut sind. Die Lösung liegt fast immer in der Mitte. Vermeiden Sie auch in Softwareprojekten Extreme und suchen Sie einen Mittelweg. Ich bin der Meinung, dass man keinen 100% sicheren Plan haben muss. Aber man sollte auch nicht blauäugig an ein neues Projekt herangehen. Obwohl das Software-Projektmanagement und insbesondere die Kostenkalkulation ein wichtiges Thema ist, werde ich Sie in diesem Text nicht weiter damit langweilen. Der Schwerpunkt dieses Artikels liegt darin, zu zeigen, wie E2E-Tests in den praktischen Workflow der Softwareentwicklung integriert werden.
+
+##### Integrieren Sie Softwaretests in Ihren Arbeitsablauf
+
+Sie haben beschlossen, Ihre Software zu testen. Großartig! Wann ist der beste Zeitpunkt, dies zu tun? Werfen wir einen Blick auf die Kosten für die Behebung eines Fehlers in den verschiedenen Projektphasen. Je früher Sie einen Fehler finden, desto geringer sind die Kosten für dessen Behebung.
+
+![Relative Kosten für die Fehlerbehebung in den unterschiedlichen Projektphasen](/images/kostende.png)
+
+Testen und Debuggen: Es gibt Begriffe, die oft in einem Atemzug genannt werden und deren Bedeutungen daher gleichgesetzt wird. Bei näherer Betrachtung stehen die Begriffe jedoch für unterschiedliche Dinge. Testen und Debuggen gehören zu diesen Begriffen. Die beiden Begriffe haben gemeinsam, dass sie Fehlfunktionen aufdecken. Aber es gibt auch Unterschiede in der Bedeutung. 
+- Tests finden unbekannte Fehlfunktionen während der Entwicklung. Das Auffinden der Fehlfunktion ist teuer, während die Lokalisierung und Beseitigung des Fehlers billig ist. 
+- Debugger beheben Fehlfunktionen, die nach der Fertigstellung des Produkts gefunden werden. Das Auffinden der Fehlfunktion ist kostenlos, die Lokalisierung und Behebung des Fehlers hingegen teuer. 
+
+Fazit: Es ist am sinnvollsten, mit der Integration von Tests so früh wie möglich zu beginnen. In einem Open Source Projekt wie Projekt mit überwiegend freiwilligen Beitragenden ist dies leider schwierig umzusetzen. 
+
+##### Kontinuierliche Integration (Continuous Integration CI)
+
+###### Kontinuierliche Integration von Tests
+
+Stellen Sie sich das folgende Szenario vor. Eine neue Version eines beliebten Content-Management-Systems steht kurz vor der Veröffentlichung. Alles, was die Entwickler des Teams seit der letzten Version beigetragen haben, wird nun zum ersten Mal zusammen verwendet. Die Spannung steigt! Wird alles funktionieren? Werden alle Tests erfolgreich sein - wenn das Projekt überhaupt Tests integriert. Oder muss die Freigabe der neuen Version wieder verschoben werden und es stehen nervenaufreibende Stunden der Fehlerbeseitigung bevor? Übrigens ist eine Verschiebung des Veröffentlichungstermins auch nicht gut für das Image des Softwareprodukts! Kein Entwickler möchte dieses Szenario erleben. Viel besser ist es, jederzeit zu wissen, in welchem Zustand sich das Softwareprojekt gerade befindet? Neuentwicklungen, die nicht in die bestehende Software passen, sollten erst dann integriert werden, wenn sie "passend" gemacht wurden. Gerade in Zeiten, in denen es immer häufiger vorkommt, dass eine Sicherheitslücke geschlossen werden muss, sollte ein Projekt immer in der Lage sein, ein Release zu erstellen! Und hier kommt das Schlagwort der kontinuierlichen Integration ins Spiel.
+
+Bei der kontinuierlichen Integration werden einzelne Elemente der Software permanent integriert. Die Software wird in kleinen Zyklen erstellt und getestet. Auf diese Weise stößt man frühzeitig auf Probleme bei der Integration oder auf fehlerhafte Tests und nicht erst Tage oder Wochen später. Bei der sukzessiven Integration ist die Fehlersuche wesentlich einfacher, da Fehler zeitnah zur Programmierung entdeckt werden und meist nur ein kleiner Teil des Programms betroffen ist. Joomla integriert neuen Code mittels kontinuierlicher Integration. Neuer Code wird erst integriert, wenn alle Tests bestanden sind.
+
+> Bei einer kontinuierlichen Integration von neuer Software ist die Fehlersuche viel einfacher, da die Fehler zeitnah zur Programmierung entdeckt werden und meist nur ein kleiner Teil des Programms betroffen ist. 
+
+Um sicherzustellen, dass Sie bei der kontinuierlichen Integration jederzeit Tests für alle Programmteile zur Verfügung haben, sollten Sie testgetrieben Software entwickeln.
+
+###### Testgetriebene Entwicklung (TDD)
+
+Die testgetriebene Entwicklung ist eine Programmiertechnik, bei der in kleinen Schritten entwickelt wird. Zuerst schreiben Sie den Testcode. Erst dann erstellen Sie den zu testenden Programmcode. Jede Änderung am Programm wird erst vorgenommen, nachdem der Testcode für diese Änderung erstellt worden ist. Ihre Tests schlagen also sofort nach der Erstellung fehl. Die gewünschte Funktion ist noch nicht im Programm implementiert. Erst dann erstellen Sie den eigentlichen Programmcode - also den Programmcode, der den Test erfüllt. 
+
+> TDD Tests helfen, das Programm richtig zu schreiben. 
+
+Wenn Sie zum ersten Mal von dieser Technik hören, werden Sie sich mit dem Konzept vielleicht nicht wohl fühlen. Der "Mensch" will schließlich immer zuerst etwas Produktives tun. Und das Schreiben von Tests scheint auf den ersten Blick nicht produktiv zu sein. Probieren Sie es aus. Manchmal freundet man sich mit einer neuen Technik erst an, nachdem man sie kennengelernt hat! Bei Projekten mit hoher Testabdeckung fühle ich mich wohler dabei, neue Funktionen hinzuzufügen. 
+
+If you go through the exercise part at the end of the text, you can try it out. First create the test and then write the code for Joomla Core. Then submit everything together as a PR on Github. If everyone would do this, Joomla would have ideal test coverage.
+
+###### Verhaltensgesteuerte Entwicklung (Behaviour-driven-development BDD)
+
+BDD ist keine weitere Programmiertechnik oder Testtechnik, sondern eine Art Best Practice für die Softwareentwicklung. BDD wird idealerweise zusammen mit TDD eingesetzt. Prinzipiell steht Behaviour-Driven-Development dafür, nicht die Implementierung des Programmcodes zu testen, sondern die Ausführung - also das Verhalten des Programms. Ein Test prüft, ob die Spezifikation, d.h. die Anforderung des Kunden, erfüllt wird. 
+
+> Wenn Sie Software verhaltensorientiert entwickeln, helfen Ihnen Tests nicht nur, das Programm richtig zu schreiben. Tests helfen Ihnen auch, das richtige Programm zu schreiben. Was meine ich damit? Es kommt vor, dass Anwender Dinge anders sehen als Entwickler. Der Arbeitsablauf beim Löschen eines Artikels in Joomla ist ein gutes Beispiel. Immer wieder treffe ich auf User, die im Papierkorb auf das Status-Symbol klicken und sich wundern. Der Anwender geht meist intuitiv davon aus, dass das Element nun dauerhaft gelöscht wird. Für den Entwickler ist ein Klick auf das Statussymbol ein Ändern des Status. Das ist technisch in allen anderen Ansichten so. Warum soll dies im Papierkorb anders sein? Für den Entwickler ist die Funktion ohne Fehler implementiert. Joomla arbeitet korrekt. Aber in meinen Augen ist die Funktion nicht die richtige, denn die meisten Benutzer würden sie ganz anders beschreiben/anfordern.
+
+Bei der verhaltensgesteuerten Entwicklung werden die Anforderungen an die Software durch Beispiele beschrieben, die als Szenarien oder User Stories bezeichnet werden. Merkmale der verhaltensgesteuerten Entwicklung sind
+- eine starke Einbindung des Endanwenders in den Entwicklungsprozess der Software,
+- die Dokumentation aller Projektphasen mit Fallbeispielen in Textform - meist in der Beschreibungssprache  Gherkin,
+- das automatische Testen dieser Fallbeispiele,
+- die sukzessive Implementierung.
+So kann jederzeit auf eine Beschreibung der zu implementierenden Software zugegriffen werden. Mit Hilfe dieser Beschreibung können Sie die Korrektheit des bereits implementierten Programmcodes kontinuierlich sicherstellen. 
+
+https://magazine.joomla.org/all-issues/june-2016/how-to-make-joomla-cms-tests-better-with-gherkin-and-codeception
+https://github.com/badeball/cypress-cucumber-preprocessor
+
+Das Joomla-Projekt hat BDD in einem [Google Summer of Code-Projekt](https://magazine.joomla.org/all-issues/june-2016/how-to-make-joomla-cms-tests-better-with-gherkin-and-codeception)[^magazine.joomla.org/all-issues/june-2016/how-to-make-joomla-cms-tests-better-with-gherkin-and-codeception] eingeführt. Man hoffte, dass Nutzer ohne Programmierkenntnisse mit [Gherkin](https://de.wikipedia.org/wiki/Cucumber_(Software))[^de.wikipedia.org/wiki/Cucumber_(Software)] leichter in die Entwicklung einbezogen werden könnten. Der Ansatz wurde nicht konsequent weiterverfolgt. Zu dieser Zeit verwendete Joomla Codeception als Testwerkzeug. Mit Cypress ist ebenfalls [BDD-Entwicklung](https://github.com/badeball/cypress-cucumber-preprocessor)[^github.com/badeball/cypress-cucumber-preprocessor] möglich. 
+
+
+#### Planung
+
+##### Testarten
+
+- Unittests: Ein Unittest ist ein Test, der kleinste Programmeinheiten unabhängig voneinander testet.
+- Integrationstests: Ein Integrationstest ist ein Test, der das Zusammenspiel der einzelnen Einheiten testet. 
+- E2E-Tests oder Akzeptanztests: Ein Akzeptanztest prüft, ob das Programm die zu Beginn definierte Aufgabe erfüllt. 
+
+##### Strategien
+
+Wenn du eine neue Funktion in Joomla hinzufügen und sie mit Tests absichern möchtest, kannst du auf zwei Arten vorgehen.
+
+Top-down und Bottom-up sind zwei grundverschiedene Ansätze zum Verständnis und zur Darstellung komplexer Sachverhalte. Top-down geht Schritt für Schritt vom Abstrakten und Allgemeinen zum Konkreten und Speziellen. Um dies anhand eines Beispiels zu verdeutlichen: Ein Content-Management-System wie Joomla stellt Webseiten im Allgemeinen in einem Browser dar. Konkret gibt es in diesem Prozess aber eine Reihe von kleinen Teilaufgaben. Eine davon ist die Aufgabe, einen bestimmten Text in einer Überschrift darzustellen. 
+
+Bottom-up beschreibt die umgekehrte Richtung: An dieser Stelle sei noch einmal daran erinnert, dass ein Element der verhaltensgesteuerten Entwicklung die Erstellung einer textlichen Beschreibung des Verhaltens der Software ist. Diese Beschreibung der Akzeptanzkriterien hilft bei der Erstellung von Tests - insbesondere der Top-Level-Akzeptanztests. 
+
+Der übliche Ansatz für die Erstellung von Tests erfolgt heute von unten nach oben. Wenn Sie eine verhaltensgesteuerte Softwareentwicklung bevorzugen, sollten Sie die entgegengesetzte Strategie anwenden. Sie sollten die Top-Down-Strategie anwenden. Bei einer Top-Down-Strategie wird ein Missverständnis frühzeitig in der Entwurfsphase erkannt.
+
+![Teststrategien: Top-down-Testen und Bottom-up-Testen](/images/pyramidede.png)
+
+- Top-down-Tests: Bei der Anwendung der Top-Down-Strategie beginnt man mit den Akzeptanztests (E2E), d.h. mit dem Teil des Systems, der am engsten mit den Benutzeranforderungen verbunden ist. Bei Software, die für Menschen und nicht für Maschinen geschrieben wurde, ist dies in der Regel die Benutzeroberfläche. Der Schwerpunkt liegt darauf, zu testen, wie ein Benutzer mit dem System interagiert. Ein Nachteil von Top-Down-Tests ist, dass viel Zeit für die Erstellung von Testduplikaten aufgewendet werden muss. Komponenten, die noch nicht integriert sind, müssen durch Platzhalter ersetzt werden. Zu Beginn gibt es keinen echten Programmcode. Daher müssen die fehlenden Teile künstlich erzeugt werden. Nach und nach werden diese künstlichen Daten dann durch wirkliche Daten ersetzt.
+
+- Bottom-up-Tests: Bei der Bottom-up-Strategie beginnt man mit Unit-Tests. Zu Beginn hat der Entwickler den Zielzustand vor Augen. Er zerlegt dieses Ziel zunächst in einzelne Komponenten. Das Problem des Bottom-up-Ansatzes ist, dass es schwierig ist, zu testen, wie eine Komponente später in realen Umgebungen eingesetzt wird. Der Vorteil von Bottom-up-Tests ist, dass wir sehr schnell fertige Softwareteile haben. Diese Teile sollten jedoch mit Vorsicht verwendet werden. Sie funktionieren korrekt. Das stellen die Unit-Tests sicher. Aber ob das Endergebnis wirklich dem entspricht, was sich der Kunde unter der Software vorstellt, ist nicht sichergestellt.
+
+##### Die Testpyramide von Mike Cohn
+
+Wie viele Tests sollten von welchem Testtyp implementiert werden? Die Testpyramide von Mike Cohn beschreibt wie automatisierten Softwaretests verteilt werden. Die Pyramide besteht aus drei Ebenen, gegliedert nach Häufigkeit der Nutzung und Relevanz. ‍
+
+Idealerweise wird die breite Basis der Testpyramide durch viele schnelle und einfach zu wartende Unit-Tests gebildet. Auf diese Weise können die meisten Fehler bereits in den frühen Entwicklungsphasen entdeckt werden. Auf der mittleren Ebene stehen die Integrationstests. Sie leisten gute Dienste beim gezielten Testen von kritischen Schnittstellen. Die Ausführungszeiten von Integrationstests sind länger und auch ihre Pflege ist aufwendiger als die von Unit-Tests.  
+
+An der Spitze der Pyramide stehen die langsamen Systemtests, die teilweise sehr wartungsintensiv sind. Systemtests sind sehr nützlich, um die Funktion der Anwendung als Ganzes zu testen. 
+
+
+### Voraussetzungen
+
+#### Welche Ausrüstung wird für den praktischen Teil benötigt?
+
+Um den Beispielen praktisch folgen zu können, ist ein heute üblicher Rechner erforderlich. Einer Entwicklungsumgebung mit Git, NodeJS und Composer und ein lokaler Webserver sollten darauf installiert oder installierbar sein. 
+
+#### Welche Kenntnisse sind erforderlich?
+
+Sie sollten grundlegende Programmiertechniken kennen. Idealerweise haben Sie bereits eine kleine Webanwendung programmiert. Am wichtigsten ist, dass Sie Spaß daran haben, neue Dinge auszuprobieren.
+
+## Setting up Cypress with Joomla!
+
+In der Joomla-Entwicklerversion, die auf Github verfügbar ist, ist dieses CMS Cypress fertig konfiguriert. Es gibt bereits Tests, an denen man sich orientieren kann. Es ist also nicht notwendig, alles selbst einzurichten, um einen ersten Überblick zu bekommen. Auf diese Weise kann man mit Cypress experimentieren, die Vor- und Nachteile kennenlernen und selbst entscheiden, ob man das Test-Tool nutzen möchte. 
+
+Schritte zur Einrichtung der lokalen Umgebung:
+
+Klonen Sie das Repository in das Stammverzeichnis ihres lokalen Webservers:
+
+```
+$ git clone https://github.com/joomla/joomla-cms.git
+```
+
+Navigiere zum Ordner joomla-cms:
+
+```
+$ cd joomla-cms
+```
+
+> Laut [Joomla-Roadmap](https://developer.joomla.org/roadmap#5x)[^developer.joomla.org/roadmap#5x] wird die nächste Major-Version 5.0 im Oktober 2023 erscheinen. Um auf dem neuesten Stand zu sein, baue ich hier schon auf dieser Entwicklungsversion auf.
+
+Wechsle in den Branch [5.0-dev](https://github.com/joomla/joomla-cms/tree/5.0-dev)[^github.com/joomla/joomla-cms/tree/5.0-dev]::
+
+```
+$ git checkout 5.0-dev
+```
+
+Installiere alle benötigten composer-Pakete:
+
+```
+$ composer install
+```
+
+Installiere alle benötigten npm-Pakete:
+
+```
+$ npm install
+```
+
+Weitere Informationen und Hilfe zur Einrichtung Ihres Arbeitsplatzes bietet der Joomla-Dokumentationsartikel ["Einrichten Ihres Arbeitsplatzes für die Joomla-Entwicklung"](https://docs.joomla.org/Setting_up_your_workstation_for_Joomla_development)[^docs.joomla.org/Setting_up_your_workstation_for_Joomla_development]. Für Cypress gibt es Informationen unter [cypress.io](https://docs.cypress.io/guides/getting-started/installing-cypress)[^docs.cypress.io/guides/getting-started/installing-cypress]. Aber das ist an dieser Stelle nicht nötig. Joomla richtet alles ein. Sie müssen lediglich ihre individuellen Daten über die Konfigurationsdatei `joomla-cms/cypress.config.js` einrichten. 
+
+Dazu kann die Vorlage `joomla-cms/cypress.config.dist.js` als Orientierung genutzt werden. In meinem Fall sieht diese Datei wie folgt aus:
+
+```
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
+  fixturesFolder: 'tests/cypress/fixtures',
+  videosFolder: 'tests/cypress/output/videos',
+  screenshotsFolder: 'tests/cypress/output/screenshots',
+  viewportHeight: 1000,
+  viewportWidth: 1200,
+  e2e: {
+    setupNodeEvents(on, config) {},
+    baseUrl: 'http://localhost/joomla-cms',
+    specPattern: [
+      'tests/cypress/integration/install/*.cy.{js,jsx,ts,tsx}',
+      'tests/cypress/integration/administrator/**/*.cy.{js,jsx,ts,tsx}',
+      'tests/cypress/integration/module/**/*.cy.{js,jsx,ts,tsx}',
+      'tests/cypress/integration/site/**/*.cy.{js,jsx,ts,tsx}'
+    ],
+    supportFile: 'tests/cypress/support/index.js',
+    scrollBehavior: 'center',
+    browser: 'firefox',
+    screenshotOnRunFailure: true,
+    video: false
+  },
+  env: {
+    sitename: 'Joomla CMS Test',
+    name: 'admin',
+    email: 'admin@example.com',
+    username: 'admin',
+    password: 'adminadminadmin',
+    db_type: 'MySQLi',
+    db_host: 'mysql',
+    db_name: 'test_joomla',
+    db_user: 'root',
+    db_password: 'root',
+    db_prefix: 'j4_',
+  },
+})
+
+```
+
+Ich habe folgendes geändert:
+
+```js {diff}
+   viewportWidth: 1200,
+   e2e: {
+     setupNodeEvents(on, config) {},
+-    baseUrl: 'http://localhost/',
++    baseUrl: 'http://localhost/joomla-cms',
+     specPattern: [
+       'tests/cypress/integration/install/*.cy.{js,jsx,ts,tsx}',
+       'tests/cypress/integration/administrator/**/*.cy.{js,jsx,ts,tsx}',
++      'tests/cypress/integration/module/**/*.cy.{js,jsx,ts,tsx}',
+       'tests/cypress/integration/site/**/*.cy.{js,jsx,ts,tsx}'
+     ],
+     supportFile: 'tests/cypress/support/index.js',
+@@ -22,15 +23,15 @@
+   },
+   env: {
+     sitename: 'Joomla CMS Test',
+-    name: 'jane doe',
++    name: 'admin',
+     email: 'admin@example.com',
+-    username: 'ci-admin',
+-    password: 'joomla-17082005',
++    username: 'admin',
++    password: 'adminadminadmin',
+     db_type: 'MySQLi',
+-    db_host: 'localhost',
++    db_host: 'mysql',
+     db_name: 'test_joomla',
+     db_user: 'root',
+-    db_password: '',
+-    db_prefix: 'jos_',
++    db_password: 'root',
++    db_prefix: 'j4_',
+   },
+```
+
+Konkret habe ich das Verzeichnis `tests/cypress/integration/module/**/*.cy.{js,jsx,ts,tsx}` hinzugefügt, weil ich dort später Tests für Module ablegen möchte.
+Dann habe ich den Benutzernamen und die Passwörter geändert, weil ich die Installation auch manuell testen möchte und mir die selbst vergebenen besser merken kann. Als Datenbank verwende ich einen Docker-Container. Daher habe ich den Datenbankserver und die Zugangsdaten angepasst. Und zuletzt musste ich noch die Stamm-URL `http://localhost/joomla-cms` meiner Joomla-Installation festlegen.
+
+### Cypress verwenden
+
+#### Via Webbrowser
+
+Wir beginnen mit einem kleinen Rundgang zur Orientierung. Rufen Sie `npm run cypress:open` via CLI im Joomla-Stammverzeichnis auf. Kurze Zeit später wird sich die Cypress-App öffnen. Wir haben zuvor die Datei `joomla-cms/cypress.config.dist.js` erstellt. Dass Cypress dies lädt, erkennt man daran, dass E2E Testing als konfiguriert angegeben ist. 
+
+![Cypress App öffnet sich nach dem Aufruf von `npm run cypress:open`.](/images/99cypressstarte2e.png)
+
+Nach dem Klick auf "E2E Testing" kann man auswählen, welchen Browser man verwenden will. Für das Beispiel wählte ich die Option "Start Testing in Firefox". 
+
+![E2E-Tests in der Cypress-App: Wähle den zu verwendenden Browser.](/images/98cypressstarte2e.png)
+
+Es werden alle verfügbaren Testsuiten aufgelistet. Wenn man eine Testsuite auswählt, werden die Tests dieser Suite ausgeführt und man sieht den Ablauf der Tests in Echtzeit im Browser. 
+
+![Joomla-Testreihe in Firefox über Cypress App](/images/97cypressstarte2e.png)
+
+Während die Tests laufen, sieht man links den Text des gerae ausgeführten Skripts und auf der rechten Seite das visuelle Ergebnis im Browser. Dabei handelt es sich nicht nur um Screenshots. Es sind echte Schnappschüsse des Browsers zu diesem Zeitpunkt. Wenn man in der Historie zurück klickt, kann man den HTML-Code zu diesem Zeitpunkt analysieren. Screenshots und sogar Videos von den Tests sind ebenfalls möglich.
+
+![Der Test, der die korrekte Installation von Joomla sicherstellt, während der Ausführung.](/images/96cypressstarte2e.png)
+
+Probieren Sie es aus. Wenn man als `db_host: 'localhost',` verwendest, kann man die Installation testen und hat somit Joomla für die nachfolgenden Tests korrekt eingereicht. 
+
+> Falls Sie wie ich als `db_host` eine externe Ressource verwendest (also nicht localhost, ich verwende einen Docker Container), ist der Test für diese Art der Installation noch nicht fertig implementiert. In dem Fall gibt es im Joomla Code eine Sicherheitsabfrage, die in den Tests noch nicht berücksichtigt ist. In dem Fall installieren Sie Joomla am besten manuell mit den Angaben, die in der Datei `joomla-cms/cypress.config.js` eingetragen sind. Die folgenden Tests verwenden die Einstellungen aus dieser Konfigurationsdatei, zum Beispiel für die Anmeldung im Joomla-Administrationsbereich. Auf diese Weise muss sich der Testentwickler nicht um die Eingabe der Login-Daten kümmern. Es wird immer automatisch der passende Benutzer und das passende Passwort aus der Konfigurationsdatei verwendet. 
+
+#### Headless
+
+Standardmäßig führt `cypress run` alle Tests [headless](https://de.wikipedia.org/wiki/Headless_(Informatik))[^de.wikipedia.org/wiki/Headless_(Informatik)] aus. Der folgende Befehl führt die bereits codierten Tests aus und speichert Screenshots im Verzeichnis `/joomla-cms/tests/cypress/output/screenshots` im Falle eines Fehlers. Das Output-Verzeichnis wurde in der Datei `cypress.config.js` festgelegt.
+
+```
+$ npm run cypress:run
+```
+
+Wenn die `Datenbank` unter `localhost` erreichbar ist, sollte der Befehl fehlerfrei durchlaufen. Falls nicht, ist eine manuelle Installation erforderlich, wie zurvor bereits erläutert. 
+
+#### Weitere CLI Befehle
+
+Es gibt weitere hilfreiche Befehle die nicht in der `package.json` des Joomla-Projektes als Skript implementiert sind. Ich führe diese via [npx](https://docs.npmjs.com/cli/v9/commands/npx)[docs.npmjs.com/commands/npx] aus.
+
+##### cypress verify
+
+Der Befehl `cypress verify` überprüft, ob Cypress korrekt installiert ist und ausgeführt werden kann.
+
+```
+$ npx cypress verify
+
+✔  Verified Cypress! /home/astrid/.cache/Cypress/12.8.1/Cypress
+```
+##### cypress info
+
+Der Befehl `cypress info` gibt Informationen über Cypress und die aktuelle Umgebung aus.
+
+```
+$ npx cypress info
+Displaying Cypress info...
+
+Detected 2 browsers installed:
+
+1. Chromium
+  - Name: chromium
+  - Channel: stable
+  - Version: 113.0.5672.126
+  - Executable: chromium
+  - Profile: /home/astrid/snap/chromium/current
+
+2. Firefox
+  - Name: firefox
+  - Channel: stable
+  - Version: 113.0.1
+  - Executable: firefox
+  - Profile: /home/astrid/snap/firefox/current/Cypress/firefox-stable
+
+Note: to run these browsers, pass <name>:<channel> to the '--browser' field
+
+Examples:
+- cypress run --browser chromium
+- cypress run --browser firefox
+
+Learn More: https://on.cypress.io/launching-browsers
+
+Proxy Settings: none detected
+Environment Variables: none detected
+
+Application Data: /home/astrid/.config/cypress/cy/development
+Browser Profiles: /home/astrid/.config/cypress/cy/development/browsers
+Binary Caches: /home/astrid/.cache/Cypress
+
+Cypress Version: 12.8.1 (stable)
+System Platform: linux (Ubuntu - 22.04)
+System Memory: 4.08 GB free 788 MB
+
+```
+
+##### cypress version
+
+Der Befehl `cypress version` gibt die installierte Cypress-Binärversion, die Version des Cypress-Pakets, die Version von Electron, mit der Cypress erstellt wurde, und die verknüpfte Node-Version aus.
+
+```
+$ npx cypress version
+Cypress package version: 12.8.1
+Cypress binary version: 12.8.1
+Electron version: 21.0.0
+Bundled Node version: 16.16.0
+```
+
+> Die [Dokumentation von Cypress](https://docs.cypress.io/guides/guides/command-line)[^docs.cypress.io/guides/guides/command-line] bietet ausführlichere Informationen.
+
+Wenn bisher alles geklappt hat, können wir mit dem Erstellen eigener Tests beginnen.
+
+### Schreibe den ersten eigenen Test
+
+#### Überblick verschaffen
+
+##### Orientieren anhand bereits entwickelter Tests
+
+In der Entwicklungsversion des Joomla CMS gibt es bereits Cypress-Tests. Diese befinden sich im Verzeichnis `/tests/System/integration`. Diejenigen, die gerne am Beispiel lernen, finden hier einen geeigneten Einstieg.
+
+##### Code für sich wiederholende Tasks importieren
+
+Das Joomla-Projekt bieten ein NodeJs-Projekt [joomla-cypress](https://github.com/joomla-projects/joomla-cypress/tree/develop)[^https://github.com/joomla-projects/joomla-cypress/tree/develop] an, welches Testcode für gängige Testfälle bereitstellt. Diese werden bei der Installation der Entwicklungsversion des CMS via `npm install` über 
+- die `package.json` und 
+- über die Support-Datei `/tests/System/support/index.js` 
+importiert. Zur Erinnerung: Die Support-Datei konfiguriert man in der Datei `cypress.config.js`. 
+
+```js
+// package.json
+{
+  "name": "joomla",
+  "version": "5.0.0",
+  "description": "Joomla CMS",
+  "license": "GPL-2.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joomla/joomla-cms.git"
+  },
+...
+  "devDependencies": {
+    ...
+    "joomla-cypress": "^0.0.16",
+    ...
+  }
+}
+```
+
+Ein Beispiel ist der Klick auf eine Schaltfläche in der Werkzeugleiste. `Cypress.Commands.add('clickToolbarButton', clickToolbarButton)` beispielsweise bewirkt, dass in den eigenen Tests der Befehl `clickToolbarButton()` zur Verfügung steht und via `cy.clickToolbarButton('new')` ein Klick auf den Button `New` simuliert wird. Der hierfür erforderliche Code ist im folgenden Codeausschnitt dargestellt.
+
+```js
+// /node_modules/joomla-cypress/src/common.js
+...
+const clickToolbarButton = (button, subselector = null) => {
+  cy.log('**Click on a toolbar button**')
+  cy.log('Button: ' + button)
+  cy.log('Subselector: ' + subselector)
+
+  switch (button.toLowerCase())
+  {
+    case "new":
+      cy.get("#toolbar-new").click()
+      break
+    case "publish":
+      cy.get("#status-group-children-publish").click()
+      break
+    case "unpublish":
+      cy.get("#status-group-children-unpublish").click()
+      break
+    case "archive":
+      cy.get("#status-group-children-archive").click();
+      break
+    case "check-in":
+      cy.get("#status-group-children-checkin").click()
+      break
+    case "batch":
+      cy.get("#status-group-children-batch").click()
+      break
+    case "rebuild":
+      cy.get('#toolbar-refresh button').click()
+      break
+    case "trash":
+      cy.get("#status-group-children-trash").click()
+      break
+    case "save":
+      cy.get("#toolbar-apply").click()
+      break
+    case "save & close":
+      cy.get(".button-save").contains('Save & Close').click()
+      break
+    case "save & new":
+      cy.get("#save-group-children-save-new").click()
+      break
+    case "cancel":
+      cy.get("#toolbar-cancel").click()
+      break
+    case "options":
+      cy.get("#toolbar-options").click()
+      break
+    case "empty trash":
+    case "delete":
+      cy.get("#toolbar-delete").click()
+      break
+    case "feature":
+      cy.get("#status-group-children-featured").click()
+      break
+    case "unfeature":
+      cy.get("#status-group-children-unfeatured").click()
+      break
+    case "action":
+      cy.get("#toolbar-status-group").click()
+      break
+    case "transition":
+      cy.get(".button-transition.transition-" + subselector).click()
+      break
+  }
+
+  cy.log('--Click on a toolbar button--')
+}
+
+Cypress.Commands.add('clickToolbarButton', clickToolbarButton)
+...
+```
+
+Der nachfolgende Code zeigt ein weiteres Beispiel, die Anmeldung im Administrationsbereich.
+
+```js
+// /node_modules/joomla-cypress/src/user.js
+...
+const doAdministratorLogin = (user, password, useSnapshot = true) => {
+  cy.log('**Do administrator login**')
+  cy.log('User: ' + user)
+  cy.log('Password: ' + password)
+
+  cy.visit('administrator/index.php')
+  cy.get('#mod-login-username').type(user)
+  cy.get('#mod-login-password').type(password)
+  cy.get('#btn-login-submit').click()
+  cy.get('h1.page-title').should('contain', 'Home Dashboard')
+
+  cy.log('--Do administrator login--')
+}
+
+Cypress.Commands.add('doAdministratorLogin', doAdministratorLogin)
+
+...
+```
+
+
+##### Häufig vorkommende Aufgaben in der individuellen Umgebung
+
+Im Verzeichnis `/tests/System/support` findet man Aufgaben die in der individuellen Umgebung häufig vorkommen. Damit diese einfach Wiederverwendet werden können, werden sie über die Support-Datei `/tests/System/support/index.js` importiert. Ein Beispiel für einen sich oft wiederholenden Task ist die Anmeldung im Administrationsbereich, welche in der Datei `/tests/System/support/commands.js` mittels der Funktion `doAdministratorLogin` gehandhabt wird. 
+
+Der nachfolgende Code zeigt zusätzlich, wie die Angaben aus er Konfiguration `cypress.config.js` in den Tests genutzt wird. `Cypress.env('username')` wird mit dem Wert der Eigenschaft `username` in der Gruppe `env` belegt.
+
+Außerdem sehen wir hier, wie man Befehle überschreiben kann. `Cypress.Commands.overwrite('doAdministratorLogin' ...),` überschreibt den Code, den wir gerade im Paket `joomla-cypress` gesehen haben. Der Vorteil ist, das Benutzer und Passwort automatisch aus der individuellen Konfigurtion verwendet werden.
+
+```js
+// /tests/System/support/commands.js
+...
+Cypress.Commands.overwrite('doAdministratorLogin', (originalFn, username, password, useSnapshot = true) => {
+  // Ensure there are valid credentials
+  const user = username ?? Cypress.env('username');
+  const pw = password ?? Cypress.env('password');
+
+  // Do normal login when no snapshot should be used
+  if (!useSnapshot) {
+    // Clear the session data
+    Cypress.session.clearAllSavedSessions();
+
+    // Call the normal function
+    return originalFn(user, pw);
+  }
+
+  // Do login through the session
+  return cy.session([user, pw, 'back'], () => originalFn(user, pw), { cacheAcrossSpecs: true });
+});
+...
+```
+
+#### Eine eigene Joomal-Erweiterung installieren
+
+Damit wir uns ansehen können, wie man eigenen Code testet, installieren wir eine simple Beispielkomponente über das Joomla-Backend. Die Datei für die Installation kann von [Codeberg)(https://codeberg.org/astrid/j4examplecode/releases/tag/Foo_2023_05_20_14b)[^codeberg.org/astrid/j4examplecode/releases/tag/Foo_2023_05_20_14b] heruntergeladen werden.
+
+![Installation einer eigenen Joomla Erweiterung.](/images/95cypresinstallextension.png)
+
+Nach der Installation findet man die Ansicht zum Verwalten der Foo-Komponente in der linken Seitenleiste des Joomla-Backends.
+
+![Ansicht der Beispielkomponente im Joomla-Backend.](/images/95bcypresinstallextension.png)
+
+Wir verfügen nun über eine eingerichtete Testumgebung und eine Joomla-Erweiterung zum Testen.
+
+#### Der erste eigene Test
+
+##### Hooks
+
+Wenn man das Backend testet, wird man feststellen, dass man jeden Test mit einem Login beginnen muss. Diesen redundanten Code können wir verhindern, indem wir die Funktion `beforeEach()` verwenden. Der Hook führt den eingegebenen Code vor jedem Test aus. Daher der Name `beforeEach()`.
+
+> Cypress bietet verschiedene Arten von [Hooks](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Hooks)[^https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Hooks], darunter `before` und `after` Hooks, die vor oder nach einem einzelnen Test ausgeführt werden, sowie `beforeEach` und `afterEach` Hooks, die vor oder nach jedem Test einer Gruppe von Tests ausgeführt werden. Hooks können auf globaler Ebene oder innerhalb eines bestimmten `described`-Blocks definiert werden und gelten dann nur für die Tests innerhalb dieses Blocks.
+
+Wir starten nun mit dem praktischen Teil und erstellen die Datei `tests/System/integration/administrator/components/com_foos/FoosList.cy.js` mit dem nächsten Codesnippted, bevor wir den ersten produktiven Test schreiben. Unser erstes Beispiel sollte uns vor jedem Test erfolgreich im Backend anmelden! Testen werden wir dies nach dem Erstellen des ersten Tests.
+
+```js
+// tests/System/integration/administrator/components/com_foos/FoosList.cy.js
+
+describe('Test com_foos features', () => {
+  beforeEach(() => {
+    cy.doAdministratorLogin()
+  })
+
+})
+```
+
+> In der Datei `/tests/System/support/index.js` sind Hooks implementiert, die für jede Testdatei gelten.
+
+##### Ein erfolgreicher Test
+
+Die Komponente, die wir zum Testen installierten, beinhaltet die drei Elemente `Astrid`, `Nina` und `Elmar`. Als erstes Testen wir, ob diese Elemente erfolgreich angelegt wurden.
+
+```js
+// tests/System/integration/administrator/components/com_foos/FoosList.cy.js
+
+describe('Test com_foos features', () => {
+  beforeEach(() => {
+    cy.doAdministratorLogin()
+  })
+
+  it('list view shows items', function () {
+    cy.visit('administrator/index.php?option=com_foos')
+
+    cy.get('main').should('contain.text', 'Astrid')
+    cy.get('main').should('contain.text', 'Nina')
+    cy.get('main').should('contain.text', 'Elmar')
+
+    cy.checkForPhpNoticesOrWarnings()
+  })
+})
+```
+
+> Die Funktion `checkForPhpNoticesOrWarnings()` findet man in der Datei `/node_modules/joomla-cypress/src/support.js`.
+
+Wir finden das DOM-Element `main` via dem Cypress-Befehl [get](https://docs.cypress.io/api/commands/get)[^docs.cypress.io/api/commands/get]
+
+Der soeben erstellte Test `FooList.cy.js` sollte in der Liste der verfügbaren Tests in der linken Seitenleiste erscheinen. Falls dies nicht so ist schießen Sie bitte den Browser und starten `npm run cypress:open` erneut.
+
+![Joomla-Test für eigene Erweiterung ausführen.](/images/94cypressrunfirsttest.png)
+
+Klicken Sie auf den Namen des Tests, um ihn auszuführen. Er sollte erfolgreich enden.
+
+![Die Ansicht, nachdem der Test erfolgreich durchgelaufen ist.](/images/93cypressrunfirsttestsuccess.png)
+
+##### Ein fehlgeschlagener Test
+
+Fügen Sie die Zeile `cy.get('main').should('contain.text', 'Sami')` in die Testdatei ein, so dass der Lauf fehlschlägt. Es gibt kein Element mit diesem Namen. Nach dem Speichern der Testdatei erkennt Cypress die Änderung. Nach jeder Änderung führt Cypress automatisch die Tests in der Testdatei erneut aus.
+
+```js
+// tests/System/integration/administrator/components/com_foos/FoosList.cy.js
+describe('Test com_foos features', () => {
+  beforeEach(() => {
+    cy.doAdministratorLogin()
+  })
+
+  it('list view shows items', function () {
+    cy.visit('administrator/index.php?option=com_foos')
+
+    cy.get('main').should('contain.text', 'Astrid')
+    cy.get('main').should('contain.text', 'Nina')
+    cy.get('main').should('contain.text', 'Elmar')
+    cy.get('main').should('contain.text', 'Sami')
+
+    cy.checkForPhpNoticesOrWarnings()
+  })
+})
+```
+
+Wie erwartet schlägt der Test fehl. Sie können jeden Testschritt in der linken Seitenleiste sehen, so dass es möglich ist, den Grund für den Fehler zu finden. Für jeden Schritt gibt es einen Momentaufnahme (Snapshot) des HTML-Dokuments, so dass man das Markup jederzeit überprüfen kann. Dies ist hilfreich, insbesondere während der Entwicklung.
+
+![Die Ansicht, nachdem der Test fehlgeschlagen ist.](/images/92cypressrunfirsttestfailed.png)
+
+##### Nur einen Test in einer Datei ausführen
+
+Fügen Sie einen Test zum Testen des Empty State-Layouts hinzu. Da wir nun zwei Tests in dieser Datei haben, wird Cypress bei jedem Speichern immer beide Tests ausführen. Wir können `.only()` verwenden, damit nur ein Test ausgeführt wird. 
+
+
+```js
+// tests/System/integration/administrator/components/com_foos/FoosList.cy.js
+
+describe('Test com_foos features', () => {
+    beforeEach(() => {
+        cy.doAdministratorLogin()
+    })
+
+    it('list view shows items', function () {
+        cy.visit('administrator/index.php?option=com_foos')
+
+        cy.get('main').should('contain.text', 'Astrid')
+        cy.get('main').should('contain.text', 'Nina')
+        cy.get('main').should('contain.text', 'Elmar')
+
+        cy.checkForPhpNoticesOrWarnings()
+    })
+
+    it.only('emptystate layout', function () {
+        cy.visit('administrator/index.php?option=com_foos&view=foos&layout=emptystate')
+        cy.get('main').should('contain.text', 'No Foo have been created yet.')
+    })
+})
+```
+
+Während der Entwicklung ist dies sehr praktisch.
+
+##### Spezielle Testattribute
+
+Nun wollen wir das Frontend für unsere Komponente testen. Wir tun dies in einer separaten Datei `/tests/System/integration/site/components/com_foos/FooItem.cy.js`.
+
+Meistens verwenden wir eine CSS-Klasse, um ein Element in Joomla-Tests zu erhalten. Das ist zwar völlig in Ordnung und funktioniert auch, wird aber nicht wirklich empfohlen. Warum nicht? Wenn man CSS-Klassen oder IDs verwendet, bindet man seine Tests an Dinge, die sich höchstwahrscheinlich mit der Zeit ändern werden. Klassen und IDs dienen dem Design, dem Layout und manchmal über JavaScript der Steuerung, die sich leicht ändern kann. Wenn jemand einen Klassennamen oder eine ID ändert, werden Ihre Tests nicht mehr funktionieren. Um die Tests weniger instabil und zukunftssicher zu machen, empfiehlt Cypress die Erstellung spezieller Datenattribute für die Elemente speziell für Testzwecke.
+
+Ich werde das Attribut `data-test` für die Elemente verwenden. Zuerst füge ich das Attribut `data-test="foo-main"` zum Produktionscode hinzu.
+
+```js
+// /components/com_foos/tmpl/foo/default.php
+<?php
+\defined('_JEXEC') or die;
+?>
+<div data-test="foo-main">
+Hello Foos
+</div>
+```
+
+Danach teste ich den Produktionscode indem ich nach dem Attribut `[data-test="foo-main"]` suche.
+
+```js
+// tests/System/integration/site/components/com_foos/FooItem.cy.js
+describe('Test com_foo frontend', () => {
+  it('Show frondend via query in url', function () {
+    cy.visit('index.php?option=com_foos&view=foo')
+
+    cy.get('[data-test="foo-main"]').should('contain.text', 'Hello Foos')
+    
+    cy.checkForPhpNoticesOrWarnings()
+  })
+})
+
+```
+
+##### Testen eines Menüpunktes und einige Gedanken zu Events, Waits und Best Practice
+
+Nun wollen wir die Erstellung eines Menüpunkts für unsere Komponente testen. Dies tun wir in einer separaten Datei `/tests/System/integration/administrator/components/com_foos/MenuItem.cy.js`. Dieser Code ist sehr komplex und weist eine Reihe von Besonderheiten auf.
+
+Zunächst habe ich eine Konstante definiert, in der ich alle wichtigen Eigenschaften des Menüpunktes einstelle. Das hat den Vorteil, dass ich bei Änderungen nur an einer Stelle etwas anpassen muss.
+
+```js
+const testMenuItem = {
+  'title': 'Test MenuItem',
+  'menuitemtype_title': 'COM_FOOS',
+  'menuitemtype_entry': 'COM_FOOS_FOO_VIEW_DEFAULT_TITLE'
+}
+```
+
+Als nächstes ist der gesamte Code der Datei `MenuItem.cy.js` zu sehen:
+
+```js
+// tests/System/integration/administrator/components/com_foos/MenuItem.cy.js
+
+describe('Test menu item', () => {
+  beforeEach(() => {
+    cy.doAdministratorLogin(Cypress.env('username'), Cypress.env('password'))
+  })
+
+  it('creates a new menu item', function () {
+    const testMenuItem = {
+      'title': 'Test MenuItem',
+      'menuitemtype_title': 'COM_FOOS',
+      'menuitemtype_entry': 'COM_FOOS_FOO_VIEW_DEFAULT_TITLE'
+    }
+
+    cy.visit('administrator/index.php?option=com_menus&view=item&client_id=0&menutype=mainmenu&layout=edit')
+    cy.checkForPhpNoticesOrWarnings()
+    cy.get('h1.page-title').should('contain', 'Menus: New Item')
+
+    cy.get('#jform_title').clear().type(testMenuItem.title)
+
+    cy.contains('Select').click()
+    cy.get('.iframe').iframe('#collapse1-heading').contains(testMenuItem.menuitemtype_title).click()
+    cy.get('.iframe').iframe('#collapse1-heading').contains(testMenuItem.menuitemtype_entry).click()
+
+    cy.intercept('index.php?option=com_menus&view=items&menutype=mainmenu').as('item_list')
+    cy.clickToolbarButton('Save & Close')
+    cy.wait('@item_list')
+    cy.get('#system-message-container').contains('Menu item saved.').should('exist')
+  
+    // Frontend
+    cy.visit('index.php')
+    cy.get('.sidebar-right').contains(testMenuItem.title).click()
+    cy.get('[data-test="foo-main"]').should('contain.text', 'Hello Foos')
+    cy.checkForPhpNoticesOrWarnings()
+
+    // Trash
+    cy.visit('administrator/index.php?option=com_menus&view=items&menutype=mainmenu')
+    cy.searchForItem(testMenuItem.title)
+    cy.checkAllResults()
+    cy.clickToolbarButton('Action')
+    cy.intercept('index.php?option=com_menus&view=items&menutype=mainmenu').as('item_trash')
+    cy.clickToolbarButton('trash')
+    cy.wait('@item_trash')
+    cy.get('#system-message-container').contains('Menu item trashed.').should('exist')
+
+    // Delete
+    cy.visit('administrator/index.php?option=com_menus&view=items&menutype=mainmenu')
+    cy.setFilter('published', 'Trashed')
+    cy.searchForItem(testMenuItem.title)
+    cy.checkAllResults()
+    cy.on("window:confirm", (s) => {
+      return true;
+    });
+    cy.intercept('index.php?option=com_menus&view=items&menutype=mainmenu').as('item_delete')
+    cy.clickToolbarButton('empty trash');
+    cy.wait('@item_delete')
+    cy.get('#system-message-container').contains('Menu item deleted.').should('exist')
+  })
+})
+```
+
+1. Hier sieht man ein Beispiel, wie man etwas testet und danach alles löscht - also den Ausgangszustand herstellt. So können die Tests so oft wiederholt werden, wie man möchte. Ohne das Wiederherstellen des Ausgangszustands wird der zweite Testlauf fehlschlagen, weil Joomla nicht zwei ähnliche Elemente speichern kann.
+
+> Test sollten
+> wiederholbar sein. 
+> einfach gehalten sein. Konkret bedeutet dass, dass er eine begrenzte Problemstellung testen sollte und der Code hierzu sollte nicht zu umfangreich sein. 
+> unabhängig von anderen Tests sein.
+
+2. Der Test zeigt ebenfalls, wie man eine mit [`cy.intercept()`](https://docs.cypress.io/api/commands/intercept)[^docs.cypress.io/api/commands/intercept] definierte abgefangene Route als Alias verwendet und dann mit [`cy.wait()`](https://docs.cypress.io/api/commands/wait)[^docs.cypress.io/api/commands/intercept] auf die als Alias definierte Route wartet. 
+
+> Beim Schreiben von Tests für solche Anwendungen ist man versucht, im Befehl `cy.wait` zufällige Werte wie `cy.wait(2000);` zu verwenden. Das Problem bei diesem Ansatz ist, dass dies zwar in der Entwicklung gut funktionieren kann. Es ist aber nicht garantiert, dass dies immer funktioniert. Warum? Weil das zugrundeliegende System von Dingen abhängt, die sich kaum vorhersagen lassen. Daher ist es immer besser, genau zu definieren, worauf man wartet.
+
+3. Der Code zeigt außerdem, wie man auf einen Warnhinweis (Alert) wartet und den Hinweis bestätigt.
+
+```js
+cy.on("window:confirm", (s) => {
+  return true;
+});
+```
+
+4. Nicht zuletzt enthält der Testcode viele Cypress und Joomla-typische Funktionen, die von Erweiterungsentwicklern wiederverwendet werden können. So sind beispielsweise `cy.setFilter('published', 'Trashed')` oder `cy.clickToolbarButton('Save & Close')` Funktionen, in denen Lösungen für Tests im Allgemeinen zu finden sind und die Joomla-Entwickler im Besonderen oft benötigen.
+
+##### Vermischung von asynchronem und synchronem Code
+
+Cypress-Befehle sind asynchron, das heißt, sie geben keinen Wert zurück, sondern `erzeugen` ihn. Wenn wir Cypress starten, führt es die Befehle nicht sofort aus, sondern liest sie seriell und stellt sie in eine Warteschlange. Wenn man in Tests asynchronen und synchronen Code mischt, erhält man unter Umständen unerwartete Ergebnisse. Wenn du den nachfolgenden Code ausführst, wird wider Erwarten ein Fehler auftreten. `mainText === 'Initial'` ist auch am Ende noch gültig. Cypress führ erst den synchronen Code der am Anfang und am Ende steht aus. Erst dann ruft es den asynchronen Teil innerhalb von `then()` auf. Das heißt, die Variable `mainText` wird initialisiert und gleich danach geprüft, ob sie sich geändert hat - was dann natürlich noch nicht so ist.
+
+```js
+let mainText = 'Initial';
+cy.visit('administrator/index.php?option=com_foos&view=foos&layout=emptystate')
+cy.get("main").then(
+  ($main) => (mainText = $main.text())
+);
+ 
+if (mainText === 'Initial') {
+  throw new Error(`Der Text hat sich nicht geändert. Er lautet: ${mainText}`);
+}
+```
+Anschaulich wird das Abarbeiten der Warteschlange, wenn man die Ausführung des nachfolgenden Codes in der Konsole des Browsers beobachtet. Der Text 'Cypress Test.' erscheint lange bevor der Inhalt des Element `main` ausgegeben wird, obwohl die Codezeilen in einer anderen Reihenfolge stehen.
+
+
+```js
+cy.get('main').then(function(e){
+  console.log(e.text())
+})
+console.log('Cypress Test.')
+```
+
+##### Testduplikate - Stubs and Spies
+
+Ein `Stub` ist eine Möglichkeit, das Verhalten einer Funktion zu simulieren, von der ein Tests abhängig sind. Anstatt die eigentliche Funktion aufzurufen, ersetzt der Stub diese Funktion und gibt ein vordefiniertes Objekt zurück. Er wird üblicherweise in Unit-Tests verwendet, kann aber auch für End-to-End-Tests eingesetzt werden.
+
+Ein `Spy` ist dem `Stub` ähnlich, aber nicht genau dasselbe. Es ändert das Verhalten einer Funktion nicht, sondern belässt sie so, wie sie ist. Vielmehr erfasst das Testduplikat einige Informationen darüber, wie die Funktion aufgerufen wird. Zum Beispiel um zu überprüfen, ob die Funktion mit den richtigen Parametern aufgerufen wird, oder, um zu zählen, wie oft die Funktion aufgerufen wird.
+
+Das folgende Beispiel zeigt ein `Spy` und ein `Stub` in Aktion. Via `const stub = cy.stub()` erstellen wir das `stub`-Element und bestimmen im nächsten Schritt, das beim ersten Aufruf `false` und beim zweiten `true` als Antwort zurückgegeben wird. Mittels `cy.on('window:confirm', stub)` erreichen wir, dass das `Stub` für `'window:confirm'` eingesetzt wird. Anschließend erstellen wir mit `cy.spy(win, 'confirm').as('winConfirmSpy')` das `Spy`-Element, welches den Aufruf von `'window:confirm'` beobachtet. Nun testen wir, dass beim ersten Aufruf das Löschen der Kategorie abgelehnt und beim zweiten Aufruf bestätigt wird. Dabei sorgt das `Stub` dafür, dass wir sicher davon ausgehen können, welche Rückgabewerte geliefert werden. `'window:confirm'` wird quasi gekapselt. `@winConfirmSpy` hilft sicherzustellen, dass die Funktion auch tatsächlich aufgerufen wurde.
+
+```js
+// tests/System/integration/administrator/components/com_foos/FoosList.cy.js
+...
+const stub = cy.stub()
+
+stub.onFirstCall().returns(false)
+stub.onSecondCall().returns(true)
+
+cy.on('window:confirm', stub)
+
+cy.window().then(win => {
+  cy.spy(win, 'confirm').as('winConfirmSpy')
+})
+
+cy.intercept('index.php?option=com_categories&view=categories&extension=com_foos').as('cat_delete')
+cy.clickToolbarButton('empty trash');
+
+cy.get('@winConfirmSpy').should('be.calledOnce')
+cy.get('main').should('contain.text', testFoo.category)
+
+
+cy.clickToolbarButton('empty trash');
+cy.wait('@cat_delete')
+
+cy.get('@winConfirmSpy').should('be.calledTwice')
+
+cy.get('#system-message-container').contains('Category deleted.').should('exist')
+...
+```
+
+Wenn es nur darum geht, einen festen Wert für den `'window:confirm'`-Aufruf zu setzen, reicht der folgende Code aus.
+
+```js
+cy.on("window:confirm", (s) => {
+  return true;
+});
+```
+
+## Schlussfolgerung
+
+In dieser Lektion habe ich anhand der Joomla-Installation demonstriert, wie man mehrere verschiedene Tests schreibt, um sicherzustellen, dass eine Website wie erwartet funktioniert. Ich habe auch gezeigt, wie man den Cypress Test Runner in der Datei cypress.json anpasst und wie man eigene Cypress-Befehle verwendet.
+
+Jetzt ist ein guter Zeitpunkt, um das Schreiben weiterer Cypress-Tests zu üben. 
+
+## Links
+
+
