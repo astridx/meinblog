@@ -121,7 +121,7 @@ Joomla 4 integriert Bootstrap 5 in den Joomla-Kern. Dabei sind die mitgelieferte
 
 Mit einem einzigen Aufruf ist es Developern mithilfe der Web Assets möglich, mehrere Javascript- und CSS-Dateien in einer festgelegten Reihenfolge zu laden. Verwendet ein Erweiterungsentwickler beispielsweise Styles, die davon abhängen, dass Font Awesome zuerst geladen wird und er weiß, dass Joomla 4 das Icon-Font-Set verwendet, kommen Web Assets ins Spiel. Web Assets werden in diesem Tutorial an mehreren Stellen beschrieben.
 
-> Verwende den Web Asset Manager, wenn du für Joomla 4 entwickelst. Alle Aufrufe von `HTMLHelper::_('stylesheet oder script ...)` funktionieren, aber diese Assets werden nach den Web Asset Manager Assets angefügt. Dies führt dazu, dass Styles überschrieben werden, die im Template gesetzt werden. So hat ein Benutzer nicht die Möglichkeit, mithilfe einer `user.css` einzuwirken. Siehe in diesem Zusammenhang (Issue 35706)[https://github.com/joomla/joomla-cms/issues/35706](^github.com/joomla/joomla-cms/issues/35706).
+> Verwende den Web Asset Manager, wenn du für Joomla 4 entwickelst. Alle Aufrufe von `HTMLHelper::_('stylesheet oder script ...)` funktionieren, aber diese Assets werden nach den Web Asset Manager Assets angefügt. Dies führt dazu, dass Styles überschrieben werden, die im Template gesetzt werden. So hat ein Benutzer nicht die Möglichkeit, mithilfe einer `user.css` einzuwirken. Siehe in diesem Zusammenhang [Issue 35706](https://github.com/joomla/joomla-cms/issues/35706)[^github.com/joomla/joomla-cms/issues/35706].
 
 ##### Webservices ermöglichen einen automatisierten Datenaustausch
 

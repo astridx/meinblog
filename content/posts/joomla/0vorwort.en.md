@@ -121,7 +121,7 @@ Joomla 4 integrates Bootstrap 5 into the Joomla core. Thereby, the included temp
 
 With a single call, Web Assets allow developers to load multiple Javascript and CSS files in a specified order. For example, if an extension developer uses styles that depend on Font Awesome being loaded first and they know that Joomla 4 uses the icon font set, Web Assets come into play. Web Assets are described in several places in this tutorial.
 
-> Use the Web Asset Manager when developing for Joomla 4. All calls to `HTMLHelper::_('stylesheet or script ...)` work, but these assets are appended after the Web Asset Manager assets. This results in overriding styles that are set in the template. Thus, a user does not have the possibility to manipulate by means of a `user.css`. See in this context (Issue 35706)[https://github.com/joomla/joomla-cms/issues/35706](^github.com/joomla/joomla-cms/issues/35706).
+> Use the Web Asset Manager when developing for Joomla 4. All calls to `HTMLHelper::_('stylesheet or script ...)` work, but these assets are appended after the Web Asset Manager assets. This results in overriding styles that are set in the template. Thus, a user does not have the possibility to manipulate by means of a `user.css`. See in this context [Issue 35706](https://github.com/joomla/joomla-cms/issues/35706)[^github.com/joomla/joomla-cms/issues/35706].
 
 ##### Web Services enable automated data exchange
 
@@ -312,17 +312,15 @@ A [new JLayout](https://gist.github.com/dgrammatiko/a20236039586a2fbc5c77caadffc
 
 So instead of writing something like this:
 
-``PHP
-
+```PHP
 <?php
 echo '<img src="' . $imageURL .'" alt="' . htmlspecialchars($imageAlt, ENT_COMPAT, 'UTF-8') . '">';
 ?>
-
 ```
 
 The recommended way is to use the JLayout:
 
-``PHP
+```PHP
 <?php
 echo LayoutHelper::render('joomla.html.image', ['src' => imageURL, 'alt' => $imageAlt]);
 ?>
