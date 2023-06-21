@@ -185,7 +185,7 @@ $home = $app->getMenu()->getDefault();
 
 From now on, you can insert between the lines
 
-``php
+```php
 
 <?php if ($menu === $home) : ?>
 
@@ -197,7 +197,7 @@ everything that should be used on the start page.
 
 Use
 
-``php
+```php
 <?php if ($menu !== $home) : ?>
 
 <?php endif; ?>

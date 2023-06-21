@@ -8,7 +8,7 @@ date: 2022-07-17
 title: 'Regeln für die Kommunikation zwischen Computern im Internet - Teil 2'
 template: post
 thumbnail: '../../thumbnails/worldinternet.png'
-slug: regeln-fuer-die-kommunikation-im-netz2
+slug: en/regeln-fuer-die-kommunikation-im-netz2
 langKey: de
 categories:
   - Internet

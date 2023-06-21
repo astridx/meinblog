@@ -181,18 +181,16 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">?&gt;</span></span></span></code></pre>
 <p>From now on, you can insert between the lines</p>
-<p>``php</p>
-<?php if ($menu === $home) : ?>
-<?php endif; ?>
-<pre class="grvsc-container default-dark" data-language="" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source">everything that should be used on the start page.</span></span>
+<pre class="grvsc-container default-dark" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php </span><span class="mtk15">if</span><span class="mtk1"> (</span><span class="mtk12">$menu</span><span class="mtk1"> === </span><span class="mtk12">$home</span><span class="mtk1">) : ?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source">Use</span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php </span><span class="mtk15">endif</span><span class="mtk1">; ?&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
+<p>everything that should be used on the start page.</p>
+<p>Use</p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php </span><span class="mtk15">if</span><span class="mtk1"> (</span><span class="mtk12">$menu</span><span class="mtk1"> !== </span><span class="mtk12">$home</span><span class="mtk1">) : ?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source">``php</span></span>
-<span class="grvsc-line"><span class="grvsc-source">&lt;?php if ($menu !== $home) : ?&gt;</span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source">&lt;?php endif; ?&gt;</span></span></code></pre>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php </span><span class="mtk15">endif</span><span class="mtk1">; ?&gt;</span></span></span></code></pre>
 <p>for the code used on all other websites.
 <img src="https://vg04.met.vgwort.de/na/268c8301735945699b410dfde6414624" width="1" height="1" alt=""></p>
 <style class="grvsc-styles">
